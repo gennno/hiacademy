@@ -484,50 +484,118 @@
                                     Us</a></li>
                         </ul>
 
-                        <!-- Social Media (moved here) -->
+                        <!-- Social Media -->
                         <div class="mt-8">
                             <h5 class="text-lg font-semibold mb-4">Connect with Us</h5>
                             <div class="flex gap-4">
+
+                                <!-- Facebook -->
                                 <a href="#"
-                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 transition transform hover:scale-110">
-                                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                        class="w-7 h-7 fill-white">
+                                        <path d="M279.14 288l14.22-92.66h-88.91V127.34c0-25.35 12.42-50.06 
+                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
+                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
+                                    </svg>
                                 </a>
+
+                                <!-- Instagram -->
                                 <a href="#"
-                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 transition transform hover:scale-110">
-                                    <i class="fa-brands fa-instagram text-lg"></i>
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                        class="w-7 h-7 fill-white">
+                                        <path
+                                            d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.34-30.34c-21-8.3-70.74-6.4-94.37-6.4s-73.34-1.9-94.37,6.4a54,54,0,0,0-30.34,30.34c-8.3,21-6.4,70.74-6.4,94.37s-1.9,73.34,6.4,94.37a54,54,0,0,0,30.34,30.34c21,8.3,70.74,6.4,94.37,6.4s73.34,1.9,94.37-6.4a54,54,0,0,0,30.34-30.34c8.3-21,6.4-70.74,6.4-94.37S357,182.71,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.34-148a19.2,19.2,0,1,1,19.2-19.2A19.2,19.2,0,0,1,309.34,190Z" />
+                                    </svg>
                                 </a>
+
+                                <!-- YouTube -->
                                 <a href="#"
-                                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 transition transform hover:scale-110">
-                                    <i class="fa-brands fa-youtube text-lg"></i>
+                                    class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 transition transform hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                        class="w-7 h-7 fill-white">
+                                        <path d="M549.65 124.08c-6.28-23.65-24.82-42.2-48.47-48.48C458.4 64 
+                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
+                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
+                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
+                         48.47 48.47C117.6 448 288 448 288 
+                         448s170.4 0 213.18-11.61c23.65-6.28 
+                         42.19-24.82 48.47-48.47C560.24 344.73 
+                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
+                         334V178l142 78-142 78z" />
+                                    </svg>
                                 </a>
+
                             </div>
                         </div>
+
+
                     </div>
 
                     <!-- Consultation Hours -->
                     <div>
                         <h5 class="text-xl font-bold mb-4">Consultation Hour</h5>
                         <div class="space-y-3 text-sm">
+
+                            <!-- Weekdays -->
                             <div
                                 class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition">
-                                <span>Weekdays</span>
-                                <span class="text-green-400 font-medium">🟢 09:00 - 17:00</span>
+                                <span class="flex items-center gap-2">
+                                    <!-- Heroicon: Briefcase -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-300" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M9 6V4.5A1.5 1.5 0 0110.5 3h3A1.5 1.5 0 0115 4.5V6m-6 0h6m-6 0H5.25A2.25 2.25 0 003 8.25v9A2.25 2.25 0 005.25 19.5h13.5A2.25 2.25 0 0021 17.25v-9A2.25 2.25 0 0018.75 6H15" />
+                                    </svg>
+                                    Weekdays
+                                </span>
+                                <span class="text-green-400 font-medium">09:00 - 17:00</span>
                             </div>
+
+                            <!-- Saturday -->
                             <div
                                 class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition">
-                                <span>Saturday</span>
-                                <span class="text-green-400 font-medium">🟢 09:00 - 14:00</span>
+                                <span class="flex items-center gap-2">
+                                    <!-- Heroicon: Calendar -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-300" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 9h18M4.5 21h15a1.5 1.5 0 001.5-1.5v-11.25A1.5 1.5 0 0019.5 7.5h-15A1.5 1.5 0 003 8.25v11.25A1.5 1.5 0 004.5 21z" />
+                                    </svg>
+                                    Saturday
+                                </span>
+                                <span class="text-green-400 font-medium">09:00 - 14:00</span>
                             </div>
+
+                            <!-- Sunday -->
                             <div class="flex items-center justify-between p-3 rounded-xl bg-white/10">
-                                <span>Sunday</span>
-                                <span class="text-red-400 font-semibold">🔴 Closed</span>
+                                <span class="flex items-center gap-2">
+                                    <!-- Heroicon: XCircle -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 9v3.75m0 3.75h.007v.008H12v-.008zM21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+                                    </svg>
+                                    Sunday
+                                </span>
+                                <span class="text-red-400 font-semibold">Closed</span>
                             </div>
                         </div>
+
+                        <!-- Contact Button -->
                         <a href="#"
                             class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition">
-                            💬 Contact Us
+                            <!-- Heroicon: ChatBubble -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-9.75 9.75A9.77 9.77 0 018.25 20.25L4.5 21.75l1.5-3.75A9.75 9.75 0 012.25 12z" />
+                            </svg>
+                            Contact Us
                         </a>
                     </div>
+
                 </div>
             </div>
 
