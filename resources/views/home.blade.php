@@ -13,41 +13,44 @@
 
 
     {{-- Navbar --}}
-    <header class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50">
-        {{-- Top Bar (rounded full) --}}
-        <div class="bg-blue-500 bg-opacity-95 shadow-lg rounded-full">
+    <header id="main-header" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50">
+        <!-- visual container (glass) -->
+        <div id="nav-inner" class="bg-blue-500/85 backdrop-blur-sm shadow-lg rounded-full transition-all duration-300">
             <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-
-                {{-- Left: Logo --}}
-                <div class="flex-shrink-0">
+                {{-- Left: Logo + name --}}
+                <a href="#home" class="flex items-center gap-3" aria-label="Go to home">
                     <img src="{{ asset('img/logofull.png') }}" alt="H!Academy Logo" class="h-10 md:h-12 w-auto">
-                </div>
+                </a>
 
-                {{-- Middle: Menu --}}
-                <nav class="hidden md:flex space-x-8 text-white font-medium">
-                    <a href="#home" class="hover:text-yellow-300 transition">Home</a>
-                    <a href="#about" class="hover:text-yellow-300 transition">About</a>
-                    <a href="#programs" class="hover:text-yellow-300 transition">Programs</a>
-                    <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+                {{-- Middle: Menu (desktop) --}}
+                <nav id="primary-nav" class="hidden md:flex items-center space-x-8 text-white font-medium" role="navigation"
+                    aria-label="Primary Navigation">
+                    <a href="#home" class="nav-link" data-target="home">Home</a>
+                    <a href="#about" class="nav-link" data-target="about">About</a>
+                    <a href="#programs" class="nav-link" data-target="programs">Programs</a>
+                    <a href="#contact" class="nav-link" data-target="contact">Contact</a>
                 </nav>
 
                 {{-- Right: Login + Mobile Menu Button --}}
                 <div class="flex-shrink-0 flex items-center space-x-3">
                     <a href="/login"
-                        class="bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 transition">
-                        Login
+                        class="hidden sm:inline-flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 transition transform hover:-translate-y-0.5">
+                        <span>🔐</span>
+                        <span class="whitespace-nowrap">Login</span>
                     </a>
+
                     {{-- Mobile Menu Button --}}
-                    <button id="menu-btn" class="md:hidden text-white focus:outline-none ">
+                    <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-controls="mobile-menu"
+                        aria-expanded="false" aria-label="Toggle menu">
                         <!-- Hamburger Icon -->
                         <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                         <!-- Close Icon -->
                         <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -56,35 +59,179 @@
             </div>
         </div>
 
-        {{-- Mobile Menu (collapsed by default) --}}
+        {{-- Mobile Menu (rapi & clean) --}}
         <div id="mobile-menu"
-            class="max-h-0 overflow-hidden transition-all duration-300 flex-col bg-white shadow-md md:hidden rounded-b-2xl mt-2">
-            <a href="#home" class="block px-6 py-3 border-b hover:bg-yellow-300 transition">Home</a>
-            <a href="#about" class="block px-6 py-3 border-b hover:bg-yellow-300 transition">About</a>
-            <a href="#programs" class="block px-6 py-3 border-b hover:bg-yellow-300 transition">Programs</a>
-            <a href="#contact" class="block px-6 py-3 hover:bg-yellow-300 transition">Contact</a>
+            class="overflow-hidden transition-[max-height] duration-400 ease-in-out bg-white shadow-xl md:hidden rounded-2xl mt-3 mx-4 ring-1 ring-gray-200"
+            style="max-height:0px" aria-hidden="true">
+
+            <nav class="flex flex-col divide-y divide-gray-100 text-gray-700 font-medium">
+                <a href="#home"
+                    class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile rounded-t-2xl"
+                    data-target="home">
+                    🏠 Home
+                </a>
+                <a href="#about" class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile"
+                    data-target="about">
+                    ℹ️ About
+                </a>
+                <a href="#programs" class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile"
+                    data-target="programs">
+                    🎯 Programs
+                </a>
+                <a href="#contact"
+                    class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile rounded-b-2xl"
+                    data-target="contact">
+                    📞 Contact
+                </a>
+            </nav>
         </div>
+
     </header>
 
+
+    {{-- Navbar styles & behavior --}}
+    <style>
+        /* smooth in-page scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* nav link underline animation */
+        .nav-link,
+        .nav-link-mobile {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-link::after,
+        .nav-link-mobile::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.12rem;
+            height: 3px;
+            width: 0%;
+            background: rgba(251, 191, 36, 1);
+            /* yellow-400 */
+            border-radius: 999px;
+            transition: width 220ms ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link-mobile:hover::after {
+            width: 100%;
+        }
+
+        /* active state (applied by JS) */
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* slightly larger hit area for mobile nav items */
+        .nav-link-mobile {
+            padding-top: .8rem;
+            padding-bottom: .8rem;
+        }
+    </style>
+
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const navInner = document.getElementById('nav-inner');
 
-        menuBtn.addEventListener('click', () => {
-            const isClosed = mobileMenu.classList.contains('max-h-0');
+            // MOBILE MENU: toggle open/close with max-height animation and aria attributes
+            menuBtn.addEventListener('click', () => {
+                const isClosed = mobileMenu.style.maxHeight === '0px' || !mobileMenu.style.maxHeight;
 
-            if (isClosed) {
-                mobileMenu.classList.remove('max-h-0');
-                mobileMenu.classList.add('max-h-[500px]');
-            } else {
-                mobileMenu.classList.add('max-h-0');
-                mobileMenu.classList.remove('max-h-[500px]');
+                if (isClosed) {
+                    // open
+                    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                    mobileMenu.setAttribute('aria-hidden', 'false');
+                    menuBtn.setAttribute('aria-expanded', 'true');
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    // close
+                    mobileMenu.style.maxHeight = '0px';
+                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // NAV BACKGROUND ON SCROLL: add more contrast when scrolling
+            function handleNavScroll() {
+                if (window.scrollY > 18) {
+                    navInner.classList.add('bg-blue-700/95', 'backdrop-blur-md', 'shadow-xl', 'scale-100');
+                    navInner.classList.remove('bg-blue-500/85');
+                } else {
+                    navInner.classList.remove('bg-blue-700/95', 'backdrop-blur-md', 'shadow-xl');
+                    navInner.classList.add('bg-blue-500/85');
+                }
             }
+            handleNavScroll();
+            window.addEventListener('scroll', handleNavScroll, { passive: true });
 
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            // SCROLLSPY: highlight nav link based on visible section (IntersectionObserver)
+            const sectionEls = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileLinks = document.querySelectorAll('.nav-link-mobile');
+
+            const linkMap = {}; // map section id -> nav link DOM
+            navLinks.forEach(a => { linkMap[a.getAttribute('href').replace('#', '')] = a; });
+            mobileLinks.forEach(a => { linkMap[a.getAttribute('href').replace('#', '')] = a; });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40% 0px', // trigger when section is ~60% in viewport
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const link = linkMap[id];
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        // remove active from all and set this one
+                        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            sectionEls.forEach(sec => observer.observe(sec));
+
+            // Close mobile menu when a mobile link is clicked (and smooth scroll will occur)
+            document.querySelectorAll('.nav-link-mobile').forEach(a => {
+                a.addEventListener('click', () => {
+                    // close menu
+                    mobileMenu.style.maxHeight = '0px';
+                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+
+            // Optional: if user clicks outside the navbar when mobile menu is open, close it
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && window.getComputedStyle(menuIcon).display === 'none') {
+                    // if menu is open (closeIcon visible), close it
+                    if (!menuIcon.classList.contains('hidden')) return; // already closed
+                    mobileMenu.style.maxHeight = '0px';
+                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
         });
     </script>
 
@@ -495,8 +642,8 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
                                         class="w-7 h-7 fill-white">
                                         <path d="M279.14 288l14.22-92.66h-88.91V127.34c0-25.35 12.42-50.06 
-                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
-                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
+                                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
+                                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
                                     </svg>
                                 </a>
 
@@ -516,14 +663,14 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                                         class="w-7 h-7 fill-white">
                                         <path d="M549.65 124.08c-6.28-23.65-24.82-42.2-48.47-48.48C458.4 64 
-                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
-                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
-                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
-                         48.47 48.47C117.6 448 288 448 288 
-                         448s170.4 0 213.18-11.61c23.65-6.28 
-                         42.19-24.82 48.47-48.47C560.24 344.73 
-                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
-                         334V178l142 78-142 78z" />
+                                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
+                                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
+                                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
+                                         48.47 48.47C117.6 448 288 448 288 
+                                         448s170.4 0 213.18-11.61c23.65-6.28 
+                                         42.19-24.82 48.47-48.47C560.24 344.73 
+                                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
+                                         334V178l142 78-142 78z" />
                                     </svg>
                                 </a>
 
@@ -601,7 +748,7 @@
 
             <!-- Copyright -->
             <div
-                class="mt-16 bg-blue-950/80 py-4 text-center text-gray-400 text-sm relative z-10 border-t border-blue-800/40">
+                class="mt-16 bg-blue-950/80 py-4 text-center text-gray-400 text-sm relative z-10 border-t rounded-full border-blue-800/40">
                 © 2025 h!academy | Powered by <span class="text-yellow-400">DayR</span>
             </div>
         </div>
