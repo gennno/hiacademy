@@ -14,4 +14,8 @@ class HomeController extends Controller
     {
         return view('preschool');
     }
+            public function loginindex()
+    {
+        return view('login');
+    }
 }
