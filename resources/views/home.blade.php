@@ -9,32 +9,43 @@
     </video>
 
     {{-- Overlay optional (gelapin biar teks lebih jelas) --}}
-    <div class="fixed inset-0 bg-black bg-opacity-55 -z-10"></div>
+    <div class="fixed inset-0 bg-black bg-opacity-65 -z-10"></div>
 
 
     {{-- Navbar --}}
-    <header id="main-header" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50">
-        <!-- visual container (glass) -->
-        <div id="nav-inner" class="bg-blue-500/85 backdrop-blur-sm shadow-lg rounded-full transition-all duration-300">
-            <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-                {{-- Left: Logo + name --}}
-                <a href="#home" class="flex items-center gap-3" aria-label="Go to home">
-                    <img src="{{ asset('img/logofull.png') }}" alt="H!Academy Logo" class="h-10 md:h-12 w-auto">
-                </a>
+    <header id="main-header"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50 transition-all duration-500">
+
+        {{-- Background layer (terpisah dari konten nav) --}}
+        <div id="header-bg"
+            class="absolute inset-0 l bg-transparent backdrop-blur-md transition-all duration-500 shadow-xl">
+        </div>
+
+        <div class="relative flex items-center justify-between px-4 md:px-6">
+
+            {{-- Left: Logo --}}
+            <a href="#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
+                <img src="{{ asset('img/logofull.png') }}" alt="H!Academy Logo"
+                    class="h-10 md:h-16 w-auto hover:scale-105 transition-transform duration-300">
+            </a>
+
+            {{-- Right: Glass Navigation Container --}}
+            <div id="nav-inner"
+                class="bg-white/10 backdrop-blur-md ring-2 ring-yellow-400/70 shadow-xl rounded-full transition-all duration-500 pl-6 pr-6 py-2 flex items-center justify-start w-full md:w-auto ml-4">
 
                 {{-- Middle: Menu (desktop) --}}
-                <nav id="primary-nav" class="hidden md:flex items-center space-x-8 text-white font-medium" role="navigation"
-                    aria-label="Primary Navigation">
+                <nav id="primary-nav" class="hidden md:flex items-center space-x-8 text-white font-medium tracking-wide"
+                    role="navigation" aria-label="Primary Navigation">
                     <a href="#home" class="nav-link" data-target="home">Home</a>
                     <a href="#about" class="nav-link" data-target="about">About</a>
                     <a href="#programs" class="nav-link" data-target="programs">Programs</a>
                     <a href="#contact" class="nav-link" data-target="contact">Contact</a>
                 </nav>
 
-                {{-- Right: Login + Mobile Menu Button --}}
-                <div class="flex-shrink-0 flex items-center space-x-3">
+                {{-- Right: Login + Mobile Button --}}
+                <div class="flex-shrink-0 flex items-center space-x-3 ml-4">
                     <a href="/login"
-                        class="hidden sm:inline-flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 transition transform hover:-translate-y-0.5">
+                        class="hidden sm:inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                         <span>🔐</span>
                         <span class="whitespace-nowrap">Login</span>
                     </a>
@@ -42,15 +53,13 @@
                     {{-- Mobile Menu Button --}}
                     <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-controls="mobile-menu"
                         aria-expanded="false" aria-label="Toggle menu">
-                        <!-- Hamburger Icon -->
                         <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Close Icon -->
                         <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -59,44 +68,40 @@
             </div>
         </div>
 
-        {{-- Mobile Menu (rapi & clean) --}}
+        {{-- Mobile Menu --}}
         <div id="mobile-menu"
-            class="overflow-hidden transition-[max-height] duration-400 ease-in-out bg-white shadow-xl md:hidden rounded-2xl mt-3 mx-4 ring-1 ring-gray-200"
+            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl md:hidden rounded-3xl mt-3 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
             style="max-height:0px" aria-hidden="true">
 
-            <nav class="flex flex-col divide-y divide-gray-100 text-gray-700 font-medium">
+            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
                 <a href="#home"
-                    class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile rounded-t-2xl"
-                    data-target="home">
-                    🏠 Home
-                </a>
-                <a href="#about" class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile"
-                    data-target="about">
-                    ℹ️ About
-                </a>
-                <a href="#programs" class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile"
-                    data-target="programs">
-                    🎯 Programs
-                </a>
-                <a href="#contact"
-                    class="px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition nav-link-mobile rounded-b-2xl"
-                    data-target="contact">
-                    📞 Contact
-                </a>
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
+                    data-target="home">🏠 Home</a>
+                <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="about">ℹ️ About</a>
+                <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 Programs</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="contact">📞 Contact</a>
+
+                {{-- Login Button in Mobile Menu --}}
+                <div class="px-6 py-5 bg-yellow-400/10 text-center">
+                    <a href="/login"
+                        class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                        <span>🔐</span>
+                        <span>Login</span>
+                    </a>
+                </div>
             </nav>
         </div>
-
     </header>
 
-
-    {{-- Navbar styles & behavior --}}
     <style>
-        /* smooth in-page scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* nav link underline animation */
         .nav-link,
         .nav-link-mobile {
             position: relative;
@@ -110,10 +115,9 @@
             position: absolute;
             left: 0;
             bottom: -0.12rem;
-            height: 3px;
+            height: 2px;
             width: 0%;
             background: rgba(251, 191, 36, 1);
-            /* yellow-400 */
             border-radius: 999px;
             transition: width 220ms ease;
         }
@@ -123,15 +127,18 @@
             width: 100%;
         }
 
-        /* active state (applied by JS) */
         .nav-link.active::after {
             width: 100%;
         }
 
-        /* slightly larger hit area for mobile nav items */
-        .nav-link-mobile {
-            padding-top: .8rem;
-            padding-bottom: .8rem;
+        .nav-link:hover {
+            color: #facc15;
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+        }
+
+        #mobile-menu.show {
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 
@@ -142,21 +149,21 @@
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
             const navInner = document.getElementById('nav-inner');
+            const headerBg = document.getElementById('header-bg');
 
-            // MOBILE MENU: toggle open/close with max-height animation and aria attributes
             menuBtn.addEventListener('click', () => {
                 const isClosed = mobileMenu.style.maxHeight === '0px' || !mobileMenu.style.maxHeight;
 
                 if (isClosed) {
-                    // open
                     mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                    mobileMenu.classList.add('show');
                     mobileMenu.setAttribute('aria-hidden', 'false');
                     menuBtn.setAttribute('aria-expanded', 'true');
                     menuIcon.classList.add('hidden');
                     closeIcon.classList.remove('hidden');
                 } else {
-                    // close
                     mobileMenu.style.maxHeight = '0px';
+                    mobileMenu.classList.remove('show');
                     setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
                     menuBtn.setAttribute('aria-expanded', 'false');
                     menuIcon.classList.remove('hidden');
@@ -164,82 +171,26 @@
                 }
             });
 
-            // NAV BACKGROUND ON SCROLL: add more contrast when scrolling
-            function handleNavScroll() {
-                if (window.scrollY > 18) {
-                    navInner.classList.add('bg-blue-700/95', 'backdrop-blur-md', 'shadow-xl', 'scale-100');
-                    navInner.classList.remove('bg-blue-500/85');
+            // Saat scroll, beri background baru (tidak menyatu dengan nav-inner)
+            function handleScroll() {
+                if (window.scrollY > 20) {
+                    headerBg.classList.add('bg-black/90', 'backdrop-blur-xl', 'ring-yellow-400/70');
                 } else {
-                    navInner.classList.remove('bg-blue-700/95', 'backdrop-blur-md', 'shadow-xl');
-                    navInner.classList.add('bg-blue-500/85');
+                    headerBg.classList.remove('bg-black/90', 'backdrop-blur-xl', 'ring-yellow-400/70');
                 }
             }
-            handleNavScroll();
-            window.addEventListener('scroll', handleNavScroll, { passive: true });
 
-            // SCROLLSPY: highlight nav link based on visible section (IntersectionObserver)
-            const sectionEls = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const mobileLinks = document.querySelectorAll('.nav-link-mobile');
-
-            const linkMap = {}; // map section id -> nav link DOM
-            navLinks.forEach(a => { linkMap[a.getAttribute('href').replace('#', '')] = a; });
-            mobileLinks.forEach(a => { linkMap[a.getAttribute('href').replace('#', '')] = a; });
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -40% 0px', // trigger when section is ~60% in viewport
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const link = linkMap[id];
-                    if (!link) return;
-                    if (entry.isIntersecting) {
-                        // remove active from all and set this one
-                        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-                        link.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            sectionEls.forEach(sec => observer.observe(sec));
-
-            // Close mobile menu when a mobile link is clicked (and smooth scroll will occur)
-            document.querySelectorAll('.nav-link-mobile').forEach(a => {
-                a.addEventListener('click', () => {
-                    // close menu
-                    mobileMenu.style.maxHeight = '0px';
-                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                });
-            });
-
-            // Optional: if user clicks outside the navbar when mobile menu is open, close it
-            document.addEventListener('click', (e) => {
-                if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && window.getComputedStyle(menuIcon).display === 'none') {
-                    // if menu is open (closeIcon visible), close it
-                    if (!menuIcon.classList.contains('hidden')) return; // already closed
-                    mobileMenu.style.maxHeight = '0px';
-                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            });
-
+            handleScroll();
+            window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
 
+
+
     {{-- Hero Section --}}
-    <section id="home" class="pt-32 bg-transparent relative text-center">
+    <section id="home" class="pt-32 pb-48 bg-transparent relative text-center overflow-visible">
 
         <div class="container mx-auto px-6 relative z-10 max-w-3xl">
-
             {{-- Welcome Text --}}
             <h2 class="text-2xl md:text-3xl font-semibold text-blue-300 mb-6">
                 Welcome to <span class="text-yellow-300">h!</span><span class="text-white">academy</span>
@@ -264,30 +215,18 @@
                     Explore Our Programs →
                 </a>
             </div>
-
         </div>
 
-        {{-- Lottie Animation as Section Divider --}}
-        <div class="mt-16 flex justify-center">
-            <dotlottie-player src="https://lottie.host/e98d02fb-eb45-4159-9315-d84886cdf062/gdUtfV5REH.lottie"
-                background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
-            </dotlottie-player>
-
-            <dotlottie-player src="https://lottie.host/796783e3-1ee6-4b24-a321-f9772e2b14ba/3BFNrpShG9.lottie"
-                background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
-            </dotlottie-player>
-
-            <dotlottie-player src="https://lottie.host/8462be9d-fce4-4859-a020-bedfb7740c86/VlNln7exep.lottie"
-                background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
-            </dotlottie-player>
-
+        {{-- Mascot Transition Element --}}
+        <div class="absolute left-1/2 bottom-[-4rem] transform -translate-x-1/2 z-20">
+            <img src="{{ asset('img/masc_1.png') }}" alt="Mascot Transition"
+                class="w-40 md:w-56 drop-shadow-2xl animate-bounce-slow">
         </div>
-
     </section>
 
-    <!-- About Section -->
-
-    <section id="about" class="bg-blue-950/50 pt-20 pb-10 relative backdrop-blur-md  rounded-2xl shadow-xl text-center">
+    {{-- About Section --}}
+    <section id="about"
+        class="bg-blue-950/50 pt-36 pb-10 relative backdrop-blur-md rounded-2xl shadow-xl text-center -mt-16">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
 
             <!-- Kolom Teks -->
@@ -303,6 +242,7 @@
                     The school was founded with the belief that every child has the right to an education
                     filled with love and hope.
                 </p>
+
                 <p class="mt-3 sm:mt-4 text-lg sm:text-base lg:text-2xl leading-relaxed text-white">
                     h!academy emphasizes the holistic development of children, covering
                     <span class="text-blue-400 font-medium">academic</span>,
@@ -331,9 +271,10 @@
                 <img src="{{ asset('img/masc_2.png') }}" alt="Mascot h!academy"
                     class="w-55 sm:w-67 md:w-75 lg:w-83 xl:w-85 drop-shadow-xl transform hover:scale-105 transition duration-500 animate-bounce-slow">
             </div>
-
         </div>
     </section>
+
+
 
     <!-- Programs Section -->
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
@@ -364,7 +305,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">International Preschool</h3>
                         <p class="text-sm text-gray-200 mb-4">A global learning environment designed to nurture creativity
                             and confidence in young learners.</p>
-                        <a href="#"
+                        <a href="/preschool"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -400,10 +341,12 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Coding Classes</h3>
                         <p class="text-sm text-gray-200 mb-4">Technology is the future, and our Coding Program introduces
                             students to the exciting.</p>
-                        <a href="#"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
                             Explore →
                         </a>
+
                     </div>
                 </div>
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer">
@@ -423,8 +366,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- contoh lainnya tinggal copy struktur di atas -->
             </div>
 
             <!-- Last Row (centered 3 cards) -->
@@ -441,10 +382,12 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Robotics Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="#"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
                             Explore →
                         </a>
+
                     </div>
                 </div>
                 <div class="relative w-72 h-80 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
@@ -475,10 +418,12 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Design Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="#"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
                             Explore →
                         </a>
+
                     </div>
                 </div>
             </div>
@@ -641,9 +586,10 @@
                                     class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 transition transform hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
                                         class="w-7 h-7 fill-white">
-                                        <path d="M279.14 288l14.22-92.66h-88.91V127.34c0-25.35 12.42-50.06 
-                                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
-                                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
+                                        <path
+                                            d="M279.14 288l14.22-92.66h-88.91V127.34c0-25.35 12.42-50.06 
+                                                                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
+                                                                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
                                     </svg>
                                 </a>
 
@@ -663,14 +609,14 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                                         class="w-7 h-7 fill-white">
                                         <path d="M549.65 124.08c-6.28-23.65-24.82-42.2-48.47-48.48C458.4 64 
-                                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
-                                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
-                                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
-                                         48.47 48.47C117.6 448 288 448 288 
-                                         448s170.4 0 213.18-11.61c23.65-6.28 
-                                         42.19-24.82 48.47-48.47C560.24 344.73 
-                                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
-                                         334V178l142 78-142 78z" />
+                                                                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
+                                                                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
+                                                                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
+                                                                         48.47 48.47C117.6 448 288 448 288 
+                                                                         448s170.4 0 213.18-11.61c23.65-6.28 
+                                                                         42.19-24.82 48.47-48.47C560.24 344.73 
+                                                                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
+                                                                         334V178l142 78-142 78z" />
                                     </svg>
                                 </a>
 
