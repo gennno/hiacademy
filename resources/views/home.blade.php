@@ -3,76 +3,106 @@
 @section('title', 'h!academy')
 
 @section('content')
-    {{-- Background Video --}}
-    <video autoplay muted loop playsinline class="fixed inset-0 w-full h-full object-cover scale-110 -z-10">
-        <source src="{{ asset('video/ipc.mp4') }}" type="video/mp4">
-    </video>
+    {{-- 🔄 Background Carousel --}}
+    <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
+        <img src="{{ asset('img/carousel1.jpg') }}" class="carousel-slide active" alt="Slide 1">
+        <img src="{{ asset('img/carousel2.jpg') }}" class="carousel-slide" alt="Slide 2">
+        <img src="{{ asset('img/carousel3.jpg') }}" class="carousel-slide" alt="Slide 3">
+        <img src="{{ asset('img/carousel4.jpg') }}" class="carousel-slide" alt="Slide 4">
+        <img src="{{ asset('img/carousel5.jpg') }}" class="carousel-slide" alt="Slide 5">
+        <img src="{{ asset('img/carousel6.jpg') }}" class="carousel-slide" alt="Slide 6">
+        <img src="{{ asset('img/carousel7.jpg') }}" class="carousel-slide" alt="Slide 7">
+    </div>
 
-    {{-- Overlay optional (gelapin biar teks lebih jelas) --}}
-    <div class="fixed inset-0 bg-black bg-opacity-65 -z-10"></div>
+    {{-- 🔲 Overlay (agar teks tetap jelas di atas gambar) --}}
+    <div class="fixed inset-0 bg-black bg-opacity-60 -z-10"></div>
+
+    <style>
+        /* Style dasar untuk tiap slide */
+        #background-carousel img.carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        /* Slide aktif akan terlihat */
+        #background-carousel img.carousel-slide.active {
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('#background-carousel .carousel-slide');
+            let currentIndex = 0;
+
+            function showNextSlide() {
+                slides[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add('active');
+            }
+
+            // Ganti gambar tiap 6 detik (bisa diubah sesuai kebutuhan)
+            setInterval(showNextSlide, 3000);
+        });
+    </script>
 
 
-    {{-- Navbar --}}
-    <header id="main-header"
-        class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50 transition-all duration-500">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
+        <!-- Background Layer -->
+        <div id="header-bg" class="absolute inset-0 bg-transparent transition-all duration-500"></div>
 
-        {{-- Background layer (terpisah dari konten nav) --}}
-        <div id="header-bg"
-            class="absolute inset-0 l bg-transparent backdrop-blur-md transition-all duration-500 shadow-xl">
-        </div>
-
-        <div class="relative flex items-center justify-between px-4 md:px-6">
-
-            {{-- Left: Logo --}}
-            <a href="#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
-                <img src="{{ asset('img/logofull.png') }}" alt="H!Academy Logo"
-                    class="h-10 md:h-16 w-auto hover:scale-105 transition-transform duration-300">
+        <!-- NAV CONTAINER -->
+        <div class="relative flex items-center justify-between px-6 lg:px-12 py-4">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 flex-shrink-0 z-40" aria-label="Go to home">
+                <img src="{{ asset('img/logofull.png') }}" alt="Logo"
+                    class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
             </a>
 
-            {{-- Right: Glass Navigation Container --}}
-            <div id="nav-inner"
-                class="bg-white/10 backdrop-blur-md ring-2 ring-yellow-400/70 shadow-xl rounded-full transition-all duration-500 pl-6 pr-6 py-2 flex items-center justify-start w-full md:w-auto ml-4">
+            <!-- NAV (centered on viewport) - visible on lg+ -->
+            <nav id="primary-nav"
+                class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
+                role="navigation" aria-label="Primary Navigation">
+                <a href="#home" class="nav-link" data-target="home">Home</a>
+                <a href="#about" class="nav-link" data-target="about">About Us</a>
+                <a href="#programs" class="nav-link" data-target="programs">Programs</a>
+                <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
+            </nav>
 
-                {{-- Middle: Menu (desktop) --}}
-                <nav id="primary-nav" class="hidden md:flex items-center space-x-8 text-white font-medium tracking-wide"
-                    role="navigation" aria-label="Primary Navigation">
-                    <a href="#home" class="nav-link" data-target="home">Home</a>
-                    <a href="#about" class="nav-link" data-target="about">About</a>
-                    <a href="#programs" class="nav-link" data-target="programs">Programs</a>
-                    <a href="#contact" class="nav-link" data-target="contact">Contact</a>
-                </nav>
-
-                {{-- Right: Login + Mobile Button --}}
-                <div class="flex-shrink-0 flex items-center space-x-3 ml-4">
-                    <a href="/login"
-                        class="hidden sm:inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span>
-                        <span class="whitespace-nowrap">Login</span>
-                    </a>
-
-                    {{-- Mobile Menu Button --}}
-                    <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-controls="mobile-menu"
-                        aria-expanded="false" aria-label="Toggle menu">
-                        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+            <!-- Visual container (desktop only) -->
+            <div id="visual-container"
+                class="hidden lg:flex items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
+                style="right:1rem;">
+                <a href="/login"
+                    class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                    <span>🔐</span><span>Login</span>
+                </a>
             </div>
+
+            <!-- Hamburger Button (mobile + tablet) -->
+            <button id="menu-btn" class="lg:hidden text-white focus:outline-none z-50" aria-controls="mobile-menu"
+                aria-expanded="false" aria-label="Toggle menu">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
 
-        {{-- Mobile Menu --}}
+        <!-- Mobile/Tablet Menu -->
         <div id="mobile-menu"
-            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl md:hidden rounded-3xl mt-3 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
-            style="max-height:0px" aria-hidden="true">
-
+            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl lg:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
+            style="max-height:0px;" aria-hidden="true">
             <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
                 <a href="#home"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
@@ -85,12 +115,10 @@
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="contact">📞 Contact</a>
 
-                {{-- Login Button in Mobile Menu --}}
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span>
-                        <span>Login</span>
+                        <span>🔐</span><span>Login</span>
                     </a>
                 </div>
             </nav>
@@ -102,11 +130,12 @@
             scroll-behavior: smooth;
         }
 
+        /* Nav underline */
         .nav-link,
         .nav-link-mobile {
             position: relative;
             display: inline-block;
-            padding-bottom: 0.25rem;
+            padding-bottom: .25rem;
         }
 
         .nav-link::after,
@@ -119,15 +148,11 @@
             width: 0%;
             background: rgba(251, 191, 36, 1);
             border-radius: 999px;
-            transition: width 220ms ease;
+            transition: width .22s ease;
         }
 
         .nav-link:hover::after,
         .nav-link-mobile:hover::after {
-            width: 100%;
-        }
-
-        .nav-link.active::after {
             width: 100%;
         }
 
@@ -136,6 +161,7 @@
             text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
         }
 
+        /* Mobile menu visible state */
         #mobile-menu.show {
             opacity: 1;
             pointer-events: auto;
@@ -148,81 +174,228 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
-            const navInner = document.getElementById('nav-inner');
             const headerBg = document.getElementById('header-bg');
+            const visual = document.getElementById('visual-container');
+            const nav = document.getElementById('primary-nav');
+
+            /* ---------- Mobile toggle ---------- */
+            function openMobileMenu() {
+                mobileMenu.classList.add('show');
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                menuBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeMobileMenu() {
+                mobileMenu.style.maxHeight = '0px';
+                setTimeout(() => mobileMenu.classList.remove('show'), 350);
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
 
             menuBtn.addEventListener('click', () => {
-                const isClosed = mobileMenu.style.maxHeight === '0px' || !mobileMenu.style.maxHeight;
+                if (mobileMenu.classList.contains('show')) closeMobileMenu();
+                else openMobileMenu();
+            });
 
-                if (isClosed) {
-                    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-                    mobileMenu.classList.add('show');
-                    mobileMenu.setAttribute('aria-hidden', 'false');
-                    menuBtn.setAttribute('aria-expanded', 'true');
-                    menuIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                } else {
-                    mobileMenu.style.maxHeight = '0px';
-                    mobileMenu.classList.remove('show');
-                    setTimeout(() => mobileMenu.setAttribute('aria-hidden', 'true'), 400);
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+            mobileMenu.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+                if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                    closeMobileMenu();
                 }
             });
 
-            // Saat scroll, beri background baru (tidak menyatu dengan nav-inner)
+            /* ---------- Scroll background ---------- */
             function handleScroll() {
                 if (window.scrollY > 20) {
-                    headerBg.classList.add('bg-black/90', 'backdrop-blur-xl', 'ring-yellow-400/70');
+                    headerBg.classList.add('bg-black', 'backdrop-blur-md', 'shadow-lg');
+                    headerBg.classList.remove('bg-transparent');
                 } else {
-                    headerBg.classList.remove('bg-black/90', 'backdrop-blur-xl', 'ring-yellow-400/70');
+                    headerBg.classList.add('bg-transparent');
+                    headerBg.classList.remove('bg-black', 'backdrop-blur-md', 'shadow-lg');
                 }
             }
-
             handleScroll();
             window.addEventListener('scroll', handleScroll, { passive: true });
+
+            /* ---------- Adjust visual container (lg+) ---------- */
+            function adjustVisualContainer() {
+                if (!visual || !nav) return;
+
+                if (window.innerWidth < 1024) {
+                    visual.style.display = 'none';
+                    visual.style.left = '';
+                    visual.style.maxWidth = '';
+                    visual.style.minWidth = '';
+                    return;
+                }
+
+                visual.style.display = 'flex';
+
+                const navRect = nav.getBoundingClientRect();
+                const navWidth = navRect.width;
+                const navCenterX = (navRect.left + navRect.right) / 2;
+
+                const extraLeftPadding = 32;
+                const rightSpacing = 16;
+
+                let leftPos = Math.round(navCenterX - navWidth / 2 - extraLeftPadding);
+                leftPos = Math.max(8, leftPos);
+
+                visual.style.left = leftPos + 'px';
+
+                const maxWidth = window.innerWidth - leftPos - rightSpacing;
+                visual.style.maxWidth = maxWidth + 'px';
+                visual.style.minWidth = (navWidth + 180) + 'px';
+            }
+
+            // Close mobile menu when resizing to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024 && mobileMenu.classList.contains('show')) {
+                    mobileMenu.style.maxHeight = '0px';
+                    mobileMenu.classList.remove('show');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+                adjustVisualContainer();
+            });
+
+            setTimeout(adjustVisualContainer, 50);
+            window.addEventListener('load', adjustVisualContainer);
+            window.addEventListener('resize', adjustVisualContainer);
         });
     </script>
-
-
-
     {{-- Hero Section --}}
-    <section id="home" class="pt-32 pb-48 bg-transparent relative text-center overflow-visible">
+    <section id="home" class="pt-32 pb-56 bg-transparent relative overflow-hidden">
 
-        <div class="container mx-auto px-6 relative z-10 max-w-3xl">
-            {{-- Welcome Text --}}
-            <h2 class="text-2xl md:text-3xl font-semibold text-blue-300 mb-6">
-                Welcome to <span class="text-yellow-300">h!</span><span class="text-white">academy</span>
-            </h2>
+        {{-- Swiper container --}}
+        <div class="swiper heroSwiper relative z-10">
+            <div class="swiper-wrapper">
 
-            {{-- Typing Effect Text --}}
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight h-24">
-                <span id="typing-text"></span>
-            </h1>
+                {{-- SLIDE 1 --}}
+                <div class="swiper-slide relative min-h-[70vh] flex items-center">
+                    <div class="absolute right-0 w-full lg:w-1/2 px-6 lg:px-20 text-right">
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+                            <span class="text-yellow-300">h!</span><span class="text-white">academy</span>
+                        </h2>
 
-            {{-- Description --}}
-            <p class="text-xl md:text-xl text-gray-300 mt-6 leading-relaxed">
-                At h!academy, we are committed to nurturing young minds with a comprehensive range of programs
-                tailored to meet the needs of the future. From foundational skills to advanced learning,
-                we offer everything your child needs to thrive in a globalized world.
-            </p>
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+                            Your One-Stop Education Center
+                        </h1>
 
-            {{-- Button --}}
-            <div class="mt-8">
-                <a href="#programs"
-                    class="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition transform hover:scale-105">
-                    Explore Our Programs →
-                </a>
+                        <p class="text-xl md:text-xl text-white mt-4 leading-relaxed">
+                            At h!academy, we are committed to nurturing young minds with a comprehensive range of programs
+                            tailored to meet the needs of the future. From foundational skills to advanced learning,
+                            we offer everything your child needs to thrive in a globalized world.
+                        </p>
+
+                        <div class="mt-8">
+                            <a href="#programs"
+                                class="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition transform hover:scale-105">
+                                Explore Our Programs →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- SLIDE 2 --}}
+                <div class="swiper-slide relative min-h-[70vh] flex items-center">
+                    <div class="absolute right-0 w-full lg:w-1/2 px-6 lg:px-20 text-right">
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+                            <span class="text-yellow-300">h!</span><span class="text-white">academy</span>
+                        </h2>
+
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+                            Nurturing Bright Future with Hope
+                        </h1>
+
+                        <p class="text-xl md:text-xl text-white mt-4 leading-relaxed">
+                            Join our engaging and future-focused programs designed to help students unlock their full
+                            potential
+                            through personalized, hands-on learning experiences.
+                        </p>
+
+                        <div class="mt-8">
+                            <a href="#book"
+                                class="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition transform hover:scale-105">
+                                Book Free Trial →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            {{-- Navigation arrows (visible di layar besar) --}}
+            <div class="hidden lg:flex absolute inset-y-0 left-0 items-center justify-center">
+                <div class="swiper-button-prev !text-white !scale-75"></div>
+            </div>
+            <div class="hidden lg:flex absolute inset-y-0 right-0 items-center justify-center">
+                <div class="swiper-button-next !text-white !scale-75"></div>
+            </div>
+
+            {{-- Pagination (untuk mobile swipe indicator) --}}
+            <div class="swiper-pagination !bottom-8"></div>
         </div>
 
-        {{-- Mascot Transition Element --}}
-        <div class="absolute left-1/2 bottom-[-4rem] transform -translate-x-1/2 z-20">
+        {{-- Maskot tetap di tengah --}}
+        <div class="absolute left-1/2 bottom-[-2rem] transform -translate-x-1/2 z-20">
             <img src="{{ asset('img/masc_1.png') }}" alt="Mascot Transition"
                 class="w-40 md:w-56 drop-shadow-2xl animate-bounce-slow">
         </div>
     </section>
+
+    {{-- SwiperJS CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".heroSwiper", {
+                loop: true,
+                speed: 800,
+                spaceBetween: 0,
+                grabCursor: true,
+                centeredSlides: false, // penting: nonaktifkan agar slide tidak di tengah!
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".heroSwiper", {
+                loop: true,
+                speed: 800,
+                spaceBetween: 0,
+                grabCursor: true,
+                centeredSlides: false,
+                autoplay: {
+                    delay: 3000, // waktu antar slide (3 detik)
+                    disableOnInteraction: false, // tetap lanjut meski user swipe manual
+                    pauseOnMouseEnter: true, // pause saat di-hover (desktop)
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        });
+    </script>
+
 
     {{-- About Section --}}
     <section id="about"
@@ -588,8 +761,8 @@
                                         class="w-7 h-7 fill-white">
                                         <path
                                             d="M279.14 288l14.22-92.66h-88.91V127.34c0-25.35 12.42-50.06 
-                                                                         52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
-                                                                         0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
+                                                                                                                 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.14 
+                                                                                                                 0-121.36 44.38-121.36 124.72V195.3H22.89V288h81.11v224h100.17V288z" />
                                     </svg>
                                 </a>
 
@@ -608,15 +781,16 @@
                                     class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 transition transform hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                                         class="w-7 h-7 fill-white">
-                                        <path d="M549.65 124.08c-6.28-23.65-24.82-42.2-48.47-48.48C458.4 64 
-                                                                         288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
-                                                                         24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
-                                                                         256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
-                                                                         48.47 48.47C117.6 448 288 448 288 
-                                                                         448s170.4 0 213.18-11.61c23.65-6.28 
-                                                                         42.19-24.82 48.47-48.47C560.24 344.73 
-                                                                         560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
-                                                                         334V178l142 78-142 78z" />
+                                        <path
+                                            d="M549.65 124.08c-6.28-23.65-24.82-42.2-48.47-48.48C458.4 64 
+                                                                                                                 288 64 288 64s-170.4 0-213.18 11.6c-23.65 6.28-42.19 
+                                                                                                                 24.83-48.47 48.48C15.76 167.27 15.76 256 15.76 
+                                                                                                                 256s0 88.73 10.59 131.92c6.28 23.65 24.82 42.19 
+                                                                                                                 48.47 48.47C117.6 448 288 448 288 
+                                                                                                                 448s170.4 0 213.18-11.61c23.65-6.28 
+                                                                                                                 42.19-24.82 48.47-48.47C560.24 344.73 
+                                                                                                                 560.24 256 560.24 256s0-88.73-10.59-131.92zM232 
+                                                                                                                 334V178l142 78-142 78z" />
                                     </svg>
                                 </a>
 
@@ -735,20 +909,8 @@
 
     {{-- Typed.js Script --}}
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            new Typed("#typing-text", {
-                strings: [
-                    "Your One-Stop Education Center",
-                    "Nurturing Bright Future with Hope"
-                ],
-                typeSpeed: 30,
-                backSpeed: 30,
-                backDelay: 2000,
-                loop: true
-            });
-        });
     </script>
+
     {{-- Extra CSS for custom bounce animation --}}
     <style>
         @keyframes bounce-slow {
