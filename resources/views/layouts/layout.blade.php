@@ -34,6 +34,92 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<style>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+/* Durasi disamakan: fade-in 0.8s, fade-out 0.6s */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-out-down {
+  opacity: 1;
+  animation: fadeOutDown 0.6s ease forwards;
+}
+/* --- BLOCK REVEAL MASUK --- */
+@keyframes blockRevealIn {
+  0% { width: 0; left: 0; }
+  50% { width: 100%; left: 0; }
+  100% { width: 0; left: 100%; }
+}
+
+/* --- BLOCK REVEAL KELUAR --- */
+@keyframes blockRevealOut {
+  0% { width: 0; right: 0; }
+  50% { width: 100%; right: 0; }
+  100% { width: 0; right: 100%; }
+}
+
+.hero-title {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hero-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: white; /* ubah ke warna lain jika ingin efek brand */
+  z-index: 2;
+}
+
+/* Masuk: kiri → kanan */
+.hero-title.block-animate::before {
+  left: 0;
+  animation: blockRevealIn 1s ease forwards;
+}
+
+/* Keluar: kanan → kiri */
+.hero-title.block-animate-out::before {
+  right: 0;
+  animation: blockRevealOut 0.6s ease forwards;
+}
+
+/* Sembunyikan teks selama block aktif */
+.hero-title.block-animate,
+.hero-title.block-animate-out {
+  color: transparent;
+}
+
+/* Setelah block selesai masuk */
+.hero-title.revealed {
+  color: white;
+}
+</style>
 
 </head>
 

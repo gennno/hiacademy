@@ -284,11 +284,13 @@
                             <span class="text-yellow-300 font-medium">h!</span><span class="text-white">academy</span>
                         </h2>
 
-                        <h1 class="text-4xl md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
+                        <h1
+                            class="text-4xl pb-8 hero-animate hero-title md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
                             Your One-Stop Education Center
                         </h1>
 
-                        <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
+                        <p
+                            class="text-base hero-animate hero-text md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
                             At h!academy, we are committed to nurturing young minds through a comprehensive range of
                             programs
                             tailored for the future,
@@ -298,7 +300,7 @@
 
                         <div class="mt-10">
                             <a href="#programs"
-                                class="inline-block bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                                class="inline-block hero-animate hero-btn bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                                 Explore Our Programs →
                             </a>
                         </div>
@@ -309,21 +311,23 @@
                 <div class="swiper-slide relative min-h-[70vh] flex items-center">
                     <div class="absolute right-0 w-full md:w-3/5 lg:w-3/4 px-6 lg:px-24 text-right">
                         <h2 class="text-lg md:text-xl font-light tracking-wide mb-4 text-gray-200">
-                            <span class="text-yellow-300 font-medium">h!</span><span class="text-white">academy</span>
+                            <span class="text-yellow-300  font-medium">h!</span><span class="text-white">academy</span>
                         </h2>
 
-                        <h1 class="text-4xl md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
+                        <h1
+                            class="text-4xl pb-8 hero-animate hero-title md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
                             Nurturing Bright Futures with Hope
                         </h1>
 
-                        <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
+                        <p
+                            class="text-base hero-animate hero-text md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
                             Join our engaging, future-focused programs designed to empower students through personalized,
                             hands-on learning experiences.
                         </p>
 
                         <div class="mt-10">
                             <a href="#cta"
-                                class="inline-block bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                                class="inline-block hero-animate hero-btn bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                                 Book Free Trial →
                             </a>
                         </div>
@@ -847,12 +851,13 @@
             </div>
         </div>
     </footer>
-
     <!-- Tombol Back to Top -->
     <button id="backToTopBtn"
-        class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300">
+        class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
         ↑
     </button>
+
+
     <script>
         const backToTopBtn = document.getElementById("backToTopBtn");
 
@@ -901,20 +906,19 @@
             animation-delay: 0.3s;
         }
     </style>
+
     {{-- SwiperJS CDN --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            new Swiper(".heroSwiper", {
+            const swiper = new Swiper(".heroSwiper", {
                 loop: true,
+                effect: "fade",
+                fadeEffect: { crossFade: true },
                 speed: 800,
-                spaceBetween: 0,
-                grabCursor: true,
-                centeredSlides: false,
                 autoplay: {
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },
@@ -926,9 +930,75 @@
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
+                on: {
+                    init: function () {
+                        const activeSlide = this.slides[this.activeIndex];
+                        activeSlide.querySelectorAll(".hero-animate").forEach((el, i) => {
+                            el.classList.add("animate-fade-in-up");
+                            el.style.animationDelay = `${i * 0.15}s`;
+                        });
+
+                        // 🚀 Hero title masuk pertama kali
+                        const heroTitle = activeSlide.querySelector(".hero-title");
+                        if (heroTitle) {
+                            heroTitle.classList.add("block-animate");
+                            setTimeout(() => {
+                                heroTitle.classList.add("revealed");
+                            }, 700);
+                        }
+                    },
+
+                    slideChangeTransitionStart: function () {
+                        const prevSlide = this.slides[this.previousIndex];
+                        const activeSlide = this.slides[this.activeIndex];
+
+                        // Hapus animasi dari slide aktif baru dulu
+                        activeSlide.querySelectorAll(".hero-animate").forEach(el => {
+                            el.classList.remove("animate-fade-in-up", "animate-fade-out-down");
+                            el.style.opacity = 0;
+                        });
+
+                        // 🎬 Fade out slide lama
+                        prevSlide?.querySelectorAll(".hero-animate").forEach(el => {
+                            el.classList.remove("animate-fade-in-up");
+                            el.classList.add("animate-fade-out-down");
+                        });
+
+                        // 🎞️ Hero title fade-out → block dari kanan ke kiri
+                        const prevTitle = prevSlide?.querySelector(".hero-title");
+                        if (prevTitle) {
+                            prevTitle.classList.remove("block-animate", "revealed");
+                            prevTitle.classList.add("block-animate-out");
+                            setTimeout(() => {
+                                prevTitle.classList.remove("block-animate-out");
+                            }, 600); // durasi block keluar
+                        }
+
+                        // Delay sebelum fade-in slide baru
+                        setTimeout(() => {
+                            activeSlide.querySelectorAll(".hero-animate").forEach((el, i) => {
+                                el.classList.remove("animate-fade-out-down");
+                                el.classList.add("animate-fade-in-up");
+                                el.style.animationDelay = `${i * 0.15}s`;
+                            });
+
+                            // 🚀 Animasi block masuk untuk slide baru
+                            const heroTitle = activeSlide.querySelector(".hero-title");
+                            if (heroTitle) {
+                                heroTitle.classList.add("block-animate");
+                                setTimeout(() => {
+                                    heroTitle.classList.add("revealed");
+                                }, 700);
+                            }
+
+                        }, 600); // sesuai dengan durasi fade-out
+                    },
+                },
             });
         });
     </script>
+
+
 
     {{-- Typed.js Script --}}
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
