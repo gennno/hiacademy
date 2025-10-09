@@ -3,6 +3,13 @@
 @section('title', 'h!academy Login')
 
 @section('content')
+    {{-- 🔙 Back Button --}}
+    <a href="{{ url()->previous() }}"
+       class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
+        <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
+        <span class="hidden sm:inline">Back</span>
+    </a>
+
     {{-- 🔄 Background Carousel --}}
     <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
         <img src="{{ asset('img/carousel1.jpg') }}" class="carousel-slide active" alt="Slide 1">
@@ -143,4 +150,5 @@
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 @endsection
+
 

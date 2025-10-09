@@ -755,18 +755,18 @@
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-youtube text-xl"></i>
                             </a>
-                            
+
                         </div>
-                        
-                    <!-- Contact Button -->
-                    <a href="#"
-                        class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
-                        <i class="fa-solid fa-message"></i> Whatsapp Us
-                    </a>
-                    <a href="#"
-                        class="inline-flex items-center gap-2 mt-6 bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
-                        <i class="fa-solid fa-message"></i> Email Us
-                    </a>
+
+                        <!-- Contact Button -->
+                        <a href="#"
+                            class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition duration-300">
+                            <i class="fa-solid fa-message"></i> Whatsapp Us
+                        </a>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 mt-6 bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
+                            <i class="fa-solid fa-message"></i> Email Us
+                        </a>
                     </div>
 
                 </div>
@@ -813,7 +813,8 @@
                             </div>
                             <!-- Sunday -->
                             <div class="flex items-center justify-between p-3 rounded-xl bg-white/10">
-                                <span class="flex items-center gap-2"><i class="fa-solid fa-xmark-circle text-yellow-400"></i>
+                                <span class="flex items-center gap-2"><i
+                                        class="fa-solid fa-xmark-circle text-yellow-400"></i>
                                     Sunday</span>
                                 <span class="text-red-400 font-semibold">Closed</span>
                             </div>
@@ -847,7 +848,28 @@
         </div>
     </footer>
 
+    <!-- Tombol Back to Top -->
+    <button id="backToTopBtn"
+        class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300">
+        ↑
+    </button>
+    <script>
+        const backToTopBtn = document.getElementById("backToTopBtn");
 
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                // Muncul saat user mulai scroll
+                backToTopBtn.classList.remove("hidden");
+            } else {
+                // Hilang saat di atas
+                backToTopBtn.classList.add("hidden");
+            }
+        });
+
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 
     <!-- Optional Animations with Tailwind + JS -->
     <style>
