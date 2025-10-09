@@ -998,11 +998,8 @@
         });
     </script>
 
-
-
     {{-- Typed.js Script --}}
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    </script>
 
     {{-- Extra CSS for custom bounce animation --}}
     <style>

@@ -91,7 +91,7 @@
             <div class="mt-4 flex gap-3 sm:gap-4 overflow-x-auto program-scroll pb-3 w-full snap-x snap-mandatory">
                 @php
                     $programs = [
-                        ['name' => 'International Preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'url' => 'https://preschool.hiacademy.com/login'],
+                        ['name' => 'International Preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'url' => '/preschool'],
                         ['name' => 'Mandarin Program', 'icon' => 'fa-language', 'color' => 'border-red-400 hover:bg-red-400', 'url' => 'https://mandarin.hiacademy.com/login'],
                         ['name' => 'Coding Classes', 'icon' => 'fa-code', 'color' => 'border-blue-400 hover:bg-blue-400', 'url' => 'https://coding.hiacademy.com/login'],
                         ['name' => 'English Program', 'icon' => 'fa-book-open', 'color' => 'border-green-400 hover:bg-green-400', 'url' => 'https://english.hiacademy.com/login'],
