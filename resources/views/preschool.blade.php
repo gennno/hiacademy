@@ -601,10 +601,10 @@
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#F0A04B]', 'shadow-md');
+                navbar.classList.add('bg-[#B1C29E]/40', 'shadow-md');
                 navbar.classList.remove('bg-transparent');
             } else {
-                navbar.classList.remove('bg-[#F0A04B]', 'shadow-md');
+                navbar.classList.remove('bg-[#B1C29E]/40', 'shadow-md');
                 navbar.classList.add('bg-transparent');
             }
         });
