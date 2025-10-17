@@ -350,7 +350,7 @@
 
         {{-- Maskot --}}
         <div class="absolute left-1/2 bottom-[0rem] md:bottom-[0rem] transform -translate-x-1/2 z-20">
-            <img src="{{ asset('img/masc_1.png') }}" alt="Mascot Transition"
+            <img src="{{ asset('img/1.png') }}" alt="Mascot Transition"
                 class="w-40 md:w-56 drop-shadow-2xl animate-bounce-slow">
         </div>
 
@@ -393,32 +393,24 @@
                 </div>
             </div>
 
-            <!-- Kolom Kolase Gambar -->
-            <div class="md:w-1/2 relative flex justify-center md:justify-end">
-
-                <!-- Versi Mobile (stacked) -->
-                <div class="flex flex-col gap-4 w-full md:hidden" data-aos="fade-up">
-                    <img src="{{ asset('img/about1.png') }}" alt="Classroom 1"
-                        class="w-full rounded-2xl shadow-2xl object-cover">
-                    <img src="{{ asset('img/about2.png') }}" alt="Classroom 2"
-                        class="w-full rounded-2xl shadow-2xl object-cover">
-                    <img src="{{ asset('img/about.png') }}" alt="Classroom 3"
-                        class="w-full rounded-2xl shadow-2xl object-cover">
+            {{-- Image gallery --}}
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64">
                 </div>
-
-                <!-- Versi Desktop (kolase bertumpuk) -->
-                <div class="relative w-full max-w-md h-[420px] hidden md:block" data-aos="fade-up" data-aos-delay="300">
-                    <img src="{{ asset('img/building4.png') }}" alt="Classroom 1"
-                        class="absolute top-0 left-6 w-56 md:w-64 rounded-2xl shadow-2xl transform rotate-[-4deg] hover:rotate-0 hover:scale-105 transition-all duration-500 object-cover">
-                    <img src="{{ asset('img/building3.png') }}" alt="Classroom 2"
-                        class="absolute top-20 right-0 w-60 md:w-72 rounded-2xl shadow-2xl transform rotate-[5deg] hover:rotate-0 hover:scale-105 transition-all duration-500 object-cover z-10">
-                    <img src="{{ asset('img/building1.png') }}" alt="Classroom 3"
-                        class="absolute bottom-0 left-10 w-52 md:w-60 rounded-2xl shadow-2xl transform rotate-[-2deg] hover:rotate-0 hover:scale-105 transition-all duration-500 object-cover z-20">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-tr from-yellow-300/10 via-transparent to-blue-900/20 rounded-2xl blur-xl">
-                    </div>
+                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64">
                 </div>
-
+                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64">
+                </div>
             </div>
         </div>
     </section>
@@ -469,43 +461,21 @@
                         </a>
                     </div>
                 </div>
-
+                
                 <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/mandarin.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Mandarin Program</h3>
+                        <h3 class="text-lg font-semibold text-white">Child Development Program</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Mandarin Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Immersive learning that helps children master Mandarin
-                            naturally and confidently.</p>
+                        <h3 class="text-lg font-semibold text-white mb-3">Child Development Program</h3>
+                        <p class="text-sm text-gray-200 mb-4">Child Development Program.</p>
                         <a href="#"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Coding Classes -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Coding Classes</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Coding Classes</h3>
-                        <p class="text-sm text-gray-200 mb-4">Technology is the future, and our Coding Program introduces
-                            students to the exciting world of programming.</p>
-                        <a href="https://timedooracademy.com/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
                             Explore →
                         </a>
                     </div>
@@ -531,27 +501,26 @@
                     </div>
                 </div>
 
+                <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <img src="{{ asset('img/robotic.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/mandarin.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Robotics Program</h3>
+                        <h3 class="text-lg font-semibold text-white">Mandarin Program</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Robotics Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
-                        </p>
-                        <a href="https://timedooracademy.com/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
+                        <h3 class="text-lg font-semibold text-white mb-3">Mandarin Program</h3>
+                        <p class="text-sm text-gray-200 mb-4">Immersive learning that helps children master Mandarin
+                            naturally and confidently.</p>
+                        <a href="#"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
-
                     </div>
                 </div>
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+<div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="400">
                     <img src="{{ asset('img/math.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
@@ -571,6 +540,28 @@
 
                     </div>
                 </div>
+
+                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <img src="{{ asset('img/robotic.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <div
+                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+                        <h3 class="text-lg font-semibold text-white">STEM & Coding</h3>
+                    </div>
+                    <div
+                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-lg font-semibold text-white mb-3">STEM & Coding</h3>
+                        <p class="text-sm text-gray-200 mb-4">STEM & Coding
+                        </p>
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
+                            Explore →
+                        </a>
+
+                    </div>
+                </div>
+                
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="400">
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
@@ -593,6 +584,45 @@
 
                     </div>
                 </div>
+                <!-- Coding Classes -->
+                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <div
+                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+                        <h3 class="text-lg font-semibold text-white">Creative Arts</h3>
+                    </div>
+                    <div
+                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-lg font-semibold text-white mb-3">Creative Arts</h3>
+                        <p class="text-sm text-gray-200 mb-4">Creative Arts.</p>
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
+                            Explore →
+                        </a>
+                    </div>
+                </div>
+                <!-- Coding Classes -->
+                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <img src="{{ asset('img/parenting.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <div
+                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+                        <h3 class="text-lg font-semibold text-white">Parenting life Indonesia</h3>
+                    </div>
+                    <div
+                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-lg font-semibold text-white mb-3">Parenting life Indonesia</h3>
+                        <p class="text-sm text-gray-200 mb-4">Parenting life Indonesia.</p>
+                        <a href="https://timedooracademy.com/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
+                            Explore →
+                        </a>
+                    </div>
+                </div>
+
 
                 <!-- Tambahkan animasi serupa untuk card lainnya -->
             </div>
@@ -740,7 +770,7 @@
 
                 <!-- Column 1: Mascot + Connect + Contact -->
                 <div class="space-y-10 animate-fadeInUp" data-aos="fade-up" data-aos-duration="800">
-                    <img src="{{ asset('img/masc_2.png') }}" alt="h!academy logo"
+                    <img src="{{ asset('img/2.png') }}" alt="h!academy logo"
                         class="w-56 md:w-72 drop-shadow-xl hover:scale-105 transition duration-500 mx-auto sm:mx-0">
 
                     <!-- Connect with Us -->

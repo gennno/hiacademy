@@ -274,239 +274,238 @@
         });
     </script>
 
-{{-- HERO SECTION --}}
-<section id="hero"
-    class="relative flex items-center justify-center text-center h-[85vh] sm:h-[90vh] bg-cover bg-center overflow-hidden"
-    style="background-image: url('{{ asset('img/hero.jpg') }}');">
+    {{-- HERO SECTION --}}
+    <section id="hero"
+        class="relative flex items-center justify-center text-center h-[85vh] sm:h-[90vh] bg-cover bg-center overflow-hidden"
+        style="background-image: url('{{ asset('img/hero.jpg') }}');">
 
-    {{-- Content --}}
-    <div class="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl text-white" data-aos="fade-up" data-aos-duration="1200">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
-            Nurturing <span class="text-[#FADA7A]">Bright Futures</span><br class="hidden sm:block"> with Hope 🌱
-        </h1>
-        <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
-            A joyful place for children to explore, imagine, and grow — nurturing confidence and creativity through love and discovery.
-        </p>
-
-        <div class="flex justify-center">
-            <a href="#vision"
-                class="inline-block bg-[#FADA7A] text-[#4B5563] px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-[#F0A04B] hover:text-white transition-all duration-300 hover:scale-105">
-                Learn More
-            </a>
-        </div>
-    </div>
-
-    {{-- Decorative shapes --}}
-    <div class="absolute bottom-10 left-10 w-28 h-28 bg-[#FADA7A]/30 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute top-10 right-10 w-40 h-40 bg-[#B1C29E]/30 rounded-full blur-3xl animate-pulse"></div>
-</section>
-
-{{-- AOS Animation --}}
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    });
-</script>
-{{-- VISI & MISI SECTION --}}
-<section id="vision" class="relative py-20 bg-[#B1C29E]/60 overflow-hidden">
-    {{-- Decorative background elements --}}
-    <div class="absolute top-0 left-0 w-40 h-40 bg-[#B1C29E]/40 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#FADA7A]/40 rounded-full blur-3xl"></div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
-                Our Vision & Mission
-            </h2>
-            <p class="text-white text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-                “Membangun generasi anak yang penuh harapan, percaya diri, dan bersemangat untuk belajar,
-                dengan membina lingkungan yang mendukung pertumbuhan holistik setiap anak.”
+        {{-- Content --}}
+        <div class="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl text-white" data-aos="fade-up"
+            data-aos-duration="1200">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Nurturing <span class="text-[#FADA7A]">Bright Futures</span><br class="hidden sm:block"> with Hope 🌱
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
+                A joyful place for children to explore, imagine, and grow — nurturing confidence and creativity through love
+                and discovery.
             </p>
+
+            <div class="flex justify-center">
+                <a href="#vision"
+                    class="inline-block bg-[#FADA7A] text-[#4B5563] px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-[#F0A04B] hover:text-white transition-all duration-300 hover:scale-105">
+                    Learn More
+                </a>
+            </div>
         </div>
 
-        {{-- 3 Mission Cards --}}
-        <div class="grid md:grid-cols-3 gap-8 mt-10">
-            {{-- Misi 1 --}}
-            <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
-                data-aos="fade-up" data-aos-delay="100">
-                <div class="text-[#F0A04B] text-3xl mb-4">🌈</div>
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 1</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Menyediakan lingkungan pembelajaran yang aman, inklusif, dan penuh kasih, di mana setiap anak merasa
-                    dihargai, diterima, dan didorong untuk mengeksplorasi potensi mereka.
+        {{-- Decorative shapes --}}
+        <div class="absolute bottom-10 left-10 w-28 h-28 bg-[#FADA7A]/30 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-10 right-10 w-40 h-40 bg-[#B1C29E]/30 rounded-full blur-3xl animate-pulse"></div>
+    </section>
+
+    {{-- VISI & MISI SECTION --}}
+    <section id="vision" class="relative py-20 bg-white overflow-hidden">
+        {{-- Decorative background elements --}}
+        <div class="absolute top-0 left-0 w-40 h-40 bg-[#B1C29E]/40 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#FADA7A]/40 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+                    Our Vision & Mission
+                </h2>
+                <p class="text-black text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    “At h!aacademy, we are dedicated to nurturing well-rounded development in every child. Our curriculum is designed to enhance physical, emotional, social, and cognitive growth, helping children thrive in a happy, supportive environment. We emphasize a deep understanding of nature and the world around them while also providing a strong foundation in key subjects. With our focus on excellence in English language skills, we prepare students to succeed both academically and socially.”
                 </p>
             </div>
 
-            {{-- Misi 2 --}}
-            <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
-                data-aos="fade-up" data-aos-delay="200">
-                <div class="text-[#F0A04B] text-3xl mb-4">🎨</div>
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 2</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Mendukung perkembangan sosial, emosional, dan akademik setiap anak melalui pendekatan pembelajaran yang
-                    menyenangkan dan berbasis eksplorasi.
-                </p>
-            </div>
-
-            {{-- Misi 3 --}}
-            <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
-                data-aos="fade-up" data-aos-delay="300">
-                <div class="text-[#F0A04B] text-3xl mb-4">🤝</div>
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 3</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Membangun kemitraan yang kuat dengan orang tua dan komunitas, memastikan bahwa pendidikan anak didukung
-                    oleh kerja sama yang erat antara rumah dan sekolah.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- GEDUNG & FASILITAS SECTION --}}
-<section id="facilities" class="relative py-20 bg-[#FADA7A]/20 overflow-hidden">
-    {{-- Decorative circles --}}
-    <div class="absolute -top-16 right-10 w-48 h-48 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-56 h-56 bg-[#F0A04B]/30 rounded-full blur-3xl"></div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
-                Our Campus & Facilities
-            </h2>
-            <p class="text-white text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-                Gedung h!academy dirancang untuk menciptakan suasana belajar yang kondusif, modern, dan nyaman —
-                mendukung pertumbuhan anak secara holistik di lingkungan yang penuh inspirasi.
-            </p>
-        </div>
-
-        {{-- Content Grid --}}
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            {{-- Image gallery --}}
-            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/about.png') }}" alt="Ruang Kelas"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/about1.png') }}" alt="Perpustakaan"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/playground.jpg') }}" alt="Pusat Olahraga"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/about2.png') }}" alt="Asrama"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-            </div>
-
-            {{-- Text content --}}
-            <div data-aos="fade-left" class="text-white space-y-6">
-                <h3 class="text-2xl md:text-3xl font-bold text-[#F0A04B] mb-4">Modern Learning Environment</h3>
-                <ul class="space-y-3 text-base md:text-lg">
-                    <li class="flex items-start gap-3">
-                        <span class="text-[#F0A04B] text-xl">🏫</span>
-                        <p><strong>Ruang Kelas:</strong> Dilengkapi teknologi terbaru untuk mendukung pembelajaran interaktif dan kreatif.</p>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-[#B1C29E] text-xl">📚</span>
-                        <p><strong>Perpustakaan:</strong> Menyediakan akses luas terhadap berbagai bahan bacaan dan media pembelajaran digital.</p>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-[#FADA7A] text-xl">⚽</span>
-                        <p><strong>Fasilitas Pendukung:</strong> Pusat olahraga, area bermain, dan asrama yang nyaman untuk siswa.</p>
-                    </li>
-                </ul>
-
-                <p class="mt-6 text-yellow-400 italic">
-                    “Nurturing Bright Futures with Hope” — setiap sudut h!academy dirancang untuk menumbuhkan semangat belajar dan rasa ingin tahu anak.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-{{-- KURIKULUM SECTION --}}
-<section id="curriculum" class="relative py-20 bg-[#FADA7A]/70 overflow-hidden">
-    {{-- Decorative background elements --}}
-    <div class="absolute top-0 left-0 w-40 h-40 bg-[#FADA7A]/30 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
-                Our Curriculum
-            </h2>
-            <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-                Tailored learning for each age group — nurturing creativity, curiosity, and confidence through play and exploration.
-            </p>
-        </div>
-
-        {{-- 4 Curriculum Cards --}}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {{-- 1. Little Sprouts --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
-                data-aos="zoom-in" data-aos-delay="100">
-                <div class="h-44 bg-[#B1C29E]/30 flex items-center justify-center text-5xl">🌱</div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-[#4B5563] mb-1">Little Sprouts</h3>
-                    <p class="text-[#F0A04B] font-semibold mb-3">6 months – 1 year old</p>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Fokus pada eksplorasi sensorik dan perkembangan dasar melalui aktivitas seperti tummy time,
-                        permainan warna, dan suara — membangun dasar fisik dan emosional.
+            {{-- 3 Mission Cards --}}
+            <div class="grid md:grid-cols-3 gap-8 mt-10">
+                {{-- Misi 1 --}}
+                <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#F0A04B] text-3xl mb-4">🌈</div>
+                    <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 1</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Menyediakan lingkungan pembelajaran yang aman, inklusif, dan penuh kasih, di mana setiap anak merasa
+                        dihargai, diterima, dan didorong untuk mengeksplorasi potensi mereka.
                     </p>
                 </div>
-            </div>
 
-            {{-- 2. Blossom Buds --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
-                data-aos="zoom-in" data-aos-delay="200">
-                <div class="h-44 bg-[#FADA7A]/40 flex items-center justify-center text-5xl">🌸</div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-[#4B5563] mb-1">Blossom Buds</h3>
-                    <p class="text-[#F0A04B] font-semibold mb-3">1 – 2 years old</p>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Tahap kemandirian awal dan eksplorasi. Anak belajar berjalan, mengenal bentuk, warna, dan bahasa sederhana
-                        melalui permainan interaktif yang menyenangkan.
+                {{-- Misi 2 --}}
+                <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#F0A04B] text-3xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 2</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Mendukung perkembangan sosial, emosional, dan akademik setiap anak melalui pendekatan pembelajaran
+                        yang
+                        menyenangkan dan berbasis eksplorasi.
                     </p>
                 </div>
-            </div>
 
-            {{-- 3. Sunshine Explorer --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
-                data-aos="zoom-in" data-aos-delay="300">
-                <div class="h-44 bg-[#F0A04B]/40 flex items-center justify-center text-5xl">☀️</div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-[#4B5563] mb-1">Sunshine Explorer</h3>
-                    <p class="text-[#F0A04B] font-semibold mb-3">3 – 4 years old</p>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Menumbuhkan kreativitas, komunikasi, dan kemampuan sosial. Anak belajar bercerita, mengenali pola,
-                        serta mengembangkan koordinasi motorik melalui seni dan permainan.
-                    </p>
-                </div>
-            </div>
-
-            {{-- 4. Morning Glories --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
-                data-aos="zoom-in" data-aos-delay="400">
-                <div class="h-44 bg-[#B1C29E]/30 flex items-center justify-center text-5xl">🌼</div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-[#4B5563] mb-1">Morning Glories</h3>
-                    <p class="text-[#F0A04B] font-semibold mb-3">5 – 6 years old</p>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Persiapan menuju sekolah dasar. Fokus pada literasi awal, numerasi, dan keterampilan sosial,
-                        sambil menumbuhkan tanggung jawab dan kepemimpinan melalui kegiatan kolaboratif.
+                {{-- Misi 3 --}}
+                <div class="bg-white rounded-3xl shadow-lg p-8 hover:scale-105 transition-transform duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-[#F0A04B] text-3xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold text-[#4B5563] mb-2">Misi 3</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Membangun kemitraan yang kuat dengan orang tua dan komunitas, memastikan bahwa pendidikan anak
+                        didukung
+                        oleh kerja sama yang erat antara rumah dan sekolah.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    {{-- GEDUNG & FASILITAS SECTION --}}
+    <section id="facilities" class="relative py-20 bg-[#FADA7A]/20 overflow-hidden">
+        {{-- Decorative circles --}}
+        <div class="absolute -top-16 right-10 w-48 h-48 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-56 h-56 bg-[#F0A04B]/30 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+                    Our Campus & Facilities
+                </h2>
+                <p class="text-white text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Gedung h!academy dirancang untuk menciptakan suasana belajar yang kondusif, modern, dan nyaman —
+                    mendukung pertumbuhan anak secara holistik di lingkungan yang penuh inspirasi.
+                </p>
+            </div>
+
+            {{-- Content Grid --}}
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                {{-- Image gallery --}}
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+                    <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('img/about.png') }}" alt="Ruang Kelas"
+                            class="object-cover w-full h-52 md:h-60 lg:h-64">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('img/about1.png') }}" alt="Perpustakaan"
+                            class="object-cover w-full h-52 md:h-60 lg:h-64">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('img/playground.jpg') }}" alt="Pusat Olahraga"
+                            class="object-cover w-full h-52 md:h-60 lg:h-64">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('img/about2.png') }}" alt="Asrama"
+                            class="object-cover w-full h-52 md:h-60 lg:h-64">
+                    </div>
+                </div>
+
+                {{-- Text content --}}
+                <div data-aos="fade-left" class="text-white space-y-6">
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#F0A04B] mb-4">Modern Learning Environment</h3>
+                    <ul class="space-y-3 text-base md:text-lg">
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#F0A04B] text-xl">🏫</span>
+                            <p><strong>Ruang Kelas:</strong> Dilengkapi teknologi terbaru untuk mendukung pembelajaran
+                                interaktif dan kreatif.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#B1C29E] text-xl">📚</span>
+                            <p><strong>Perpustakaan:</strong> Menyediakan akses luas terhadap berbagai bahan bacaan dan
+                                media pembelajaran digital.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#FADA7A] text-xl">⚽</span>
+                            <p><strong>Fasilitas Pendukung:</strong> Pusat olahraga, area bermain, dan asrama yang nyaman
+                                untuk siswa.</p>
+                        </li>
+                    </ul>
+
+                    <p class="mt-6 text-yellow-400 italic">
+                        “Nurturing Bright Futures with Hope” — setiap sudut h!academy dirancang untuk menumbuhkan semangat
+                        belajar dan rasa ingin tahu anak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- KURIKULUM SECTION --}}
+    <section id="curriculum" class="relative py-20 bg-[#FADA7A]/70 overflow-hidden">
+        {{-- Decorative background elements --}}
+        <div class="absolute top-0 left-0 w-40 h-40 bg-[#FADA7A]/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+                    Our Curriculum
+                </h2>
+                <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Tailored learning for each age group — nurturing creativity, curiosity, and confidence through play and
+                    exploration.
+                </p>
+            </div>
+
+            {{-- 4 Curriculum Cards --}}
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {{-- 1. Little Sprouts --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                    data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-44 bg-[#B1C29E]/30 flex items-center justify-center text-5xl">🌱</div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-[#4B5563] mb-1">Little Sprouts</h3>
+                        <p class="text-[#F0A04B] font-semibold mb-3">6 months – 1 year old</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Fokus pada eksplorasi sensorik dan perkembangan dasar melalui aktivitas seperti tummy time,
+                            permainan warna, dan suara — membangun dasar fisik dan emosional.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- 2. Blossom Buds --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                    data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-44 bg-[#FADA7A]/40 flex items-center justify-center text-5xl">🌸</div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-[#4B5563] mb-1">Blossom Buds</h3>
+                        <p class="text-[#F0A04B] font-semibold mb-3">1 – 2 years old</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Tahap kemandirian awal dan eksplorasi. Anak belajar berjalan, mengenal bentuk, warna, dan bahasa
+                            sederhana
+                            melalui permainan interaktif yang menyenangkan.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- 3. Sunshine Explorer --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                    data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-44 bg-[#F0A04B]/40 flex items-center justify-center text-5xl">☀️</div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-[#4B5563] mb-1">Sunshine Explorer</h3>
+                        <p class="text-[#F0A04B] font-semibold mb-3">3 – 4 years old</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Menumbuhkan kreativitas, komunikasi, dan kemampuan sosial. Anak belajar bercerita, mengenali
+                            pola,
+                            serta mengembangkan koordinasi motorik melalui seni dan permainan.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- 4. Morning Glories --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                    data-aos="zoom-in" data-aos-delay="400">
+                    <div class="h-44 bg-[#B1C29E]/30 flex items-center justify-center text-5xl">🌼</div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-[#4B5563] mb-1">Morning Glories</h3>
+                        <p class="text-[#F0A04B] font-semibold mb-3">5 – 6 years old</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Persiapan menuju sekolah dasar. Fokus pada literasi awal, numerasi, dan keterampilan sosial,
+                            sambil menumbuhkan tanggung jawab dan kepemimpinan melalui kegiatan kolaboratif.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{-- CURRICULUM --}}
     <section class="py-20 bg-[#FADA7A]/20 text-center relative">
@@ -620,7 +619,17 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    {{-- AOS Animation --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+    </script>
     {{-- SwiperJS CDN --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
