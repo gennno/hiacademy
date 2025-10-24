@@ -81,7 +81,7 @@
                 style="right:1rem;">
                 <a href="/login"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>🔐</span><span>Login</span>
+                    <span>Login</span>
                 </a>
             </div>
 
@@ -394,24 +394,56 @@
             </div>
 
             {{-- Image gallery --}}
-            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64">
-                </div>
+{{-- Image gallery --}}
+<div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+    <!-- Image 1 -->
+    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+        <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
+            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
+                <p class="text-sm">International Preschool, Child Development</p>
             </div>
+        </div>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+        <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
+            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                <h3 class="text-lg font-bold mb-2">Core Academics</h3>
+                <p class="text-sm">Math, English, and Mandarin Programs</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+        <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
+            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                <h3 class="text-lg font-bold mb-2">Future Skills</h3>
+                <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image 4 -->
+    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+        <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
+            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                <h3 class="text-lg font-bold mb-2">Parent Support</h3>
+                <p class="text-sm">Parenting life Indonesia</p>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
@@ -461,11 +493,12 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover"
+                        alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
                         <h3 class="text-lg font-semibold text-white">Child Development Program</h3>
@@ -520,7 +553,7 @@
                         </a>
                     </div>
                 </div>
-<div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="400">
                     <img src="{{ asset('img/math.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
@@ -561,7 +594,7 @@
 
                     </div>
                 </div>
-                
+
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="400">
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
@@ -615,7 +648,7 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Parenting life Indonesia</h3>
                         <p class="text-sm text-gray-200 mb-4">Parenting life Indonesia.</p>
-                        <a href="https://timedooracademy.com/"
+                        <a href="https://parentinglife.id/"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -649,7 +682,9 @@
                     </h2>
 
                     <p class="mt-6 text-gray-200 leading-relaxed">
-                        HiAcademy delivers exclusive, personalized learning through small-size classes. This approach, combined with our experienced teachers and all-in-one platform, ensures every student receives the dedicated attention they need to excel.
+                        HiAcademy delivers exclusive, personalized learning through small-size classes. This approach,
+                        combined with our experienced teachers and all-in-one platform, ensures every student receives the
+                        dedicated attention they need to excel.
                     </p>
                     <div class="mt-8">
                         <a href="#contact"
@@ -815,10 +850,9 @@
                 <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
                     <h5 class="text-2xl text-white tracking-wide">Why Choose Us?</h5>
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight">
-                        <span
-                            class="bg-gradient-to-r text-yellow-400 bg-clip-text text-transparent drop-shadow-md">
+                        <span class="bg-gradient-to-r text-yellow-400 bg-clip-text text-transparent drop-shadow-md">
                             Nurturing Bright Futures
-                        </span><br>with Love & Hope 
+                        </span><br>with Love & Hope
                     </h3>
                     <p class="text-gray-300 text-lg leading-relaxed">
                         At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
@@ -826,7 +860,7 @@
                     </p>
                     <a href="#"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
-                         Join Now
+                        Join Now
                     </a>
                 </div>
 
