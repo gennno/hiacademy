@@ -326,7 +326,7 @@
                         </p>
 
                         <div class="mt-10">
-                            <a href="#cta"
+                            <a href="{{ route('booktrial') }}"
                                 class="inline-block hero-animate hero-btn bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                                 Book Free Trial →
                             </a>
@@ -386,7 +386,7 @@
                         class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
                         Talk to Us
                     </a>
-                    <a href="#cta"
+                    <a href="{{ route('booktrial') }}"
                         class="bg-yellow-300 text-black px-6 py-3 text-base font-medium rounded-md shadow-md hover:bg-yellow-200 transition duration-300">
                         Free Trial →
                     </a>
@@ -687,7 +687,7 @@
                         dedicated attention they need to excel.
                     </p>
                     <div class="mt-8">
-                        <a href="#contact"
+                        <a href="{{ route('booktrial') }}"
                             class="inline-block bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition transform hover:scale-110 hover:rotate-1">
                             Book Free Trial
                         </a>
@@ -899,11 +899,11 @@
                     <div class="hover:scale-[1.02] transition duration-300">
                         <h5 class="text-xl font-bold mb-4 text-yellow-400">Quick Links</h5>
                         <ul class="grid grid-cols-1 gap-3 text-gray-300 text-base">
-                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="{{ route('booktrial') }}" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="{{ route('loginindex') }}" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-phone"></i> Contact Us</a></li>

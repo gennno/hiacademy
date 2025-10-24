@@ -122,7 +122,7 @@
                 </a>
 
                 <!-- Login Button -->
-                <a href="/login"
+                <a href="/preschool-login"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                     <span>Login</span>
                 </a>
@@ -165,7 +165,7 @@
                     data-target="tour">🏫 Schedule a Visit</a>
 
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/login"
+                    <a href="/preschool-login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                         <span>🔐</span><span>Login</span>
                     </a>
@@ -318,7 +318,7 @@
     </script>
 
     {{-- HERO SECTION --}}
-    <section id="hero"
+    <section id="home"
         class="relative flex items-center justify-center text-center h-[85vh] sm:h-[90vh] bg-cover bg-center overflow-hidden"
         style="background-image: url('{{ asset('img/hero.jpg') }}');">
 
@@ -777,228 +777,248 @@
     </style>
     {{-- KURIKULUM SECTION --}}
     <section id="curriculum" class="relative py-20 bg-[#B1C29E] overflow-hidden">
-    {{-- Decorative background elements --}}
-    <div class="absolute top-0 left-0 w-40 h-40 bg-[#FADA7A]/30 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
+        {{-- Decorative background elements --}}
+        <div class="absolute top-0 left-0 w-40 h-40 bg-[#FADA7A]/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
-                Our Curriculum
-            </h2>
-            <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-                Tailored learning for each age group — nurturing creativity, curiosity, and confidence through play and
-                exploration.
-            </p>
-        </div>
-
-        {{-- Detailed Curriculum Section with Image Left, Text Right Layout --}}
-<div class="mt-16 space-y-8">
-    {{-- Little Sprouts Detailed --}}
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-        <div class="flex h-full">
-            <div class="w-2/5 h-full flex-shrink-0">
-                <img src="{{ asset('img/sprouts.jpg') }}" 
-                     alt="Little Sprouts Detailed" 
-                     class="w-full h-full object-cover">
-            </div>
-            <div class="w-3/5 p-6 flex flex-col justify-center">
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Little Sprouts</h3>
-                <p class="text-[#F0A04B] font-semibold mb-3">6 months – 1 year old</p>
-                <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                    The curriculum focuses on sensory exploration and foundational development, fostering growth through tummy time, grasping toys, and exploring textures, colors, and sounds. Babies engage in activities that encourage bonding, responding to coos and babbles, and participating in simple songs and rhymes, laying the groundwork for physical, cognitive, and social-emotional development.
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+                    Our Curriculum
+                </h2>
+                <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Tailored learning for each age group — nurturing creativity, curiosity, and confidence through play and
+                    exploration.
                 </p>
             </div>
-        </div>
-    </div>
 
-    {{-- Blossom Buds Detailed --}}
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-        <div class="flex h-full">
-            <div class="w-2/5 h-full flex-shrink-0">
-                <img src="{{ asset('img/buds.jpg') }}" 
-                     alt="Blossom Buds Detailed" 
-                     class="w-full h-full object-cover">
-            </div>
-            <div class="w-3/5 p-6 flex flex-col justify-center">
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Blossom Buds</h3>
-                <p class="text-[#F0A04B] font-semibold mb-3">1 – 2 years old</p>
-                <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                    This stage emphasizes early independence and discovery, with activities designed to enhance walking, climbing, and stacking skills. Children explore shapes, colors, and cause-effect toys while expanding their vocabulary and responding to simple instructions. Parallel play and routines help develop social-emotional skills, promoting confidence and adaptability.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    {{-- Sunshine Explorer Detailed --}}
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-        <div class="flex h-full">
-            <div class="w-2/5 h-full flex-shrink-0">
-                <img src="{{ asset('img/sunshine.jpg') }}" 
-                     alt="Sunshine Explorer Detailed" 
-                     class="w-full h-full object-cover">
-            </div>
-            <div class="w-3/5 p-6 flex flex-col justify-center">
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Sunshine Explorer</h3>
-                <p class="text-[#F0A04B] font-semibold mb-3">3 – 4 years old</p>
-                <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                    Focused on creativity, communication, and social skills, this curriculum includes running, jumping, and improving fine motor coordination through art and play. Children engage in imaginative activities, pattern recognition, and early numeracy, while developing language skills through storytelling and asking questions. Cooperative play and emotional understanding are nurtured in group settings.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    {{-- Morning Glories Detailed --}}
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-        <div class="flex h-full">
-            <div class="w-2/5 h-full flex-shrink-0">
-                <img src="{{ asset('img/morning.jpg') }}" 
-                     alt="Morning Glories Detailed" 
-                     class="w-full h-full object-cover">
-            </div>
-            <div class="w-3/5 p-6 flex flex-col justify-center">
-                <h3 class="text-xl font-bold text-[#4B5563] mb-2">Morning Glories</h3>
-                <p class="text-[#F0A04B] font-semibold mb-3">5 – 6 years old</p>
-                <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                    Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced motor skills like skipping and writing readiness. Activities include pre-literacy and numeracy development, storytelling, and problem-solving. Social-emotional skills are strengthened through teamwork, self-regulation, and leadership opportunities, fostering responsibility and independence.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-.line-clamp-5 {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-</style>
-    </div>
-</section>
-{{-- PROGRAMS --}}
-<section id="programs" class="py-20 bg-[#CADCAE] relative overflow-hidden">
-    <div class="absolute bottom-0 right-0 w-52 h-52 bg-[#FADA7A]/40 rounded-full blur-2xl"></div>
-    <div class="max-w-6xl mx-auto px-6">
-        <h4 class="text-lg md:text-xl font-sans font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
-            Programs
-        </h4>
-        
-        <!-- Horizontal Scroll Container with Navigation -->
-        <div class="relative group">
-            <!-- Navigation Buttons -->
-            <button class="programs-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#F0A04B] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -ml-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            
-            <button class="programs-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#F0A04B] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -mr-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-
-            <!-- Swiper Container -->
-            <div class="swiper programs-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Playgroup -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/playgroup.jpg') }}" alt="Playgroup" class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#FADA7A]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Playgroup</h3>
-                                <p class="text-gray-600">18 months – 2 years</p>
-                            </div>
+            {{-- Detailed Curriculum Section with Image Left, Text Right Layout --}}
+            <div class="mt-16 space-y-8">
+                {{-- Little Sprouts Detailed --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
+                    <div class="flex h-full">
+                        <div class="w-2/5 h-full flex-shrink-0">
+                            <img src="{{ asset('img/sprouts.jpg') }}" alt="Little Sprouts Detailed"
+                                class="w-full h-full object-cover">
                         </div>
-                    </div>
-
-                    <!-- Pre-Nursery & Nursery -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/nursery.jpg') }}" alt="Pre-Nursery & Nursery"
-                                    class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#B1C29E]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Pre-Nursery & Nursery</h3>
-                                <p class="text-gray-600">2 – 3 years</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kindergarten 1-3 -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/kindergarten.jpg') }}" alt="Kindergarten 1-3"
-                                    class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#FCE7C8]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Kindergarten 1-3</h3>
-                                <p class="text-gray-600">3 – 6 years</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Specialist Classes -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/specialist.jpg') }}" alt="Specialist Classes"
-                                    class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Specialist Classes</h3>
-                                <p class="text-gray-600">All ages</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Music Program -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/specialist.jpg') }}" alt="Music Program"
-                                    class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Music Program</h3>
-                                <p class="text-gray-600">All ages</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Art Program -->
-                    <div class="swiper-slide">
-                        <div class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
-                            <div class="h-48 w-full relative">
-                                <img src="{{ asset('img/specialist.jpg') }}" alt="Art Program"
-                                    class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
-                            </div>
-                            <div class="p-5 text-center">
-                                <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Art Program</h3>
-                                <p class="text-gray-600">All ages</p>
-                            </div>
+                        <div class="w-3/5 p-6 flex flex-col justify-center">
+                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Little Sprouts</h3>
+                            <p class="text-[#F0A04B] font-semibold mb-3">6 months – 1 year old</p>
+                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
+                                The curriculum focuses on sensory exploration and foundational development, fostering growth
+                                through tummy time, grasping toys, and exploring textures, colors, and sounds. Babies engage
+                                in activities that encourage bonding, responding to coos and babbles, and participating in
+                                simple songs and rhymes, laying the groundwork for physical, cognitive, and social-emotional
+                                development.
+                            </p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Pagination Dots -->
-                <div class="swiper-pagination mt-6"></div>
+
+                {{-- Blossom Buds Detailed --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
+                    <div class="flex h-full">
+                        <div class="w-2/5 h-full flex-shrink-0">
+                            <img src="{{ asset('img/buds.jpg') }}" alt="Blossom Buds Detailed"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-3/5 p-6 flex flex-col justify-center">
+                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Blossom Buds</h3>
+                            <p class="text-[#F0A04B] font-semibold mb-3">1 – 2 years old</p>
+                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
+                                This stage emphasizes early independence and discovery, with activities designed to enhance
+                                walking, climbing, and stacking skills. Children explore shapes, colors, and cause-effect
+                                toys while expanding their vocabulary and responding to simple instructions. Parallel play
+                                and routines help develop social-emotional skills, promoting confidence and adaptability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Sunshine Explorer Detailed --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
+                    <div class="flex h-full">
+                        <div class="w-2/5 h-full flex-shrink-0">
+                            <img src="{{ asset('img/sunshine.jpg') }}" alt="Sunshine Explorer Detailed"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-3/5 p-6 flex flex-col justify-center">
+                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Sunshine Explorer</h3>
+                            <p class="text-[#F0A04B] font-semibold mb-3">3 – 4 years old</p>
+                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
+                                Focused on creativity, communication, and social skills, this curriculum includes running,
+                                jumping, and improving fine motor coordination through art and play. Children engage in
+                                imaginative activities, pattern recognition, and early numeracy, while developing language
+                                skills through storytelling and asking questions. Cooperative play and emotional
+                                understanding are nurtured in group settings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Morning Glories Detailed --}}
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
+                    <div class="flex h-full">
+                        <div class="w-2/5 h-full flex-shrink-0">
+                            <img src="{{ asset('img/morning.jpg') }}" alt="Morning Glories Detailed"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-3/5 p-6 flex flex-col justify-center">
+                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Morning Glories</h3>
+                            <p class="text-[#F0A04B] font-semibold mb-3">5 – 6 years old</p>
+                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
+                                Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced
+                                motor skills like skipping and writing readiness. Activities include pre-literacy and
+                                numeracy development, storytelling, and problem-solving. Social-emotional skills are
+                                strengthened through teamwork, self-regulation, and leadership opportunities, fostering
+                                responsibility and independence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .line-clamp-5 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            </style>
+        </div>
+    </section>
+    {{-- PROGRAMS --}}
+    <section id="programs" class="py-20 bg-[#CADCAE] relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-52 h-52 bg-[#FADA7A]/40 rounded-full blur-2xl"></div>
+        <div class="max-w-6xl mx-auto px-6">
+            <h4 class="text-lg md:text-xl font-sans font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+                Programs
+            </h4>
+
+            <!-- Horizontal Scroll Container with Navigation -->
+            <div class="relative group">
+                <!-- Navigation Buttons -->
+                <button
+                    class="programs-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#F0A04B] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -ml-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <button
+                    class="programs-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#F0A04B] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -mr-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Swiper Container -->
+                <div class="swiper programs-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Playgroup -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/playgroup.jpg') }}" alt="Playgroup"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#FADA7A]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Playgroup</h3>
+                                    <p class="text-gray-600">18 months – 2 years</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pre-Nursery & Nursery -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/nursery.jpg') }}" alt="Pre-Nursery & Nursery"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#B1C29E]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Pre-Nursery & Nursery</h3>
+                                    <p class="text-gray-600">2 – 3 years</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kindergarten 1-3 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/kindergarten.jpg') }}" alt="Kindergarten 1-3"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#FCE7C8]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Kindergarten 1-3</h3>
+                                    <p class="text-gray-600">3 – 6 years</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specialist Classes -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/specialist.jpg') }}" alt="Specialist Classes"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Specialist Classes</h3>
+                                    <p class="text-gray-600">All ages</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Music Program -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/specialist.jpg') }}" alt="Music Program"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Music Program</h3>
+                                    <p class="text-gray-600">All ages</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Art Program -->
+                        <div class="swiper-slide">
+                            <div
+                                class="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-white h-full">
+                                <div class="h-48 w-full relative">
+                                    <img src="{{ asset('img/specialist.jpg') }}" alt="Art Program"
+                                        class="h-full w-full object-cover">
+                                    <div class="absolute inset-0 bg-[#F0A04B]/30"></div>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="text-xl font-bold text-[#F0A04B] mb-1">Art Program</h3>
+                                    <p class="text-gray-600">All ages</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Dots -->
+                    <div class="swiper-pagination mt-6"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     {{-- GEDUNG & FASILITAS SECTION --}}
     <section id="our-centre" class="relative py-20 bg-[#FADA7A]/20 overflow-hidden">
         {{-- Decorative circles --}}
@@ -1294,7 +1314,8 @@
                                         class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="{{ route('loginindex') }}"
+                                    class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-phone"></i> Contact Us</a></li>
@@ -1457,77 +1478,77 @@
         });
     </script>
 
-<style>
-.programs-swiper {
-    padding: 10px 5px 30px;
-}
+    <style>
+        .programs-swiper {
+            padding: 10px 5px 30px;
+        }
 
-.swiper-slide {
-    height: auto;
-}
+        .swiper-slide {
+            height: auto;
+        }
 
-.swiper-pagination-bullet {
-    background-color: #B1C29E;
-    opacity: 0.5;
-    width: 10px;
-    height: 10px;
-}
+        .swiper-pagination-bullet {
+            background-color: #B1C29E;
+            opacity: 0.5;
+            width: 10px;
+            height: 10px;
+        }
 
-.swiper-pagination-bullet-active {
-    background-color: #F0A04B;
-    opacity: 1;
-}
+        .swiper-pagination-bullet-active {
+            background-color: #F0A04B;
+            opacity: 1;
+        }
 
-/* Custom scrollbar styling */
-.programs-swiper::-webkit-scrollbar {
-    height: 6px;
-}
+        /* Custom scrollbar styling */
+        .programs-swiper::-webkit-scrollbar {
+            height: 6px;
+        }
 
-.programs-swiper::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
+        .programs-swiper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
 
-.programs-swiper::-webkit-scrollbar-thumb {
-    background: #F0A04B;
-    border-radius: 10px;
-}
+        .programs-swiper::-webkit-scrollbar-thumb {
+            background: #F0A04B;
+            border-radius: 10px;
+        }
 
-.programs-swiper::-webkit-scrollbar-thumb:hover {
-    background: #e0903b;
-}
-</style>
+        .programs-swiper::-webkit-scrollbar-thumb:hover {
+            background: #e0903b;
+        }
+    </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const programsSwiper = new Swiper('.programs-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        centeredSlides: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.programs-next',
-            prevEl: '.programs-prev',
-        },
-        breakpoints: {
-            480: {
-                slidesPerView: 1.5,
-            },
-            640: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 3,
-            },
-            1024: {
-                slidesPerView: 4,
-            },
-        },
-    });
-});
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const programsSwiper = new Swiper('.programs-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                centeredSlides: false,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.programs-next',
+                    prevEl: '.programs-prev',
+                },
+                breakpoints: {
+                    480: {
+                        slidesPerView: 1.5,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                },
+            });
+        });
+    </script>
 @endsection

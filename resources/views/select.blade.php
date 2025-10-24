@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- 🔙 Back Button --}}
-    <a href="{{ route('home') }}"
+    <a href="{{ url()->previous() }}"
        class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
@@ -46,33 +46,10 @@
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
-
-        /* Admin Panel Styles */
-        #admin-panel {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        #admin-panel.active {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: all;
-        }
-
-        .secret-spot {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            z-index: 40;
-        }
     </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Background carousel
             const slides = document.querySelectorAll('#background-carousel .carousel-slide');
             let currentIndex = 0;
             setInterval(() => {
@@ -80,43 +57,17 @@
                 currentIndex = (currentIndex + 1) % slides.length;
                 slides[currentIndex].classList.add('active');
             }, 4000);
-
-            // Admin panel functionality
-            const adminPanel = document.getElementById('admin-panel');
-            const closeAdminBtn = document.getElementById('close-admin');
-            const secretSpot = document.getElementById('secret-spot');
-
-            // Toggle admin panel when secret spot is clicked
-            secretSpot.addEventListener('click', () => {
-                adminPanel.classList.add('active');
-            });
-
-            // Close admin panel
-            closeAdminBtn.addEventListener('click', () => {
-                adminPanel.classList.remove('active');
-            });
-
-            // Close admin panel when clicking outside
-            adminPanel.addEventListener('click', (e) => {
-                if (e.target === adminPanel) {
-                    adminPanel.classList.remove('active');
-                }
-            });
         });
     </script>
-
-    {{-- Secret Admin Spot (hidden in mascot) --}}
-    <div id="secret-spot" class="secret-spot" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
 
     {{-- 🔸 Main Section --}}
     <div class="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-10 md:gap-16 overflow-y-auto">
 
         {{-- 🟡 Program Selection + Mascot --}}
         <div class="flex flex-col items-center text-center space-y-6 max-w-6xl w-full text-white">
-            <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6 relative">
-                <img src="{{ asset('img/8.png') }}" alt="Mascot"
-                    class="w-24 sm:w-32 md:w-48 lg:w-56 animate-float drop-shadow-lg cursor-pointer" 
-                    onclick="document.getElementById('admin-panel').classList.add('active')">
+            <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
+                <img src="{{ asset('img/masc_3.png') }}" alt="Mascot"
+                    class="w-24 sm:w-32 md:w-48 lg:w-56 animate-float drop-shadow-lg">
                 <div>
                     <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">
                         Choose Your Program
@@ -131,7 +82,7 @@
             <div class="mt-4 w-full">
                 @php
                     $programs = [
-                        ['name' => 'International Preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'url' => '/preschool-login'],
+                        ['name' => 'International Preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400'],
                         ['name' => 'Child Development Program', 'icon' => 'fa-child', 'color' => 'border-cyan-400 hover:bg-cyan-400'],
                         ['name' => 'English Program', 'icon' => 'fa-book-open', 'color' => 'border-green-400 hover:bg-green-400'],
                         ['name' => 'Mandarin Program', 'icon' => 'fa-language', 'color' => 'border-red-500 hover:bg-red-500'],
@@ -152,57 +103,6 @@
                         </a>
                     @endforeach
                 </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Hidden Admin Login Panel --}}
-    <div id="admin-panel" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-        <div class="bg-gray-900 rounded-2xl p-6 sm:p-8 max-w-md w-full border-2 border-yellow-500 relative">
-            {{-- Close Button --}}
-            <button id="close-admin" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            {{-- Admin Login Form --}}
-            <div class="text-center mb-6">
-                <i class="fa-solid fa-user-shield text-yellow-500 text-4xl mb-4"></i>
-                <h2 class="text-2xl font-bold text-white">Admin Access</h2>
-                <p class="text-gray-400 mt-2">Restricted area - authorized personnel only</p>
-            </div>
-
-            <form action="" method="POST" class="space-y-4">
-                @csrf
-                <div>
-                    <label for="admin-email" class="block text-sm font-medium text-gray-300 mb-1">Admin ID</label>
-                    <input type="text" id="admin-email" name="email" 
-                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                           placeholder="Enter admin ID" required>
-                </div>
-                
-                <div>
-                    <label for="admin-password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
-                    <input type="password" id="admin-password" name="password" 
-                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                           placeholder="Enter password" required>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-700 rounded bg-gray-800">
-                        <label for="remember" class="ml-2 block text-sm text-gray-300">Remember me</label>
-                    </div>
-                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-400">Forgot password?</a>
-                </div>
-
-                <button type="submit" 
-                        class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
-                    Access Admin Panel
-                </button>
-            </form>
-
-            <div class="mt-6 text-center">
-                <p class="text-xs text-gray-500">For security reasons, all access attempts are logged</p>
             </div>
         </div>
     </div>

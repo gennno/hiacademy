@@ -73,7 +73,7 @@
                 </a>
 
                 <!-- Login Button -->
-                <a href="/login"
+                <a href="/preschool-login"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                     <span>Login</span>
                 </a>
@@ -116,7 +116,7 @@
                     data-target="tour">🏫 Schedule a Visit</a>
 
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/login"
+                    <a href="/preschool-login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                         <span>🔐</span><span>Login</span>
                     </a>
