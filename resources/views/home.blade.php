@@ -106,19 +106,19 @@
             <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
                 <a href="#home"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
-                    data-target="home">🏠 Home</a>
+                    data-target="home">Home</a>
                 <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">ℹ️ About</a>
+                    data-target="about">About</a>
                 <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Programs</a>
+                    data-target="programs">Programs</a>
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="contact">📞 Contact</a>
+                    data-target="contact">Contact</a>
 
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span><span>Login</span>
+                        <span>Login</span>
                     </a>
                 </div>
             </nav>
@@ -394,56 +394,64 @@
             </div>
 
             {{-- Image gallery --}}
-{{-- Image gallery --}}
-<div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-    <!-- Image 1 -->
-    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-        <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
-            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
-                <p class="text-sm">International Preschool, Child Development</p>
-            </div>
-        </div>
-    </div>
+            {{-- Image gallery --}}
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+                <!-- Image 1 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
+                            <p class="text-sm">International Preschool, Child Development</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Image 2 -->
-    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-        <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
-            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                <h3 class="text-lg font-bold mb-2">Core Academics</h3>
-                <p class="text-sm">Math, English, and Mandarin Programs</p>
-            </div>
-        </div>
-    </div>
+                <!-- Image 2 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Core Academics</h3>
+                            <p class="text-sm">Math, English, and Mandarin Programs</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Image 3 -->
-    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-        <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
-            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                <h3 class="text-lg font-bold mb-2">Future Skills</h3>
-                <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
-            </div>
-        </div>
-    </div>
+                <!-- Image 3 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Future Skills</h3>
+                            <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Image 4 -->
-    <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-        <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
-            class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-            <div class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                <h3 class="text-lg font-bold mb-2">Parent Support</h3>
-                <p class="text-sm">Parenting life Indonesia</p>
+                <!-- Image 4 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Parent Support</h3>
+                            <p class="text-sm">Parenting life Indonesia</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
         </div>
     </section>
 
@@ -899,11 +907,13 @@
                     <div class="hover:scale-[1.02] transition duration-300">
                         <h5 class="text-xl font-bold mb-4 text-yellow-400">Quick Links</h5>
                         <ul class="grid grid-cols-1 gap-3 text-gray-300 text-base">
-                            <li><a href="{{ route('booktrial') }}" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="{{ route('booktrial') }}"
+                                    class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="{{ route('loginindex') }}" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="{{ route('loginindex') }}"
+                                    class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-phone"></i> Contact Us</a></li>

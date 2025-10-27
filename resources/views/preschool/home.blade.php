@@ -52,6 +52,7 @@
             setInterval(showNextSlide, 3000);
         });
     </script>
+
     {{-- HEADER / NAVBAR --}}
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
         <div class="relative flex items-center shadow-sm justify-between px-6 lg:px-12 py-4">
@@ -77,7 +78,7 @@
 
             <!-- NAV (centered on viewport) - visible on lg+ -->
             <nav id="primary-nav"
-                class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
+                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
                 role="navigation" aria-label="Primary Navigation">
                 <a href="#home" class="nav-link" data-target="home">Home</a>
 
@@ -123,12 +124,12 @@
 
                 <!-- Login Button -->
                 <a href="/preschool-login"
-                    class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                    class="hidden xl:inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                     <span>Login</span>
                 </a>
 
                 <!-- Hamburger Button (mobile + tablet) -->
-                <button id="menu-btn" class="lg:hidden text-black focus:outline-none z-50" aria-controls="mobile-menu"
+                <button id="menu-btn" class="xl:hidden text-white focus:outline-none z-50" aria-controls="mobile-menu"
                     aria-expanded="false" aria-label="Toggle menu">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -141,31 +142,39 @@
                 </button>
             </div>
         </div>
-
         <!-- Mobile/Tablet Menu -->
         <div id="mobile-menu"
-            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl lg:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
+            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl xl:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
             style="max-height:0px;" aria-hidden="true">
             <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
                 <a href="#home"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
                     data-target="home">🏠 Home</a>
                 <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">ℹ️ About</a>
+                    data-target="about">ℹ️ About Us</a>
                 <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Programs</a>
+                <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 Our Curriculum</a>
+                    <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 IPC CUrriculum</a>
+                    <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 Our Centre</a>
+                    <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 Admission Process</a>
+                    <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">🎯 Parenting</a>
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="contact">📞 Contact</a>
 
-                <!-- Mobile Buttons -->
-                <a href="#apply" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="apply">📝 Apply Now</a>
-                <a href="#tour" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="tour">🏫 Schedule a Visit</a>
-
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/preschool-login"
+                    <a href="/login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                         <span>🔐</span><span>Login</span>
                     </a>
@@ -1336,6 +1345,13 @@
         class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
         ↑
     </button>
+    {{-- SwiperJS CDN --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    {{-- AOS Animation --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         const backToTopBtn = document.getElementById("backToTopBtn");
 
@@ -1373,12 +1389,6 @@
             mobileMenu.classList.toggle('animate-slideDown');
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    {{-- AOS Animation --}}
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({
@@ -1387,9 +1397,6 @@
             });
         });
     </script>
-    {{-- SwiperJS CDN --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const swiper = new Swiper(".heroSwiper", {
@@ -1477,7 +1484,6 @@
             });
         });
     </script>
-
     <style>
         .programs-swiper {
             padding: 10px 5px 30px;
@@ -1518,7 +1524,6 @@
             background: #e0903b;
         }
     </style>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const programsSwiper = new Swiper('.programs-swiper', {
