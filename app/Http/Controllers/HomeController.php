@@ -23,6 +23,10 @@ class HomeController extends Controller
     {
         return view('preschool.admission');
     }
+        public function ipc()
+    {
+        return view('preschool.ipc');
+    }
         public function loginindex()
     {
         return view('login');
@@ -35,5 +39,6 @@ class HomeController extends Controller
     {
         return view('booktrial');
     }
+
 
 }

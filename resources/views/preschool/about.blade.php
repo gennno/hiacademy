@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <a href="#admission" class="nav-link" data-target="admission">Admission Process</a>
+                <a href="/admissionpreschool" class="nav-link" data-target="admission">Admission Process</a>
                 <a href="https://parentinglife.id/" target="_blank" rel="noopener noreferrer" class="nav-link"
                     data-target="parenting">Parenting</a>
                 <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
@@ -443,7 +443,7 @@
 
                 {{-- Kolom kanan untuk gambar --}}
                 <div class="lg:w-1/2 flex justify-center lg:justify-end">
-                    <img src="{{ asset('img/vision.png') }}" alt="About h!aacademy"
+                    <img src="{{ asset('img/carousel7.jpg') }}" alt="About h!aacademy"
                         class="rounded-lg shadow-lg w-full max-w-md lg:max-w-full object-cover">
                 </div>
             </div>
@@ -471,7 +471,7 @@
                     <h3 class="card-title">VISION</h3>
                     <div class="card-content">
                         <div class="short-content">
-                            Kids Kingdom is dedicated to nurturing well-rounded development in every child.
+                            h!academy is dedicated to nurturing well-rounded development in every child.
                         </div>
                         <div class="full-content" id="vision-content">
                             <p>"To build a generation of children filled with hope,
@@ -1109,7 +1109,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({
-                duration: 1000,
+                duration: 800,
                 once: true
             });
         });

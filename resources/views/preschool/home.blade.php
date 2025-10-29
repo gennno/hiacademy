@@ -102,7 +102,7 @@
                     </div>
                 </div>
 
-                <a href="#admission" class="nav-link" data-target="admission">Admission Process</a>
+                <a href="/admissionpreschool" class="nav-link" data-target="admission">Admission Process</a>
                 <a href="https://parentinglife.id/" target="_blank" rel="noopener noreferrer" class="nav-link"
                     data-target="parenting">Parenting</a>
                 <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
@@ -164,7 +164,7 @@
                     <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Our Centre</a>
-                    <a href="#programs"
+                    <a href="/admissionpreschool"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Admission Process</a>
                     <a href="#programs"
@@ -386,7 +386,7 @@
 
                 {{-- Kolom kanan untuk gambar --}}
                 <div class="lg:w-1/2 flex justify-center lg:justify-end">
-                    <img src="{{ asset('img/vision.png') }}" alt="About h!aacademy"
+                    <img src="{{ asset('img/carousel1.jpg') }}" alt="About h!aacademy"
                         class="rounded-lg shadow-lg w-full max-w-md lg:max-w-full object-cover">
                 </div>
             </div>
@@ -499,7 +499,7 @@
                     <div class="relative">
                         <!-- Main Image -->
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="{{ asset('img/Rectangle-41134.webp') }}"
+                            <img src="{{ asset('img/kids.png') }}"
                                 alt="Happy children at Kids Kingdom Preschool" class="w-full h-auto max-w-md rounded-2xl">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         </div>
@@ -807,7 +807,7 @@
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
                     <div class="flex h-full">
                         <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/sprouts.jpg') }}" alt="Little Sprouts Detailed"
+                            <img src="{{ asset('img/6month.jpg') }}" alt="Little Sprouts Detailed"
                                 class="w-full h-full object-cover">
                         </div>
                         <div class="w-3/5 p-6 flex flex-col justify-center">
@@ -848,7 +848,7 @@
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
                     <div class="flex h-full">
                         <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/sunshine.jpg') }}" alt="Sunshine Explorer Detailed"
+                            <img src="{{ asset('img/1years.jpg') }}" alt="Sunshine Explorer Detailed"
                                 class="w-full h-full object-cover">
                         </div>
                         <div class="w-3/5 p-6 flex flex-col justify-center">
@@ -869,7 +869,7 @@
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
                     <div class="flex h-full">
                         <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/morning.jpg') }}" alt="Morning Glories Detailed"
+                            <img src="{{ asset('img/5years.jpg') }}" alt="Morning Glories Detailed"
                                 class="w-full h-full object-cover">
                         </div>
                         <div class="w-3/5 p-6 flex flex-col justify-center">
@@ -1051,19 +1051,19 @@
                 {{-- Image gallery --}}
                 <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
                     <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                        <img src="{{ asset('img/about.png') }}" alt="Ruang Kelas"
+                        <img src="{{ asset('img/building6.png') }}" alt="Ruang Kelas"
                             class="object-cover w-full h-52 md:h-60 lg:h-64">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                        <img src="{{ asset('img/about1.png') }}" alt="Perpustakaan"
+                        <img src="{{ asset('img/building5.png') }}" alt="Perpustakaan"
                             class="object-cover w-full h-52 md:h-60 lg:h-64">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                        <img src="{{ asset('img/about1.png') }}" alt="Pusat Olahraga"
+                        <img src="{{ asset('img/building3.png') }}" alt="Pusat Olahraga"
                             class="object-cover w-full h-52 md:h-60 lg:h-64">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-                        <img src="{{ asset('img/about2.png') }}" alt="Asrama"
+                        <img src="{{ asset('img/building4.png') }}" alt="Asrama"
                             class="object-cover w-full h-52 md:h-60 lg:h-64">
                     </div>
                 </div>
@@ -1392,7 +1392,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({
-                duration: 1000,
+                duration: 800,
                 once: true
             });
         });
