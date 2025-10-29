@@ -21,7 +21,7 @@
                 </a>
 
                 <!-- Logo -->
-                <a href="#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
+                <a href="/preschool#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
                     <img src="{{ asset('img/logofull.png') }}" alt="Logo"
                         class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
                 </a>
@@ -31,7 +31,7 @@
             <nav id="primary-nav"
                 class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
                 role="navigation" aria-label="Primary Navigation">
-                <a href="#home" class="nav-link" data-target="home">Home</a>
+                <a href="/preschool#home" class="nav-link" data-target="home">Home</a>
 
                 <!-- About Us with Dropdown -->
                 <div class="relative group">
@@ -109,16 +109,16 @@
                 <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Our Curriculum</a>
-                    <a href="#programs"
+                <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 IPC CUrriculum</a>
-                    <a href="#programs"
+                <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Our Centre</a>
-                    <a href="/admissionpreschool"
+                <a href="/admissionpreschool"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Admission Process</a>
-                    <a href="#programs"
+                <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">🎯 Parenting</a>
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
@@ -289,11 +289,13 @@
                 <div class="lg:w-1/2 pt-12 text-left">
                     <h2
                         class="text-4xl md:text-5xl font-mono font-extrabold max-w-2xl text-white mb-4 uppercase tracking-wide">
-                        Admission Process
+                        IPC Curriculum
                     </h2>
                     <p class="text-md text-black font-sans text-base md:text-md leading-relaxed">
-                        Explore the essential steps of enrollment for your child to embark on an exciting journey of
-                        learning and discovery at h!academy.
+                        The International Preschool Curriculum (IPC) is a comprehensive early childhood education program
+                        designed to provide a balanced approach to learning. It integrates various educational methodologies
+                        to cater to diverse learning styles and aims to develop key cognitive, physical, and social skills
+                        in young children.
                     </p>
                 </div>
 
@@ -306,213 +308,410 @@
         </div>
     </section>
 
-    <section class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border border-gray-100">
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">STEP 1 DOCUMENT PREPARATION</h2>
-            <p class="text-gray-700 text-lg">The following documents are required to be submitted with the application form.
-            </p>
-        </div>
+    {{-- IPC Curriculum Section --}}
+    <section id="ipc-curriculum" class="relative bg-[#E8F3FB] py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center space-y-16">
 
-        <div class="space-y-6">
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">01</div>
-                <div class="text-gray-700">Photocopy of Child's birth certificate</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">02</div>
-                <div class="text-gray-700">Photocopy of Child's passport (photo page only)</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">03</div>
-                <div class="text-gray-700">Photocopy of Parents' passports/Thai identification cards (photo page only)</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">04</div>
-                <div class="text-gray-700">Photocopy of Child's house registration (for Thai applicants only)</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">05</div>
-                <div class="text-gray-700">Photocopy of Child's immunization record</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">06</div>
-                <div class="text-gray-700">Child's passport-size photo</div>
-            </div>
-            <div class="flex gap-4">
-                <div class="text-lg font-semibold text-gray-900 min-w-8">07</div>
-                <div class="text-gray-700">Medical certificates regarding medical conditions, allergies, long-term
-                    medication, or treatment (if any)</div>
-            </div>
-        </div>
-    </section>
+            {{-- SIX CONTENT LEARNING AREAS --}}
+            <div class="space-y-10">
+                <h3 class="text-3xl font-bold text-[#00809D]">The Six Content Learning Areas</h3>
+                <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    IPC is renowned for its holistic approach to early childhood education, seamlessly integrating six key
+                    learning areas to foster comprehensive development in young learners.
+                </p>
 
-
-    <section class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border border-gray-100">
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Step 2 Application Form Submission</h2>
-            <p class="text-gray-700 text-lg">The complete application form can be submitted via email or in person at the
-                school office.
-            </p>
-        </div>
-
-        <div class="space-y-6">
-            <div class="flex gap-4">
-                <div class="text-gray-700">Download Application Form</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border border-gray-100">
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Step 3 Application Review & Class Placement</h2>
-            <p class="text-gray-700 text-lg">We accept enrollment at any time during the year. Students from all
-                nationalities
-                who are eager to engage with and thrive in our programs are welcome.
-                <br>
-                Class placements adhere to the age norms of the International Preschool Curriculum, and
-                exceptions to these ranges are rare and granted only in exceptional cases.
-            </p>
-        </div>
-
-        <div class="space-y-6">
-            <div class="flex gap-4">
-                <div class="text-gray-700">To maintain diversity, nationalities, and genders are also taken into consideration when assigning students to classes.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border border-gray-100">
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Step 4 Enrollment</h2>
-            <p class="text-gray-700 text-lg">Once a place has been offered, an invoice for the registration fee will be sent to you. This non-refundable fee must be paid in
-order to hold your child’s place. The invoice for the tuition fee will be sent to you one month before the first day of school.
-            </p>
-        </div>
-
-        <div class="space-y-6">
-            <div class="flex gap-4">
-                <div class="text-gray-700">Download Application Form</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-choose-us" class="relative py-16 md:py-20 bg-gradient-to-br from-white to-[#FEF9E7] overflow-hidden">
-        <!-- Decorative background elements -->
-        <div class="absolute top-0 left-0 w-40 h-40 bg-[#B1C29E]/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#FADA7A]/20 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/4 right-10 w-20 h-20 bubble opacity-30"></div>
-        <div class="absolute bottom-1/3 left-10 w-16 h-16 bubble opacity-40"></div>
-
-        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-            <!-- Header Section -->
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-xl md:text-2xl font-bold text-[#F0A04B] mb-6 uppercase tracking-wide">
-                    WHY CHOOSE h!academy?
-                </h2>
-                <div class="w-24 h-2 bg-[#FADA7A] rounded-full mx-auto mb-8"></div>
-
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-md md:text-lg text-gray-700 mb-6 leading-relaxed">
-                        At h!academy, we believe the right foundation sets the stage for a successful academic journey.
-                        Choosing the perfect school for your child is a crucial decision, and we understand the challenges
-                        that come with it.
-                    </p>
-
-                    <p class="text-md md:text-lg text-gray-700 leading-relaxed">
-                        In the vibrant educational landscape of Indonesia, h!academy aims to nurture each child's
-                        development by promoting a sense of self-esteem, accomplishment, confidence, and independence using
-                        objective play and inquiry-based learning approaches.
-                    </p>
+                <div class="flex justify-center">
+                    <img src="{{ asset('img/ipc.png') }}" alt="IPC Learning Areas"
+                        class="w-full max-w-md rounded-full shadow-lg">
                 </div>
+
+                <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Each facet of the IPC curriculum, including language arts, numeracy, socio-emotional skills, creative
+                    arts, sciences, and motor skills, is thoughtfully designed to engage children in dynamic and interactive
+                    learning experiences.
+                </p>
             </div>
 
-            <!-- Divider -->
-            <div class="flex items-center justify-center my-12">
-                <div class="h-px bg-gradient-to-r from-transparent via-[#F0A04B] to-transparent w-3/4"></div>
+            {{-- THE IPC METHOD --}}
+            <div class="bg-[#F0FAFF] border border-[#B7E2F3] rounded-2xl shadow-md p-8 md:p-10 text-left max-w-3xl mx-auto">
+                <h4 class="text-2xl font-bold text-[#00809D] mb-3">The IPC Method</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    Leveraging global research and integrating best practices from the world’s leading early childhood
+                    educators,
+                    the IPC curriculum promotes inquiry-based learning, active exploration, and social collaboration. The
+                    IPC method
+                    puts the child at the center of their educational journey, thus emphasizing meaningful engagement and
+                    socio-emotional
+                    development.
+                </p>
             </div>
 
-            <!-- Reasons Section -->
-            <div class="mb-16" data-aos="fade-up">
-                <h3 class="text-lg md:text-xl font-bold text-[#F0A04B] mb-8 text-center">HERE ARE 6 REASONS WHY:</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Reason 1 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#F0A04B] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-brain text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Fostering the 3Qs: IQ, EQ, and CQ</h4>
-                        </div>
-                    </div>
+            {{-- KEY FEATURES OF IPC --}}
+            <div class="space-y-8">
+                <h3 class="text-3xl font-bold text-[#00809D]">Key Features of IPC</h3>
+                <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    The International Preschool Curriculum (IPC) has established itself as a leading curriculum globally by
+                    promoting
+                    innovation, research, and quality in curriculum and educational practice.
+                </p>
 
-                    <!-- Reason 2 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#FADA7A] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-user-graduate text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Highly-qualified, passionate, and well-trained
-                                staff</h4>
-                        </div>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <img src="{{ asset('img/ipckids.png') }}" alt="IPC Children"
+                            class="rounded-xl shadow-lg w-full object-cover">
                     </div>
+                    <div class="lg:w-1/2 space-y-6">
+                        {{-- Accordion Feature --}}
+                        <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleDropdown('curriculum')"
+                                class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                                Comprehensive and Research-Based Curriculum
+                                <span id="curriculum-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                            </button>
+                            <div id="curriculum-dropdown"
+                                class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                <p class="px-6 pb-4 text-gray-700 leading-relaxed">
+                                    IPC’s curriculum emphasizes a research-driven framework that fosters inquiry,
+                                    creativity, and
+                                    holistic development for young learners.
+                                </p>
+                            </div>
+                        </div>
 
-                    <!-- Reason 3 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#B1C29E] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-school text-lg"></i>
+                        <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleDropdown('professional')"
+                                class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                                Professional Development
+                                <span id="professional-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                            </button>
+                            <div id="professional-dropdown"
+                                class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                <p class="px-6 pb-4 text-gray-700 leading-relaxed">
+                                    IPC prioritizes educator professional development through specialized training,
+                                    workshops,
+                                    and continuous learning opportunities.
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Nurturing and equipped environment that is
-                                conducive to learning and teaching</h4>
-                        </div>
-                    </div>
 
-                    <!-- Reason 4 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#F0A04B] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-handshake text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Close and effective partnership with parents</h4>
-                        </div>
-                    </div>
-
-                    <!-- Reason 5 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#FADA7A] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-map-marker-alt text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Convenient locations</h4>
-                        </div>
-                    </div>
-
-                    <!-- Reason 6 -->
-                    <div
-                        class="flex items-start gap-4 p-4 transition-all duration-300 hover:bg-[#FEF9E7] hover:rounded-lg group">
-                        <div
-                            class="bg-[#B1C29E] p-3 rounded-full text-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                            <i class="fas fa-award text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-gray-800">Excellent and well-accepted early childhood
-                                curriculum: IPC</h4>
+                        <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleDropdown('engagement')"
+                                class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                                Parental Engagement
+                                <span id="engagement-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                            </button>
+                            <div id="engagement-dropdown"
+                                class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                <p class="px-6 pb-4 text-gray-700 leading-relaxed">
+                                    Parents play a vital role in IPC’s learning ecosystem, ensuring consistent support
+                                    between home
+                                    and school environments.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    {{-- STEAM in IPC Curriculum Section --}}
+    <section id="steam-ipc" class="bg-[#E8F3FB] py-20 px-6 md:px-12 lg:px-20">
+        <div class="max-w-6xl mx-auto text-center space-y-10">
+
+            {{-- TITLE --}}
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00809D]">STEAM IN IPC CURRICULUM</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto mt-4">
+                    In today’s rapidly evolving world, the demand for skills in science, technology, engineering, the arts,
+                    and
+                    mathematics (STEAM) is more crucial than ever. Recognizing this, the International Preschool Curriculum
+                    (IPC)
+                    has integrated STEAM education into its curriculum to nurture young learners’ natural curiosity and
+                    creativity
+                    while equipping them with the skills needed for future success.
+                </p>
+            </div>
+
+            {{-- BUTTON TOGGLES --}}
+            <div class="flex justify-center gap-4 flex-wrap">
+                <button id="tab1-btn" onclick="setActiveTab('tab1')"
+                    class="tab-btn active px-6 py-3 rounded-full bg-[#00809D] text-white font-semibold transition">
+                    How IPC Integrates STEAM into the Curriculum
+                </button>
+                <button id="tab2-btn" onclick="setActiveTab('tab2')"
+                    class="tab-btn px-6 py-3 rounded-full bg-transparent border-2 border-[#00809D] text-[#00809D] font-semibold transition">
+                    Why STEAM Education is Important in the IPC Curriculum
+                </button>
+            </div>
+
+            {{-- TAB CONTENTS --}}
+            <div id="tab1"
+                class="tab-content flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 shadow-md">
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('img/carousel2.jpg') }}" alt="STEAM in IPC"
+                        class="rounded-xl shadow-lg w-full object-cover">
+                </div>
+                <div class="lg:w-1/2 w-full space-y-4 text-left">
+                    @foreach (['Interdisciplinary Learning', 'Hands-On Activities and Experiments', 'Project-Based Learning', 'Technology Integration', 'Creative Arts and Expression'] as $i => $item)
+                        <div class="bg-[#F5FBFF] border border-[#BCE3F4] rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleAccordion('tab1-{{ $i }}')"
+                                class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#E6F6FC] transition">
+                                {{ $loop->iteration }}. {{ $item }}
+                                <span id="tab1-{{ $i }}-icon" class="text-2xl font-bold">+</span>
+                            </button>
+                            <div id="tab1-{{ $i }}-content"
+                                class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                <p class="px-6 pb-4 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Nulla facilisi.</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div id="tab2"
+                class="tab-content hidden flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 shadow-md">
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('img/carousel4.jpg') }}" alt="Why STEAM is Important"
+                        class="rounded-xl shadow-lg w-full object-cover">
+                </div>
+                <div class="lg:w-1/2 w-full space-y-4 text-left">
+                    @foreach (['Critical Thinking and Problem Solving', 'Collaboration and Communication', 'Real-World Application', 'Future Skill Development', 'Encouraging Creativity and Innovation'] as $i => $item)
+                        <div class="bg-[#F5FBFF] border border-[#BCE3F4] rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleAccordion('tab2-{{ $i }}')"
+                                class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#E6F6FC] transition">
+                                {{ $loop->iteration }}. {{ $item }}
+                                <span id="tab2-{{ $i }}-icon" class="text-2xl font-bold">+</span>
+                            </button>
+                            <div id="tab2-{{ $i }}-content"
+                                class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                <p class="px-6 pb-4 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Nulla facilisi.</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- FOOTER TEXT --}}
+            <div class="max-w-4xl mx-auto text-gray-700 text-center mt-10">
+                <p>
+                    Incorporating STEAM into the curriculum is a cornerstone of IPC's approach to early childhood education.
+                    By blending science, technology, engineering, the arts, and mathematics into a cohesive learning
+                    experience,
+                    IPC not only prepares children for future success but also fosters a lifelong love of learning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {{-- IPC Student Profile Section --}}
+    <section id="ipc-student-profile" class="bg-[#F3F9FE] py-20 px-6 md:px-12 lg:px-20">
+        <div class="max-w-6xl mx-auto text-center space-y-10">
+
+            {{-- SECTION HEADER --}}
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00809D]">IPC STUDENT PROFILE</h2>
+                <p class="text-gray-700 max-w-3xl mx-auto mt-4">
+                    The IPC student is expected to achieve a minimum standard in each of the six content learning areas.
+                    The IPC believes that children will develop at varying paces and, therefore, structures its learning
+                    objectives into three distinct levels.
+                </p>
+            </div>
+
+            {{-- PROFILE MENU --}}
+            <div class="flex flex-wrap justify-center gap-4">
+                @php
+                    $profiles = [
+                        ['id' => 'thinkers', 'name' => 'INDEPENDENT THINKERS', 'icon' => '🧠'],
+                        ['id' => 'team', 'name' => 'TEAM WORKERS', 'icon' => '🤝'],
+                        ['id' => 'reflectors', 'name' => 'REFLECTORS', 'icon' => '🔍'],
+                        ['id' => 'predictors', 'name' => 'PREDICTORS', 'icon' => '🔮'],
+                        ['id' => 'communicators', 'name' => 'COMMUNICATORS', 'icon' => '💬'],
+                        ['id' => 'carers', 'name' => 'SOCIAL CARERS', 'icon' => '❤️'],
+                    ];
+                @endphp
+
+                @foreach ($profiles as $p)
+                    <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')" class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
+                                   rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
+                        <span class="text-4xl mb-2">{{ $p['icon'] }}</span>
+                        <span class="text-sm">{{ $p['name'] }}</span>
+                    </button>
+                @endforeach
+            </div>
+
+            {{-- CONTENT AREA --}}
+            <div class="mt-10 flex flex-col lg:flex-row items-center justify-center gap-8">
+                <div class="lg:w-1/2 flex justify-center">
+                    <img id="profile-image" src="{{ asset('img/brain.webp') }}" alt="Student Profile Diagram"
+                        class="max-w-sm w-full">
+                </div>
+                <div class="lg:w-1/2 text-left bg-white rounded-2xl shadow-md border border-[#D6ECF6] p-6">
+                    <h3 id="profile-title" class="text-2xl font-bold text-[#00809D] mb-2">Independent Thinkers</h3>
+                    <p id="profile-text" class="text-gray-700 leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Independent thinkers develop the ability to
+                        question, reason, and make thoughtful decisions on their own.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{-- IPC vs. Traditional Methods Section --}}
+<section id="ipc-vs-traditional" class="bg-[#E8F3FB] py-20 px-6 md:px-12 lg:px-20">
+    <div class="max-w-6xl mx-auto text-center space-y-10">
+
+        {{-- HEADER --}}
+        <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-[#00809D]">IPC VS. TRADITIONAL METHODS</h2>
+            <p class="text-gray-700 max-w-3xl mx-auto mt-4 leading-relaxed">
+                Unlike conventional models that often rely on rote memorization and structured teacher-led instruction, 
+                the IPC embraces thematic, inquiry-based learning that encourages active exploration and critical thinking.
+            </p>
+        </div>
+
+        {{-- CONTENT --}}
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-10 text-left">
+            {{-- IMAGE --}}
+            <div class="lg:w-1/2 flex justify-center">
+                <img src="{{ asset('img/carousel6.jpg') }}" 
+                     alt="Child learning through IPC" 
+                     class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+            </div>
+
+            {{-- ACCORDION --}}
+            <div class="lg:w-1/2 w-full bg-white rounded-2xl shadow-md border border-[#BEE2F3] overflow-hidden">
+                {{-- Curriculum Design --}}
+                <div class="border-b border-[#CDE9F7]">
+                    <button onclick="toggleAccordion('curriculum')" 
+                        class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                        Curriculum Design
+                        <span id="curriculum-icon" class="text-2xl font-bold">−</span>
+                    </button>
+                    <div id="curriculum-content" class="max-h-[400px] opacity-100 transition-all duration-500 ease-in-out">
+                        <p class="px-6 pb-5 text-gray-700 leading-relaxed">
+                            Traditional learning often follows a rigid, teacher-directed approach, 
+                            while the IPC emphasizes a dynamic, child-centered curriculum.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- Teaching Methods --}}
+                <div class="border-b border-[#CDE9F7]">
+                    <button onclick="toggleAccordion('methods')" 
+                        class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                        Teaching Methods
+                        <span id="methods-icon" class="text-2xl font-bold">+</span>
+                    </button>
+                    <div id="methods-content" class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="px-6 pb-5 text-gray-700 leading-relaxed">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. The IPC integrates hands-on, inquiry-based activities 
+                            to encourage active participation and discovery.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- Role of the Teacher --}}
+                <div class="border-b border-[#CDE9F7]">
+                    <button onclick="toggleAccordion('teacher')" 
+                        class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                        Role of the Teacher
+                        <span id="teacher-icon" class="text-2xl font-bold">+</span>
+                    </button>
+                    <div id="teacher-content" class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="px-6 pb-5 text-gray-700 leading-relaxed">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Teachers act as facilitators who guide 
+                            exploration rather than dictate information.
+                        </p>
+                    </div>
+                </div>
+
+                {{-- Assessment --}}
+                <div>
+                    <button onclick="toggleAccordion('assessment')" 
+                        class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                        Assessment
+                        <span id="assessment-icon" class="text-2xl font-bold">+</span>
+                    </button>
+                    <div id="assessment-content" class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <p class="px-6 pb-5 text-gray-700 leading-relaxed">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPC emphasizes progress tracking 
+                            and holistic evaluation over standardized testing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{-- IPC Curriculum Section --}}
+<section id="ipc-curriculum" class="bg-[#0C75A6] text-white py-20 px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+
+        {{-- GRID WRAPPER --}}
+        <div class="grid md:grid-cols-2 gap-12">
+
+            {{-- INFANT & TODDLER CURRICULUM --}}
+            <div class="space-y-6">
+                {{-- ICON --}}
+                <div class="text-5xl text-[#BEE2F3]">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+
+                {{-- TITLE --}}
+                <h3 class="text-2xl md:text-3xl font-semibold">IPC Infant & Toddler Curriculum</h3>
+
+                {{-- DESCRIPTION --}}
+                <p class="text-[#D5ECF7] leading-relaxed">
+                    The IPC Infant and Toddler Curriculum was specifically designed to engage and educate the youngest of children ages 3–36 months.
+                </p>
+                <p class="text-[#D5ECF7] leading-relaxed">
+                    Through a variety of daily activities, each of the five senses is engrossed, and young children are introduced to the skills and knowledge necessary for their development. 
+                    The Infant and Toddler Curriculum is divided into 36 Thematic Units, from <em>The Circus</em> to <em>Dinosaurs</em>. 
+                    Each of the 36 units’ activities is based on the IPC’s Six Content Learning Areas.
+                </p>
+
+                {{-- DOWNLOAD BUTTON --}}
+                <a href="#" class="inline-flex items-center gap-2 border border-white rounded-lg px-6 py-3 font-semibold hover:bg-white hover:text-[#0C75A6] transition">
+                    <i class="fa-solid fa-download"></i> DOWNLOAD
+                </a>
+            </div>
+
+            {{-- PRESCHOOL CURRICULUM --}}
+            <div class="space-y-6">
+                {{-- ICON --}}
+                <div class="text-5xl text-[#BEE2F3]">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+
+                {{-- TITLE --}}
+                <h3 class="text-2xl md:text-3xl font-semibold">IPC Preschool Curriculum</h3>
+
+                {{-- DESCRIPTION --}}
+                <p class="text-[#D5ECF7] leading-relaxed">
+                    The IPC Preschool Curriculum is an educational framework designed to promote early childhood development 
+                    through a thematic, play-based approach. It emphasizes hands-on learning experiences, fostering cognitive, 
+                    social, emotional, and physical growth in children.
+                </p>
+                <p class="text-[#D5ECF7] leading-relaxed">
+                    The curriculum integrates a variety of subjects, such as language, math, science, and creative arts, 
+                    with a strong focus on global awareness and cultural diversity. It encourages exploration, critical thinking, 
+                    and collaboration among young learners, preparing them for future academic success in a nurturing and engaging environment.
+                </p>
+                <p class="text-[#D5ECF7] leading-relaxed">
+                    With over 20 units, the IPC Preschool Curriculum was developed to be fun and engaging.
+                </p>
+
+                {{-- DOWNLOAD BUTTON --}}
+                <a href="#" class="inline-flex items-center gap-2 border border-white rounded-lg px-6 py-3 font-semibold hover:bg-white hover:text-[#0C75A6] transition">
+                    <i class="fa-solid fa-download"></i> DOWNLOAD
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer id="contact" class="relative bg-gradient-to-b from-gray-800 to-black text-white pt-20 overflow-hidden">
@@ -702,7 +901,7 @@ order to hold your child’s place. The invoice for the tuition fee will be sent
         });
     </script>
 
-    {{-- AOS Animation --}}
+
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
@@ -713,4 +912,138 @@ order to hold your child’s place. The invoice for the tuition fee will be sent
             });
         });
     </script>
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#00809D]/70', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-[#00809D]/70', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Toggle mobile menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-slideDown');
+        });
+    </script>
+
+    {{-- STEAM --}}
+    <script>
+        function setActiveTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tab).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-[#00809D]', 'text-white');
+                btn.classList.add('bg-transparent', 'text-[#00809D]', 'border-2', 'border-[#00809D]');
+            });
+
+            const activeBtn = document.getElementById(tab + '-btn');
+            activeBtn.classList.add('bg-[#00809D]', 'text-white');
+            activeBtn.classList.remove('bg-transparent', 'border-2', 'border-[#00809D]');
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(id + '-content');
+            const icon = document.getElementById(id + '-icon');
+
+            const isOpen = content.classList.contains('max-h-[500px]');
+            document.querySelectorAll(`[id$='-content']`).forEach(el => {
+                el.classList.remove('max-h-[500px]', 'opacity-100');
+                el.classList.add('max-h-0', 'opacity-0');
+            });
+            document.querySelectorAll(`[id$='-icon']`).forEach(el => el.textContent = '+');
+
+            if (!isOpen) {
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[500px]', 'opacity-100');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+    {{-- profile --}}
+    <script>
+        const profiles = {
+            thinkers: {
+                title: "Independent Thinkers",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Independent thinkers develop the ability to question, reason, and make thoughtful decisions on their own.",
+                image: "{{ asset('img/brain.webp') }}"
+            },
+            team: {
+                title: "Team Workers",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Team workers collaborate effectively, respect others’ ideas, and achieve goals together.",
+                image: "{{ asset('img/brain.webp') }}"
+            },
+            reflectors: {
+                title: "Reflectors",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reflectors analyze their experiences, learn from mistakes, and strive for improvement.",
+                image: "{{ asset('img/brain.webp') }}"
+            },
+            predictors: {
+                title: "Predictors",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Predictors can foresee outcomes, connect ideas, and explore creative possibilities.",
+                image: "{{ asset('img/brain.webp') }}"
+            },
+            communicators: {
+                title: "Communicators",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Communicators express themselves clearly and listen actively to others.",
+                image: "{{ asset('img/brain.webp') }}"
+            },
+            carers: {
+                title: "Social Carers",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Social carers show empathy, kindness, and take responsibility for others’ well-being.",
+                image: "{{ asset('img/brain.webp') }}"
+            }
+        };
+
+        function setActiveProfile(id) {
+            // Reset buttons
+            document.querySelectorAll('.profile-btn').forEach(btn => {
+                btn.classList.remove('bg-[#00809D]', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-[#00809D]');
+            });
+
+            // Highlight selected
+            const activeBtn = document.getElementById(id + '-btn');
+            activeBtn.classList.add('bg-[#00809D]', 'text-white', 'shadow-md');
+
+            // Update content
+            document.getElementById('profile-title').textContent = profiles[id].title;
+            document.getElementById('profile-text').textContent = profiles[id].text;
+            document.getElementById('profile-image').src = profiles[id].image;
+        }
+
+        // Default active profile
+        setActiveProfile('thinkers');
+    </script>
+
+    {{-- traditional --}}
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(id + '-content');
+        const icon = document.getElementById(id + '-icon');
+
+        const isOpen = content.classList.contains('max-h-[400px]');
+
+        // Close all others
+        document.querySelectorAll("[id$='-content']").forEach(el => {
+            el.classList.remove('max-h-[400px]', 'opacity-100');
+            el.classList.add('max-h-0', 'opacity-0');
+        });
+        document.querySelectorAll("[id$='-icon']").forEach(el => el.textContent = '+');
+
+        // Open selected
+        if (!isOpen) {
+            content.classList.remove('max-h-0', 'opacity-0');
+            content.classList.add('max-h-[400px]', 'opacity-100');
+            icon.textContent = '−';
+        }
+    }
+</script>
 @endsection

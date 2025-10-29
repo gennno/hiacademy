@@ -997,7 +997,7 @@
             });
         });
     </script>
-        <script>
+    <script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
