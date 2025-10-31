@@ -28,8 +28,8 @@
       AOS.init({
         duration: 800,         // durasi animasi
         easing: 'ease-in-out', // tipe easing
-        once: false,           // animasi akan muncul setiap scroll ke section
-        mirror: true           // animasi terulang bahkan saat scroll ke atas
+        once: true,           // animasi akan muncul setiap scroll ke section
+        mirror: false           // animasi terulang bahkan saat scroll ke atas
       });
     });
   </script>

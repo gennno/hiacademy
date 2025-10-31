@@ -5,52 +5,93 @@
 @section('content')
     {{-- 🔄 Background Carousel --}}
     <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <img src="{{ asset('img/carousel1.jpg') }}" class="carousel-slide active" alt="Slide 1">
-        <img src="{{ asset('img/carousel2.jpg') }}" class="carousel-slide" alt="Slide 2">
-        <img src="{{ asset('img/carousel3.jpg') }}" class="carousel-slide" alt="Slide 3">
-        <img src="{{ asset('img/carousel4.jpg') }}" class="carousel-slide" alt="Slide 4">
-        <img src="{{ asset('img/carousel5.jpg') }}" class="carousel-slide" alt="Slide 5">
-        <img src="{{ asset('img/carousel6.jpg') }}" class="carousel-slide" alt="Slide 6">
-        <img src="{{ asset('img/carousel7.jpg') }}" class="carousel-slide" alt="Slide 7">
+        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1">
+        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2">
+        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3">
     </div>
 
     {{-- 🔲 Overlay (agar teks tetap jelas di atas gambar) --}}
     <div class="fixed inset-0 bg-black bg-opacity-60 -z-10"></div>
 
-    <style>
-        /* Style dasar untuk tiap slide */
+<style>
+    /* Container tetap fixed tapi lebih ringan */
+    #background-carousel {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -10;
+        will-change: auto; /* Hapus will-change default */
+    }
+
+    /* Style dasar untuk tiap slide - OPTIMIZED */
+    #background-carousel img.carousel-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out; /* Kurangi dari 5s ke 1s */
+        transform: none; /* Hapus scale(1.05) */
+        pointer-events: none; /* Tidak perlu interaksi */
+    }
+
+    /* Slide aktif */
+    #background-carousel img.carousel-slide.active {
+        opacity: 1;
+    }
+
+    /* PENTING: Lazy load untuk mobile */
+    @media (max-width: 768px) {
         #background-carousel img.carousel-slide {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            transform: scale(1.05);
+            transform: translateZ(0); /* GPU acceleration */
+            backface-visibility: hidden;
         }
+    }
+</style>
 
-        /* Slide aktif akan terlihat */
-        #background-carousel img.carousel-slide.active {
-            opacity: 1;
-        }
-    </style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('#background-carousel .carousel-slide');
+        let currentIndex = 0;
+        let intervalId;
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('#background-carousel .carousel-slide');
-            let currentIndex = 0;
-
-            function showNextSlide() {
-                slides[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % slides.length;
-                slides[currentIndex].classList.add('active');
+        // Preload hanya gambar pertama dan kedua
+        function preloadImages() {
+            if (slides.length > 1) {
+                const img = new Image();
+                img.src = slides[1].src;
             }
+        }
 
-            // Ganti gambar tiap 6 detik (bisa diubah sesuai kebutuhan)
-            setInterval(showNextSlide, 3000);
+        function showNextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+            
+            // Preload gambar berikutnya
+            const nextIndex = (currentIndex + 1) % slides.length;
+            if (slides[nextIndex] && !slides[nextIndex].complete) {
+                const img = new Image();
+                img.src = slides[nextIndex].src;
+            }
+        }
+
+        // Pause saat tidak terlihat (hemat battery)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(intervalId);
+            } else {
+                intervalId = setInterval(showNextSlide, 4000); // Tambah delay jadi 4s
+            }
         });
-    </script>
+
+        preloadImages();
+        intervalId = setInterval(showNextSlide, 4000);
+    });
+</script>
 
 
     <header id="main-header" class="fixed top-0 left-0 w-full z-50">
@@ -969,7 +1010,7 @@
         }
 
         .animate-fadeInUp {
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 0.5s ease forwards;
         }
 
         .animate-fadeInUp.delay-100 {
