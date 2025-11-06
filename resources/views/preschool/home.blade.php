@@ -4,16 +4,329 @@
 
 @section('content')
 
-    {{-- 🔄 Background Carousel --}}
-    <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        @for ($i = 1; $i <= 7; $i++)
-            <img src="{{ asset('img/carousel' . $i . '.jpg') }}" class="carousel-slide {{ $i === 1 ? 'active' : '' }}"
-                alt="Slide {{ $i }}">
-        @endfor
+
+    <div id="background-carousel" class="carousel-container">
+        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1" loading="eager">
+        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2" loading="lazy">
+        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3" loading="lazy">
     </div>
 
-    <div class="fixed inset-0 bg-black bg-opacity-60 -z-10"></div>
+    <div class="carousel-overlay"></div>
 
+    <style>
+        /* ===== SOLUSI UTAMA: Gunakan dvh untuk mobile ===== */
+        .carousel-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Desktop: gunakan 100vh */
+            height: 100vh;
+            /* Mobile: gunakan dvh yang tidak berubah saat URL bar muncul/hilang */
+            height: 100dvh;
+            overflow: hidden;
+            z-index: -10;
+
+            /* GPU Acceleration - PENTING! */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
+            /* Prevent layout shifts */
+            contain: layout style paint;
+        }
+
+        .carousel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -10;
+            pointer-events: none;
+
+            /* GPU Acceleration */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+
+        /* Optimized carousel slides */
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+
+            /* CRITICAL: GPU layer untuk setiap image */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
+            /* Prevent interactions */
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .carousel-container {
+                /* Force height calculation once */
+                height: 100dvh !important;
+                /* Prevent repaints */
+                will-change: auto;
+            }
+
+            .carousel-slide {
+                /* Faster transition on mobile */
+                transition: opacity 0.8s ease-in-out;
+                /* Ensure stays in GPU */
+                transform: translate3d(0, 0, 0) scale(1.001);
+            }
+
+            /* Optional: Reduce quality on very small screens */
+            @media (max-width: 480px) {
+                .carousel-slide {
+                    image-rendering: -webkit-optimize-contrast;
+                }
+            }
+        }
+
+        /* Prevent flicker during orientation change */
+        @media (orientation: portrait) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
+            }
+        }
+
+        @media (orientation: landscape) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('background-carousel');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+            let intervalId;
+            let isVisible = true;
+
+            // Preload next image
+            function preloadNext() {
+                const nextIdx = (currentIndex + 1) % slides.length;
+                if (!slides[nextIdx].complete) {
+                    slides[nextIdx].loading = 'eager';
+                }
+            }
+
+            // Change slide
+            function nextSlide() {
+                if (!isVisible) return;
+
+                slides[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add('active');
+
+                setTimeout(preloadNext, 400);
+            }
+
+            // Visibility change handler
+            document.addEventListener('visibilitychange', () => {
+                isVisible = !document.hidden;
+
+                if (document.hidden) {
+                    clearInterval(intervalId);
+                } else {
+                    intervalId = setInterval(nextSlide, 5000);
+                }
+            });
+
+            // PENTING: Pause carousel saat scrolling (mobile optimization)
+            let scrollTimer;
+            let isScrolling = false;
+
+            window.addEventListener('scroll', () => {
+                // Stop carousel during scroll
+                if (!isScrolling) {
+                    isScrolling = true;
+                    clearInterval(intervalId);
+                }
+
+                // Resume after scroll stops
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    isScrolling = false;
+                    if (isVisible) {
+                        intervalId = setInterval(nextSlide, 5000);
+                    }
+                }, 200);
+            }, { passive: true });
+
+            // Handle orientation change
+            window.addEventListener('orientationchange', () => {
+                // Force reflow after orientation change
+                carousel.style.display = 'none';
+                carousel.offsetHeight; // Trigger reflow
+                carousel.style.display = '';
+            });
+
+            // Initialize
+            preloadNext();
+            intervalId = setInterval(nextSlide, 5000);
+        });
+    </script>
+    {{-- ✅ HEADER / NAVBAR --}}
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
+        <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
+            {{-- 🔙 Back + Logo --}}
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
+                </a>
+
+                <a href="/preschool#home" class="flex items-center gap-2">
+                    <img src="{{ asset('img/logofull.png') }}" alt="Logo"
+                        class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
+                </a>
+            </div>
+
+            {{-- 🌐 Desktop Nav --}}
+            <nav id="primary-nav"
+                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
+                <a href="/preschool#home" class="nav-link">Home</a>
+                <div class="relative group">
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <div class="py-1">
+                            <a href="/preschool#programs"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
+                            <a href="/preschool#our-centre"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
+                                Centre</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <div class="py-1">
+                            <a href="/preschool#curriculum"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
+                                Curriculum</a>
+                            <a href="/ipc"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">IPC
+                                Curriculum</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/admissionpreschool" class="nav-link">Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank" class="nav-link">Parenting</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            {{-- 📱 Right side --}}
+            <div class="flex items-center gap-3">
+                <a href="/admissionpreschool#admission"
+                    class="hidden lg:inline-flex bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100">Apply
+                    Now</a>
+                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA"
+                    class="hidden lg:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300"
+                    target="_blank">Schedule
+                    Visit</a>
+                <a href="/preschool-login"
+                    class="hidden xl:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Login</a>
+
+                {{-- Hamburger --}}
+                <button id="menu-btn" class="xl:hidden text-white focus:outline-none" aria-label="Toggle menu">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        {{-- 📱 Mobile Menu --}}
+        <div id="mobile-menu"
+            class="bg-[#00809D]/90 shadow-2xl xl:hidden rounded-3xl mx-4 mt-2 ring-1 ring-yellow-400/50 backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none max-h-0 transition-all duration-300">
+            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
+                <a href="/preschool#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏠
+                    Home</a>
+                <a href="/aboutpreschool" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">ℹ️
+                    About Us</a>
+                <a href="/preschool#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🎯
+                    Programs</a>
+                <a href="/preschool#our-centre"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏫 Our
+                    Centre</a>
+                <a href="/preschool#curriculum"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📘 Our
+                    Curriculum</a>
+                <a href="/ipc" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🌍
+                    IPC Curriculum</a>
+                <a href="/admissionpreschool"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📚 Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">👨‍👩‍👧 Parenting</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📞
+                    Contact</a>
+
+                {{-- 🔘 Tombol Apply & Schedule Visit (Side by Side) --}}
+                <div class="px-6 py-5 bg-yellow-400/10 flex items-center justify-center gap-3">
+                    <a href="/admissionpreschool#admission"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🚀 Apply Now
+                    </a>
+                    <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        📅 Schedule Visit
+                    </a>
+                </div>
+
+                {{-- 🔐 Tombol Login --}}
+                <div class="px-6 py-5 bg-yellow-400/10 text-center">
+                    <a href="/preschool-login"
+                        class="inline-flex items-center justify-center bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🔐 Login
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+    </header>
     {{-- ✅ STYLES --}}
     <style>
         html {
@@ -74,99 +387,6 @@
             pointer-events: auto;
         }
     </style>
-
-    {{-- ✅ HEADER / NAVBAR --}}
-    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
-        <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
-            {{-- 🔙 Back + Logo --}}
-            <div class="flex items-center gap-4">
-                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                    <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
-                </a>
-
-                <a href="#home" class="flex items-center gap-2">
-                    <img src="{{ asset('img/logofull.png') }}" alt="Logo"
-                        class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
-                </a>
-            </div>
-
-            {{-- 🌐 Desktop Nav --}}
-            <nav id="primary-nav"
-                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-10 text-white font-medium tracking-wide">
-                <a href="#home" class="nav-link">Home</a>
-                <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
-                    <div
-                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-                        <div class="py-1">
-                            <a href="#programs"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
-                            <a href="#curriculum"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Curriculum</a>
-                            <a href="#our-centre"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
-                                Centre</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="/admissionpreschool" class="nav-link">Admission</a>
-                <a href="https://parentinglife.id/" target="_blank" class="nav-link">Parenting</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-
-            {{-- 📱 Right side --}}
-            <div class="flex items-center gap-3">
-                <a href="#apply"
-                    class="hidden lg:inline-flex bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100">Apply
-                    Now</a>
-                <a href="#tour"
-                    class="hidden lg:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Schedule
-                    Visit</a>
-                <a href="/preschool-login"
-                    class="hidden xl:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Login</a>
-
-                {{-- Hamburger --}}
-                <button id="menu-btn" class="xl:hidden text-white focus:outline-none" aria-label="Toggle menu">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        {{-- 📱 Mobile Menu --}}
-        <div id="mobile-menu"
-            class="bg-black/90 shadow-2xl xl:hidden rounded-3xl mx-4 mt-2 ring-1 ring-yellow-400/50 backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none max-h-0">
-            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
-                <a href="#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏠 Home</a>
-                <a href="/aboutpreschool" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">ℹ️
-                    About Us</a>
-                <a href="#programs" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🎯
-                    Programs</a>
-                <a href="/admissionpreschool"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📚 Admission</a>
-                <a href="https://parentinglife.id/" target="_blank"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">👨‍👩‍👧 Parenting</a>
-                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📞
-                    Contact</a>
-                <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/preschool-login"
-                        class="inline-flex items-center justify-center bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300">
-                        🔐 Login
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
     {{-- ✅ SINGLE NAVBAR SCRIPT (NO DUPLICATES!) --}}
     <script>
@@ -259,7 +479,7 @@
             </p>
 
             <div class="flex justify-center">
-                <a href="#vision"
+                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
                     class="inline-block bg-[#FADA7A] text-[#4B5563] px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-[#F0A04B] hover:text-white transition-all duration-300 hover:scale-105">
                     Book A School Tour
                 </a>
@@ -662,156 +882,80 @@
         </div>
     </section>
 
-    <style>
-        .curriculum-swiper {
-            padding: 20px 0 40px;
-        }
+    {{-- 🌱 KURIKULUM SECTION (Fixed Height Version) --}}
+    <section id="curriculum" class="relative py-16 md:py-20 bg-[#B1C29E]/90 overflow-hidden">
+        {{-- 🌼 Background Decorations --}}
+        <div class="absolute top-0 left-0 w-32 h-32 bg-[#FADA7A]/20 rounded-full blur-xl"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 bg-[#B1C29E]/20 rounded-full blur-xl"></div>
 
-        .swiper-slide {
-            height: auto;
-        }
-
-        .swiper-pagination-bullet {
-            background-color: #B1C29E;
-            opacity: 0.5;
-            width: 12px;
-            height: 12px;
-        }
-
-        .swiper-pagination-bullet-active {
-            background-color: #F0A04B;
-            opacity: 1;
-        }
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #F0A04B;
-            background: rgba(255, 255, 255, 0.8);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .swiper-button-next:after,
-        .swiper-button-prev:after {
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
-    {{-- KURIKULUM SECTION --}}
-    <section id="curriculum" class="relative py-20 bg-[#B1C29E] overflow-hidden">
-        {{-- Decorative background elements --}}
-        <div class="absolute top-0 left-0 w-40 h-40 bg-[#FADA7A]/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#B1C29E]/30 rounded-full blur-3xl"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            {{-- ✨ Section Title --}}
+            <div class="text-center mb-12" data-aos="fade-up" data-aos-once="true">
+                <h2 class="text-2xl md:text-4xl font-extrabold text-[#F0A04B] mb-3 uppercase tracking-wide">
                     Our Curriculum
                 </h2>
-                <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                <p class="text-gray-700 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
                     Tailored learning for each age group — nurturing creativity, curiosity, and confidence through play and
                     exploration.
                 </p>
             </div>
 
-            {{-- Detailed Curriculum Section with Image Left, Text Right Layout --}}
-            <div class="mt-16 space-y-8">
-                {{-- Little Sprouts Detailed --}}
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-                    <div class="flex h-full">
-                        <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/6month.jpg') }}" alt="Little Sprouts Detailed"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-3/5 p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Little Sprouts</h3>
-                            <p class="text-[#F0A04B] font-semibold mb-3">6 months – 1 year old</p>
-                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                                The curriculum focuses on sensory exploration and foundational development, fostering growth
-                                through tummy time, grasping toys, and exploring textures, colors, and sounds. Babies engage
-                                in activities that encourage bonding, responding to coos and babbles, and participating in
-                                simple songs and rhymes, laying the groundwork for physical, cognitive, and social-emotional
-                                development.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            {{-- 📚 Curriculum Cards --}}
+            <div class="space-y-10 md:space-y-12">
+                @php
+                    $curriculums = [
+                        [
+                            'title' => 'Little Sprouts',
+                            'age' => '6 months – 1 year old',
+                            'img' => 'img/6month.webp',
+                            'desc' => 'The curriculum focuses on sensory exploration and foundational development, fostering growth through tummy time, grasping toys, and exploring textures, colors, and sounds. Babies engage in activities that encourage bonding, responding to coos and babbles, and participating in simple songs and rhymes.'
+                        ],
+                        [
+                            'title' => 'Blossom Buds',
+                            'age' => '1 – 2 years old',
+                            'img' => 'img/buds.webp',
+                            'desc' => 'This stage emphasizes early independence and discovery, with activities designed to enhance walking, climbing, and stacking skills. Children explore shapes, colors, and cause-effect toys while expanding their vocabulary and responding to simple instructions.'
+                        ],
+                        [
+                            'title' => 'Sunshine Explorer',
+                            'age' => '3 – 4 years old',
+                            'img' => 'img/1years.webp',
+                            'desc' => 'Focused on creativity, communication, and social skills, this curriculum includes running, jumping, and improving fine motor coordination through art and play. Children engage in imaginative activities, pattern recognition, and early numeracy.'
+                        ],
+                        [
+                            'title' => 'Morning Glories',
+                            'age' => '5 – 6 years old',
+                            'img' => 'img/5years.webp',
+                            'desc' => 'Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced motor skills like skipping and writing readiness. Activities include pre-literacy and numeracy development, teamwork, and leadership opportunities.'
+                        ],
+                    ];
+                @endphp
 
-                {{-- Blossom Buds Detailed --}}
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-                    <div class="flex h-full">
-                        <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/buds.jpg') }}" alt="Blossom Buds Detailed"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-3/5 p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Blossom Buds</h3>
-                            <p class="text-[#F0A04B] font-semibold mb-3">1 – 2 years old</p>
-                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                                This stage emphasizes early independence and discovery, with activities designed to enhance
-                                walking, climbing, and stacking skills. Children explore shapes, colors, and cause-effect
-                                toys while expanding their vocabulary and responding to simple instructions. Parallel play
-                                and routines help develop social-emotional skills, promoting confidence and adaptability.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($curriculums as $i => $c)
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col md:flex-row 
+                                                    {{ $i % 2 !== 0 ? 'md:flex-row-reverse' : '' }}" data-aos="fade-up"
+                        data-aos-once="true" data-aos-delay="{{ $i * 100 }}">
 
-                {{-- Sunshine Explorer Detailed --}}
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-                    <div class="flex h-full">
-                        <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/1years.jpg') }}" alt="Sunshine Explorer Detailed"
-                                class="w-full h-full object-cover">
+                        {{-- 📸 Image --}}
+                        <div class="md:w-2/5 w-full">
+                            <img src="{{ asset($c['img']) }}" alt="{{ $c['title'] }}" loading="lazy"
+                                class="w-full h-auto object-cover object-center">
                         </div>
-                        <div class="w-3/5 p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Sunshine Explorer</h3>
-                            <p class="text-[#F0A04B] font-semibold mb-3">3 – 4 years old</p>
-                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                                Focused on creativity, communication, and social skills, this curriculum includes running,
-                                jumping, and improving fine motor coordination through art and play. Children engage in
-                                imaginative activities, pattern recognition, and early numeracy, while developing language
-                                skills through storytelling and asking questions. Cooperative play and emotional
-                                understanding are nurtured in group settings.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                {{-- Morning Glories Detailed --}}
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden h-80" data-aos="fade-up">
-                    <div class="flex h-full">
-                        <div class="w-2/5 h-full flex-shrink-0">
-                            <img src="{{ asset('img/5years.jpg') }}" alt="Morning Glories Detailed"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-3/5 p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-bold text-[#4B5563] mb-2">Morning Glories</h3>
-                            <p class="text-[#F0A04B] font-semibold mb-3">5 – 6 years old</p>
-                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-5">
-                                Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced
-                                motor skills like skipping and writing readiness. Activities include pre-literacy and
-                                numeracy development, storytelling, and problem-solving. Social-emotional skills are
-                                strengthened through teamwork, self-regulation, and leadership opportunities, fostering
-                                responsibility and independence.
+                        {{-- 📝 Content --}}
+                        <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-lg md:text-2xl font-bold text-[#4B5563] mb-1">{{ $c['title'] }}</h3>
+                            <p class="text-[#F0A04B] font-semibold mb-3 text-sm md:text-base">{{ $c['age'] }}</p>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                                {{ $c['desc'] }}
                             </p>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-
-            <style>
-                .line-clamp-5 {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 5;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                }
-            </style>
         </div>
     </section>
+
     {{-- PROGRAMS --}}
     <section id="programs" class="py-20 bg-[#CADCAE] relative overflow-hidden">
         <div class="absolute bottom-0 right-0 w-52 h-52 bg-[#FADA7A]/40 rounded-full blur-2xl"></div>
@@ -1193,7 +1337,7 @@
                         At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
                         education — it’s a joyful journey filled with growth, inspiration, and care for every learner.
                     </p>
-                    <a href="#"
+                    <a href="/admissionpreschool#admission"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                         Join Now
                     </a>
@@ -1449,18 +1593,6 @@
                     },
                 },
             });
-        });
-    </script>
-    {{-- ✅ Carousel --}}
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.querySelectorAll("#background-carousel .carousel-slide");
-            let i = 0;
-            setInterval(() => {
-                slides[i].classList.remove("active");
-                i = (i + 1) % slides.length;
-                slides[i].classList.add("active");
-            }, 4000);
         });
     </script>
 

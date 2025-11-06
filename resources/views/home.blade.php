@@ -3,96 +3,200 @@
 @section('title', 'h!academy')
 
 @section('content')
-    {{-- 🔄 Background Carousel --}}
-    <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1">
-        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2">
-        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3">
+
+
+    <div id="background-carousel" class="carousel-container">
+        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1" loading="eager">
+        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2" loading="lazy">
+        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3" loading="lazy">
     </div>
 
-    {{-- 🔲 Overlay (agar teks tetap jelas di atas gambar) --}}
-    <div class="fixed inset-0 bg-black bg-opacity-60 -z-10"></div>
+    <div class="carousel-overlay"></div>
 
-<style>
-    /* Container tetap fixed tapi lebih ringan */
-    #background-carousel {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -10;
-        will-change: auto; /* Hapus will-change default */
-    }
+    <style>
+        /* ===== SOLUSI UTAMA: Gunakan dvh untuk mobile ===== */
+        .carousel-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Desktop: gunakan 100vh */
+            height: 100vh;
+            /* Mobile: gunakan dvh yang tidak berubah saat URL bar muncul/hilang */
+            height: 100dvh;
+            overflow: hidden;
+            z-index: -10;
 
-    /* Style dasar untuk tiap slide - OPTIMIZED */
-    #background-carousel img.carousel-slide {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 1s ease-in-out; /* Kurangi dari 5s ke 1s */
-        transform: none; /* Hapus scale(1.05) */
-        pointer-events: none; /* Tidak perlu interaksi */
-    }
+            /* GPU Acceleration - PENTING! */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
 
-    /* Slide aktif */
-    #background-carousel img.carousel-slide.active {
-        opacity: 1;
-    }
+            /* Prevent layout shifts */
+            contain: layout style paint;
+        }
 
-    /* PENTING: Lazy load untuk mobile */
-    @media (max-width: 768px) {
-        #background-carousel img.carousel-slide {
-            transform: translateZ(0); /* GPU acceleration */
+        .carousel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -10;
+            pointer-events: none;
+
+            /* GPU Acceleration */
+            transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
         }
-    }
-</style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const slides = document.querySelectorAll('#background-carousel .carousel-slide');
-        let currentIndex = 0;
-        let intervalId;
+        /* Optimized carousel slides */
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
 
-        // Preload hanya gambar pertama dan kedua
-        function preloadImages() {
-            if (slides.length > 1) {
-                const img = new Image();
-                img.src = slides[1].src;
+            /* CRITICAL: GPU layer untuk setiap image */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
+            /* Prevent interactions */
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .carousel-container {
+                /* Force height calculation once */
+                height: 100dvh !important;
+                /* Prevent repaints */
+                will-change: auto;
+            }
+
+            .carousel-slide {
+                /* Faster transition on mobile */
+                transition: opacity 0.8s ease-in-out;
+                /* Ensure stays in GPU */
+                transform: translate3d(0, 0, 0) scale(1.001);
+            }
+
+            /* Optional: Reduce quality on very small screens */
+            @media (max-width: 480px) {
+                .carousel-slide {
+                    image-rendering: -webkit-optimize-contrast;
+                }
             }
         }
 
-        function showNextSlide() {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add('active');
-            
-            // Preload gambar berikutnya
-            const nextIndex = (currentIndex + 1) % slides.length;
-            if (slides[nextIndex] && !slides[nextIndex].complete) {
-                const img = new Image();
-                img.src = slides[nextIndex].src;
+        /* Prevent flicker during orientation change */
+        @media (orientation: portrait) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
             }
         }
 
-        // Pause saat tidak terlihat (hemat battery)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(intervalId);
-            } else {
-                intervalId = setInterval(showNextSlide, 4000); // Tambah delay jadi 4s
+        @media (orientation: landscape) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
             }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('background-carousel');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+            let intervalId;
+            let isVisible = true;
+
+            // Preload next image
+            function preloadNext() {
+                const nextIdx = (currentIndex + 1) % slides.length;
+                if (!slides[nextIdx].complete) {
+                    slides[nextIdx].loading = 'eager';
+                }
+            }
+
+            // Change slide
+            function nextSlide() {
+                if (!isVisible) return;
+
+                slides[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add('active');
+
+                setTimeout(preloadNext, 400);
+            }
+
+            // Visibility change handler
+            document.addEventListener('visibilitychange', () => {
+                isVisible = !document.hidden;
+
+                if (document.hidden) {
+                    clearInterval(intervalId);
+                } else {
+                    intervalId = setInterval(nextSlide, 5000);
+                }
+            });
+
+            // PENTING: Pause carousel saat scrolling (mobile optimization)
+            let scrollTimer;
+            let isScrolling = false;
+
+            window.addEventListener('scroll', () => {
+                // Stop carousel during scroll
+                if (!isScrolling) {
+                    isScrolling = true;
+                    clearInterval(intervalId);
+                }
+
+                // Resume after scroll stops
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    isScrolling = false;
+                    if (isVisible) {
+                        intervalId = setInterval(nextSlide, 5000);
+                    }
+                }, 200);
+            }, { passive: true });
+
+            // Handle orientation change
+            window.addEventListener('orientationchange', () => {
+                // Force reflow after orientation change
+                carousel.style.display = 'none';
+                carousel.offsetHeight; // Trigger reflow
+                carousel.style.display = '';
+            });
+
+            // Initialize
+            preloadNext();
+            intervalId = setInterval(nextSlide, 5000);
         });
-
-        preloadImages();
-        intervalId = setInterval(showNextSlide, 4000);
-    });
-</script>
-
+    </script>
 
     <header id="main-header" class="fixed top-0 left-0 w-full z-50">
         <!-- Background Layer -->
@@ -403,7 +507,7 @@
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
 
             <!-- Kolom Teks -->
-            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up" data-aos-delay="100">
+            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up">
                 <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
                     About <span class="text-yellow-300 font-semibold">h!</span><span
                         class="text-white font-semibold">academy</span>
@@ -422,7 +526,7 @@
 
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="50">
                     <a href="#contact"
                         class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
                         Talk to Us
@@ -525,7 +629,7 @@
 
                 <!-- Card Example -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="100">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/preschool.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -545,7 +649,7 @@
 
                 <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="200">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover"
                         alt="">
                     <div
@@ -565,7 +669,7 @@
 
                 <!-- English Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="400">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/english.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -585,7 +689,7 @@
 
                 <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="200">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/mandarin.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -603,7 +707,7 @@
                     </div>
                 </div>
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="400">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/math.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -624,7 +728,7 @@
                 </div>
 
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="400">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/robotic.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -645,7 +749,7 @@
                 </div>
 
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="400">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -668,7 +772,7 @@
                 </div>
                 <!-- Coding Classes -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="300">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -687,7 +791,7 @@
                 </div>
                 <!-- Coding Classes -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="300">
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/parenting.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -721,7 +825,7 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
 
                 <!-- Left Content -->
-                <div class="text-white" data-aos="fade-right" data-aos-duration="1000">
+                <div class="text-white" data-aos="fade-right" data-aos-duration="650">
                     <span class="uppercase tracking-wide text-yellow-400 font-semibold">How it works?</span>
                     <h2 class="text-3xl md:text-4xl font-bold mt-3 leading-snug">
                         Learning with <span class="text-yellow-400">h!academy</span> is
@@ -744,11 +848,11 @@
                 </div>
 
                 <!-- Right Side Steps -->
-                <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-duration="1000">
+                <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-duration="650">
 
                     <!-- Step 1 -->
                     <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="100">
+                        data-aos="fade-up" data-aos-delay="50">
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
@@ -772,7 +876,7 @@
 
                     <!-- Step 2 -->
                     <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="200">
+                        data-aos="fade-up" data-aos-delay="150">
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
@@ -794,7 +898,7 @@
 
                     <!-- Step 3 -->
                     <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="300">
+                        data-aos="fade-up" data-aos-delay="200">
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
@@ -816,7 +920,7 @@
 
                     <!-- Step 4 -->
                     <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="400">
+                        data-aos="fade-up" data-aos-delay="250">
                         <div class="flex items-center gap-4 mb-3">
                             <div
                                 class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">

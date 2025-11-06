@@ -4,84 +4,75 @@
 
 @section('content')
 
-    {{-- HEADER / NAVBAR --}}
+    {{-- ✅ HEADER / NAVBAR --}}
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
-        <div class="relative flex items-center shadow-sm justify-between px-6 lg:px-12 py-4">
-            <!-- LEFT SIDE: Back Button + Logo -->
-            <div class="flex items-center gap-4 z-40">
-                <!-- Tombol Back -->
-                <a href="/"
-                    class="flex items-center justify-center text-yellow-400 hover:text-yellow-300 hover:scale-105 transition-transform duration-300"
-                    aria-label="Back to H!Academy Main">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-7 lg:w-7" fill="none" viewBox="0 0 24 24"
+        <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
+            {{-- 🔙 Back + Logo --}}
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                     <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
                 </a>
 
-                <!-- Logo -->
-                <a href="/preschool#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
+                <a href="/preschool#home" class="flex items-center gap-2">
                     <img src="{{ asset('img/logofull.png') }}" alt="Logo"
                         class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
 
-            <!-- NAV (centered on viewport) - visible on lg+ -->
+            {{-- 🌐 Desktop Nav --}}
             <nav id="primary-nav"
-                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
-                role="navigation" aria-label="Primary Navigation">
-                <a href="/preschool#home" class="nav-link" data-target="home">Home</a>
-
-                <!-- About Us with Dropdown -->
+                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
+                <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center" data-target="about">
-                        About Us
-                    </a>
-                    <!-- Dropdown Menu -->
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
                     <div
-                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
-                            <a href="#programs"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Programs</a>
-                            <a href="#curriculum"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Curriculum</a>
-                            <a href="#our-centre"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Our
+                            <a href="/preschool#programs"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
+                            <a href="/preschool#our-centre"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
                                 Centre</a>
                         </div>
                     </div>
                 </div>
-
-                <a href="/admissionpreschool" class="nav-link" data-target="admission">Admission Process</a>
-                <a href="https://parentinglife.id/" target="_blank" rel="noopener noreferrer" class="nav-link"
-                    data-target="parenting">Parenting</a>
-                <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
+                <div class="relative group">
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <div class="py-1">
+                            <a href="/preschool#curriculum"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
+                                Curriculum</a>
+                            <a href="/ipc"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">IPC
+                                Curriculum</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/admissionpreschool" class="nav-link">Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank" class="nav-link">Parenting</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
-            <!-- RIGHT SIDE: Buttons -->
+            {{-- 📱 Right side --}}
             <div class="flex items-center gap-3">
-                <!-- Apply Now Button -->
-                <a href="#apply"
-                    class="hidden lg:inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100 hover:shadow-white/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Apply Now</span>
-                </a>
-
-                <!-- Schedule a Visit Button -->
-                <a href="#tour"
-                    class="hidden lg:inline-flex items-center gap-2 border bg-yellow-400 border-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-400 hover:text-black hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Schedule a Visit</span>
-                </a>
-
-                <!-- Login Button -->
+                <a href="/admissionpreschool#admission"
+                    class="hidden lg:inline-flex bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100">Apply
+                    Now</a>
+                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA"
+                    class="hidden lg:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300"
+                    target="_blank">Schedule
+                    Visit</a>
                 <a href="/preschool-login"
-                    class="hidden xl:inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Login</span>
-                </a>
+                    class="hidden xl:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Login</a>
 
-                <!-- Hamburger Button (mobile + tablet) -->
-                <button id="menu-btn" class="xl:hidden text-white focus:outline-none z-50" aria-controls="mobile-menu"
-                    aria-expanded="false" aria-label="Toggle menu">
+                {{-- Hamburger --}}
+                <button id="menu-btn" class="xl:hidden text-white focus:outline-none" aria-label="Toggle menu">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -93,53 +84,77 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile/Tablet Menu -->
-        <div id="mobile-menu"
-            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl xl:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
-            style="max-height:0px;" aria-hidden="true">
-            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
-                <a href="#home"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
-                    data-target="home">🏠 Home</a>
-                <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">ℹ️ About Us</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Programs</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Our Curriculum</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 IPC CUrriculum</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Our Centre</a>
-                <a href="/admissionpreschool"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Admission Process</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Parenting</a>
-                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="contact">📞 Contact</a>
 
+        {{-- 📱 Mobile Menu --}}
+        <div id="mobile-menu"
+            class="bg-[#00809D]/90 shadow-2xl xl:hidden rounded-3xl mx-4 mt-2 ring-1 ring-yellow-400/50 backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none max-h-0 transition-all duration-300">
+            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
+                <a href="/preschool#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏠
+                    Home</a>
+                <a href="/aboutpreschool" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">ℹ️
+                    About Us</a>
+                <a href="/preschool#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🎯
+                    Programs</a>
+                <a href="/preschool#our-centre"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏫 Our
+                    Centre</a>
+                <a href="/preschool#curriculum"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📘 Our
+                    Curriculum</a>
+                <a href="/ipc" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🌍
+                    IPC Curriculum</a>
+                <a href="/admissionpreschool"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📚 Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">👨‍👩‍👧 Parenting</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📞
+                    Contact</a>
+
+                {{-- 🔘 Tombol Apply & Schedule Visit (Side by Side) --}}
+                <div class="px-6 py-5 bg-yellow-400/10 flex items-center justify-center gap-3">
+                    <a href="/admissionpreschool#admission"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🚀 Apply Now
+                    </a>
+                    <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        📅 Schedule Visit
+                    </a>
+                </div>
+
+                {{-- 🔐 Tombol Login --}}
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/login"
-                        class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span><span>Login</span>
+                    <a href="/preschool-login"
+                        class="inline-flex items-center justify-center bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🔐 Login
                     </a>
                 </div>
             </nav>
         </div>
-    </header>
 
+    </header>
+    {{-- ✅ STYLES --}}
     <style>
         html {
             scroll-behavior: smooth;
         }
 
-        /* Nav underline */
+        #background-carousel img.carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        #background-carousel img.carousel-slide.active {
+            opacity: 1;
+        }
+
         .nav-link,
         .nav-link-mobile {
             position: relative;
@@ -170,110 +185,86 @@
             text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
         }
 
-        /* Mobile menu visible state */
+        #mobile-menu {
+            transition: all 0.4s ease-in-out;
+        }
+
         #mobile-menu.show {
             opacity: 1;
             pointer-events: auto;
         }
     </style>
+
+    {{-- ✅ SINGLE NAVBAR SCRIPT (NO DUPLICATES!) --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
-            const headerBg = document.getElementById('header-bg');
-            const visual = document.getElementById('visual-container');
-            const nav = document.getElementById('primary-nav');
+            const navbar = document.getElementById('navbar');
 
-            /* ---------- Mobile toggle ---------- */
+            let isMenuOpen = false;
+
+            /* ---------- Mobile Menu Toggle ---------- */
             function openMobileMenu() {
+                isMenuOpen = true;
                 mobileMenu.classList.add('show');
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
                 menuIcon.classList.add('hidden');
                 closeIcon.classList.remove('hidden');
                 menuBtn.setAttribute('aria-expanded', 'true');
             }
+
             function closeMobileMenu() {
+                isMenuOpen = false;
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 350);
+                setTimeout(() => mobileMenu.classList.remove('show'), 400);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');
             }
 
-            menuBtn.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('show')) closeMobileMenu();
-                else openMobileMenu();
+            // Toggle on button click
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isMenuOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
             });
 
+            // Close when clicking a link in mobile menu
             mobileMenu.addEventListener('click', (e) => {
                 const link = e.target.closest('a');
                 if (!link) return;
+
                 if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
                     closeMobileMenu();
                 }
             });
 
-            /* ---------- Scroll background ---------- */
-            function handleScroll() {
-                if (window.scrollY > 20) {
-                    headerBg.classList.add('bg-black', 'backdrop-blur-md', 'shadow-lg');
-                    headerBg.classList.remove('bg-transparent');
-                } else {
-                    headerBg.classList.add('bg-transparent');
-                    headerBg.classList.remove('bg-black', 'backdrop-blur-md', 'shadow-lg');
-                }
-            }
-            handleScroll();
-            window.addEventListener('scroll', handleScroll, { passive: true });
-
-            /* ---------- Adjust visual container (lg+) ---------- */
-            function adjustVisualContainer() {
-                if (!visual || !nav) return;
-
-                if (window.innerWidth < 1024) {
-                    visual.style.display = 'none';
-                    visual.style.left = '';
-                    visual.style.maxWidth = '';
-                    visual.style.minWidth = '';
-                    return;
-                }
-
-                visual.style.display = 'flex';
-
-                const navRect = nav.getBoundingClientRect();
-                const navWidth = navRect.width;
-                const navCenterX = (navRect.left + navRect.right) / 2;
-
-                const extraLeftPadding = 32;
-                const rightSpacing = 16;
-
-                let leftPos = Math.round(navCenterX - navWidth / 2 - extraLeftPadding);
-                leftPos = Math.max(8, leftPos);
-
-                visual.style.left = leftPos + 'px';
-
-                const maxWidth = window.innerWidth - leftPos - rightSpacing;
-                visual.style.maxWidth = maxWidth + 'px';
-                visual.style.minWidth = (navWidth + 180) + 'px';
-            }
-
-            // Close mobile menu when resizing to desktop
+            // Close menu when resizing to desktop
             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 1024 && mobileMenu.classList.contains('show')) {
-                    mobileMenu.style.maxHeight = '0px';
-                    mobileMenu.classList.remove('show');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
+                if (window.innerWidth >= 1280 && isMenuOpen) {
+                    closeMobileMenu();
                 }
-                adjustVisualContainer();
             });
 
-            setTimeout(adjustVisualContainer, 50);
-            window.addEventListener('load', adjustVisualContainer);
-            window.addEventListener('resize', adjustVisualContainer);
+            /* ---------- Navbar Scroll Background ---------- */
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.add('bg-transparent');
+                    navbar.classList.remove('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                }
+            }
+
+            handleScroll();
+            window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
 
@@ -444,7 +435,10 @@
             <div>
                 <h2 class="text-3xl md:text-4xl font-bold text-[#00809D]">STEAM IN IPC CURRICULUM</h2>
                 <p class="text-gray-700 max-w-3xl mx-auto mt-4">
-                    In today’s rapidly evolving world, the demand for skills in science, technology, engineering, the arts, and mathematics (STEAM) is more crucial than ever. Recognizing this, the International Preschool Curriculum (IPC) has integrated STEAM education into its curriculum to nurture young learners’ natural curiosity and creativity while equipping them with the skills needed for future success.
+                    In today’s rapidly evolving world, the demand for skills in science, technology, engineering, the arts,
+                    and mathematics (STEAM) is more crucial than ever. Recognizing this, the International Preschool
+                    Curriculum (IPC) has integrated STEAM education into its curriculum to nurture young learners’ natural
+                    curiosity and creativity while equipping them with the skills needed for future success.
                 </p>
             </div>
 
@@ -461,101 +455,101 @@
             </div>
 
             {{-- Example: Customizable Accordion Tabs --}}
-@php
-    $tabs = [
-        'tab1' => [
-            'title' => 'STEAM in IPC',
-            'image' => 'img/carousel2.jpg',
-            'items' => [
-                [
-                    'title' => 'Interdisciplinary Learning',
-                    'content' => 'IPC’s curriculum is designed to be interdisciplinary, meaning that STEAM subjects are not taught in isolation but are integrated into various aspects of the learning experience.
-For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
-                ],
-                [
-                    'title' => 'Hands-On Activities and Experiments',
-                    'content' => 'IPC emphasizes experiential learning, where children engage in hands-on activities and experiments. These activities are carefully crafted to be age-appropriate and encourage exploration and experimentation.
+            @php
+                $tabs = [
+                    'tab1' => [
+                        'title' => 'STEAM in IPC',
+                        'image' => 'img/carousel2.jpg',
+                        'items' => [
+                            [
+                                'title' => 'Interdisciplinary Learning',
+                                'content' => 'IPC’s curriculum is designed to be interdisciplinary, meaning that STEAM subjects are not taught in isolation but are integrated into various aspects of the learning experience.
+                For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
+                            ],
+                            [
+                                'title' => 'Hands-On Activities and Experiments',
+                                'content' => 'IPC emphasizes experiential learning, where children engage in hands-on activities and experiments. These activities are carefully crafted to be age-appropriate and encourage exploration and experimentation.
 
-Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
-                ],
-                [
-                    'title' => 'Project-Based Learning',
-                    'content' => 'IPC incorporates project-based learning (PBL) into its STEAM approach, where children work on projects that require them to apply knowledge from various STEAM disciplines.
+                Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
+                            ],
+                            [
+                                'title' => 'Project-Based Learning',
+                                'content' => 'IPC incorporates project-based learning (PBL) into its STEAM approach, where children work on projects that require them to apply knowledge from various STEAM disciplines.
 
-For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
-                ],
-                [
-                    'title' => 'Technology Integration',
-                    'content' => 'Technology is seamlessly integrated into the IPC curriculum to enhance learning. Children are introduced to age-appropriate digital tools and resources that support their exploration of STEAM concepts
+                For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
+                            ],
+                            [
+                                'title' => 'Technology Integration',
+                                'content' => 'Technology is seamlessly integrated into the IPC curriculum to enhance learning. Children are introduced to age-appropriate digital tools and resources that support their exploration of STEAM concepts
 
-—for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
-                ],
-                [
-                    'title' => 'Creative Arts and Expression',
-                    'content' => 'The “A” in STEAM represents the arts, which IPC believes is crucial for fostering creativity and innovation. Artistic expression is woven into the curriculum through activities like drawing, music, dance, and drama.
+                —for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
+                            ],
+                            [
+                                'title' => 'Creative Arts and Expression',
+                                'content' => 'The “A” in STEAM represents the arts, which IPC believes is crucial for fostering creativity and innovation. Artistic expression is woven into the curriculum through activities like drawing, music, dance, and drama.
 
-These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
-                ],
-            ],
-        ],
-        'tab2' => [
-            'title' => 'Why STEAM is Important',
-            'image' => 'img/carousel4.jpg',
-            'items' => [
-                [
-                    'title' => 'Critical Thinking and Problem Solving',
-                    'content' => 'Students are encouraged to ask questions, explore multiple solutions, and think analytically.'
-                ],
-                [
-                    'title' => 'Collaboration and Communication',
-                    'content' => 'Working in groups enhances their ability to communicate ideas and work as a team.'
-                ],
-                [
-                    'title' => 'Real-World Application',
-                    'content' => 'STEAM connects classroom learning to everyday life, showing students how knowledge is used in real contexts.'
-                ],
-                [
-                    'title' => 'Future Skill Development',
-                    'content' => 'Prepares students for emerging industries by fostering adaptability, creativity, and digital literacy.'
-                ],
-                [
-                    'title' => 'Encouraging Creativity and Innovation',
-                    'content' => 'Empowers children to design, create, and innovate with confidence and curiosity.'
-                ],
-            ],
-        ],
-    ];
-@endphp
+                These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
+                            ],
+                        ],
+                    ],
+                    'tab2' => [
+                        'title' => 'Why STEAM is Important',
+                        'image' => 'img/carousel4.jpg',
+                        'items' => [
+                            [
+                                'title' => 'Critical Thinking and Problem Solving',
+                                'content' => 'Students are encouraged to ask questions, explore multiple solutions, and think analytically.'
+                            ],
+                            [
+                                'title' => 'Collaboration and Communication',
+                                'content' => 'Working in groups enhances their ability to communicate ideas and work as a team.'
+                            ],
+                            [
+                                'title' => 'Real-World Application',
+                                'content' => 'STEAM connects classroom learning to everyday life, showing students how knowledge is used in real contexts.'
+                            ],
+                            [
+                                'title' => 'Future Skill Development',
+                                'content' => 'Prepares students for emerging industries by fostering adaptability, creativity, and digital literacy.'
+                            ],
+                            [
+                                'title' => 'Encouraging Creativity and Innovation',
+                                'content' => 'Empowers children to design, create, and innovate with confidence and curiosity.'
+                            ],
+                        ],
+                    ],
+                ];
+            @endphp
 
-{{-- Render Tabs --}}
-@foreach ($tabs as $tabId => $tab)
-    <div id="{{ $tabId }}"
-        class="tab-content {{ $loop->first ? '' : 'hidden' }} flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 shadow-md">
-        
-        {{-- Image --}}
-        <div class="lg:w-1/2">
-            <img src="{{ asset($tab['image']) }}" alt="{{ $tab['title'] }}"
-                class="rounded-xl shadow-lg w-full object-cover">
-        </div>
+            {{-- Render Tabs --}}
+            @foreach ($tabs as $tabId => $tab)
+                <div id="{{ $tabId }}"
+                    class="tab-content {{ $loop->first ? '' : 'hidden' }} flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 shadow-md">
 
-        {{-- Accordion Items --}}
-        <div class="lg:w-1/2 w-full space-y-4 text-left">
-            @foreach ($tab['items'] as $i => $item)
-                <div class="bg-[#F5FBFF] border border-[#BCE3F4] rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleAccordion('{{ $tabId }}-{{ $i }}')"
-                        class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#E6F6FC] transition">
-                        {{ $loop->iteration }}. {{ $item['title'] }}
-                        <span id="{{ $tabId }}-{{ $i }}-icon" class="text-2xl font-bold">+</span>
-                    </button>
-                    <div id="{{ $tabId }}-{{ $i }}-content"
-                        class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                        <p class="px-6 pb-4 text-gray-700">{{ $item['content'] }}</p>
+                    {{-- Image --}}
+                    <div class="lg:w-1/2">
+                        <img src="{{ asset($tab['image']) }}" alt="{{ $tab['title'] }}"
+                            class="rounded-xl shadow-lg w-full object-cover">
+                    </div>
+
+                    {{-- Accordion Items --}}
+                    <div class="lg:w-1/2 w-full space-y-4 text-left">
+                        @foreach ($tab['items'] as $i => $item)
+                            <div class="bg-[#F5FBFF] border border-[#BCE3F4] rounded-xl overflow-hidden shadow-sm">
+                                <button onclick="toggleAccordion('{{ $tabId }}-{{ $i }}')"
+                                    class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#E6F6FC] transition">
+                                    {{ $loop->iteration }}. {{ $item['title'] }}
+                                    <span id="{{ $tabId }}-{{ $i }}-icon" class="text-2xl font-bold">+</span>
+                                </button>
+                                <div id="{{ $tabId }}-{{ $i }}-content"
+                                    class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                    <p class="px-6 pb-4 text-gray-700">{{ $item['content'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             @endforeach
-        </div>
-    </div>
-@endforeach
 
 
             {{-- FOOTER TEXT --}}
@@ -600,7 +594,7 @@ These activities allow children to express their understanding of scientific con
                 @foreach ($profiles as $p)
                     <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')"
                         class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
-                                                   rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
+                                                           rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
                         <span class="text-4xl mb-2">{{ $p['icon'] }}</span>
                         <span class="text-sm">{{ $p['name'] }}</span>
                     </button>
@@ -858,7 +852,7 @@ These activities allow children to express their understanding of scientific con
                         At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
                         education — it's a joyful journey filled with growth, inspiration, and care for every learner.
                     </p>
-                    <a href="#"
+                    <a href="/admissionpreschool#admission"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                         Join Now
                     </a>
@@ -992,26 +986,6 @@ These activities allow children to express their understanding of scientific con
             });
         });
     </script>
-    <script>
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#00809D]/70', 'shadow-md');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-[#00809D]/70', 'shadow-md');
-                navbar.classList.add('bg-transparent');
-            }
-        });
-
-        // Toggle mobile menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('animate-slideDown');
-        });
-    </script>
 
     {{-- STEAM --}}
     <script>
@@ -1026,7 +1000,7 @@ These activities allow children to express their understanding of scientific con
 
             const activeBtn = document.getElementById(tab + '-btn');
             activeBtn.classList.add('bg-[#00809D]', 'text-white');
-            activeBtn.classList.remove('bg-transparent','text-[#00809D]', 'border-2', 'border-[#00809D]');
+            activeBtn.classList.remove('bg-transparent', 'text-[#00809D]', 'border-2', 'border-[#00809D]');
         }
 
         function toggleAccordion(id) {

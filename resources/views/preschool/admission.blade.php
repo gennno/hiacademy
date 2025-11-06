@@ -4,84 +4,75 @@
 
 @section('content')
 
-    {{-- HEADER / NAVBAR --}}
+    {{-- ✅ HEADER / NAVBAR --}}
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
-        <div class="relative flex items-center shadow-sm justify-between px-6 lg:px-12 py-4">
-            <!-- LEFT SIDE: Back Button + Logo -->
-            <div class="flex items-center gap-4 z-40">
-                <!-- Tombol Back -->
-                <a href="/"
-                    class="flex items-center justify-center text-yellow-400 hover:text-yellow-300 hover:scale-105 transition-transform duration-300"
-                    aria-label="Back to H!Academy Main">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-7 lg:w-7" fill="none" viewBox="0 0 24 24"
+        <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
+            {{-- 🔙 Back + Logo --}}
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                     <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
                 </a>
 
-                <!-- Logo -->
-                <a href="/preschool#home" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
+                <a href="/preschool#home" class="flex items-center gap-2">
                     <img src="{{ asset('img/logofull.png') }}" alt="Logo"
                         class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
 
-            <!-- NAV (centered on viewport) - visible on lg+ -->
+            {{-- 🌐 Desktop Nav --}}
             <nav id="primary-nav"
-                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
-                role="navigation" aria-label="Primary Navigation">
-                <a href="/preschool#home" class="nav-link" data-target="home">Home</a>
-
-                <!-- About Us with Dropdown -->
+                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
+                <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center" data-target="about">
-                        About Us
-                    </a>
-                    <!-- Dropdown Menu -->
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
                     <div
-                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
-                            <a href="#programs"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Programs</a>
-                            <a href="#curriculum"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Curriculum</a>
-                            <a href="#our-centre"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Our
+                            <a href="/preschool#programs"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
+                            <a href="/preschool#our-centre"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
                                 Centre</a>
                         </div>
                     </div>
                 </div>
-
-                <a href="/admissionpreschool" class="nav-link" data-target="admission">Admission Process</a>
-                <a href="https://parentinglife.id/" target="_blank" rel="noopener noreferrer" class="nav-link"
-                    data-target="parenting">Parenting</a>
-                <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
+                <div class="relative group">
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <div class="py-1">
+                            <a href="/preschool#curriculum"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
+                                Curriculum</a>
+                            <a href="/ipc"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">IPC
+                                Curriculum</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/admissionpreschool" class="nav-link">Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank" class="nav-link">Parenting</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
-            <!-- RIGHT SIDE: Buttons -->
+            {{-- 📱 Right side --}}
             <div class="flex items-center gap-3">
-                <!-- Apply Now Button -->
-                <a href="#apply"
-                    class="hidden lg:inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100 hover:shadow-white/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Apply Now</span>
-                </a>
-
-                <!-- Schedule a Visit Button -->
-                <a href="#tour"
-                    class="hidden lg:inline-flex items-center gap-2 border bg-yellow-400 border-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-400 hover:text-black hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Schedule a Visit</span>
-                </a>
-
-                <!-- Login Button -->
+                <a href="/admissionpreschool#admission"
+                    class="hidden lg:inline-flex bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100">Apply
+                    Now</a>
+                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA"
+                    class="hidden lg:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300"
+                    target="_blank">Schedule
+                    Visit</a>
                 <a href="/preschool-login"
-                    class="hidden xl:inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Login</span>
-                </a>
+                    class="hidden xl:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Login</a>
 
-                <!-- Hamburger Button (mobile + tablet) -->
-                <button id="menu-btn" class="xl:hidden text-white focus:outline-none z-50" aria-controls="mobile-menu"
-                    aria-expanded="false" aria-label="Toggle menu">
+                {{-- Hamburger --}}
+                <button id="menu-btn" class="xl:hidden text-white focus:outline-none" aria-label="Toggle menu">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -93,53 +84,77 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile/Tablet Menu -->
-        <div id="mobile-menu"
-            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl xl:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
-            style="max-height:0px;" aria-hidden="true">
-            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
-                <a href="#home"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
-                    data-target="home">🏠 Home</a>
-                <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">ℹ️ About Us</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Programs</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Our Curriculum</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 IPC CUrriculum</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Our Centre</a>
-                <a href="/admissionpreschool"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Admission Process</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Parenting</a>
-                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="contact">📞 Contact</a>
 
+        {{-- 📱 Mobile Menu --}}
+        <div id="mobile-menu"
+            class="bg-[#00809D]/90 shadow-2xl xl:hidden rounded-3xl mx-4 mt-2 ring-1 ring-yellow-400/50 backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none max-h-0 transition-all duration-300">
+            <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
+                <a href="/preschool#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏠
+                    Home</a>
+                <a href="/aboutpreschool" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">ℹ️
+                    About Us</a>
+                <a href="/preschool#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🎯
+                    Programs</a>
+                <a href="/preschool#our-centre"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏫 Our
+                    Centre</a>
+                <a href="/preschool#curriculum"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📘 Our
+                    Curriculum</a>
+                <a href="/ipc" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🌍
+                    IPC Curriculum</a>
+                <a href="/admissionpreschool"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📚 Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">👨‍👩‍👧 Parenting</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📞
+                    Contact</a>
+
+                {{-- 🔘 Tombol Apply & Schedule Visit (Side by Side) --}}
+                <div class="px-6 py-5 bg-yellow-400/10 flex items-center justify-center gap-3">
+                    <a href="/admissionpreschool#admission"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🚀 Apply Now
+                    </a>
+                    <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        📅 Schedule Visit
+                    </a>
+                </div>
+
+                {{-- 🔐 Tombol Login --}}
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/login"
-                        class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span><span>Login</span>
+                    <a href="/preschool-login"
+                        class="inline-flex items-center justify-center bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🔐 Login
                     </a>
                 </div>
             </nav>
         </div>
-    </header>
 
+    </header>
+    {{-- ✅ STYLES --}}
     <style>
         html {
             scroll-behavior: smooth;
         }
 
-        /* Nav underline */
+        #background-carousel img.carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        #background-carousel img.carousel-slide.active {
+            opacity: 1;
+        }
+
         .nav-link,
         .nav-link-mobile {
             position: relative;
@@ -170,110 +185,86 @@
             text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
         }
 
-        /* Mobile menu visible state */
+        #mobile-menu {
+            transition: all 0.4s ease-in-out;
+        }
+
         #mobile-menu.show {
             opacity: 1;
             pointer-events: auto;
         }
     </style>
+
+    {{-- ✅ SINGLE NAVBAR SCRIPT (NO DUPLICATES!) --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
-            const headerBg = document.getElementById('header-bg');
-            const visual = document.getElementById('visual-container');
-            const nav = document.getElementById('primary-nav');
+            const navbar = document.getElementById('navbar');
 
-            /* ---------- Mobile toggle ---------- */
+            let isMenuOpen = false;
+
+            /* ---------- Mobile Menu Toggle ---------- */
             function openMobileMenu() {
+                isMenuOpen = true;
                 mobileMenu.classList.add('show');
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
                 menuIcon.classList.add('hidden');
                 closeIcon.classList.remove('hidden');
                 menuBtn.setAttribute('aria-expanded', 'true');
             }
+
             function closeMobileMenu() {
+                isMenuOpen = false;
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 350);
+                setTimeout(() => mobileMenu.classList.remove('show'), 400);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');
             }
 
-            menuBtn.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('show')) closeMobileMenu();
-                else openMobileMenu();
+            // Toggle on button click
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isMenuOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
             });
 
+            // Close when clicking a link in mobile menu
             mobileMenu.addEventListener('click', (e) => {
                 const link = e.target.closest('a');
                 if (!link) return;
+
                 if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
                     closeMobileMenu();
                 }
             });
 
-            /* ---------- Scroll background ---------- */
-            function handleScroll() {
-                if (window.scrollY > 20) {
-                    headerBg.classList.add('bg-black', 'backdrop-blur-md', 'shadow-lg');
-                    headerBg.classList.remove('bg-transparent');
-                } else {
-                    headerBg.classList.add('bg-transparent');
-                    headerBg.classList.remove('bg-black', 'backdrop-blur-md', 'shadow-lg');
-                }
-            }
-            handleScroll();
-            window.addEventListener('scroll', handleScroll, { passive: true });
-
-            /* ---------- Adjust visual container (lg+) ---------- */
-            function adjustVisualContainer() {
-                if (!visual || !nav) return;
-
-                if (window.innerWidth < 1024) {
-                    visual.style.display = 'none';
-                    visual.style.left = '';
-                    visual.style.maxWidth = '';
-                    visual.style.minWidth = '';
-                    return;
-                }
-
-                visual.style.display = 'flex';
-
-                const navRect = nav.getBoundingClientRect();
-                const navWidth = navRect.width;
-                const navCenterX = (navRect.left + navRect.right) / 2;
-
-                const extraLeftPadding = 32;
-                const rightSpacing = 16;
-
-                let leftPos = Math.round(navCenterX - navWidth / 2 - extraLeftPadding);
-                leftPos = Math.max(8, leftPos);
-
-                visual.style.left = leftPos + 'px';
-
-                const maxWidth = window.innerWidth - leftPos - rightSpacing;
-                visual.style.maxWidth = maxWidth + 'px';
-                visual.style.minWidth = (navWidth + 180) + 'px';
-            }
-
-            // Close mobile menu when resizing to desktop
+            // Close menu when resizing to desktop
             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 1024 && mobileMenu.classList.contains('show')) {
-                    mobileMenu.style.maxHeight = '0px';
-                    mobileMenu.classList.remove('show');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
+                if (window.innerWidth >= 1280 && isMenuOpen) {
+                    closeMobileMenu();
                 }
-                adjustVisualContainer();
             });
 
-            setTimeout(adjustVisualContainer, 50);
-            window.addEventListener('load', adjustVisualContainer);
-            window.addEventListener('resize', adjustVisualContainer);
+            /* ---------- Navbar Scroll Background ---------- */
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.add('bg-transparent');
+                    navbar.classList.remove('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                }
+            }
+
+            handleScroll();
+            window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
 
@@ -368,6 +359,7 @@
             animation: spin-slow 20s linear infinite;
         }
     </style>
+
     <section id="admission"
         class="relative py-20 pt-36 bg-gradient-to-br from-[#C0D6E8] via-[#B1C29E]/20 to-[#FADA7A]/30 overflow-hidden">
         {{-- Playful floating elements --}}
@@ -538,7 +530,8 @@
                                 <span class="text-3xl">📝</span>
                             </div>
                             <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 uppercase tracking-wide">STEP 2 Application
+                                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 uppercase tracking-wide">STEP 2
+                                    Application
                                     Form Submission</h3>
                                 <p class="text-gray-700 mt-1">Submit your completed form</p>
                             </div>
@@ -552,11 +545,14 @@
                         </p>
 
                         <div class="flex flex-wrap gap-4">
-                            <button
-                                class="flex items-center gap-3 bg-gradient-to-r from-[#F0A04B] to-[#FADA7A] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                                <span class="text-2xl">⬇️</span>
-                                <span>Application Form</span>
-                            </button>
+                            <a href="{{ asset('file/3.2-Application-Form-hiacademy.pdf') }}" target="_blank"
+                                rel="noopener noreferrer">
+                                <button
+                                    class="flex items-center gap-3 bg-gradient-to-r from-[#F0A04B] to-[#FADA7A] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                                    <span class="text-2xl">⬇️</span>
+                                    <span>Application Form</span>
+                                </button>
+                            </a>
 
                             <button
                                 class="flex items-center gap-3 bg-white border-2 border-[#F0A04B] text-[#F0A04B] px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#F0A04B] hover:text-white hover:scale-105 transition-all duration-300">
@@ -567,7 +563,7 @@
                     </div>
                 </div>
 
-                {{-- STEP 3 --}}
+                {{-- STEP 3 (Slider Version) --}}
                 <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-4 border-[#B1C29E]/20 hover:border-[#B1C29E] hover:-translate-y-2"
                     data-aos="fade-right">
                     <div class="bg-gradient-to-r from-[#B1C29E] to-[#7FB069] p-6 relative overflow-hidden">
@@ -575,47 +571,116 @@
                         <div class="relative flex items-center gap-4">
                             <div
                                 class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500">
-                                <span class="text-3xl">🎯</span>
+                                <span class="text-3xl">🎓</span>
                             </div>
                             <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">Step 3 Review &
-                                    Placement</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">
+                                    Step 3 Review & Placement
+                                </h3>
                                 <p class="text-white/90 mt-1">We'll find the perfect fit for your child</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8 bg-gradient-to-br from-white to-[#F0FDF4]">
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4 p-4 bg-green-50 rounded-xl border-l-4 border-green-500">
-                                <span class="text-2xl">🌍</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2">Year-Round Enrollment</h4>
-                                    <p class="text-gray-700">We welcome students from all nationalities at any time during
-                                        the year!</p>
-                                </div>
-                            </div>
+                        <!-- Swiper Container -->
+                        <div class="relative group">
+                            <!-- Navigation Buttons -->
+                            <button
+                                class="review-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#7FB069] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -ml-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
 
-                            <div class="flex items-start gap-4 p-4 bg-blue-50 rounded-xl border-l-4 border-blue-500">
-                                <span class="text-2xl">👶</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2">Age-Appropriate Classes</h4>
-                                    <p class="text-gray-700">Class placements follow International Preschool Curriculum age
-                                        guidelines to ensure optimal learning.</p>
-                                </div>
-                            </div>
+                            <button
+                                class="review-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#7FB069] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </button>
 
-                            <div class="flex items-start gap-4 p-4 bg-purple-50 rounded-xl border-l-4 border-purple-500">
-                                <span class="text-2xl">🤝</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2">Balanced Diversity</h4>
-                                    <p class="text-gray-700">We consider nationalities and gender balance when forming
-                                        classes to create a rich, diverse learning environment.</p>
+                            <!-- Swiper Wrapper -->
+                            <div class="swiper review-swiper">
+                                <div class="swiper-wrapper">
+
+                                    <!-- Slide 1 -->
+                                    <div class="swiper-slide">
+                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                                            <img src="{{ asset('img/13.webp') }}" alt="Pre-Nursery"
+                                                class="w-full h-56 object-cover">
+                                            <div class="p-6 text-center">
+                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">PRE-NURSERY</h4>
+                                                <p class="text-gray-600">18–24 months</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 2 -->
+                                    <div class="swiper-slide">
+                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                                            <img src="{{ asset('img/18.webp') }}" alt="Nursery"
+                                                class="w-full h-56 object-cover">
+                                            <div class="p-6 text-center">
+                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">NURSERY</h4>
+                                                <p class="text-gray-600">2+ years</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 3 -->
+                                    <div class="swiper-slide">
+                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                                            <img src="{{ asset('img/15.webp') }}" alt="Kindergarten 1"
+                                                class="w-full h-56 object-cover">
+                                            <div class="p-6 text-center">
+                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 1</h4>
+                                                <p class="text-gray-600">3+ years</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slide 4 -->
+                                    <div class="swiper-slide">
+                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                                            <img src="{{ asset('img/16.webp') }}" alt="Kindergarten 2"
+                                                class="w-full h-56 object-cover">
+                                            <div class="p-6 text-center">
+                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 2</h4>
+                                                <p class="text-gray-600">4+ years</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                                            <img src="{{ asset('img/17.webp') }}" alt="Kindergarten 2"
+                                                class="w-full h-56 object-cover">
+                                            <div class="p-6 text-center">
+                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 3</h4>
+                                                <p class="text-gray-600">5+ years</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
+
+                                <!-- Pagination -->
+                                <div class="swiper-pagination mt-6"></div>
                             </div>
                         </div>
+
+                        <!-- Note -->
+                        <p class="mt-8 text-center text-gray-600 text-sm md:text-base">
+                            To maintain diversity, nationalities, and genders are also taken into consideration when
+                            assigning students to classes.
+                        </p>
                     </div>
                 </div>
+
+
 
                 {{-- STEP 4 --}}
                 <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-4 border-[#00809D]/20 hover:border-[#00809D] hover:-translate-y-2"
@@ -628,7 +693,8 @@
                                 <span class="text-3xl">🎉</span>
                             </div>
                             <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">step 4 Enrollment &
+                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">step 4
+                                    Enrollment &
                                     Welcome!</h3>
                                 <p class="text-white/90 mt-1">Secure your child's place</p>
                             </div>
@@ -656,8 +722,6 @@
                 </div>
 
             </div>
-
-            
         </div>
     </section>
 
@@ -784,15 +848,16 @@
                         the foundation for lifelong learning!</p>
 
                     <div class="flex flex-wrap justify-center gap-4">
-                        <button
+                        <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
                             class="bg-white text-[#F0A04B] px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            📞 Schedule a Visit
-                        </button>
-                        <button
+                            📞 Schedule Visit
+                        </a>
+                        <a href="/admissionpreschool#admission"
                             class="bg-[#00809D] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
                             ✍️ Apply Now
-                        </button>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -863,7 +928,7 @@
                         At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
                         education — it's a joyful journey filled with growth, inspiration, and care for every learner.
                     </p>
-                    <a href="#"
+                    <a href="/admissionpreschool#admission"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                         Join Now
                     </a>
@@ -997,24 +1062,34 @@
             });
         });
     </script>
-    <script>
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#00809D]/70', 'shadow-md');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-[#00809D]/70', 'shadow-md');
-                navbar.classList.add('bg-transparent');
-            }
-        });
+    <!-- Swiper JS & CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        // Toggle mobile menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('animate-slideDown');
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".review-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 24,
+                loop: true,
+                navigation: {
+                    nextEl: ".review-next",
+                    prevEl: ".review-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
         });
     </script>
+
 @endsection

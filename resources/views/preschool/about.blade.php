@@ -3,85 +3,75 @@
 @section('title', 'h!academy - International Preschool')
 
 @section('content')
-
-    {{-- HEADER / NAVBAR --}}
+    {{-- ✅ HEADER / NAVBAR --}}
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
-        <div class="relative flex items-center shadow-sm justify-between px-6 lg:px-12 py-4">
-            <!-- LEFT SIDE: Back Button + Logo -->
-            <div class="flex items-center gap-4 z-40">
-                <!-- Tombol Back -->
-                <a href="/"
-                    class="flex items-center justify-center text-yellow-400 hover:text-yellow-300 hover:scale-105 transition-transform duration-300"
-                    aria-label="Back to H!Academy Main">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-7 lg:w-7" fill="none" viewBox="0 0 24 24"
+        <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
+            {{-- 🔙 Back + Logo --}}
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                     <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
                 </a>
 
-                <!-- Logo -->
-                <a href="/preschool" class="flex items-center gap-3 flex-shrink-0" aria-label="Go to home">
+                <a href="/preschool#home" class="flex items-center gap-2">
                     <img src="{{ asset('img/logofull.png') }}" alt="Logo"
                         class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
 
-            <!-- NAV (centered on viewport) - visible on lg+ -->
+            {{-- 🌐 Desktop Nav --}}
             <nav id="primary-nav"
-                class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
-                role="navigation" aria-label="Primary Navigation">
-                <a href="/preschool#home" class="nav-link" data-target="home">Home</a>
-
-                <!-- About Us with Dropdown -->
+                class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
+                <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center" data-target="about">
-                        About Us
-                    </a>
-                    <!-- Dropdown Menu -->
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
                     <div
-                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
                             <a href="/preschool#programs"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Programs</a>
-                            <a href="/preschool#curriculum"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Curriculum</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
                             <a href="/preschool#our-centre"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white transition-colors duration-200">Our
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
                                 Centre</a>
                         </div>
                     </div>
                 </div>
-
-                <a href="/admissionpreschool" class="nav-link" data-target="admission">Admission Process</a>
-                <a href="https://parentinglife.id/" target="_blank" rel="noopener noreferrer" class="nav-link"
-                    data-target="parenting">Parenting</a>
-                <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
+                <div class="relative group">
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                        <div class="py-1">
+                            <a href="/preschool#curriculum"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Our
+                                Curriculum</a>
+                            <a href="/ipc"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">IPC
+                                Curriculum</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/admissionpreschool" class="nav-link">Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank" class="nav-link">Parenting</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
-            <!-- RIGHT SIDE: Buttons -->
+            {{-- 📱 Right side --}}
             <div class="flex items-center gap-3">
-                <!-- Apply Now Button -->
-                <a href="#apply"
-                    class="hidden lg:inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100 hover:shadow-white/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Apply Now</span>
-                </a>
-
-                <!-- Schedule a Visit Button -->
-                <a href="#tour"
-                    class="hidden lg:inline-flex items-center gap-2 border bg-yellow-400 border-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-400 hover:text-black hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Schedule a Visit</span>
-                </a>
-
-                <!-- Login Button -->
+                <a href="/admissionpreschool#admission"
+                    class="hidden lg:inline-flex bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-gray-100">Apply
+                    Now</a>
+                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA"
+                    class="hidden lg:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300"
+                    target="_blank">Schedule
+                    Visit</a>
                 <a href="/preschool-login"
-                    class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Login</span>
-                </a>
+                    class="hidden xl:inline-flex bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300">Login</a>
 
-                <!-- Hamburger Button (mobile + tablet) -->
-                <button id="menu-btn" class="lg:hidden text-black focus:outline-none z-50" aria-controls="mobile-menu"
-                    aria-expanded="false" aria-label="Toggle menu">
+                {{-- Hamburger --}}
+                <button id="menu-btn" class="xl:hidden text-white focus:outline-none" aria-label="Toggle menu">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -94,37 +84,188 @@
             </div>
         </div>
 
-        <!-- Mobile/Tablet Menu -->
+        {{-- 📱 Mobile Menu --}}
         <div id="mobile-menu"
-            class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl lg:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
-            style="max-height:0px;" aria-hidden="true">
+            class="bg-[#00809D]/90 shadow-2xl xl:hidden rounded-3xl mx-4 mt-2 ring-1 ring-yellow-400/50 backdrop-blur-xl overflow-hidden opacity-0 pointer-events-none max-h-0 transition-all duration-300">
             <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
-                <a href="#home"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
-                    data-target="home">🏠 Home</a>
-                <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">ℹ️ About</a>
-                <a href="#programs"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="programs">🎯 Programs</a>
-                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="contact">📞 Contact</a>
+                <a href="/preschool#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏠
+                    Home</a>
+                <a href="/aboutpreschool" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">ℹ️
+                    About Us</a>
+                <a href="/preschool#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🎯
+                    Programs</a>
+                <a href="/preschool#our-centre"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🏫 Our
+                    Centre</a>
+                <a href="/preschool#curriculum"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📘 Our
+                    Curriculum</a>
+                <a href="/ipc" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">🌍
+                    IPC Curriculum</a>
+                <a href="/admissionpreschool"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📚 Admission Process</a>
+                <a href="https://parentinglife.id/" target="_blank"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">👨‍👩‍👧 Parenting</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 nav-link-mobile">📞
+                    Contact</a>
 
-                <!-- Mobile Buttons -->
-                <a href="#apply" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="apply">📝 Apply Now</a>
-                <a href="#tour" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="tour">🏫 Schedule a Visit</a>
+                {{-- 🔘 Tombol Apply & Schedule Visit (Side by Side) --}}
+                <div class="px-6 py-5 bg-yellow-400/10 flex items-center justify-center gap-3">
+                    <a href="/admissionpreschool#admission"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🚀 Apply Now
+                    </a>
+                    <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
+                        class="flex-1 inline-flex items-center justify-center bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        📅 Schedule Visit
+                    </a>
+                </div>
 
+                {{-- 🔐 Tombol Login --}}
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/preschool-login"
-                        class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>🔐</span><span>Login</span>
+                        class="inline-flex items-center justify-center bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 transition">
+                        🔐 Login
                     </a>
                 </div>
             </nav>
         </div>
+
     </header>
+    {{-- ✅ STYLES --}}
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #background-carousel img.carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            transform: scale(1.05);
+        }
+
+        #background-carousel img.carousel-slide.active {
+            opacity: 1;
+        }
+
+        .nav-link,
+        .nav-link-mobile {
+            position: relative;
+            display: inline-block;
+            padding-bottom: .25rem;
+        }
+
+        .nav-link::after,
+        .nav-link-mobile::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.12rem;
+            height: 2px;
+            width: 0%;
+            background: rgba(251, 191, 36, 1);
+            border-radius: 999px;
+            transition: width .22s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link-mobile:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #facc15;
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+        }
+
+        #mobile-menu {
+            transition: all 0.4s ease-in-out;
+        }
+
+        #mobile-menu.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+
+    {{-- ✅ SINGLE NAVBAR SCRIPT (NO DUPLICATES!) --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const navbar = document.getElementById('navbar');
+
+            let isMenuOpen = false;
+
+            /* ---------- Mobile Menu Toggle ---------- */
+            function openMobileMenu() {
+                isMenuOpen = true;
+                mobileMenu.classList.add('show');
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                menuBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMobileMenu() {
+                isMenuOpen = false;
+                mobileMenu.style.maxHeight = '0px';
+                setTimeout(() => mobileMenu.classList.remove('show'), 400);
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            // Toggle on button click
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isMenuOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+
+            // Close when clicking a link in mobile menu
+            mobileMenu.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+
+                if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close menu when resizing to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && isMenuOpen) {
+                    closeMobileMenu();
+                }
+            });
+
+            /* ---------- Navbar Scroll Background ---------- */
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.add('bg-transparent');
+                    navbar.classList.remove('bg-[#00809D]/70', 'backdrop-blur-md', 'shadow-lg');
+                }
+            }
+
+            handleScroll();
+            window.addEventListener('scroll', handleScroll, { passive: true });
+        });
+    </script>
 
     <style>
         html {
@@ -385,27 +526,6 @@
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-[#00809D]/70', 'shadow-md');
-                    navbar.classList.remove('bg-transparent');
-                } else {
-                    navbar.classList.remove('bg-[#00809D]/70', 'shadow-md');
-                    navbar.classList.add('bg-transparent');
-                }
-            });
-
-            // Toggle mobile menu
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('animate-slideDown');
-            });
-        });
-
         function toggleContent(contentId, button) {
             const content = document.getElementById(contentId);
             const isExpanded = content.classList.contains('expanded');
@@ -980,7 +1100,7 @@
                         At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
                         education — it's a joyful journey filled with growth, inspiration, and care for every learner.
                     </p>
-                    <a href="#"
+                    <a href="/admissionpreschool#admission"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                         Join Now
                     </a>
