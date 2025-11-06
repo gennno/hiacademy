@@ -186,7 +186,7 @@
         }
 
         #mobile-menu {
-            transition: all 0.4s ease-in-out;
+            transition: all 0.25s ease-in-out;
         }
 
         #mobile-menu.show {
@@ -219,7 +219,7 @@
             function closeMobileMenu() {
                 isMenuOpen = false;
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 400);
+                setTimeout(() => mobileMenu.classList.remove('show'), 250);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');
@@ -267,6 +267,7 @@
             window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
+
 
     {{-- About --}}
     <section id="about" class="relative py-20 pt-36 bg-[#C0D6E8] overflow-hidden">
@@ -463,31 +464,31 @@
                             [
                                 'title' => 'Interdisciplinary Learning',
                                 'content' => 'IPC’s curriculum is designed to be interdisciplinary, meaning that STEAM subjects are not taught in isolation but are integrated into various aspects of the learning experience.
-                                                                                                For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
+                                                                                                                For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
                             ],
                             [
                                 'title' => 'Hands-On Activities and Experiments',
                                 'content' => 'IPC emphasizes experiential learning, where children engage in hands-on activities and experiments. These activities are carefully crafted to be age-appropriate and encourage exploration and experimentation.
 
-                                                                                                Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
+                                                                                                                Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
                             ],
                             [
                                 'title' => 'Project-Based Learning',
                                 'content' => 'IPC incorporates project-based learning (PBL) into its STEAM approach, where children work on projects that require them to apply knowledge from various STEAM disciplines.
 
-                                                                                                For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
+                                                                                                                For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
                             ],
                             [
                                 'title' => 'Technology Integration',
                                 'content' => 'Technology is seamlessly integrated into the IPC curriculum to enhance learning. Children are introduced to age-appropriate digital tools and resources that support their exploration of STEAM concepts
 
-                                                                                                —for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
+                                                                                                                —for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
                             ],
                             [
                                 'title' => 'Creative Arts and Expression',
                                 'content' => 'The “A” in STEAM represents the arts, which IPC believes is crucial for fostering creativity and innovation. Artistic expression is woven into the curriculum through activities like drawing, music, dance, and drama.
 
-                                                                                                These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
+                                                                                                                These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
                             ],
                         ],
                     ],
@@ -499,25 +500,25 @@
                                 'title' => 'Encourages Curiosity and Exploration',
                                 'content' => 'Children are naturally curious, and STEAM education builds on this innate curiosity by encouraging exploration and discovery.
 
-                                By allowing children to ask questions, experiment, and find solutions, IPC helps cultivate a love for learning that extends beyond the classroom.'
+                                                By allowing children to ask questions, experiment, and find solutions, IPC helps cultivate a love for learning that extends beyond the classroom.'
                             ],
                             [
                                 'title' => 'Develops Critical Thinking and Problem-Solving Skills',
                                 'content' => 'STEAM education requires children to think critically and solve problems, skills that are essential in today’s complex world.
 
-                                Through hands-on activities and project-based learning, children learn to analyze situations, think creatively, and come up with innovative solutions.'
+                                                Through hands-on activities and project-based learning, children learn to analyze situations, think creatively, and come up with innovative solutions.'
                             ],
                             [
                                 'title' => 'Prepare Children for Future Careers',
                                 'content' => 'The future job market will increasingly demand skills in science, technology, engineering, and mathematics.
 
-                                The future job market will increasingly demand skills in science, technology, engineering, and mathematics.'
+                                                The future job market will increasingly demand skills in science, technology, engineering, and mathematics.'
                             ],
                             [
                                 'title' => 'Fosters Collaboration and Teamwork',
                                 'content' => 'Many STEAM activities involve working in groups, which helps children develop social skills, including communication, collaboration, and teamwork.
 
-                                These skills are important not only in academic settings but also in the workplace.'
+                                                These skills are important not only in academic settings but also in the workplace.'
                             ],
                             [
                                 'title' => 'Promotes Inclusivity and Diversity in Learning',
@@ -599,8 +600,9 @@
                 @endphp
 
                 @foreach ($profiles as $p)
-                    <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')" class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
-                                rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
+                    <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')"
+                        class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
+                                        rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
                         <span class="text-4xl mb-2">{{ $p['icon'] }}</span>
                         <span class="text-sm">{{ $p['name'] }}</span>
                     </button>
@@ -657,7 +659,8 @@
                         <div id="curriculum-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                Traditional learning often follows a rigid, teacher-directed approach, while the IPC emphasizes a dynamic, child-centered curriculum.
+                                Traditional learning often follows a rigid, teacher-directed approach, while the IPC
+                                emphasizes a dynamic, child-centered curriculum.
                             </p>
                         </div>
                     </div>
@@ -673,7 +676,8 @@
                         <div id="teaching-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                IPC uses a blend of play-based and inquiry-based learning methods, contrasting with the more didactic, lecture-based methods typical in traditional settings.
+                                IPC uses a blend of play-based and inquiry-based learning methods, contrasting with the more
+                                didactic, lecture-based methods typical in traditional settings.
                             </p>
                         </div>
                     </div>
@@ -689,7 +693,8 @@
                         <div id="teacher-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                In IPC, teachers act as facilitators or guides, whereas in traditional models, teachers are often the primary source of knowledge and authority.
+                                In IPC, teachers act as facilitators or guides, whereas in traditional models, teachers are
+                                often the primary source of knowledge and authority.
                             </p>
                         </div>
                     </div>
@@ -705,7 +710,8 @@
                         <div id="assessment-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                IPC uses ongoing, formative assessments to monitor development, focusing on individual progress, while traditional models may rely heavily on standardized testing.
+                                IPC uses ongoing, formative assessments to monitor development, focusing on individual
+                                progress, while traditional models may rely heavily on standardized testing.
                             </p>
                         </div>
                     </div>
@@ -769,7 +775,7 @@
                     </p>
 
                     {{-- DOWNLOAD BUTTON --}}
-                    <a href="#"
+                    <a href="{{ asset('file/IPC-Infant-Toddler-Curriculum.pdf') }}" download
                         class="inline-flex items-center gap-2 border border-white rounded-lg px-6 py-3 font-semibold hover:bg-white hover:text-[#0C75A6] transition">
                         <i class="fa-solid fa-download"></i> DOWNLOAD
                     </a>
@@ -803,9 +809,8 @@
                     <p class="text-[#D5ECF7] leading-relaxed">
                         With over 20 units, the IPC Preschool Curriculum was developed to be fun and engaging.
                     </p>
-
                     {{-- DOWNLOAD BUTTON --}}
-                    <a href="#"
+                    <a href="{{ asset('file/IPC-Preschool-Curriculum.pdf') }}" download
                         class="inline-flex items-center gap-2 border border-white rounded-lg px-6 py-3 font-semibold hover:bg-white hover:text-[#0C75A6] transition">
                         <i class="fa-solid fa-download"></i> DOWNLOAD
                     </a>

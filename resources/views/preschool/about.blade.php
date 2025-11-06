@@ -185,7 +185,7 @@
         }
 
         #mobile-menu {
-            transition: all 0.4s ease-in-out;
+            transition: all 0.25s ease-in-out;
         }
 
         #mobile-menu.show {
@@ -218,7 +218,7 @@
             function closeMobileMenu() {
                 isMenuOpen = false;
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 400);
+                setTimeout(() => mobileMenu.classList.remove('show'), 250);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');
@@ -266,6 +266,7 @@
             window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
+
 
     <style>
         html {
