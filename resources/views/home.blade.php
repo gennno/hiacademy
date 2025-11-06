@@ -307,6 +307,10 @@
         }
 
         /* Mobile menu visible state */
+        #mobile-menu {
+            transition: all 0.25s ease-in-out;
+        }
+
         #mobile-menu.show {
             opacity: 1;
             pointer-events: auto;
@@ -333,7 +337,7 @@
             }
             function closeMobileMenu() {
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 350);
+                setTimeout(() => mobileMenu.classList.remove('show'), 250);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');

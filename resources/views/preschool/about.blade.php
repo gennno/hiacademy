@@ -682,7 +682,7 @@
             <!-- Main Content -->
             <div class="space-y-12">
                 <!-- Introduction Paragraph -->
-                <div data-aos="fade-up" data-aos-delay="100">
+                <div data-aos="fade-up" data-aos-delay="50">
                     <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
                         Our learning approaches are based on our philosophy of play, with a strong emphasis on
                         <span class="font-bold text-amber-600">objective play and inquiry-based learning</span>.
@@ -696,12 +696,12 @@
                 </div>
 
                 <!-- Divider -->
-                <div class="relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="50">
                     <div class="h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent w-3/4"></div>
                 </div>
 
                 <!-- Two Column Content - Card & Dropdown -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="50">
                     <!-- Left Column - Card -->
                     <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 border-l-4 border-amber-500">
                         <div class="space-y-6">
@@ -899,7 +899,7 @@
             <!-- Main Content -->
             <div class="space-y-12">
                 <!-- Introduction Paragraph -->
-                <div data-aos="fade-up" data-aos-delay="100">
+                <div data-aos="fade-up" data-aos-delay="50">
                     <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
                         At h!academy, we are greatly concerned about child safeguarding. The school has a designated
                         safeguarding lead who ensures that all staff members are trained on child safeguarding as we believe
@@ -1090,7 +1090,7 @@
                 </div>
 
                 <!-- Column 2: Why Choose Us -->
-                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight">
                         <span class="bg-gradient-to-r text-yellow-400 bg-clip-text drop-shadow-md">
                             Nurturing Bright Futures
@@ -1107,7 +1107,7 @@
                 </div>
 
                 <!-- Column 3: Consultation Hours + Quick Links -->
-                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
 
                     <!-- Consultation Hours -->
                     <div class="hover:scale-[1.02] transition duration-300">

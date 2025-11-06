@@ -379,7 +379,7 @@
         }
 
         #mobile-menu {
-            transition: all 0.4s ease-in-out;
+            transition: all 0.25s ease-in-out;
         }
 
         #mobile-menu.show {
@@ -412,7 +412,7 @@
             function closeMobileMenu() {
                 isMenuOpen = false;
                 mobileMenu.style.maxHeight = '0px';
-                setTimeout(() => mobileMenu.classList.remove('show'), 400);
+                setTimeout(() => mobileMenu.classList.remove('show'), 250);
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
                 menuBtn.setAttribute('aria-expanded', 'false');
@@ -934,7 +934,7 @@
                 @foreach ($curriculums as $i => $c)
                     <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col md:flex-row 
                                                     {{ $i % 2 !== 0 ? 'md:flex-row-reverse' : '' }}" data-aos="fade-up"
-                        data-aos-once="true" data-aos-delay="{{ $i * 100 }}">
+                        data-aos-once="true" data-aos-delay="{{ $i * 50 }}">
 
                         {{-- 📸 Image --}}
                         <div class="md:w-2/5 w-full">
@@ -1327,7 +1327,7 @@
                 </div>
 
                 <!-- Column 2: Why Choose Us -->
-                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight">
                         <span class="bg-gradient-to-r text-yellow-400 bg-clip-text drop-shadow-md">
                             Nurturing Bright Futures
@@ -1344,7 +1344,7 @@
                 </div>
 
                 <!-- Column 3: Consultation Hours + Quick Links -->
-                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
 
                     <!-- Consultation Hours -->
                     <div class="hover:scale-[1.02] transition duration-300">

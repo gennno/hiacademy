@@ -648,7 +648,7 @@
                 <div class="lg:w-1/2 space-y-4">
                     <!-- Curriculum Design -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordion('curriculum')"
+                        <button onclick="toggleAccordiontraditional('curriculum')"
                             class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Curriculum Design
                             <span id="curriculum-icon"
@@ -664,7 +664,7 @@
 
                     <!-- Teaching Methods -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordion('teaching')"
+                        <button onclick="toggleAccordiontraditional('teaching')"
                             class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Teaching Methods
                             <span id="teaching-icon"
@@ -680,7 +680,7 @@
 
                     <!-- Role of the Teacher -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordion('teacher')"
+                        <button onclick="toggleAccordiontraditional('teacher')"
                             class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Role of the Teacher
                             <span id="teacher-icon"
@@ -696,7 +696,7 @@
 
                     <!-- Assessment -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordion('assessment')"
+                        <button onclick="toggleAccordiontraditional('assessment')"
                             class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Assessment
                             <span id="assessment-icon"
@@ -886,7 +886,7 @@
                 </div>
 
                 <!-- Column 3: Consultation Hours + Quick Links -->
-                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
 
                     <!-- Consultation Hours -->
                     <div class="hover:scale-[1.02] transition duration-300">
@@ -1037,11 +1037,18 @@
             const icon = document.getElementById(id + '-icon');
 
             const isOpen = content.classList.contains('max-h-[500px]');
-            document.querySelectorAll(`[id$='-content']`).forEach(el => {
+
+            // 🔒 Batasi hanya ke accordion di dalam section kurikulum (hindari icon hamburger)
+            const accordionSection = document.getElementById('steam-ipc');
+
+            accordionSection.querySelectorAll("[id$='-content']").forEach(el => {
                 el.classList.remove('max-h-[500px]', 'opacity-100');
                 el.classList.add('max-h-0', 'opacity-0');
             });
-            document.querySelectorAll(`[id$='-icon']`).forEach(el => el.textContent = '+');
+
+            accordionSection.querySelectorAll("[id$='-icon']").forEach(el => {
+                el.textContent = '+';
+            });
 
             if (!isOpen) {
                 content.classList.remove('max-h-0', 'opacity-0');
@@ -1049,6 +1056,7 @@
                 icon.textContent = '−';
             }
         }
+
     </script>
 
     {{-- profile --}}
@@ -1110,20 +1118,25 @@
 
     {{-- traditional --}}
     <script>
-        function toggleAccordion(id) {
+        function toggleAccordiontraditional(id) {
             const content = document.getElementById(id + '-content');
             const icon = document.getElementById(id + '-icon');
 
             const isOpen = content.classList.contains('max-h-[400px]');
 
-            // Close all others
-            document.querySelectorAll("[id$='-content']").forEach(el => {
+            // 🔒 Batasi hanya di dalam section "ipc-vs-traditional"
+            const accordionSection = document.getElementById('ipc-vs-traditional');
+
+            accordionSection.querySelectorAll("[id$='-content']").forEach(el => {
                 el.classList.remove('max-h-[400px]', 'opacity-100');
                 el.classList.add('max-h-0', 'opacity-0');
             });
-            document.querySelectorAll("[id$='-icon']").forEach(el => el.textContent = '+');
 
-            // Open selected
+            accordionSection.querySelectorAll("[id$='-icon']").forEach(el => {
+                el.textContent = '+';
+            });
+
+            // 🔓 Buka yang diklik
             if (!isOpen) {
                 content.classList.remove('max-h-0', 'opacity-0');
                 content.classList.add('max-h-[400px]', 'opacity-100');

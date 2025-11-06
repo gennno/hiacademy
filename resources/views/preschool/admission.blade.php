@@ -919,7 +919,7 @@
                 </div>
 
                 <!-- Column 2: Why Choose Us -->
-                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight">
                         <span class="bg-gradient-to-r text-yellow-400 bg-clip-text drop-shadow-md">
                             Nurturing Bright Futures
@@ -936,7 +936,7 @@
                 </div>
 
                 <!-- Column 3: Consultation Hours + Quick Links -->
-                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="50" data-aos-duration="800">
 
                     <!-- Consultation Hours -->
                     <div class="hover:scale-[1.02] transition duration-300">
