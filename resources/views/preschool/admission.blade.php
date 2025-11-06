@@ -554,11 +554,12 @@
                                 </button>
                             </a>
 
-                            <button
+                            <a href="mailto:info@hiacademy.id"
                                 class="flex items-center gap-3 bg-white border-2 border-[#F0A04B] text-[#F0A04B] px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#F0A04B] hover:text-white hover:scale-105 transition-all duration-300">
                                 <span class="text-2xl">✉️</span>
                                 <span>Email Form</span>
-                            </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>

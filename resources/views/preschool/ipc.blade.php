@@ -366,19 +366,17 @@
                                     world. Its curriculum modules encompass diverse subjects such as language arts,
                                     mathematics, science, social studies, creative arts, physical development, and
                                     social-emotional learning.
-                                    This holistic approach ensures that children receive a well-rounded education that
-                                    prepares them for future academic success and personal growth.
                                 </p>
                             </div>
                         </div>
 
                         <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
-                            <button onclick="toggleDropdown('professional')"
+                            <button onclick="toggleDropdown('global')"
                                 class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
                                 Global Perspective
-                                <span id="professional-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                                <span id="global-icon" class="text-2xl text-[#00809D] font-bold">+</span>
                             </button>
-                            <div id="professional-dropdown"
+                            <div id="global-dropdown"
                                 class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                                 <p class="px-6 pb-4 text-gray-700 leading-relaxed">
                                     IPC incorporates global perspectives into its curriculum, exposing children to diverse
@@ -390,12 +388,12 @@
                         </div>
 
                         <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
-                            <button onclick="toggleDropdown('engagement')"
+                            <button onclick="toggleDropdown('professional')"
                                 class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
                                 Professional Development
-                                <span id="engagement-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                                <span id="professional-icon" class="text-2xl text-[#00809D] font-bold">+</span>
                             </button>
-                            <div id="engagement-dropdown"
+                            <div id="professional-dropdown"
                                 class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                                 <p class="px-6 pb-4 text-gray-700 leading-relaxed">
                                     IPC prioritizes educators' professional development through specialized training
@@ -405,13 +403,14 @@
                                 </p>
                             </div>
                         </div>
+
                         <div class="bg-white border border-[#CBE8F3] rounded-xl overflow-hidden shadow-sm">
-                            <button onclick="toggleDropdown('engagement')"
+                            <button onclick="toggleDropdown('parental')"
                                 class="w-full flex justify-between items-center px-6 py-4 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
                                 Parental Engagement
-                                <span id="engagement-icon" class="text-2xl text-[#00809D] font-bold">+</span>
+                                <span id="parental-icon" class="text-2xl text-[#00809D] font-bold">+</span>
                             </button>
-                            <div id="engagement-dropdown"
+                            <div id="parental-dropdown"
                                 class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                                 <p class="px-6 pb-4 text-gray-700 leading-relaxed">
                                     IPC recognizes the importance of parental involvement in children's education and
@@ -464,31 +463,31 @@
                             [
                                 'title' => 'Interdisciplinary Learning',
                                 'content' => 'IPC’s curriculum is designed to be interdisciplinary, meaning that STEAM subjects are not taught in isolation but are integrated into various aspects of the learning experience.
-                For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
+                                                                                                For example, a lesson on building a simple machine might incorporate principles of physics (science), measurements (mathematics), and creative design (arts), allowing children to see the connections between different fields.'
                             ],
                             [
                                 'title' => 'Hands-On Activities and Experiments',
                                 'content' => 'IPC emphasizes experiential learning, where children engage in hands-on activities and experiments. These activities are carefully crafted to be age-appropriate and encourage exploration and experimentation.
 
-                Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
+                                                                                                Whether it’s creating art with a focus on symmetry, building simple structures, or exploring the natural world, these activities help children develop a practical understanding of STEAM concepts.'
                             ],
                             [
                                 'title' => 'Project-Based Learning',
                                 'content' => 'IPC incorporates project-based learning (PBL) into its STEAM approach, where children work on projects that require them to apply knowledge from various STEAM disciplines.
 
-                For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
+                                                                                                For example, a project might involve designing and building a model city, which would require understanding architectural principles (engineering), planning (mathematics), and environmental impact (science). PBL encourages collaboration, creativity, and the application of knowledge in real-world contexts.'
                             ],
                             [
                                 'title' => 'Technology Integration',
                                 'content' => 'Technology is seamlessly integrated into the IPC curriculum to enhance learning. Children are introduced to age-appropriate digital tools and resources that support their exploration of STEAM concepts
 
-                —for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
+                                                                                                —for example, using educational software to create digital art or simple coding activities to introduce the basics of computer science. These tools not only make learning more engaging but also help children become comfortable with technology from an early age.'
                             ],
                             [
                                 'title' => 'Creative Arts and Expression',
                                 'content' => 'The “A” in STEAM represents the arts, which IPC believes is crucial for fostering creativity and innovation. Artistic expression is woven into the curriculum through activities like drawing, music, dance, and drama.
 
-                These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
+                                                                                                These activities allow children to express their understanding of scientific concepts creatively, such as using dance to demonstrate the concept of movement or creating art that reflects patterns found in nature.'
                             ],
                         ],
                     ],
@@ -497,24 +496,32 @@
                         'image' => 'img/carousel4.jpg',
                         'items' => [
                             [
-                                'title' => 'Critical Thinking and Problem Solving',
-                                'content' => 'Students are encouraged to ask questions, explore multiple solutions, and think analytically.'
+                                'title' => 'Encourages Curiosity and Exploration',
+                                'content' => 'Children are naturally curious, and STEAM education builds on this innate curiosity by encouraging exploration and discovery.
+
+                                By allowing children to ask questions, experiment, and find solutions, IPC helps cultivate a love for learning that extends beyond the classroom.'
                             ],
                             [
-                                'title' => 'Collaboration and Communication',
-                                'content' => 'Working in groups enhances their ability to communicate ideas and work as a team.'
+                                'title' => 'Develops Critical Thinking and Problem-Solving Skills',
+                                'content' => 'STEAM education requires children to think critically and solve problems, skills that are essential in today’s complex world.
+
+                                Through hands-on activities and project-based learning, children learn to analyze situations, think creatively, and come up with innovative solutions.'
                             ],
                             [
-                                'title' => 'Real-World Application',
-                                'content' => 'STEAM connects classroom learning to everyday life, showing students how knowledge is used in real contexts.'
+                                'title' => 'Prepare Children for Future Careers',
+                                'content' => 'The future job market will increasingly demand skills in science, technology, engineering, and mathematics.
+
+                                The future job market will increasingly demand skills in science, technology, engineering, and mathematics.'
                             ],
                             [
-                                'title' => 'Future Skill Development',
-                                'content' => 'Prepares students for emerging industries by fostering adaptability, creativity, and digital literacy.'
+                                'title' => 'Fosters Collaboration and Teamwork',
+                                'content' => 'Many STEAM activities involve working in groups, which helps children develop social skills, including communication, collaboration, and teamwork.
+
+                                These skills are important not only in academic settings but also in the workplace.'
                             ],
                             [
-                                'title' => 'Encouraging Creativity and Innovation',
-                                'content' => 'Empowers children to design, create, and innovate with confidence and curiosity.'
+                                'title' => 'Promotes Inclusivity and Diversity in Learning',
+                                'content' => 'STEAM education at IPC is designed to be inclusive, catering to diverse learning styles and interests. By integrating arts into STEM, IPC makes these subjects more accessible and engaging for all children, regardless of their background or abilities.'
                             ],
                         ],
                     ],
@@ -592,9 +599,8 @@
                 @endphp
 
                 @foreach ($profiles as $p)
-                    <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')"
-                        class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
-                                                           rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
+                    <button id="{{ $p['id'] }}-btn" onclick="setActiveProfile('{{ $p['id'] }}')" class="profile-btn w-40 h-32 flex flex-col justify-center items-center bg-white border border-[#D6ECF6] 
+                                rounded-2xl shadow-sm hover:shadow-md transition duration-300 font-semibold text-[#00809D]">
                         <span class="text-4xl mb-2">{{ $p['icon'] }}</span>
                         <span class="text-sm">{{ $p['name'] }}</span>
                     </button>
@@ -618,99 +624,120 @@
         </div>
     </section>
 
-    {{-- IPC vs. Traditional Methods Section --}}
-    <section id="ipc-vs-traditional" class="bg-[#E8F3FB] py-20 px-6 md:px-12 lg:px-20">
-        <div class="max-w-6xl mx-auto text-center space-y-10">
-
-            {{-- HEADER --}}
-            <div>
+    <section id="ipc-vs-traditional" class="py-16 bg-[#E6F6FC]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <!-- Title -->
+            <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#00809D]">IPC VS. TRADITIONAL METHODS</h2>
-                <p class="text-gray-700 max-w-3xl mx-auto mt-4 leading-relaxed">
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Unlike conventional models that often rely on rote memorization and structured teacher-led instruction,
                     the IPC embraces thematic, inquiry-based learning that encourages active exploration and critical
                     thinking.
                 </p>
             </div>
 
-            {{-- CONTENT --}}
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-10 text-left">
-                {{-- IMAGE --}}
-                <div class="lg:w-1/2 flex justify-center">
-                    <img src="{{ asset('img/carousel6.jpg') }}" alt="Child learning through IPC"
-                        class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+            <!-- Content -->
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <!-- Left Image -->
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('img/carousel3.webp') }}" alt="IPC vs Traditional"
+                        class="rounded-2xl shadow-md w-full object-cover">
                 </div>
 
-                {{-- ACCORDION --}}
-                <div class="lg:w-1/2 w-full bg-white rounded-2xl shadow-md border border-[#BEE2F3] overflow-hidden">
-                    {{-- Curriculum Design --}}
-                    <div class="border-b border-[#CDE9F7]">
+                <!-- Right Accordion -->
+                <div class="lg:w-1/2 space-y-4">
+                    <!-- Curriculum Design -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('curriculum')"
-                            class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                            class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Curriculum Design
-                            <span id="curriculum-icon" class="text-2xl font-bold">−</span>
+                            <span id="curriculum-icon"
+                                class="bg-[#E6F6FC] text-[#00809D] w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="curriculum-content"
-                            class="max-h-[400px] opacity-100 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-5 text-gray-700 leading-relaxed">
-                                Traditional learning often follows a rigid, teacher-directed approach,
-                                while the IPC emphasizes a dynamic, child-centered curriculum.
-                            </p>
-                        </div>
-                    </div>
-
-                    {{-- Teaching Methods --}}
-                    <div class="border-b border-[#CDE9F7]">
-                        <button onclick="toggleAccordion('methods')"
-                            class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
-                            Teaching Methods
-                            <span id="methods-icon" class="text-2xl font-bold">+</span>
-                        </button>
-                        <div id="methods-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-5 text-gray-700 leading-relaxed">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. The IPC integrates hands-on,
-                                inquiry-based activities
-                                to encourage active participation and discovery.
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                Traditional learning often follows a rigid, teacher-directed approach, while the IPC emphasizes a dynamic, child-centered curriculum.
                             </p>
                         </div>
                     </div>
 
-                    {{-- Role of the Teacher --}}
-                    <div class="border-b border-[#CDE9F7]">
+                    <!-- Teaching Methods -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <button onclick="toggleAccordion('teaching')"
+                            class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
+                            Teaching Methods
+                            <span id="teaching-icon"
+                                class="bg-[#E6F6FC] text-[#00809D] w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                        </button>
+                        <div id="teaching-content"
+                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                IPC uses a blend of play-based and inquiry-based learning methods, contrasting with the more didactic, lecture-based methods typical in traditional settings.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role of the Teacher -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('teacher')"
-                            class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                            class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Role of the Teacher
-                            <span id="teacher-icon" class="text-2xl font-bold">+</span>
+                            <span id="teacher-icon"
+                                class="bg-[#E6F6FC] text-[#00809D] w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="teacher-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-5 text-gray-700 leading-relaxed">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Teachers act as facilitators who
-                                guide
-                                exploration rather than dictate information.
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                In IPC, teachers act as facilitators or guides, whereas in traditional models, teachers are often the primary source of knowledge and authority.
                             </p>
                         </div>
                     </div>
 
-                    {{-- Assessment --}}
-                    <div>
+                    <!-- Assessment -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordion('assessment')"
-                            class="w-full flex justify-between items-center px-6 py-5 font-semibold text-[#00809D] hover:bg-[#E6F6FC] transition">
+                            class="w-full flex justify-between items-center px-6 py-4 text-[#00809D] font-semibold hover:bg-[#DFF2FA] transition">
                             Assessment
-                            <span id="assessment-icon" class="text-2xl font-bold">+</span>
+                            <span id="assessment-icon"
+                                class="bg-[#E6F6FC] text-[#00809D] w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="assessment-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-5 text-gray-700 leading-relaxed">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPC emphasizes progress tracking
-                                and holistic evaluation over standardized testing.
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                IPC uses ongoing, formative assessments to monitor development, focusing on individual progress, while traditional models may rely heavily on standardized testing.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function toggleIpcAccordion(id) {
+                const content = document.getElementById(id + '-content');
+                const icon = document.getElementById(id + '-icon');
+
+                const isOpen = content.classList.contains('max-h-[400px]');
+
+                // Tutup semua accordion lain di section ini
+                document.querySelectorAll("[id$='-content']").forEach(el => {
+                    el.classList.remove('max-h-[400px]', 'opacity-100');
+                    el.classList.add('max-h-0', 'opacity-0');
+                });
+                document.querySelectorAll("[id$='-icon']").forEach(el => el.textContent = '+');
+
+                // Buka accordion yang dipilih
+                if (!isOpen) {
+                    content.classList.remove('max-h-0', 'opacity-0');
+                    content.classList.add('max-h-[400px]', 'opacity-100');
+                    icon.textContent = '−';
+                }
+            }
+        </script>
+
     </section>
+
+
     {{-- IPC Curriculum Section --}}
     <section id="ipc-curriculum" class="bg-[#0C75A6] text-white py-20 px-6 md:px-12 lg:px-20">
         <div class="max-w-7xl mx-auto">
@@ -920,6 +947,23 @@
         class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
         ↑
     </button>
+
+    <script>
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                backToTopBtn.classList.remove("hidden");
+            } else {
+                backToTopBtn.classList.add("hidden");
+            }
+        });
+
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+
     <script>
         let currentlyOpen = null;
 
@@ -959,25 +1003,10 @@
             currentlyOpen = type;
         }
     </script>
-    <script>
-        const backToTopBtn = document.getElementById("backToTopBtn");
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                backToTopBtn.classList.remove("hidden");
-            } else {
-                backToTopBtn.classList.add("hidden");
-            }
-        });
-
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
-
 
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({
@@ -1021,37 +1050,38 @@
             }
         }
     </script>
+
     {{-- profile --}}
     <script>
         const profiles = {
             thinkers: {
                 title: "Independent Thinkers",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Independent thinkers develop the ability to question, reason, and make thoughtful decisions on their own.",
+                text: "They are capable of developing independent thoughts, ideas, and opinions and appreciate when collective thinking and sharing are required to achieve a desirable or beneficial outcome.",
                 image: "{{ asset('img/brain.webp') }}"
             },
             team: {
                 title: "Team Workers",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Team workers collaborate effectively, respect others’ ideas, and achieve goals together.",
+                text: "They work as a team and can lead and accept leadership roles in group activities. They understand that teamwork is sometimes required to achieve some tasks.",
                 image: "{{ asset('img/brain.webp') }}"
             },
             reflectors: {
                 title: "Reflectors",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reflectors analyze their experiences, learn from mistakes, and strive for improvement.",
+                text: "Through inquiry or instruction, they can appreciate and reflect on newly obtained knowledge.",
                 image: "{{ asset('img/brain.webp') }}"
             },
             predictors: {
                 title: "Predictors",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Predictors can foresee outcomes, connect ideas, and explore creative possibilities.",
+                text: "They are capable of predicting the outcome of specific actions and exploring the “what ifs.” They can make connections and correlations.",
                 image: "{{ asset('img/brain.webp') }}"
             },
             communicators: {
                 title: "Communicators",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Communicators express themselves clearly and listen actively to others.",
+                text: "They are capable of communicating their ideas, needs, and wants in an effective manner and understand when such communication is acceptable or necessary.",
                 image: "{{ asset('img/brain.webp') }}"
             },
             carers: {
                 title: "Social Carers",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Social carers show empathy, kindness, and take responsibility for others’ well-being.",
+                text: "They strive to accommodate the social needs of others and share compassion, knowledge, and friendship. They understand the boundaries of socially acceptable.",
                 image: "{{ asset('img/brain.webp') }}"
             }
         };
@@ -1065,6 +1095,7 @@
 
             // Highlight selected
             const activeBtn = document.getElementById(id + '-btn');
+            activeBtn.classList.remove('text-[#00809D]');
             activeBtn.classList.add('bg-[#00809D]', 'text-white', 'shadow-md');
 
             // Update content
@@ -1100,4 +1131,5 @@
             }
         }
     </script>
+
 @endsection
