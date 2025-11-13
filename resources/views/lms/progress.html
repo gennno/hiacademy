@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress | BrainyBuddies</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <custom-sidebar></custom-sidebar>
+    <custom-topbar></custom-topbar>
+    
+    <main class="ml-0 md:ml-[70px] lg:ml-[250px] mt-16 p-4 md:p-8">
+      <h1 class="text-3xl font-bold mb-6">Your Learning Progress</h1>
+      
+      <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+        <h2 class="text-xl font-bold mb-4">Completion Rate</h2>
+        <div class="h-64">
+          <!-- Chart placeholder -->
+          <div class="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center">
+            <span class="text-gray-400">Progress chart will appear here</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-xl font-bold mb-4">Time Spent</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-medium">This Week</h3>
+              <p class="text-2xl font-bold text-blue-500">12h 45m</p>
+            </div>
+            <div>
+              <h3 class="font-medium">This Month</h3>
+              <p class="text-2xl font-bold text-green-500">42h 30m</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Total</h3>
+              <p class="text-2xl font-bold text-purple-500">87h 15m</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-xl font-bold mb-4">Activity</h2>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                <span class="text-blue-500">📚</span>
+              </div>
+              <div>
+                <p class="font-medium">Completed HTML Fundamentals</p>
+                <p class="text-sm text-gray-500">2 days ago</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                <span class="text-green-500">🎯</span>
+              </div>
+              <div>
+                <p class="font-medium">Set new learning goal</p>
+                <p class="text-sm text-gray-500">1 week ago</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                <span class="text-purple-500">🏆</span>
+              </div>
+              <div>
+                <p class="font-medium">Earned CSS Master badge</p>
+                <p class="text-sm text-gray-500">2 weeks ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="components/sidebar.js"></script>
+    <script src="components/topbar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

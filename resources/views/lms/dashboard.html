@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainyBuddies Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <custom-sidebar></custom-sidebar>
+    <custom-topbar></custom-topbar>
+    <main class="ml-0 md:ml-[250px] mt-16 p-4 md:p-8" id="main-content">
+<div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Progress Overview</h2>
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div class="text-center p-4 border rounded-lg">
+              <div class="text-4xl mb-2">📈</div>
+              <h3 class="font-bold mb-1">Completion Rate</h3>
+              <p class="text-2xl font-bold text-blue-500">42%</p>
+            </div>
+            <div class="text-center p-4 border rounded-lg">
+              <div class="text-4xl mb-2">⏱️</div>
+              <h3 class="font-bold mb-1">Hours Learned</h3>
+              <p class="text-2xl font-bold text-green-500">87h</p>
+            </div>
+            <div class="text-center p-4 border rounded-lg">
+              <div class="text-4xl mb-2">🏅</div>
+              <h3 class="font-bold mb-1">Badges Earned</h3>
+              <p class="text-2xl font-bold text-purple-500">5</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4">My Programs</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Program Card 1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+              <span class="text-white text-4xl">📚</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Web Development</h3>
+              <p class="text-gray-600 mb-4">Master HTML, CSS, and JavaScript to build modern websites.</p>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Progress</span>
+                  <span>65%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+              <a href="program-detail.html" class="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors">
+                View Details
+              </a>
+            </div>
+          </div>
+
+          <!-- Program Card 2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+              <span class="text-white text-4xl">🧠</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Data Science</h3>
+              <p class="text-gray-600 mb-4">Learn Python, Pandas, and Machine Learning fundamentals.</p>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Progress</span>
+                  <span>30%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-green-500 h-2 rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+              <a href="program-detail.html" class="block w-full text-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors">
+                View Details
+              </a>
+            </div>
+          </div>
+
+          <!-- Program Card 3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+              <span class="text-white text-4xl">🎨</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
+              <p class="text-gray-600 mb-4">Master Figma and design thinking for beautiful interfaces.</p>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Progress</span>
+                  <span>15%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-purple-500 h-2 rounded-full" style="width: 15%"></div>
+                </div>
+              </div>
+              <a href="program-detail.html" class="block w-full text-center bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-colors">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+</main>
+
+    <script src="components/sidebar.js"></script>
+    <script src="components/topbar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

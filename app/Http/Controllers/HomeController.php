@@ -40,5 +40,8 @@ class HomeController extends Controller
         return view('booktrial');
     }
 
-
+        public function register()
+    {
+        return view('register');
+    }
 }

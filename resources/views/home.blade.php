@@ -222,8 +222,12 @@
 
             <!-- Visual container (desktop only) -->
             <div id="visual-container"
-                class="hidden lg:flex items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
+                class="hidden lg:flex  gap-3 items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
                 style="right:1rem;">
+                <a href="/register"
+                    class="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                    <span>Apply Now</span>
+                </a>
                 <a href="/login"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                     <span>Login</span>
@@ -259,7 +263,12 @@
                     data-target="programs">Programs</a>
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="contact">Contact</a>
-
+                <div class="px-6 py-5 bg-yellow-400/10 text-center">
+                    <a href="/register"
+                        class="inline-flex items-center justify-center gap-2 bg-white text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                        <span>Apply Now</span>
+                    </a>
+                </div>
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
