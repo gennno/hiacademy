@@ -14,7 +14,14 @@ class HomeController extends Controller
     {
         return view('preschool.home');
     }
-
+        public function englishindex()
+    {
+        return view('english.home');
+    }
+        public function mathindex()
+    {
+        return view('math.home');
+    }
         public function preschoolabout()
     {
         return view('preschool.about');

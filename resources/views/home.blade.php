@@ -693,7 +693,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">English Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Effective communication is key to success, and our English
                             Language Program is designed to build fluency and confidence.</p>
-                        <a href="#"
+                        <a href="/english"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -731,7 +731,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Math Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="#"
+                        <a href="/math"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
