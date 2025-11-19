@@ -613,6 +613,106 @@
         </div>
     </section>
 
+    
+    {{-- About Section --}}
+    <section id="about"
+        class="bg-gray-800/50 pt-36 pb-10 relative backdrop-blur-md rounded-2xl shadow-xl text-center ">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
+
+            <!-- Kolom Teks -->
+            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
+                    About <span class="text-yellow-300 font-semibold">h!</span><span
+                        class="text-white font-semibold">academy</span>
+                </h1>
+
+                <p class="text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
+                    HiAcademy is a one-stop center for modern education, dedicated to equipping students with the skills and
+                    confidence to thrive in a globalized world.
+
+
+                </p>
+
+                <p class="mt-3 sm:mt-4 text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
+                    We move beyond traditional tutoring with a holistic approach that blends modern teaching methods and
+                    hands-on learning to spark curiosity, foster creativity, and build confidence.
+
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="50">
+                    <a href="#contact"
+                        class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
+                        Talk to Us
+                    </a>
+                    <a href="{{ route('booktrial') }}"
+                        class="bg-yellow-300 text-black px-6 py-3 text-base font-medium rounded-md shadow-md hover:bg-yellow-200 transition duration-300">
+                        Free Trial →
+                    </a>
+                </div>
+            </div>
+
+            {{-- Image gallery --}}
+            {{-- Image gallery --}}
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+                <!-- Image 1 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
+                            <p class="text-sm">International Preschool, Child Development</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Core Academics</h3>
+                            <p class="text-sm">Math, English, and Mandarin Programs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Future Skills</h3>
+                            <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
+                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
+                        <div
+                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
+                            <h3 class="text-lg font-bold mb-2">Parent Support</h3>
+                            <p class="text-sm">Parenting life Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Programs Section -->
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -766,7 +866,7 @@
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Design Program</h3>
+                        <h3 class="text-lg font-semibold text-white">Design & Creative Arts</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
@@ -789,12 +889,12 @@
                     <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Creative Arts</h3>
+                        <h3 class="text-lg font-semibold text-white">Life SkillLab</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Creative Arts</h3>
-                        <p class="text-sm text-gray-200 mb-4">Creative Arts.</p>
+                        <h3 class="text-lg font-semibold text-white mb-3">Life SkillLab</h3>
+                        <p class="text-sm text-gray-200 mb-4">Life SkillLab.</p>
                         <a href="https://timedooracademy.com/"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
