@@ -624,7 +624,7 @@
                 <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
                     About <span class="text-yellow-300 font-semibold">h!</span><span
                         class="text-white font-semibold">academy</span>
-                </h1>
+                </h1>   
 
                 <p class="text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
                     HiAcademy is a one-stop center for modern education, dedicated to equipping students with the skills and
