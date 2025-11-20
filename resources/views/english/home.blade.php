@@ -291,7 +291,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-left">
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                             <i class="fas fa-brain text-2xl text-blue-900"></i>
@@ -317,7 +317,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-left" data-aos-delay="100">
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right" data-aos-delay="100">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                             <i class="fas fa-globe text-2xl text-blue-900"></i>

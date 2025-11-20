@@ -613,105 +613,111 @@
         </div>
     </section>
 
-    
-    {{-- About Section --}}
-    <section id="about"
-        class="bg-gray-800/50 pt-36 pb-10 relative backdrop-blur-md rounded-2xl shadow-xl text-center ">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
 
-            <!-- Kolom Teks -->
-            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
-                    About <span class="text-yellow-300 font-semibold">h!</span><span
-                        class="text-white font-semibold">academy</span>
-                </h1>   
+    {{-- Vision & Mission Section --}}
+    <section id="vision-mission" class="bg-gray-800/50 pt-20 pb-20 relative backdrop-blur-md rounded-2xl shadow-xl">
 
-                <p class="text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    HiAcademy is a one-stop center for modern education, dedicated to equipping students with the skills and
-                    confidence to thrive in a globalized world.
+        <div class="max-w-6xl mx-auto px-6 space-y-20" data-aos="fade-up">
 
-
-                </p>
-
-                <p class="mt-3 sm:mt-4 text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    We move beyond traditional tutoring with a holistic approach that blends modern teaching methods and
-                    hands-on learning to spark curiosity, foster creativity, and build confidence.
-
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="50">
-                    <a href="#contact"
-                        class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
-                        Talk to Us
-                    </a>
-                    <a href="{{ route('booktrial') }}"
-                        class="bg-yellow-300 text-black px-6 py-3 text-base font-medium rounded-md shadow-md hover:bg-yellow-200 transition duration-300">
-                        Free Trial →
-                    </a>
-                </div>
+            <!-- Title -->
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl text-white font-semibold tracking-tight">
+                    Our <span class="text-yellow-300">Mission</span> &
+                    <span class="text-yellow-300">Vision</span>
+                </h1>
+                <div class="w-28 h-1 bg-yellow-300 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            {{-- Image gallery --}}
-            {{-- Image gallery --}}
-            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-                <!-- Image 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
-                            <p class="text-sm">International Preschool, Child Development</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Mission Section -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
+                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                        text-center" data-aos="fade-up" data-aos-delay="100">
 
-                <!-- Image 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Core Academics</h3>
-                            <p class="text-sm">Math, English, and Mandarin Programs</p>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
+                    Our Mission
+                </h2>
+                <h3 class="text-xl md:text-2xl text-gray-100 font-light italic mb-8">
+                    Empowering Futures, One Mind at a Time.
+                </h3>
 
-                <!-- Image 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Future Skills</h3>
-                            <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Parent Support</h3>
-                            <p class="text-sm">Parenting life Indonesia</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto">
+                    At HiAcademy, we are committed to nurturing bright futures filled with hope through
+                    comprehensive and forward-focused education. We believe every child possesses unique
+                    potential, and our mission is to create the perfect environment for that potential to
+                    blossom. From establishing strong foundations to developing advanced critical thinking,
+                    we equip students with the knowledge, creativity, and confidence needed to thrive in an
+                    ever-evolving global community.
+                </p>
             </div>
+
+            <!-- Vision Section -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
+                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                        text-center" data-aos="fade-up" data-aos-delay="200">
+
+                <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
+                    Our Vision
+                </h2>
+                <h3 class="text-xl md:text-2xl text-gray-100 font-light italic mb-8">
+                    A Holistic Journey of Discovery.
+                </h3>
+
+                <p class="text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto mb-10">
+                    We envision education as a transformative experience that shapes confident, curious,
+                    and well-rounded learners. Our approach blends modern teaching methods with meaningful,
+                    hands-on experiences — guided by three core pillars:
+                </p>
+
+                <!-- Professional Vision Points -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                    <!-- Point 1 -->
+                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
+                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                            1
+                        </div>
+                        <h3 class="text-xl font-semibold text-yellow-300">Curiosity</h3>
+                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
+                            Cultivating a lifelong love of learning by encouraging exploration, inquiry,
+                            and discovery.
+                        </p>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
+                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                            2
+                        </div>
+                        <h3 class="text-xl font-semibold text-yellow-300">Creativity</h3>
+                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
+                            Inspiring innovative thinking and self-expression across academic and creative
+                            disciplines.
+                        </p>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
+                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                            3
+                        </div>
+                        <h3 class="text-xl font-semibold text-yellow-300">Confidence</h3>
+                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
+                            Building strong self-belief through achievements, constructive guidance, and
+                            supportive learning environments.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
+
 
     <!-- Programs Section -->
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">

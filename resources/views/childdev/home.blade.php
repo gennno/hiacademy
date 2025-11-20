@@ -5,35 +5,27 @@
 @section('content')
 
 
+    {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1" loading="eager">
-        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2" loading="lazy">
-        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3" loading="lazy">
+        <img src="{{ asset('img/english.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
 
     <style>
-        /* ===== SOLUSI UTAMA: Gunakan dvh untuk mobile ===== */
         .carousel-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            /* Desktop: gunakan 100vh */
             height: 100vh;
-            /* Mobile: gunakan dvh yang tidak berubah saat URL bar muncul/hilang */
             height: 100dvh;
             overflow: hidden;
             z-index: -10;
-
-            /* GPU Acceleration - PENTING! */
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-
-            /* Prevent layout shifts */
             contain: layout style paint;
         }
 
@@ -44,16 +36,13 @@
             width: 100%;
             height: 100vh;
             height: 100dvh;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.65);
             z-index: -10;
             pointer-events: none;
-
-            /* GPU Acceleration */
             transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
         }
 
-        /* Optimized carousel slides */
         .carousel-slide {
             position: absolute;
             top: 0;
@@ -62,141 +51,17 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-
-            /* CRITICAL: GPU layer untuk setiap image */
+            opacity: 1;
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-
-            /* Prevent interactions */
             pointer-events: none;
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
         }
-
-        .carousel-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .carousel-container {
-                /* Force height calculation once */
-                height: 100dvh !important;
-                /* Prevent repaints */
-                will-change: auto;
-            }
-
-            .carousel-slide {
-                /* Faster transition on mobile */
-                transition: opacity 0.8s ease-in-out;
-                /* Ensure stays in GPU */
-                transform: translate3d(0, 0, 0) scale(1.001);
-            }
-
-            /* Optional: Reduce quality on very small screens */
-            @media (max-width: 480px) {
-                .carousel-slide {
-                    image-rendering: -webkit-optimize-contrast;
-                }
-            }
-        }
-
-        /* Prevent flicker during orientation change */
-        @media (orientation: portrait) {
-
-            .carousel-container,
-            .carousel-overlay {
-                height: 100dvh;
-            }
-        }
-
-        @media (orientation: landscape) {
-
-            .carousel-container,
-            .carousel-overlay {
-                height: 100dvh;
-            }
-        }
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const carousel = document.getElementById('background-carousel');
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            let currentIndex = 0;
-            let intervalId;
-            let isVisible = true;
-
-            // Preload next image
-            function preloadNext() {
-                const nextIdx = (currentIndex + 1) % slides.length;
-                if (!slides[nextIdx].complete) {
-                    slides[nextIdx].loading = 'eager';
-                }
-            }
-
-            // Change slide
-            function nextSlide() {
-                if (!isVisible) return;
-
-                slides[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % slides.length;
-                slides[currentIndex].classList.add('active');
-
-                setTimeout(preloadNext, 400);
-            }
-
-            // Visibility change handler
-            document.addEventListener('visibilitychange', () => {
-                isVisible = !document.hidden;
-
-                if (document.hidden) {
-                    clearInterval(intervalId);
-                } else {
-                    intervalId = setInterval(nextSlide, 5000);
-                }
-            });
-
-            // PENTING: Pause carousel saat scrolling (mobile optimization)
-            let scrollTimer;
-            let isScrolling = false;
-
-            window.addEventListener('scroll', () => {
-                // Stop carousel during scroll
-                if (!isScrolling) {
-                    isScrolling = true;
-                    clearInterval(intervalId);
-                }
-
-                // Resume after scroll stops
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    isScrolling = false;
-                    if (isVisible) {
-                        intervalId = setInterval(nextSlide, 5000);
-                    }
-                }, 200);
-            }, { passive: true });
-
-            // Handle orientation change
-            window.addEventListener('orientationchange', () => {
-                // Force reflow after orientation change
-                carousel.style.display = 'none';
-                carousel.offsetHeight; // Trigger reflow
-                carousel.style.display = '';
-            });
-
-            // Initialize
-            preloadNext();
-            intervalId = setInterval(nextSlide, 5000);
-        });
-    </script>
 
     <header id="main-header" class="fixed top-0 left-0 w-full z-50">
         <!-- Background Layer -->
@@ -426,638 +291,400 @@
             window.addEventListener('resize', adjustVisualContainer);
         });
     </script>
+{{-- Hero Section --}}
+    <section class="pt-32 pb-56 bg-transparent relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-right">
+                <h2 class="text-lg md:text-xl font-light tracking-wide mb-4 text-gray-200" data-aos="fade-up">
+                    <span class="text-yellow-300 font-medium">h!</span><span class="text-white">academy</span>
+                </h2>
 
-
-    {{-- Hero Section --}}
-    <section id="home" class="pt-32 pb-56 bg-transparent relative overflow-hidden">
-
-        {{-- Swiper container --}}
-        <div class="swiper heroSwiper relative z-10">
-            <div class="swiper-wrapper">
-
-                {{-- SLIDE 1 --}}
-                <div class="swiper-slide relative min-h-[70vh] flex items-center">
-                    <div class="absolute right-0 w-full md:w-3/5 lg:w-3/4 px-6 lg:px-24 text-right">
-                        <h2 class="text-lg md:text-xl font-light tracking-wide mb-4 text-gray-200">
-                            <span class="text-yellow-300 font-medium">h!</span><span class="text-white">academy</span>
-                        </h2>
-
-                        <h1
-                            class="text-4xl pb-8 hero-animate hero-title md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
-                            Your One-Stop Education Center
-                        </h1>
-
-                        <p
-                            class="text-base hero-animate hero-text md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
-                            At h!academy, we are committed to nurturing young minds through a comprehensive range of
-                            programs
-                            tailored for the future,
-                            <br>
-                            helping every student thrive in a globalized world.
-                        </p>
-
-                        <div class="mt-10">
-                            <a href="#programs"
-                                class="inline-block hero-animate hero-btn bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                                Explore Our Programs →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- SLIDE 2 --}}
-                <div class="swiper-slide relative min-h-[70vh] flex items-center">
-                    <div class="absolute right-0 w-full md:w-3/5 lg:w-3/4 px-6 lg:px-24 text-right">
-                        <h2 class="text-lg md:text-xl font-light tracking-wide mb-4 text-gray-200">
-                            <span class="text-yellow-300  font-medium">h!</span><span class="text-white">academy</span>
-                        </h2>
-
-                        <h1
-                            class="text-4xl pb-8 hero-animate hero-title md:text-6xl font-semibold text-white leading-tight mb-6 tracking-tight">
-                            Nurturing Bright Futures with Hope
-                        </h1>
-
-                        <p
-                            class="text-base hero-animate hero-text md:text-lg text-gray-300 leading-relaxed font-normal max-w-xl ml-auto">
-                            Join our engaging, future-focused programs designed to empower students through personalized,
-                            hands-on learning experiences.
-                        </p>
-
-                        <div class="mt-10">
-                            <a href="{{ route('booktrial') }}"
-                                class="inline-block hero-animate hero-btn bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                                Book Free Trial →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            {{-- Navigation arrows --}}
-            <div class="hidden lg:flex absolute inset-y-0 left-0 items-center justify-center">
-                <div class="swiper-button-prev !text-white !scale-75"></div>
-            </div>
-            <div class="hidden lg:flex absolute inset-y-0 right-0 items-center justify-center">
-                <div class="swiper-button-next !text-white !scale-75"></div>
-            </div>
-
-            {{-- Pagination --}}
-            <div class="swiper-pagination !bottom-8"></div>
-        </div>
-
-        {{-- Maskot --}}
-        <div class="absolute left-1/2 bottom-[0rem] md:bottom-[0rem] transform -translate-x-1/2 z-20">
-            <img src="{{ asset('img/1.png') }}" alt="Mascot Transition"
-                class="w-40 md:w-56 drop-shadow-2xl animate-bounce-slow">
-        </div>
-
-    </section>
-
-    {{-- About Section --}}
-    <section id="about"
-        class="bg-gray-800/50 pt-36 pb-10 relative backdrop-blur-md rounded-2xl shadow-xl text-center -mt-16">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
-
-            <!-- Kolom Teks -->
-            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
-                    About <span class="text-yellow-300 font-semibold">h!</span><span
-                        class="text-white font-semibold">academy</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up" data-aos-delay="100">
+                    English Program:<br>
+                    <span class="text-yellow-300">Global Communicators</span> for Tomorrow
                 </h1>
 
-                <p class="text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    HiAcademy is a one-stop center for modern education, dedicated to equipping students with the skills and
-                    confidence to thrive in a globalized world.
-
-
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto" data-aos="fade-up" data-aos-delay="200">
+                    Building confident communicators for a connected world. We empower students to express themselves clearly, 
+                    think critically, and connect globally through the English language.
                 </p>
 
-                <p class="mt-3 sm:mt-4 text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    We move beyond traditional tutoring with a holistic approach that blends modern teaching methods and
-                    hands-on learning to spark curiosity, foster creativity, and build confidence.
-
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="50">
-                    <a href="#contact"
-                        class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
-                        Talk to Us
-                    </a>
+                <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
                     <a href="{{ route('booktrial') }}"
-                        class="bg-yellow-300 text-black px-6 py-3 text-base font-medium rounded-md shadow-md hover:bg-yellow-200 transition duration-300">
-                        Free Trial →
+                        class="inline-block bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
+                        Book Free Trial →
                     </a>
-                </div>
-            </div>
-
-            {{-- Image gallery --}}
-            {{-- Image gallery --}}
-            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-                <!-- Image 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
-                            <p class="text-sm">International Preschool, Child Development</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Core Academics</h3>
-                            <p class="text-sm">Math, English, and Mandarin Programs</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Future Skills</h3>
-                            <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Parent Support</h3>
-                            <p class="text-sm">Parenting life Indonesia</p>
-                        </div>
-                    </div>
+                    <a href="#programs"
+                        class="inline-block border-2 border-yellow-400 text-yellow-400 font-medium px-8 py-3 rounded-lg hover:bg-yellow-400 hover:text-blue-900 transition-all">
+                        Explore Levels
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    
-    {{-- About Section --}}
-    <section id="about"
-        class="bg-gray-800/50 pt-36 pb-10 relative backdrop-blur-md rounded-2xl shadow-xl text-center ">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
-
-            <!-- Kolom Teks -->
-            <div class="md:w-1/2 space-y-6 text-left" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
-                    About <span class="text-yellow-300 font-semibold">h!</span><span
-                        class="text-white font-semibold">academy</span>
-                </h1>   
-
-                <p class="text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    HiAcademy is a one-stop center for modern education, dedicated to equipping students with the skills and
-                    confidence to thrive in a globalized world.
-
-
-                </p>
-
-                <p class="mt-3 sm:mt-4 text-lg sm:text-base lg:text-xl leading-relaxed text-gray-100 font-light">
-                    We move beyond traditional tutoring with a holistic approach that blends modern teaching methods and
-                    hands-on learning to spark curiosity, foster creativity, and build confidence.
-
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 mt-6" data-aos="fade-up" data-aos-delay="50">
-                    <a href="#contact"
-                        class="border border-yellow-300 text-yellow-300 px-6 py-3 text-base font-medium rounded-md hover:bg-yellow-300 hover:text-black transition duration-300">
-                        Talk to Us
-                    </a>
-                    <a href="{{ route('booktrial') }}"
-                        class="bg-yellow-300 text-black px-6 py-3 text-base font-medium rounded-md shadow-md hover:bg-yellow-200 transition duration-300">
-                        Free Trial →
-                    </a>
-                </div>
-            </div>
-
-            {{-- Image gallery --}}
-            {{-- Image gallery --}}
-            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
-                <!-- Image 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/preschool.png') }}" alt="Ruang Kelas"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Early Childhood Education</h3>
-                            <p class="text-sm">International Preschool, Child Development</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/mandarin.png') }}" alt="Perpustakaan"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Core Academics</h3>
-                            <p class="text-sm">Math, English, and Mandarin Programs</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/robotic.png') }}" alt="Pusat Olahraga"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Future Skills</h3>
-                            <p class="text-sm">STEM & Coding, Design Program, Creative Arts</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-                    <img src="{{ asset('img/parenting.jpg') }}" alt="Asrama"
-                        class="object-cover w-full h-52 md:h-60 lg:h-64 transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-500 flex items-center justify-center">
-                        <div
-                            class="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 px-4">
-                            <h3 class="text-lg font-bold mb-2">Parent Support</h3>
-                            <p class="text-sm">Parenting life Indonesia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
-                <h2 class="text-3xl sm:text-4xl font-bold text-yellow-400 mt-2">
-                    Our Programs
+    {{-- About English Program Section --}}
+    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
+                    About <span class="text-yellow-300">HiAcademy English</span>
                 </h2>
-                <p class="mt-4 text-gray-200 max-w-3xl mx-auto">
-                    We offer a tailored learning pathway for every child:
-
-                    Early Childhood Education: International Preschool, Child Development
-
-                    Core Academics: Math, English, and Mandarin Programs
-
-                    Future Skills: STEM & Coding, Design Program, Creative Arts
-
-                    Parent Support: Parenting life Indonesia.
-                    <br>
-
-                    At HiAcademy, we don't just teach for school—we prepare students for life. Discover the difference where
-                    a brighter future begins.
+                <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency 
+                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural 
+                    understanding, and confidence for every learner.
                 </p>
             </div>
 
-            <!-- Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 place-items-center">
-
-                <!-- Card Example -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/preschool.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">International Preschool</h3>
+            {{-- The HiAcademy Difference --}}
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-comments text-2xl text-blue-900"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
                     </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">International Preschool</h3>
-                        <p class="text-sm text-gray-200 mb-4">A global learning environment designed to nurture creativity
-                            and confidence in young learners.</p>
-                        <a href="/preschool"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mandarin Program -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover"
-                        alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Child Development Program</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Child Development Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Child Development Program.</p>
-                        <a href="#"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- English Program -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/english.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">English Program</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">English Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Effective communication is key to success, and our English
-                            Language Program is designed to build fluency and confidence.</p>
-                        <a href="/english"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mandarin Program -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/mandarin.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Mandarin Program</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Mandarin Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Immersive learning that helps children master Mandarin
-                            naturally and confidently.</p>
-                        <a href="#"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/math.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Math Program</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Math Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
-                        </p>
-                        <a href="/math"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
-                            Explore →
-                        </a>
-
-
-                    </div>
-                </div>
-
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/robotic.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">STEM & Coding</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">STEM & Coding</h3>
-                        <p class="text-sm text-gray-200 mb-4">STEM & Coding
-                        </p>
-                        <a href="https://timedooracademy.com/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
-                            Explore →
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Design & Creative Arts</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Design Program</h3>
-                        <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
-                        </p>
-                        <a href="https://timedooracademy.com/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
-                            Explore →
-                        </a>
-
-
-
-                    </div>
-                </div>
-                <!-- Coding Classes -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Life SkillLab</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Life SkillLab</h3>
-                        <p class="text-sm text-gray-200 mb-4">Life SkillLab.</p>
-                        <a href="https://timedooracademy.com/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-                <!-- Coding Classes -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/parenting.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Parenting life Indonesia</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Parenting life Indonesia</h3>
-                        <p class="text-sm text-gray-200 mb-4">Parenting life Indonesia.</p>
-                        <a href="https://parentinglife.id/"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- Tambahkan animasi serupa untuk card lainnya -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA / How It Works Section -->
-    <section id="cta" class="relative py-20 bg-[url('/images/bg_hiacademy01.jpg')] bg-cover bg-center bg-no-repeat">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm"></div>
-
-        <!-- Content -->
-        <div class="relative z-10 container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-                <!-- Left Content -->
-                <div class="text-white" data-aos="fade-right" data-aos-duration="650">
-                    <span class="uppercase tracking-wide text-yellow-400 font-semibold">How it works?</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-3 leading-snug">
-                        Learning with <span class="text-yellow-400">h!academy</span> is
-                        <span class="text-white/90">Simple</span>,
-                        <span class="text-yellow-300">Fun</span>,
-                        and <span class="text-white/90">Effective</span>.
-                    </h2>
-
-                    <p class="mt-6 text-gray-200 leading-relaxed">
-                        HiAcademy delivers exclusive, personalized learning through small-size classes. This approach,
-                        combined with our experienced teachers and all-in-one platform, ensures every student receives the
-                        dedicated attention they need to excel.
+                    <p class="text-gray-300 leading-relaxed">
+                        We teach students to express themselves clearly and persuasively in both spoken and written English, 
+                        developing the poise needed for academic, social, and professional success.
                     </p>
-                    <div class="mt-8">
-                        <a href="{{ route('booktrial') }}"
-                            class="inline-block bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition transform hover:scale-110 hover:rotate-1">
-                            Book Free Trial
-                        </a>
-                    </div>
                 </div>
 
-                <!-- Right Side Steps -->
-                <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-duration="650">
-
-                    <!-- Step 1 -->
-                    <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="50">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div
-                                class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
-                                <!-- Angka -->
-                                <span
-                                    class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-                                    1
-                                </span>
-                                <!-- Icon -->
-                                <i
-                                    class="fa-solid fa-comments absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"></i>
-                            </div>
-                            <h5 class="font-semibold text-lg group-hover:text-yellow-400 transition">
-                                Inquiry & Consultation
-                            </h5>
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-brain text-2xl text-blue-900"></i>
                         </div>
-                        <p class="text-sm text-gray-300 group-hover:text-white transition">
-                            Contact us and get a consultation session to design the best tutoring service for you.
-                        </p>
+                        <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
                     </div>
-
-                    <!-- Step 2 -->
-                    <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="150">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div
-                                class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
-                                <span
-                                    class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-                                    2
-                                </span>
-                                <i
-                                    class="fa-solid fa-user-check absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"></i>
-                            </div>
-                            <h5 class="font-semibold text-lg group-hover:text-yellow-400 transition">
-                                Free Trial or Placement Test
-                            </h5>
-                        </div>
-                        <p class="text-sm text-gray-300 group-hover:text-white transition">
-                            Experience our class for FREE and take a placement test to measure your skills.
-                        </p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div
-                                class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
-                                <span
-                                    class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-                                    3
-                                </span>
-                                <i
-                                    class="fa-solid fa-calendar-check absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"></i>
-                            </div>
-                            <h5 class="font-semibold text-lg group-hover:text-yellow-400 transition">
-                                Join the Class
-                            </h5>
-                        </div>
-                        <p class="text-sm text-gray-300 group-hover:text-white transition">
-                            We’ll arrange schedules based on your request and placement results.
-                        </p>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="bg-white/10 border border-yellow-400 rounded-xl p-6 text-white shadow-lg hover:scale-105 transition transform duration-300 group"
-                        data-aos="fade-up" data-aos-delay="250">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div
-                                class="relative bg-yellow-400 text-gray-900 w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold overflow-hidden">
-                                <span
-                                    class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-                                    4
-                                </span>
-                                <i
-                                    class="fa-solid fa-graduation-cap absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"></i>
-                            </div>
-                            <h5 class="font-semibold text-lg group-hover:text-yellow-400 transition">
-                                Start Learning
-                            </h5>
-                        </div>
-                        <p class="text-sm text-gray-300 group-hover:text-white transition">
-                            Begin your journey and receive regular progress reports to stay on track.
-                        </p>
-                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse sources, 
+                        forming the bedrock of academic and professional excellence.
+                    </p>
                 </div>
 
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-language text-2xl text-blue-900"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        We build a robust vocabulary and strong command of grammar, enabling students to use language accurately, 
+                        creatively, and appropriately for any context.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-globe text-2xl text-blue-900"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Language is a window to the world. We expose students to diverse cultures and perspectives, 
+                        fostering empathy and a truly global mindset.
+                    </p>
+                </div>
+            </div>
+
+            {{-- CEFR Framework --}}
+            <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400" data-aos="fade-up">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
+                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized CEFR Framework</p>
+                </div>
+                <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
+                    HiAcademy's English Program is built on the internationally benchmarked Common European Framework of 
+                    Reference for Languages (CEFR). This framework ensures students don't just learn—they can use the 
+                    language effectively in real-world situations.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-white/10 p-6 rounded-xl">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Can-Do Learning</h4>
+                        <p class="text-gray-300 text-sm">Every lesson is goal-oriented with clear, actionable outcomes</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-xl">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skills</h4>
+                        <p class="text-gray-300 text-sm">Seamlessly integrating Listening, Speaking, Reading, and Writing</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-xl">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-white font-semibold text-lg mb-2">Communicative Teaching</h4>
+                        <p class="text-gray-300 text-sm">Interaction-focused learning through real-world contexts</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    {{-- Programs Section --}}
+    <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
+                <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+                    Progressive streams and levels designed to meet the developmental, academic, and professional needs of every learner
+                </p>
+            </div>
+
+            {{-- Very Young Learners --}}
+            <div class="mb-12" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 p-8 rounded-2xl border-2 border-pink-400">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-baby text-3xl text-white"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
+                            <p class="text-pink-200">Ages <6 | Pre-A1</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 text-left">
+                        <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
+                        Our littlest learners are immersed in English through songs, stories, games, and hands-on activities. 
+                        Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
+                    </p>
+                </div>
+            </div>
+
+            {{-- Young Learners --}}
+            <div class="mb-12" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-yellow-400 mb-8">Young Learners English (Ages 6-12)</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-blue-400 hover:scale-105 transition-transform">
+                        <div class="w-14 h-14 bg-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">A1</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Brave Starter</h4>
+                        <p class="text-sm text-gray-400 mb-4">Grade 1-2</p>
+                        <p class="text-gray-300 text-sm">Building basic communication skills and literacy. Learning to talk about themselves, family, and their world.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform">
+                        <div class="w-14 h-14 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">A2</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Super Movers</h4>
+                        <p class="text-sm text-gray-400 mb-4">Grade 3-4</p>
+                        <p class="text-gray-300 text-sm">Gaining independence in everyday communication. Expanding ability to describe experiences and handle social conversations.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform">
+                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-blue-900">B1</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Fearless Flyers</h4>
+                        <p class="text-sm text-gray-400 mb-4">Grade 5-6</p>
+                        <p class="text-gray-300 text-sm">Developing fluency and expressing ideas. Handling travel situations, expressing opinions, and writing simple essays.</p>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Teenagers --}}
+            <div class="mb-12" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-yellow-400 mb-8">Teenagers (Ages 12+)</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-white">A1</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Seeker</h4>
+                        <p class="text-gray-300 text-sm">Foundation for everyday communication</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-white">A2</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Explorer</h4>
+                        <p class="text-gray-300 text-sm">Confidence in routine situations</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-blue-900">B1</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Adventurer</h4>
+                        <p class="text-gray-300 text-sm">Developing fluency and expressing ideas</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-blue-900">B1+</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Voyager</h4>
+                        <p class="text-gray-300 text-sm">Bridging intermediate proficiency</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-orange-400 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-white">B2</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Connector</h4>
+                        <p class="text-gray-300 text-sm">Effective social & professional interaction</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-white">B2+</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Elit</h4>
+                        <p class="text-gray-300 text-sm">Mastering nuance and persuasion</p>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-lg font-bold text-white">C1</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Legend</h4>
+                        <p class="text-gray-300 text-sm">Advanced proficiency in demanding contexts</p>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Adults & Special Programs --}}
+            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+                <div class="bg-gradient-to-br from-blue-600/30 to-indigo-600/30 p-8 rounded-2xl border-2 border-blue-400">
+                    <i class="fas fa-briefcase text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-2xl font-bold text-white mb-3">Adults & Young Adults</h4>
+                    <p class="text-gray-200 mb-4">Skillful Foundation, Level 1-3</p>
+                    <p class="text-gray-300 text-sm">Practical English for career advancement and global connectivity. Real-world skills for meetings, reports, and professional networking.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-600/30 to-pink-600/30 p-8 rounded-2xl border-2 border-red-400">
+                    <i class="fas fa-certificate text-5xl text-red-400 mb-4"></i>
+                    <h4 class="text-2xl font-bold text-white mb-3">Ready for IELTS</h4>
+                    <p class="text-gray-200 mb-4">Exam Preparation</p>
+                    <p class="text-gray-300 text-sm">Intensive training for all IELTS sections. Expert instruction, practice tests, and personalized feedback to achieve your target score.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-600/30 to-teal-600/30 p-8 rounded-2xl border-2 border-green-400">
+                    <i class="fas fa-handshake text-5xl text-green-400 mb-4"></i>
+                    <h4 class="text-2xl font-bold text-white mb-3">International Business</h4>
+                    <p class="text-gray-200 mb-4">Business English</p>
+                    <p class="text-gray-300 text-sm">Master business English: negotiations, presentations, cross-cultural communication, and professional correspondence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Why Choose Us Section --}}
+    <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy English?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
+                    <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and communicative teaching approaches.</p>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-blue-900"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
+                    <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample speaking practice and individual feedback.</p>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
+                    <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and real-world confidence using English.</p>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
+                    <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that universities and employers seek in the 21st century.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- CTA Section --}}
+    <section class="relative py-20 bg-gradient-to-br from-blue-900/70 to-purple-900/70 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-black/30"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Unlock Your <span class="text-yellow-300">English Potential?</span>
+            </h2>
+            <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                Find the perfect program for you or your child and transform English from a subject into a superpower.
+            </p>
+
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
+                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
+                <p class="text-gray-200 mb-6">
+                    Our diagnostic test will accurately place you or your child in the right level and identify any learning gaps. 
+                    Let us create a personalized learning pathway to unlock confidence and success in English!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="{{ route('booktrial') }}"
+                        class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
+                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                    </a>
+                    <a href="/#contact"
+                        class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
+                    <div class="text-yellow-400 text-3xl mb-3">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">Step 1: Assessment</h4>
+                    <p class="text-gray-300 text-sm">Take our free diagnostic test to determine your current level</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
+                    <div class="text-yellow-400 text-3xl mb-3">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">Step 2: Personalized Plan</h4>
+                    <p class="text-gray-300 text-sm">Receive a customized learning pathway based on your goals</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
+                    <div class="text-yellow-400 text-3xl mb-3">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg mb-2">Step 3: Start Learning</h4>
+                    <p class="text-gray-300 text-sm">Begin your journey with expert instructors and proven methods</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer id="contact" class="relative bg-gradient-to-b from-gray-800 to-black text-white pt-20 overflow-hidden">
 

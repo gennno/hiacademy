@@ -22,6 +22,10 @@ class HomeController extends Controller
     {
         return view('math.home');
     }
+        public function childdevindex()
+    {
+        return view('childdev.home');
+    }
         public function preschoolabout()
     {
         return view('preschool.about');
