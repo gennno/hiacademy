@@ -452,7 +452,7 @@
                         </div>
                         <div class="text-left">
                             <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
-                            <p class="text-pink-200">Ages <6 | Pre-A1</p>
+                            <p class="text-pink-200">Ages 6 | Pre-A1</p>
                         </div>
                     </div>
                     <p class="text-gray-200 text-left">

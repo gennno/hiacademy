@@ -630,8 +630,8 @@
 
             <!-- Mission Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                        text-center" data-aos="fade-up" data-aos-delay="100">
+                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                            text-center" data-aos="fade-up" data-aos-delay="100">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Mission
@@ -652,8 +652,8 @@
 
             <!-- Vision Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                        text-center" data-aos="fade-up" data-aos-delay="200">
+                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                            text-center" data-aos="fade-up" data-aos-delay="200">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Vision
@@ -674,7 +674,7 @@
                     <!-- Point 1 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="250">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             1
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Curiosity</h3>
@@ -687,7 +687,7 @@
                     <!-- Point 2 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="350">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             2
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Creativity</h3>
@@ -700,7 +700,7 @@
                     <!-- Point 3 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="450">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             3
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Confidence</h3>
@@ -715,6 +715,105 @@
             </div>
 
         </div>
+
+    </section>
+
+    <section id="ipc-vs-traditional" class="py-16 bg-gray-800/50">
+        <div class="container mx-auto px-6 lg:px-16">
+            <!-- Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">The <span class="text-yellow-300">HiAcademy</span>
+                    Difference: Where <span class="text-yellow-300">Hope</span> Meets <span
+                        class="text-yellow-300">Excellence</span></h2>
+                <p class="mt-4 text-white max-w-3xl mx-auto leading-relaxed">
+                    What makes <span class="text-yellow-300">HiAcademy</span> special is our dedication to being a <span class="text-yellow-300">One-Stop Education Center</span> that nurtures both
+                    academic excellence and personal growth. We provide a seamless learning pathway from early childhood
+                    education to mastery of advanced subjects, always maintaining our focus on creating hopeful futures.
+                </p>
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <!-- Left Image -->
+                <div class="lg:w-2/3">
+                    <img src="{{ asset('img/carousel3.webp') }}" alt="IPC vs Traditional"
+                        class="rounded-2xl shadow-md w-full object-cover">
+                </div>
+
+                <!-- Right Accordion -->
+                <div class="lg:w-1/3 space-y-4">
+                    <!-- Curriculum Design -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <button onclick="toggleAccordiontraditional('curriculum')"
+                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
+                            Future-Ready Curriculum
+                            <span id="curriculum-icon"
+                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                        </button>
+                        <div id="curriculum-content"
+                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                Programs designed for tomorrow's world, integrating essential 21st-century skills like coding, design thinking, and global languages
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Methods -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <button onclick="toggleAccordiontraditional('teaching')"
+                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
+                            Expert-Led Instruction
+                            <span id="teaching-icon"
+                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                        </button>
+                        <div id="teaching-content"
+                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                Passionate educators who serve as mentors, making learning engaging and effective
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role of the Teacher -->
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <button onclick="toggleAccordiontraditional('teacher')"
+                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
+                            Nurturing Ecosystem
+                            <span id="teacher-icon"
+                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                        </button>
+                        <div id="teacher-content"
+                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
+                                A supportive and inclusive community where every child feels safe, valued, and motivated to excel
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function toggleIpcAccordion(id) {
+                const content = document.getElementById(id + '-content');
+                const icon = document.getElementById(id + '-icon');
+
+                const isOpen = content.classList.contains('max-h-[400px]');
+
+                // Tutup semua accordion lain di section ini
+                document.querySelectorAll("[id$='-content']").forEach(el => {
+                    el.classList.remove('max-h-[400px]', 'opacity-100');
+                    el.classList.add('max-h-0', 'opacity-0');
+                });
+                document.querySelectorAll("[id$='-icon']").forEach(el => el.textContent = '+');
+
+                // Buka accordion yang dipilih
+                if (!isOpen) {
+                    content.classList.remove('max-h-0', 'opacity-0');
+                    content.classList.add('max-h-[400px]', 'opacity-100');
+                    icon.textContent = '−';
+                }
+            }
+        </script>
 
     </section>
 
@@ -872,7 +971,7 @@
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Design & Creative Arts</h3>
+                        <h3 class="text-lg font-semibold text-white">Design & Digital Creative Arts</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
@@ -911,6 +1010,25 @@
                 <!-- Coding Classes -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="50">
+                    <img src="{{ asset('img/architec.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
+                    <div
+                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+                        <h3 class="text-lg font-semibold text-white">Design Architecture</h3>
+                    </div>
+                    <div
+                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-lg font-semibold text-white mb-3">Parenting life Indonesia</h3>
+                        <p class="text-sm text-gray-200 mb-4">Parenting life Indonesia.</p>
+                        <a href="https://parentinglife.id/"
+                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
+                            target="_blank" rel="noopener noreferrer">
+                            Explore →
+                        </a>
+                    </div>
+                </div>
+                <!-- Coding Classes -->
+                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
+                    data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/parenting.jpg') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
@@ -933,6 +1051,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- CTA / How It Works Section -->
     <section id="cta" class="relative py-20 bg-[url('/images/bg_hiacademy01.jpg')] bg-cover bg-center bg-no-repeat">
@@ -1362,4 +1482,33 @@
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+    {{-- traditional --}}
+    <script>
+        function toggleAccordiontraditional(id) {
+            const content = document.getElementById(id + '-content');
+            const icon = document.getElementById(id + '-icon');
+
+            const isOpen = content.classList.contains('max-h-[400px]');
+
+            // 🔒 Batasi hanya di dalam section "ipc-vs-traditional"
+            const accordionSection = document.getElementById('ipc-vs-traditional');
+
+            accordionSection.querySelectorAll("[id$='-content']").forEach(el => {
+                el.classList.remove('max-h-[400px]', 'opacity-100');
+                el.classList.add('max-h-0', 'opacity-0');
+            });
+
+            accordionSection.querySelectorAll("[id$='-icon']").forEach(el => {
+                el.textContent = '+';
+            });
+
+            // 🔓 Buka yang diklik
+            if (!isOpen) {
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[400px]', 'opacity-100');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+
 @endsection
