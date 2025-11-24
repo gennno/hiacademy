@@ -651,8 +651,8 @@
 
             <!-- Mission Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                                        text-center" data-aos="fade-up" data-aos-delay="100">
+                                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                                            text-center" data-aos="fade-up" data-aos-delay="100">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Mission
@@ -673,8 +673,8 @@
 
             <!-- Vision Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                                        text-center" data-aos="fade-up" data-aos-delay="200">
+                                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                                            text-center" data-aos="fade-up" data-aos-delay="200">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Vision
@@ -695,7 +695,7 @@
                     <!-- Point 1 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="250">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             1
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Curiosity</h3>
@@ -708,7 +708,7 @@
                     <!-- Point 2 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="350">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             2
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Creativity</h3>
@@ -721,7 +721,7 @@
                     <!-- Point 3 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="450">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                   text-yellow-300 text-2xl font-bold shadow-inner">
+                                                       text-yellow-300 text-2xl font-bold shadow-inner">
                             3
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Confidence</h3>
@@ -1515,7 +1515,7 @@
             const isOpen = content.classList.contains('max-h-[400px]');
 
             // 🔒 Batasi hanya di dalam section "ipc-vs-traditional"
-            const accordionSection = document.getElementById('ipc-vs-traditional');
+            const accordionSection = document.getElementById('method');
 
             accordionSection.querySelectorAll("[id$='-content']").forEach(el => {
                 el.classList.remove('max-h-[400px]', 'opacity-100');

@@ -8,7 +8,6 @@
 
   {{-- Tailwind CDN --}}
   <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
   {{-- Favicon --}}
   <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
