@@ -302,7 +302,7 @@
         });
     </script>
     {{-- Hero Section --}}
-    <section class="pt-32 pb-56 bg-transparent relative overflow-hidden">
+    <section id="home" class="pt-32 pb-56 bg-transparent relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-right">
                 <h2 class="text-lg md:text-xl font-light tracking-wide mb-4 text-gray-200" data-aos="fade-up">
@@ -323,7 +323,7 @@
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
-                    <a href="{{ route('booktrial') }}"
+                    <a href="#trial"
                         class="inline-block bg-yellow-400 text-blue-900 font-medium px-8 py-3 rounded-lg shadow-md hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                         Book Free Trial →
                     </a>
@@ -337,7 +337,7 @@
     </section>
 
     {{-- About English Program Section --}}
-    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
+    <section id="about" class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
@@ -381,60 +381,73 @@
 
             {{-- The HiAcademy Difference --}}
             <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-comments text-2xl text-blue-900"></i>
+
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-comments text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            We teach students to express themselves clearly and persuasively in both spoken and written
+                            English,
+                            developing the poise needed for academic, social, and professional success.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        We teach students to express themselves clearly and persuasively in both spoken and written English,
-                        developing the poise needed for academic, social, and professional success.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-brain text-2xl text-blue-900"></i>
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-brain text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
+                            sources,
+                            forming the bedrock of academic and professional excellence.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
-                        sources,
-                        forming the bedrock of academic and professional excellence.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right"
-                    data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-language text-2xl text-blue-900"></i>
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl  backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-language text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            We build a robust vocabulary and strong command of grammar, enabling students to use language
+                            accurately,
+                            creatively, and appropriately for any context.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        We build a robust vocabulary and strong command of grammar, enabling students to use language
-                        accurately,
-                        creatively, and appropriately for any context.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right"
-                    data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-globe text-2xl text-blue-900"></i>
+
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4 ">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-globe text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Language is a window to the world. We expose students to diverse cultures and perspectives,
+                            fostering empathy and a truly global mindset.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Language is a window to the world. We expose students to diverse cultures and perspectives,
-                        fostering empathy and a truly global mindset.
-                    </p>
                 </div>
             </div>
         </div>
@@ -456,7 +469,7 @@
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-6 mt-8">
-                    <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-bullseye"></i>
                         </div>
@@ -466,7 +479,7 @@
                             email, or delivering a persuasive presentation.</p>
                     </div>
 
-                    <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-balance-scale"></i>
                         </div>
@@ -477,7 +490,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-users"></i>
                         </div>
@@ -517,7 +530,8 @@
                     </div>
                     <p class="text-gray-200 text-left">
                         <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
-                        Our littlest learners are immersed in English through songs, stories, games, and hands-on
+                        <strong>Description:</strong> Our littlest learners are immersed in English through songs, stories,
+                        games, and hands-on
                         activities.
                         Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
                     </p>
@@ -526,8 +540,7 @@
 
             {{-- Young Learners --}}
             <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-blue-400">
+                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8  rounded-2xl border-2 border-blue-400">
 
                     {{-- Header --}}
                     <div class="flex items-center gap-4 mb-6">
@@ -543,15 +556,14 @@
                     {{-- Sub Cards --}}
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
 
-                        {{-- A1 Seeker --}}
                         <div
                             class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-seedling text-white text-lg"></i>
+                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-seedling text-black text-lg"></i>
                                 </div>
-                                <h4 class="text-xl font-semibold text-white">
-                                    Brave Starter <span class="text-blue-200">(A1 | Grade 1–2)</span>
+                                <h4 class="text-lg font-semibold text-white">
+                                    Brave Starter <span class="text-yellow-200">(A1 | Grade 1–2)</span>
                                 </h4>
                             </div>
                             <p class="text-blue-100 mt-2">
@@ -564,15 +576,14 @@
                             </p>
                         </div>
 
-                        {{-- A2 Explorer --}}
                         <div
                             class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-running text-white text-lg"></i>
+                                    <i class="fas fa-running text-black text-lg"></i>
                                 </div>
-                                <h4 class="text-xl font-semibold text-white">
-                                    Super Movers <span class="text-purple-200">(A2 | Grade 3–4)</span>
+                                <h4 class="text-lg font-semibold text-white">
+                                    Super Movers <span class="text-green-200">(A2 | Grade 3–4)</span>
                                 </h4>
                             </div>
                             <p class="text-blue-100 mt-2">
@@ -585,15 +596,14 @@
                             </p>
                         </div>
 
-                        {{-- B1 Adventurer --}}
                         <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform text-left">
+                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-300 hover:scale-105 transition-transform text-left">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-paper-plane text-blue-900 text-lg"></i>
+                                <div class="w-12 h-12 bg-red-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-paper-plane text-black text-lg"></i>
                                 </div>
-                                <h4 class="text-xl font-semibold text-white">
-                                    Fearless Flyers <span class="text-green-200">(B1 | Grade 5–6)</span>
+                                <h4 class="text-lg font-semibold text-white">
+                                    Fearless Flyers <span class="text-red-200">(B1 | Grade 5–6)</span>
                                 </h4>
                             </div>
                             <p class="text-blue-100 mt-2">
@@ -612,8 +622,7 @@
 
             {{-- Teenagers --}}
             <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-red-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-red-400">
+                <div class="bg-gradient-to-r from-red-500/20 to-purple-500/20 p-8 rounded-2xl border-2 border-red-400">
 
                     {{-- Header --}}
                     <div class="flex items-center gap-4 mb-6">
@@ -652,8 +661,10 @@
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Building a foundation for everyday
                                 communication.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn basic
-                                expressions, introduce themselves, and ask simple questions.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand
+                                and use familiar, everyday expressions and very basic phrases aimed at satisfying concrete
+                                needs. They can introduce themselves and others, and ask and answer simple questions about
+                                personal details.</p>
                         </div>
 
                         {{-- A2 Explorer --}}
@@ -667,8 +678,9 @@
                                         class="text-green-200">(A2)</span></h4>
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Confidence in routine situations.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students handle simple tasks
-                                and describe familiar environments.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to communicate
+                                in straightforward, routine tasks. They can describe aspects of their background and
+                                immediate environment, and write short, simple notes and messages.</p>
                         </div>
 
                         {{-- B1 Adventurer --}}
@@ -683,8 +695,10 @@
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing fluency and expressing ideas.
                             </p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students manage travel
-                                situations and express experiences and opinions.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to handle most
+                                situations while travelling, produce simple connected text on familiar topics, describe
+                                experiences and events, and briefly give reasons and explanations for opinions and plans.
+                            </p>
                         </div>
 
                         {{-- B1+ Voyager --}}
@@ -698,8 +712,9 @@
                                         class="text-yellow-200">(B1+)</span></h4>
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Bridging intermediate proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students understand more
-                                complex ideas & communicate with greater clarity.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students solidify
+                                intermediate skills and push toward greater independence. They can understand the main ideas
+                                of complex text and interact with a degree of fluency and spontaneity.</p>
                         </div>
 
                         {{-- B2 Connector --}}
@@ -714,8 +729,9 @@
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Effective social & professional
                                 interaction.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students fluently produce
-                                clear, detailed communication.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can interact with
+                                fluency and spontaneity. They understand the main ideas of complex text and can produce
+                                clear, detailed text on a wide range of subjects.</p>
                         </div>
 
                         {{-- B2+ Elit --}}
@@ -729,8 +745,9 @@
                                 </h4>
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering nuance & persuasion.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students use idiomatic
-                                language and create persuasive communication.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students refine their skills
+                                to near-advanced proficiency. They learn to understand implicit meaning, use idiomatic
+                                expressions, and construct well-organized, detailed texts and arguments.</p>
                         </div>
 
                         {{-- C1 Legend --}}
@@ -744,8 +761,9 @@
                                         class="text-purple-200">(C1)</span></h4>
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Advanced proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students understand demanding
-                                texts & express ideas fluently and flexibly.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can understand a
+                                wide range of demanding texts, express ideas fluently, and use language flexibly for social,
+                                academic and professional purposes.</p>
                         </div>
 
                     </div>
@@ -754,180 +772,71 @@
             </div>
 
 
-            {{-- Young Learners --}}
+            {{-- Adults & Young Adults --}}
             <div class="mb-12" data-aos="fade-up">
                 <div
-                    class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-blue-400">
+                    class="bg-gradient-to-r from-purple-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-purple-400">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
+                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center">
                             <i class="fas fa-briefcase text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
                             <h3 class="text-2xl font-bold text-white">Adults and Young Adults</h3>
-                            <p class="text-blue-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
+                            <p class="text-purple-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
                         </div>
                     </div>
+                    <p class="text-gray-200 text-left">
+                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
+                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
+                        curriculum focuses on real-world, practical English. From participating in meetings and writing
+                        reports to socializing and networking, we equip learners with the language and soft skills needed to
+                        excel in a globalized workplace.
+                    </p>
                 </div>
             </div>
 
-            {{-- Young Learners --}}
+            {{-- Exam Preparation --}}
             <div class="mb-12" data-aos="fade-up">
                 <div
-                    class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-blue-400">
+                    class="bg-gradient-to-r from-yellow-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-yellow-400">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-child text-3xl text-white"></i>
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-certificate text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
                             <h3 class="text-2xl font-bold text-white">Exam Preparation</h3>
-                            <p class="text-blue-200">Ready for IELTS</p>
+                            <p class="text-yellow-200">Ready for IELTS</p>
                         </div>
                     </div>
+                    <p class="text-gray-200 text-left">
+                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
+                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
+                        curriculum focuses on real-world, practical English. From participating in meetings and writing
+                        reports to socializing and networking, we equip learners with the language and soft skills needed to
+                        excel in a globalized workplace.
+                    </p>
                 </div>
             </div>
 
             {{-- Young Learners --}}
             <div class="mb-12" data-aos="fade-up">
                 <div
-                    class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-blue-400">
+                    class="bg-gradient-to-r from-green-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-green-400">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-child text-3xl text-white"></i>
+                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-handshake text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
                             <h3 class="text-2xl font-bold text-white">Get Ready for International Business</h3>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <h3 class="text-3xl font-bold text-yellow-400 mb-8">Young Learners English (Ages 6-12)</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-blue-400 hover:scale-105 transition-transform">
-                        <div class="w-14 h-14 bg-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-white">A1</span>
-                        </div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Brave Starter</h4>
-                        <p class="text-sm text-gray-400 mb-4">Grade 1-2</p>
-                        <p class="text-gray-300 text-sm">Building basic communication skills and literacy. Learning to talk
-                            about themselves, family, and their world.</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform">
-                        <div class="w-14 h-14 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-white">A2</span>
-                        </div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Super Movers</h4>
-                        <p class="text-sm text-gray-400 mb-4">Grade 3-4</p>
-                        <p class="text-gray-300 text-sm">Gaining independence in everyday communication. Expanding ability
-                            to describe experiences and handle social conversations.</p>
-                    </div>
-
-                    <div
-                        class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-blue-900">B1</span>
-                        </div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Fearless Flyers</h4>
-                        <p class="text-sm text-gray-400 mb-4">Grade 5-6</p>
-                        <p class="text-gray-300 text-sm">Developing fluency and expressing ideas. Handling travel
-                            situations, expressing opinions, and writing simple essays.</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Teenagers --}}
-            <div class="mb-12" data-aos="fade-up">
-                <h3 class="text-3xl font-bold text-yellow-400 mb-8">Teenagers (Ages 12+)</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-white">A1</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Seeker</h4>
-                        <p class="text-gray-300 text-sm">Foundation for everyday communication</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-white">A2</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Explorer</h4>
-                        <p class="text-gray-300 text-sm">Confidence in routine situations</p>
-                    </div>
-
-                    <div
-                        class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-blue-900">B1</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Adventurer</h4>
-                        <p class="text-gray-300 text-sm">Developing fluency and expressing ideas</p>
-                    </div>
-
-                    <div
-                        class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-blue-900">B1+</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Voyager</h4>
-                        <p class="text-gray-300 text-sm">Bridging intermediate proficiency</p>
-                    </div>
-
-                    <div
-                        class="bg-white/10 p-6 rounded-2xl border-2 border-orange-400 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-white">B2</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Connector</h4>
-                        <p class="text-gray-300 text-sm">Effective social & professional interaction</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-white">B2+</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Elit</h4>
-                        <p class="text-gray-300 text-sm">Mastering nuance and persuasion</p>
-                    </div>
-
-                    <div
-                        class="bg-white/10 p-6 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <span class="text-lg font-bold text-white">C1</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-white mb-2">Legend</h4>
-                        <p class="text-gray-300 text-sm">Advanced proficiency in demanding contexts</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Adults & Special Programs --}}
-            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
-                <div class="bg-gradient-to-br from-blue-600/30 to-indigo-600/30 p-8 rounded-2xl border-2 border-blue-400">
-                    <i class="fas fa-briefcase text-5xl text-blue-400 mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-3">Adults & Young Adults</h4>
-                    <p class="text-gray-200 mb-4">Skillful Foundation, Level 1-3</p>
-                    <p class="text-gray-300 text-sm">Practical English for career advancement and global connectivity.
-                        Real-world skills for meetings, reports, and professional networking.</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-red-600/30 to-pink-600/30 p-8 rounded-2xl border-2 border-red-400">
-                    <i class="fas fa-certificate text-5xl text-red-400 mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-3">Ready for IELTS</h4>
-                    <p class="text-gray-200 mb-4">Exam Preparation</p>
-                    <p class="text-gray-300 text-sm">Intensive training for all IELTS sections. Expert instruction, practice
-                        tests, and personalized feedback to achieve your target score.</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-green-600/30 to-teal-600/30 p-8 rounded-2xl border-2 border-green-400">
-                    <i class="fas fa-handshake text-5xl text-green-400 mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-3">International Business</h4>
-                    <p class="text-gray-200 mb-4">Business English</p>
-                    <p class="text-gray-300 text-sm">Master business English: negotiations, presentations, cross-cultural
-                        communication, and professional correspondence.</p>
+                    <p class="text-gray-200 text-left">
+                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
+                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
+                        curriculum focuses on real-world, practical English. From participating in meetings and writing
+                        reports to socializing and networking, we equip learners with the language and soft skills needed to
+                        excel in a globalized workplace.
+                    </p>
                 </div>
             </div>
         </div>
@@ -941,51 +850,59 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
-                    data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
+                        <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
+                            communicative teaching approaches.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                    <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
-                        communicative teaching approaches.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
+                        <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
+                            speaking practice and individual feedback.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                    <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
-                        speaking practice and individual feedback.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
+                        <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
+                            real-world confidence using English.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
-                    <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
-                        real-world confidence using English.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
+                        <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
+                            universities and employers seek in the 21st century.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                    <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
-                        universities and employers seek in the 21st century.</p>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- CTA Section --}}
-    <section class="relative py-20 bg-gradient-to-br from-blue-900/70 to-purple-900/70 backdrop-blur-sm">
+    <section id="trial" class="relative py-20 bg-gradient-to-br from-blue-900/70 to-purple-900/70 backdrop-blur-sm">
         <div class="absolute inset-0 bg-black/30"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
