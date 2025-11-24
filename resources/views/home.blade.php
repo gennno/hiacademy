@@ -214,8 +214,24 @@
             <nav id="primary-nav"
                 class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
                 role="navigation" aria-label="Primary Navigation">
+
                 <a href="#home" class="nav-link" data-target="home">Home</a>
-                <a href="#about" class="nav-link" data-target="about">About Us</a>
+
+                <!-- ABOUT US DROPDOWN -->
+                <div class="relative group">
+                    <a href="#about" class="nav-link inline-flex items-center gap-1">
+                        About Us
+                        <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                    </a>
+
+                    <!-- Dropdown menu -->
+                    <div
+                        class="absolute left-0 mt-3 w-48 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                        <a href="#vision-mission" class="block px-4 py-2 text-black hover:bg-gray-100">Vision & Mission</a>
+                        <a href="#method" class="block px-4 py-2 text-black hover:bg-gray-100">Our Method</a>
+                    </div>
+                </div>
+
                 <a href="#programs" class="nav-link" data-target="programs">Programs</a>
                 <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
             </nav>
@@ -257,7 +273,12 @@
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
                     data-target="home">Home</a>
                 <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">About</a>
+                    data-target="about">About Us</a>
+                <a href="#vision-mission"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="#vision-mission">Vision & Mission</a>
+                <a href="#method" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="method">Our Method</a>
                 <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">Programs</a>
@@ -630,8 +651,8 @@
 
             <!-- Mission Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                            text-center" data-aos="fade-up" data-aos-delay="100">
+                                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                                        text-center" data-aos="fade-up" data-aos-delay="100">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Mission
@@ -652,8 +673,8 @@
 
             <!-- Vision Section -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                            text-center" data-aos="fade-up" data-aos-delay="200">
+                                        hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
+                                        text-center" data-aos="fade-up" data-aos-delay="200">
 
                 <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
                     Our Vision
@@ -674,7 +695,7 @@
                     <!-- Point 1 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="250">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                       text-yellow-300 text-2xl font-bold shadow-inner">
+                                                   text-yellow-300 text-2xl font-bold shadow-inner">
                             1
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Curiosity</h3>
@@ -687,7 +708,7 @@
                     <!-- Point 2 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="350">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                       text-yellow-300 text-2xl font-bold shadow-inner">
+                                                   text-yellow-300 text-2xl font-bold shadow-inner">
                             2
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Creativity</h3>
@@ -700,7 +721,7 @@
                     <!-- Point 3 -->
                     <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="450">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                       text-yellow-300 text-2xl font-bold shadow-inner">
+                                                   text-yellow-300 text-2xl font-bold shadow-inner">
                             3
                         </div>
                         <h3 class="text-xl font-semibold text-yellow-300">Confidence</h3>
@@ -718,7 +739,7 @@
 
     </section>
 
-    <section id="ipc-vs-traditional" class="py-16 bg-gray-800/50">
+    <section id="method" class="py-16 bg-gray-800/50">
         <div class="container mx-auto px-6 lg:px-16">
             <!-- Title -->
             <div class="text-center mb-12">
@@ -726,7 +747,8 @@
                     Difference: Where <span class="text-yellow-300">Hope</span> Meets <span
                         class="text-yellow-300">Excellence</span></h2>
                 <p class="mt-4 text-white max-w-3xl mx-auto leading-relaxed">
-                    What makes <span class="text-yellow-300">HiAcademy</span> special is our dedication to being a <span class="text-yellow-300">One-Stop Education Center</span> that nurtures both
+                    What makes <span class="text-yellow-300">HiAcademy</span> special is our dedication to being a <span
+                        class="text-yellow-300">One-Stop Education Center</span> that nurtures both
                     academic excellence and personal growth. We provide a seamless learning pathway from early childhood
                     education to mastery of advanced subjects, always maintaining our focus on creating hopeful futures.
                 </p>
@@ -748,12 +770,13 @@
                             class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
                             Future-Ready Curriculum
                             <span id="curriculum-icon"
-                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="curriculum-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                Programs designed for tomorrow's world, integrating essential 21st-century skills like coding, design thinking, and global languages
+                                Programs designed for tomorrow's world, integrating essential 21st-century skills like
+                                coding, design thinking, and global languages
                             </p>
                         </div>
                     </div>
@@ -764,7 +787,7 @@
                             class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
                             Expert-Led Instruction
                             <span id="teaching-icon"
-                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="teaching-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
@@ -780,12 +803,13 @@
                             class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
                             Nurturing Ecosystem
                             <span id="teacher-icon"
-                                class="bg-[#E6F6FC] text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
+                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>
                         <div id="teacher-content"
                             class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
                             <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                A supportive and inclusive community where every child feels safe, valued, and motivated to excel
+                                A supportive and inclusive community where every child feels safe, valued, and motivated to
+                                excel
                             </p>
                         </div>
                     </div>

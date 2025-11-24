@@ -327,26 +327,6 @@
     </section>
 
     {{-- About English Program Section --}}
-    <section class="bg-gray-800/50 pt-36 pb-36 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy English</span>
-                </h2>
-                <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
-                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner. 
-                    <br>
-                    Our English Program is designed to transform the way
-                    students perceive and engage with the language, moving them from hesitation to fluency, and from
-                    memorization to authentic mastery.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    {{-- Vision English Program Section --}}
     <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -356,11 +336,36 @@
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
                     At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
                     is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner. 
+                    understanding, and confidence for every learner.
                     <br>
                     Our English Program is designed to transform the way
                     students perceive and engage with the language, moving them from hesitation to fluency, and from
                     memorization to authentic mastery.
+                </p>
+            </div>
+        </div>
+        <div class="text-center pt-16 mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
+                Our Vision for <span class="text-yellow-300">English Education</span>
+            </h2>
+            <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                We envision a future where every HiAcademy student doesn't just speak—they connect, persuade, and
+                innovate. We don't just teach English; we nurture articulate global citizens equipped to thrive in the
+                international landscapes of tomorrow.
+            </p>
+        </div>
+
+    </section>
+    {{-- Vision English Program Section --}}
+    <section class=" pt-36 pb-16 relative rounded-2xl shadow-xl -mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
+                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                </h3>
+                <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    We go beyond textbooks to cultivate a deep and practical command of the English language. At HiAcademy,
+                    we focus on building:
                 </p>
             </div>
 
@@ -422,7 +427,11 @@
                     </p>
                 </div>
             </div>
-
+        </div>
+    </section>
+    {{-- Vision English Program Section --}}
+    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
+        <div class="max-w-7xl mx-auto px-6">
             {{-- CEFR Framework --}}
             <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400"
                 data-aos="fade-up">
@@ -465,8 +474,6 @@
             </div>
         </div>
     </section>
-
-
 
     {{-- Programs Section --}}
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">

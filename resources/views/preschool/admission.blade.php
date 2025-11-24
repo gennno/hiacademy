@@ -28,7 +28,9 @@
                 class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
                 <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us
+                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                    </a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
@@ -41,7 +43,9 @@
                     </div>
                 </div>
                 <div class="relative group">
-                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum
+                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                    </a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
