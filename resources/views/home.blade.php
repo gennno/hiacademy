@@ -573,7 +573,6 @@
             </div>
 
             {{-- Image gallery --}}
-            {{-- Image gallery --}}
             <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
                 <!-- Image 1 -->
                 <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
@@ -889,7 +888,7 @@
                     </div>
                 </div>
 
-                <!-- Mandarin Program -->
+                <!-- Child Development Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover"
@@ -902,7 +901,7 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Child Development Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Child Development Program.</p>
-                        <a href="#"
+                        <a href="/childdev"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -1506,7 +1505,7 @@
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
-    {{-- traditional --}}
+    {{-- method --}}
     <script>
         function toggleAccordiontraditional(id) {
             const content = document.getElementById(id + '-content');
