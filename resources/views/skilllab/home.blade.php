@@ -7,7 +7,7 @@
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/english.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
+        <img src="{{ asset('img/coding.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
@@ -311,15 +311,13 @@
 
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up"
                     data-aos-delay="100">
-                    English Program:<br>
-                    <span class="text-yellow-300">Global Communicators</span> for Tomorrow
+                    Life SkillLab:<br>
+                    Equipping <span class="text-yellow-300">Tomorrow's Leaders </span> Today
                 </h1>
 
                 <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto"
                     data-aos="fade-up" data-aos-delay="200">
-                    Building confident communicators for a connected world. We empower students to express themselves
-                    clearly,
-                    think critically, and connect globally through the English language.
+                    Building Essential Skills for Real-World Success
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
@@ -341,27 +339,21 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy English</span>
+                    About <span class="text-yellow-300">HiAcademy Life SkillLab Program</span>
                 </h2>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
-                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner.
+                    At HiAcademy Life SkillLab, our mission is to empower futures, one skill at a time. We believe that practical life skills are not just supplementary education, but fundamental capabilities that unlock confidence, independence, and leadership potential for every child.
                     <br>
-                    Our English Program is designed to transform the way
-                    students perceive and engage with the language, moving them from hesitation to fluency, and from
-                    memorization to authentic mastery.
+                    Our Life SkillLab Program is designed to transform the way students approach real-world challenges, moving them from theoretical knowledge to practical application, and from classroom learning to life mastery.
                 </p>
             </div>
         </div>
         <div class="text-center pt-16 mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                Our Vision for <span class="text-yellow-300">English Education</span>
+                Our Vision for <span class="text-yellow-300">Life SkillLab Program</span>
             </h2>
             <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                We envision a future where every HiAcademy student doesn't just speak—they connect, persuade, and
-                innovate. We don't just teach English; we nurture articulate global citizens equipped to thrive in the
-                international landscapes of tomorrow.
+                We envision a future where every HiAcademy student doesn't just learn—they apply, lead, and innovate. We don't just teach skills; we nurture capable young leaders equipped to handle the complexities of modern life and future careers.
             </p>
         </div>
 
