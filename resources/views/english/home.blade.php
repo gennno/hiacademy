@@ -923,7 +923,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                        <i class="fas fa-calendar-check"></i> Start Now
                     </a>
                     <a href="/#contact"
                         class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">

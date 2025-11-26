@@ -26,6 +26,28 @@ class HomeController extends Controller
     {
         return view('childdev.home');
     }
+        public function mandarinindex()
+    {
+        return view('mandarin.home');
+    }
+        public function skilllabindex()
+    {
+        return view('skilllab.home');
+    }
+        public function stemindex()
+    {
+        return view('stem.home');
+    }
+        public function creativeindex()
+    {
+        return view('creative.home');
+    }
+        public function architectureindex()
+    {
+        return view('architecture.home');
+    }
+
+
         public function preschoolabout()
     {
         return view('preschool.about');
@@ -50,7 +72,6 @@ class HomeController extends Controller
     {
         return view('booktrial');
     }
-
         public function register()
     {
         return view('register');

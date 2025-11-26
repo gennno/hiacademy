@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #5b4e18 0%, #e8b73c 100%);
+            background: linear-gradient(135deg, #f2d546 0%, #f2d546 100%);
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -25,7 +25,7 @@
             top: 0;
             height: 100vh;
             width: 260px;
-            background: linear-gradient(180deg, #4F46E5 0%, #7C3AED 100%);
+            background: linear-gradient(180deg, #000000 0%, #000000 100%);
             transition: transform 0.3s ease;
             z-index: 1000;
             box-shadow: 4px 0 20px rgba(0,0,0,0.1);
@@ -85,7 +85,7 @@
         }
         
         .sidebar-item {
-            color: white;
+            color: black;
             padding: 12px 20px;
             margin: 8px 15px;
             border-radius: 12px;
@@ -252,9 +252,9 @@
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
         <!-- Topbar -->
-        <div class="topbar d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-light rounded-circle p-2" id="toggleSidebar" style="width: 45px; height: 45px;">
+        <div class="topbar d-flex justify-content-between  align-items-center">
+            <div class="d-flex align-items-center  gap-3">
+                <button class="btn btn-light rounded-circle  p-2" id="toggleSidebar" style="width: 45px; height: 45px;">
                     <span style="font-size: 20px;">☰</span>
                 </button>
                 <div>
@@ -299,7 +299,7 @@
         
         <!-- Stats Cards -->
         <div class="row g-3 mb-4">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3  col-sm-6">
                 <div class="stat-card">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span style="font-size: 32px;">📚</span>
@@ -351,7 +351,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="program-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10B981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10B981, #059669); border-color: #4F46E5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
                                 🧮
                             </div>
                             <span class="badge bg-success">Active</span>

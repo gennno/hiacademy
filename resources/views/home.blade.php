@@ -881,7 +881,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">International Preschool</h3>
                         <p class="text-sm text-gray-200 mb-4">A global learning environment designed to nurture creativity
                             and confidence in young learners.</p>
-                        <a href="/preschool"
+                        <a href="/preschool" target="_blank"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -901,7 +901,7 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Child Development Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Child Development Program.</p>
-                        <a href="/childdev"
+                        <a href="/childdev" target="_blank"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -921,7 +921,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">English Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Effective communication is key to success, and our English
                             Language Program is designed to build fluency and confidence.</p>
-                        <a href="/english"
+                        <a href="/english" target="_blank"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -941,7 +941,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Mandarin Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Immersive learning that helps children master Mandarin
                             naturally and confidently.</p>
-                        <a href="#"
+                        <a href="/mandarin" target="_blank"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -959,7 +959,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Math Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="/math"
+                        <a href="/math" target="_blank"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -980,7 +980,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">STEM & Coding</h3>
                         <p class="text-sm text-gray-200 mb-4">STEM & Coding
                         </p>
-                        <a href="https://timedooracademy.com/"
+                        <a href="/stem"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -1001,7 +1001,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Design Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="https://timedooracademy.com/"
+                        <a href="/creative"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -1023,13 +1023,14 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Life SkillLab</h3>
                         <p class="text-sm text-gray-200 mb-4">Life SkillLab.</p>
-                        <a href="https://timedooracademy.com/"
+                        <a href="/skilllab"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
                         </a>
                     </div>
                 </div>
+
                 <!-- Coding Classes -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="50">
@@ -1042,7 +1043,7 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Parenting life Indonesia</h3>
                         <p class="text-sm text-gray-200 mb-4">Parenting life Indonesia.</p>
-                        <a href="https://parentinglife.id/"
+                        <a href="/architecture"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →

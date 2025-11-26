@@ -7,7 +7,7 @@
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/english.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
+        <img src="{{ asset('img/mandarin.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
@@ -311,15 +311,13 @@
 
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up"
                     data-aos-delay="100">
-                    English Program:<br>
-                    <span class="text-yellow-300">Global Communicators</span> for Tomorrow
+                    Mandarin Program:<br>
+                    Bridging Cultures,<span class="text-yellow-300"> Building Futures.</span> 
                 </h1>
 
                 <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto"
                     data-aos="fade-up" data-aos-delay="200">
-                    Building confident communicators for a connected world. We empower students to express themselves
-                    clearly,
-                    think critically, and connect globally through the English language.
+                    Mastering Chinese for Global Opportunities.
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
@@ -341,27 +339,21 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy English</span>
+                    About <span class="text-yellow-300">HiAcademy Mandarin</span>
                 </h2>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
-                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner.
+                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that Mandarin proficiency is not just about learning a language, but about unlocking doors to one of the world's oldest cultures and fastest-growing economies.
                     <br>
-                    Our English Program is designed to transform the way
-                    students perceive and engage with the language, moving them from hesitation to fluency, and from
-                    memorization to authentic mastery.
+                    Our Mandarin Program is designed to transform the way students perceive and engage with Chinese, moving them from curiosity to competence, and from basic phrases to cultural fluency.
                 </p>
             </div>
         </div>
         <div class="text-center pt-16 mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                Our Vision for <span class="text-yellow-300">English Education</span>
+                Our Vision for <span class="text-yellow-300">Mandarin Education</span>
             </h2>
             <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                We envision a future where every HiAcademy student doesn't just speak—they connect, persuade, and
-                innovate. We don't just teach English; we nurture articulate global citizens equipped to thrive in the
-                international landscapes of tomorrow.
+                We envision a future where every HiAcademy student doesn't just speak Mandarin—they connect with Chinese culture, conduct business with confidence, and build bridges between East and West. We don't just teach Chinese; we nurture global citizens equipped to thrive in a multicultural world.
             </p>
         </div>
 
@@ -371,11 +363,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Practical Chinese Skills</span>
                 </h3>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    We go beyond textbooks to cultivate a deep and practical command of the English language. At HiAcademy,
-                    we focus on building:
+                   We go beyond textbooks to cultivate a deep and practical command of Mandarin Chinese. At HiAcademy, we focus on building:
                 </p>
             </div>
 
@@ -389,12 +380,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-comments text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
+                            <h3 class="text-2xl font-semibold text-white">Practical Communication Skills</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We teach students to express themselves clearly and persuasively in both spoken and written
-                            English,
-                            developing the poise needed for academic, social, and professional success.
+                            We teach students to communicate effectively in real-life situations, from daily conversations to professional contexts.
                         </p>
                     </div>
                 </div>
@@ -406,12 +395,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-brain text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
+                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
-                            sources,
-                            forming the bedrock of academic and professional excellence.
+                            Students gain deep insights into Chinese culture, customs, and business etiquette, preparing them for meaningful interactions.
                         </p>
                     </div>
                 </div>
@@ -423,12 +410,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-language text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                            <h3 class="text-2xl font-semibold text-white">Character Mastery</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We build a robust vocabulary and strong command of grammar, enabling students to use language
-                            accurately,
-                            creatively, and appropriately for any context.
+                            We make Chinese characters accessible and memorable through proven learning techniques and storytelling methods.
                         </p>
                     </div>
                 </div>
@@ -441,11 +426,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-globe text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                            <h3 class="text-2xl font-semibold text-white">Four Skills Integration</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Language is a window to the world. We expose students to diverse cultures and perspectives,
-                            fostering empathy and a truly global mindset.
+                            Our program systematically develops listening, speaking, reading, and writing skills for comprehensive language mastery.
                         </p>
                     </div>
                 </div>
@@ -460,12 +444,10 @@
                 data-aos="fade-up">
                 <div class="text-center mb-8">
                     <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
-                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized CEFR Framework</p>
+                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized HSK Framework</p>
                 </div>
                 <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
-                    HiAcademy's English Program is built on the internationally benchmarked Common European Framework of
-                    Reference for Languages (CEFR). This framework ensures students don't just learn—they can use the
-                    language effectively in real-world situations.
+                    HiAcademy's Mandarin Program is built on the internationally recognized Hanyu Shuiping Kaoshi (HSK) standard, the official Chinese proficiency test used worldwide. This framework ensures systematic progression and measurable results at every stage.
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-6 mt-8">
@@ -473,20 +455,16 @@
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-bullseye"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Can-Do Learning Objective</h4>
-                        <p class="text-gray-300 text-sm">Every lesson is goal-oriented. Students know exactly what they will
-                            be able to do by the end of each module—whether it's introducing themselves, writing a formal
-                            email, or delivering a persuasive presentation.</p>
+                        <h4 class="text-white font-semibold text-lg mb-2">Structured Progression</h4>
+                        <p class="text-gray-300 text-sm">Each level builds systematically on the previous one, with clear learning objectives and measurable outcomes based on vocabulary, grammar, and functional language use.</p>
                     </div>
 
                     <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-balance-scale"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skill Integration</h4>
-                        <p class="text-gray-300 text-sm">Our lessons seamlessly integrate the four core language
-                            skills: Listening, Speaking, Reading, and Writing (LSRW). This ensures well-rounded development
-                            and the ability to function fully in an English-speaking environment.
+                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skill Development</h4>
+                        <p class="text-gray-300 text-sm">Our lessons integrate listening, speaking, reading, and writing skills while emphasizing practical communication abilities for real-world situations.
                         </p>
                     </div>
 
@@ -494,10 +472,8 @@
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Communicative Language Teaching (CLT)</h4>
-                        <p class="text-gray-300 text-sm">We prioritize interaction as both the goal and the means of
-                            learning. Through role-plays, discussions, and collaborative projects, students use English in
-                            meaningful contexts, building natural fluency.</p>
+                        <h4 class="text-white font-semibold text-lg mb-2">Cultural Immersion</h4>
+                        <p class="text-gray-300 text-sm">We incorporate cultural elements into every lesson, helping students understand the context behind the language and develop authentic communication skills.</p>
                     </div>
                 </div>
             </div>
@@ -510,32 +486,8 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
                 <p class="text-gray-200 text-lg max-w-3xl mx-auto">
-                    Our program is divided into progressive streams and levels, each designed to meet the developmental,
-                    academic, and professional needs of every learner.
+                    Our program is divided into progressive streams and levels, each designed to meet different learning needs and goals.
                 </p>
-            </div>
-
-            {{-- Very Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-pink-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-baby text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
-                            <p class="text-pink-200">Ages 6 | Pre-A1</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
-                        <strong>Description:</strong> Our littlest learners are immersed in English through songs, stories,
-                        games, and hands-on
-                        activities.
-                        Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
-                    </p>
-                </div>
             </div>
 
             {{-- Young Learners --}}
@@ -548,33 +500,13 @@
                             <i class="fas fa-child text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Young Learners English</h3>
+                            <h3 class="text-2xl font-bold text-white">Young Learners Mandarin </h3>
                             <p class="text-blue-200">Ages 6-12</p>
                         </div>
                     </div>
 
                     {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-seedling text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Brave Starter <span class="text-yellow-200">(A1 | Grade 1–2)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Building basic communication skills and literacy.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students embark on their English adventure, learning to
-                                talk about themselves, their family, and their world while developing early reading
-                                and writing skills.
-                            </p>
-                        </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
 
                         <div
                             class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
@@ -583,16 +515,14 @@
                                     <i class="fas fa-running text-black text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">
-                                    Super Movers <span class="text-green-200">(A2 | Grade 3–4)</span>
+                                    Little Panda <span class="text-green-200">(Pre-HSK | Ages 6-8)</span>
                                 </h4>
                             </div>
                             <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Gaining independence in everyday communication.
+                                <strong>Focus:</strong> Building interest and basic communication skills through play.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students expand their ability to describe experiences
-                                and handle short conversations. They write simple paragraphs and understand clear,
-                                familiar texts.
+                                <strong>Description:</strong> Young learners discover Mandarin through songs, games, and stories. They learn basic greetings, numbers, colors, and simple sentences while developing proper pronunciation through fun, interactive activities.
                             </p>
                         </div>
 
@@ -603,15 +533,14 @@
                                     <i class="fas fa-paper-plane text-black text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">
-                                    Fearless Flyers <span class="text-red-200">(B1 | Grade 5–6)</span>
+                                    Smart Panda <span class="text-red-200">(HSK 1-2 | Ages 9-12)</span>
                                 </h4>
                             </div>
                             <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Developing fluency and expressing ideas.
+                                <strong>Focus:</strong> Establishing foundation in pinyin and basic characters.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students handle real-life travel situations, express
-                                opinions, create simple essays, and understand the main ideas from more complex texts.
+                                <strong>Description:</strong> Students build vocabulary of 300+ words and master pinyin system. They learn to conduct simple conversations about daily topics and recognize 150+ Chinese characters through engaging activities and character games.
                             </p>
                         </div>
 
@@ -635,19 +564,8 @@
                         </div>
                     </div>
 
-                    {{-- Intro Text --}}
-                    <p class="text-red-100 leading-relaxed mb-8">
-                        This comprehensive pathway is designed for the evolving minds of teenagers, taking them from
-                        foundational
-                        communication to advanced, nuanced language use. Our curriculum not only builds grammatical accuracy
-                        and
-                        vocabulary but also sharpens critical thinking and cultural intelligence, preparing students for
-                        academic
-                        excellence and global citizenship.
-                    </p>
-
                     {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
 
                         {{-- A1 Seeker --}}
                         <div
@@ -656,15 +574,11 @@
                                 <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
                                     <i class="fas fa-search text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Seeker <span class="text-blue-200">(A1)</span>
+                                <h4 class="text-lg font-semibold text-white">Discoverer <span class="text-blue-200">(HSK 1)</span>
                                 </h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building a foundation for everyday
-                                communication.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand
-                                and use familiar, everyday expressions and very basic phrases aimed at satisfying concrete
-                                needs. They can introduce themselves and others, and ask and answer simple questions about
-                                personal details.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering basic daily expressions.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand and use simple words and sentences, meet basic needs for communication, and possess the ability to further their Chinese language studies.</p>
                         </div>
 
                         {{-- A2 Explorer --}}
@@ -675,30 +589,12 @@
                                     <i class="fas fa-compass text-white text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">Explorer <span
-                                        class="text-green-200">(A2)</span></h4>
+                                        class="text-green-200">(HSK 2)</span></h4>
                             </div>
                             <p class="text-red-100 text-sm"><strong>Focus:</strong> Confidence in routine situations.</p>
                             <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to communicate
                                 in straightforward, routine tasks. They can describe aspects of their background and
                                 immediate environment, and write short, simple notes and messages.</p>
-                        </div>
-
-                        {{-- B1 Adventurer --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-hiking text-blue-900 text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Adventurer <span
-                                        class="text-yellow-200">(B1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to handle most
-                                situations while travelling, produce simple connected text on familiar topics, describe
-                                experiences and events, and briefly give reasons and explanations for opinions and plans.
-                            </p>
                         </div>
 
                         {{-- B1+ Voyager --}}
@@ -708,13 +604,11 @@
                                 <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-rocket text-blue-900 text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Voyager <span
-                                        class="text-yellow-200">(B1+)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Navigator <span
+                                        class="text-yellow-200">(HSK 3)</span></h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Bridging intermediate proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students solidify
-                                intermediate skills and push toward greater independence. They can understand the main ideas
-                                of complex text and interact with a degree of fluency and spontaneity.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Achieving independence in daily communication.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can complete basic communication tasks in daily, academic, and professional contexts. They can manage most communication in Chinese when traveling in China.</p>
                         </div>
 
                         {{-- B2 Connector --}}
@@ -724,14 +618,11 @@
                                 <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-network-wired text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Connector <span
-                                        class="text-orange-200">(B2)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Achiever <span
+                                        class="text-orange-200">(HSK 4)</span></h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Effective social & professional
-                                interaction.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can interact with
-                                fluency and spontaneity. They understand the main ideas of complex text and can produce
-                                clear, detailed text on a wide range of subjects.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Discussing a wide range of topics.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can converse in Chinese on a wide range of topics and are able to communicate fluently with native Chinese speakers.</p>
                         </div>
 
                         {{-- B2+ Elit --}}
@@ -741,13 +632,11 @@
                                 <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-fire text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Elit <span class="text-red-200">(B2+)</span>
+                                <h4 class="text-lg font-semibold text-white">Master <span class="text-red-200">(HSK 5)</span>
                                 </h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering nuance & persuasion.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students refine their skills
-                                to near-advanced proficiency. They learn to understand implicit meaning, use idiomatic
-                                expressions, and construct well-organized, detailed texts and arguments.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Reading Chinese newspapers and watching films.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can read Chinese newspapers and magazines, enjoy Chinese films and plays, and deliver a complete speech in Chinese.</p>
                         </div>
 
                         {{-- C1 Legend --}}
@@ -757,13 +646,11 @@
                                 <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-crown text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Legend <span
-                                        class="text-purple-200">(C1)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Elite <span
+                                        class="text-purple-200">(HSK 6)</span></h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Advanced proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can understand a
-                                wide range of demanding texts, express ideas fluently, and use language flexibly for social,
-                                academic and professional purposes.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Expressing themselves fluently in professional contexts.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can easily understand written and spoken information in Chinese and can express themselves effectively in both spoken and written forms.</p>
                         </div>
 
                     </div>
@@ -771,74 +658,118 @@
                 </div>
             </div>
 
-
-            {{-- Adults & Young Adults --}}
             <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-purple-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-purple-400">
+                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8  rounded-2xl border-2 border-blue-400">
+
+                    {{-- Header --}}
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center">
+                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
                             <i class="fas fa-briefcase text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Adults and Young Adults</h3>
-                            <p class="text-purple-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
+                            <h3 class="text-2xl font-bold text-white">Adults and Professionals</h3>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
+
+                    {{-- Sub Cards --}}
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+
+                        <div
+                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-running text-black text-lg"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white">
+                                <span class="text-green-200">Business Mandarin Foundation</span>
+                                </h4>
+                            </div>
+                            <p class="text-blue-100 mt-2">
+                                <strong>Focus:</strong> Essential Chinese for professional settings.
+                            </p>
+                            <p class="text-blue-100 mt-1">
+                                <strong>Description:</strong> Covers business etiquette, meetings, negotiations, and professional correspondence for learners with HSK 3+ foundation.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-300 hover:scale-105 transition-transform text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 bg-red-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-paper-plane text-black text-lg"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white">
+                                    Corporate Mandarin <span class="text-red-200">(Level 1-3)</span>
+                                </h4>
+                            </div>
+                            <p class="text-blue-100 mt-2">
+                                <strong>Focus:</strong> Industry-specific Chinese proficiency.
+                            </p>
+                            <p class="text-blue-100 mt-1">
+                                <strong>Description:</strong> Tailored programs for professionals in trade, finance, technology, and diplomacy, focusing on industry-specific vocabulary and communication scenarios.
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
-            {{-- Exam Preparation --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-yellow-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-yellow-400">
+<div class="mb-12" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8  rounded-2xl border-2 border-blue-400">
+
+                    {{-- Header --}}
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-certificate text-3xl text-white"></i>
+                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-briefcase text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Exam Preparation</h3>
-                            <p class="text-yellow-200">Ready for IELTS</p>
+                            <h3 class="text-2xl font-bold text-white">Specialized Programs</h3>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
+
+                    {{-- Sub Cards --}}
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+
+                        <div
+                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-running text-black text-lg"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white">
+                                  <span class="text-green-200">HSK Test Preparation</span>
+                                </h4>
+                            </div>
+                            <p class="text-blue-100 mt-2">
+                                <strong>Focus:</strong> Achieving target scores on official HSK exams.
+                            </p>
+                            <p class="text-blue-100 mt-1">
+                                <strong>Description:</strong> Intensive training with mock tests, test-taking strategies, and personalized coaching for all HSK levels.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-300 hover:scale-105 transition-transform text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 bg-red-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-paper-plane text-black text-lg"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white">
+                                <span class="text-red-200">Business Chinese Certificate (BCC)</span>
+                                </h4>
+                            </div>
+                            <p class="text-blue-100 mt-2">
+                                <strong>Focus:</strong> Mastering Mandarin for business contexts.
+                            </p>
+                            <p class="text-blue-100 mt-1">
+                                <strong>Description:</strong> Comprehensive preparation for the Business Chinese Certificate exam, focusing on business communication, commercial correspondence, and professional presentations.
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-green-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-green-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-handshake text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Get Ready for International Business</h3>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -846,19 +777,18 @@
     <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy English?</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy Mandarin?</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="hover:scale-105 transition-transform">
                     <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
                         data-aos="fade-up" data-aos-delay="0">
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                        <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
-                            communicative teaching approaches.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Native-Speaking, Certified Instructors</h4>
+                        <p class="text-gray-300 text-sm text-center">Our teachers are not just language experts; they're cultural ambassadors who make learning Mandarin engaging and effective.</p>
                     </div>
                 </div>
 
@@ -868,9 +798,8 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-users text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                        <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
-                            speaking practice and individual feedback.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Learning Methods</h4>
+                        <p class="text-gray-300 text-sm text-center">We use character-acquisition techniques and spaced repetition systems that make mastering Chinese characters achievable and lasting.</p>
                     </div>
                 </div>
 
@@ -880,9 +809,8 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-trophy text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
-                        <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
-                            real-world confidence using English.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Flexible Learning Options</h4>
+                        <p class="text-gray-300 text-sm text-center">Choose from small group classes, private tutoring, or corporate training to fit your schedule and learning style.</p>
                     </div>
                 </div>
 
@@ -892,9 +820,18 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-rocket text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                        <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
-                            universities and employers seek in the 21st century.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Cultural Activities</h4>
+                        <p class="text-gray-300 text-sm text-center">We complement language learning with cultural experiences including calligraphy, tea ceremony, and Chinese holiday celebrations.</p>
+                    </div>
+                </div>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Practical Results</h4>
+                        <p class="text-gray-300 text-sm text-center">Our students successfully pass HSK exams, excel in business negotiations, and build meaningful connections through Mandarin.</p>
                     </div>
                 </div>
             </div>
@@ -907,23 +844,21 @@
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Unlock Your <span class="text-yellow-300">English Potential?</span>
+                Ready to Begin Your <span class="text-yellow-300">Mandarin Journey?</span>
             </h2>
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Find the perfect program for you or your child and transform English from a subject into a superpower.
+               Find the perfect program for you or your child and open doors to Chinese culture and opportunities.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
-                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
+                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment & Consultation Today!</h3>
                 <p class="text-gray-200 mb-6">
-                    Our diagnostic test will accurately place you or your child in the right level and identify any learning
-                    gaps.
-                    Let us create a personalized learning pathway to unlock confidence and success in English!
+                    Our diagnostic test will accurately place you in the right HSK level and identify your learning needs. Let us create a personalized pathway to Mandarin fluency and cultural understanding!
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                        <i class="fas fa-calendar-check"></i> Start Now
                     </a>
                     <a href="/#contact"
                         class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">

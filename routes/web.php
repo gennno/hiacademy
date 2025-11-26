@@ -9,6 +9,14 @@ Route::get('/preschool', [HomeController::class, 'preschoolindex'])->name('presc
 Route::get('/english', [HomeController::class, 'englishindex'])->name('englishindex');
 Route::get('/math', [HomeController::class, 'mathindex'])->name('mathindex');
 Route::get('/childdev', [HomeController::class, 'childdevindex'])->name('childdevindex');
+Route::get('/mandarin', [HomeController::class, 'mandarinindex'])->name('mandarinindex');
+Route::get('/skilllab', [HomeController::class, 'skilllabindex'])->name('skilllabindex');
+Route::get('/stem', [HomeController::class, 'stemindex'])->name('stemindex');
+Route::get('/creative', [HomeController::class, 'creativeindex'])->name('creativeindex');
+Route::get('/architecture', [HomeController::class, 'architectureindex'])->name('architectureindex');
+
+
+
 Route::get('/aboutpreschool', [HomeController::class, 'preschoolabout'])->name('preschoolabout');
 Route::get('/admissionpreschool', [HomeController::class, 'preschooladmission'])->name('preschooladmission');
 Route::get('/ipc', [HomeController::class, 'ipc'])->name('ipc');

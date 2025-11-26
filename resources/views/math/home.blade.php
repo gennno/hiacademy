@@ -1,8 +1,9 @@
 @extends('layouts.layout')
 
-@section('title', 'Math Program - h!academy')
+@section('title', 'h!academy')
 
 @section('content')
+
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
@@ -62,27 +63,41 @@
         }
     </style>
 
-    {{-- Header (same as main page) --}}
     <header id="main-header" class="fixed top-0 left-0 w-full z-50">
+        <!-- Background Layer -->
         <div id="header-bg" class="absolute inset-0 bg-transparent transition-all duration-500"></div>
 
+        <!-- NAV CONTAINER -->
         <div class="relative flex items-center justify-between px-6 lg:px-12 py-4">
-            <a href="/" class="flex items-center gap-3 flex-shrink-0 z-40" aria-label="Go to home">
-                <img src="{{ asset('img/logofull.png') }}" alt="Logo"
-                    class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
-            </a>
+            {{-- 🔙 Back + Logo --}}
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center text-yellow-400 hover:text-yellow-300 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span class="hidden sm:inline text-sm font-semibold ml-1">Back</span>
+                </a>
 
+                <a href="/english#home" class="flex items-center gap-2">
+                    <img src="{{ asset('img/logofull.png') }}" alt="Logo"
+                        class="h-14 lg:h-16 w-auto hover:scale-105 transition-transform duration-300">
+                </a>
+            </div>
+
+            <!-- NAV (centered on viewport) - visible on lg+ -->
             <nav id="primary-nav"
                 class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
                 role="navigation" aria-label="Primary Navigation">
-                <a href="/#home" class="nav-link">Home</a>
-                <a href="/#about" class="nav-link">About Us</a>
-                <a href="/#programs" class="nav-link">Programs</a>
-                <a href="/#contact" class="nav-link">Contact Us</a>
+                <a href="#home" class="nav-link" data-target="home">Home</a>
+                <a href="#about" class="nav-link" data-target="about">About Us</a>
+                <a href="#programs" class="nav-link" data-target="programs">Programs</a>
+                <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
             </nav>
 
+            <!-- Visual container (desktop only) -->
             <div id="visual-container"
-                class="hidden lg:flex gap-3 items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
+                class="hidden lg:flex  gap-3 items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
                 style="right:1rem;">
                 <a href="/register"
                     class="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
@@ -94,6 +109,7 @@
                 </a>
             </div>
 
+            <!-- Hamburger Button (mobile + tablet) -->
             <button id="menu-btn" class="lg:hidden text-white focus:outline-none z-50" aria-controls="mobile-menu"
                 aria-expanded="false" aria-label="Toggle menu">
                 <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
@@ -107,14 +123,21 @@
             </button>
         </div>
 
+        <!-- Mobile/Tablet Menu -->
         <div id="mobile-menu"
             class="overflow-hidden transition-all duration-500 ease-in-out bg-black/90 shadow-2xl lg:hidden rounded-3xl mt-2 mx-4 ring-1 ring-yellow-400/50 backdrop-blur-xl opacity-0 pointer-events-none"
             style="max-height:0px;" aria-hidden="true">
             <nav class="flex flex-col divide-y divide-yellow-400/30 text-yellow-200 font-medium">
-                <a href="/#home" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition rounded-t-3xl">Home</a>
-                <a href="/#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition">About</a>
-                <a href="/#programs" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition">Programs</a>
-                <a href="/#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition">Contact</a>
+                <a href="#home"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
+                    data-target="home">Home</a>
+                <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="about">About</a>
+                <a href="#programs"
+                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="programs">Programs</a>
+                <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
+                    data-target="contact">Contact</a>
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/register"
                         class="inline-flex items-center justify-center gap-2 bg-white text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
@@ -136,13 +159,16 @@
             scroll-behavior: smooth;
         }
 
-        .nav-link {
+        /* Nav underline */
+        .nav-link,
+        .nav-link-mobile {
             position: relative;
             display: inline-block;
             padding-bottom: .25rem;
         }
 
-        .nav-link::after {
+        .nav-link::after,
+        .nav-link-mobile::after {
             content: "";
             position: absolute;
             left: 0;
@@ -154,7 +180,8 @@
             transition: width .22s ease;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link-mobile:hover::after {
             width: 100%;
         }
 
@@ -163,6 +190,7 @@
             text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
         }
 
+        /* Mobile menu visible state */
         #mobile-menu {
             transition: all 0.25s ease-in-out;
         }
@@ -180,7 +208,10 @@
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
             const headerBg = document.getElementById('header-bg');
+            const visual = document.getElementById('visual-container');
+            const nav = document.getElementById('primary-nav');
 
+            /* ---------- Mobile toggle ---------- */
             function openMobileMenu() {
                 mobileMenu.classList.add('show');
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
@@ -188,7 +219,6 @@
                 closeIcon.classList.remove('hidden');
                 menuBtn.setAttribute('aria-expanded', 'true');
             }
-
             function closeMobileMenu() {
                 mobileMenu.style.maxHeight = '0px';
                 setTimeout(() => mobileMenu.classList.remove('show'), 250);
@@ -210,6 +240,7 @@
                 }
             });
 
+            /* ---------- Scroll background ---------- */
             function handleScroll() {
                 if (window.scrollY > 20) {
                     headerBg.classList.add('bg-black', 'backdrop-blur-md', 'shadow-lg');
@@ -222,14 +253,54 @@
             handleScroll();
             window.addEventListener('scroll', handleScroll, { passive: true });
 
+            /* ---------- Adjust visual container (lg+) ---------- */
+            function adjustVisualContainer() {
+                if (!visual || !nav) return;
+
+                if (window.innerWidth < 1024) {
+                    visual.style.display = 'none';
+                    visual.style.left = '';
+                    visual.style.maxWidth = '';
+                    visual.style.minWidth = '';
+                    return;
+                }
+
+                visual.style.display = 'flex';
+
+                const navRect = nav.getBoundingClientRect();
+                const navWidth = navRect.width;
+                const navCenterX = (navRect.left + navRect.right) / 2;
+
+                const extraLeftPadding = 32;
+                const rightSpacing = 16;
+
+                let leftPos = Math.round(navCenterX - navWidth / 2 - extraLeftPadding);
+                leftPos = Math.max(8, leftPos);
+
+                visual.style.left = leftPos + 'px';
+
+                const maxWidth = window.innerWidth - leftPos - rightSpacing;
+                visual.style.maxWidth = maxWidth + 'px';
+                visual.style.minWidth = (navWidth + 180) + 'px';
+            }
+
+            // Close mobile menu when resizing to desktop
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 1024 && mobileMenu.classList.contains('show')) {
-                    closeMobileMenu();
+                    mobileMenu.style.maxHeight = '0px';
+                    mobileMenu.classList.remove('show');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
                 }
+                adjustVisualContainer();
             });
+
+            setTimeout(adjustVisualContainer, 50);
+            window.addEventListener('load', adjustVisualContainer);
+            window.addEventListener('resize', adjustVisualContainer);
         });
     </script>
-
     {{-- Hero Section --}}
     <section class="pt-32 pb-56 bg-transparent relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -238,14 +309,15 @@
                     <span class="text-yellow-300 font-medium">h!</span><span class="text-white">academy</span>
                 </h2>
 
-                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up"
+                    data-aos-delay="100">
                     Math Program:<br>
                     <span class="text-yellow-300">Problem-Solvers</span> for Tomorrow
                 </h1>
 
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto" data-aos="fade-up" data-aos-delay="200">
-                    Building confident problem-solvers for a complex world. We transform math from anxiety to aptitude, 
-                    from memorization to mastery, using the world-renowned Singaporean Math approach.
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto"
+                    data-aos="fade-up" data-aos-delay="200">
+                    Building Confident Problem-Solvers for a Complex World
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
@@ -262,147 +334,209 @@
         </div>
     </section>
 
-    {{-- About Math Program Section --}}
-    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
+    {{-- About English Program Section --}}
+    <section id="about" class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy Math</span>
+                    About <span class="text-yellow-300">HiAcademy Math Education</span>
                 </h2>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that mathematical 
-                    proficiency is not a gift for a select few, but a fundamental skill that unlocks logical thinking, 
+                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that mathematical
+                    proficiency is not a gift for a select few, but a fundamental skill that unlocks logical thinking,
                     creativity, and confidence for every child.
+                    <br>
+                    Our Math Program is designed to transform the way students perceive and engage with mathematics, moving
+                    them from anxiety to aptitude, and from memorization to mastery.
+
+                </p>
+            </div>
+        </div>
+        <div class="text-center pt-16 mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
+                Our Vision for <span class="text-yellow-300">Math Education</span>
+            </h2>
+            <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                We envision a future where every HiAcademy student doesn't just calculate—they analyze, reason, and
+                innovate. We don't just teach math; we nurture mathematical thinkers equipped to solve the unknown
+                challenges of tomorrow.
+            </p>
+        </div>
+
+    </section>
+    {{-- Vision English Program Section --}}
+    <section class=" pt-36 pb-16 relative rounded-2xl shadow-xl -mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
+                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                </h3>
+                <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    We go beyond textbooks to cultivate a deep and enduring understanding of mathematics. At HiAcademy, we
+                    focus on building:
                 </p>
             </div>
 
             {{-- The HiAcademy Difference --}}
             <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-puzzle-piece text-2xl text-blue-900"></i>
+
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-comments text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Resilient Problem-Solving</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Resilient Problem-Solving</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            We teach students to persevere through complex, multi-step problems, developing grit and
+                            resilience that applies both inside and outside the classroom.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        We teach students to persevere through complex, multi-step problems, developing grit and resilience 
-                        that applies both inside and outside the classroom.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-left">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-brain text-2xl text-blue-900"></i>
+
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl  backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-language text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Numerical Fluency & Agility</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Logical & Analytical Reasoning</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            We build speed and accuracy with numbers, enabling students to perform calculations with
+                            confidence and apply them to real-world scenarios like finance and data analysis.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Students learn to break down information, identify patterns, and construct logical arguments, 
-                        forming the bedrock of critical thinking.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-right" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-calculator text-2xl text-blue-900"></i>
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-brain text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Logical & Analytical Reasoning</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Numerical Fluency & Agility</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Students learn to break down information, identify patterns, and construct logical arguments,
+                            forming the bedrock of critical thinking.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        We build speed and accuracy with numbers, enabling students to perform calculations with confidence 
-                        and apply them to real-world scenarios like finance and data analysis.
-                    </p>
                 </div>
 
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30" data-aos="fade-left" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-lightbulb text-2xl text-blue-900"></i>
+
+
+
+                <div class=" hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-yellow-400/30"
+                        data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4 ">
+                            <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-globe text-2xl text-blue-900"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Creative Thinking</h3>
                         </div>
-                        <h3 class="text-2xl font-semibold text-white">Creative Thinking</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Mathematics is a creative endeavor. We encourage students to explore multiple pathways to a
+                            solution, fostering innovative and flexible thinking.
+                        </p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">
-                        Mathematics is a creative endeavor. We encourage students to explore multiple pathways to a solution, 
-                        fostering innovative and flexible thinking.
-                    </p>
                 </div>
             </div>
+        </div>
+    </section>
+    {{-- Proven Curriculum Section --}}
+    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
+        <div class="max-w-7xl mx-auto px-6">
 
-            {{-- Singaporean Math Framework --}}
-            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400" data-aos="fade-up">
+            <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400"
+                data-aos="fade-up">
+
                 <div class="text-center mb-8">
                     <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
                     <p class="text-xl text-yellow-300 font-semibold">The World-Renowned Singaporean Math Approach</p>
-                    <p class="text-gray-200 mt-3">Consistently ranked #1 in international assessments</p>
-                </div>
-                <p class="text-gray-200 text-lg leading-relaxed mb-8 max-w-4xl mx-auto">
-                    HiAcademy's Math Program is built on the globally acclaimed Singaporean Math methodology. 
-                    This approach ensures students don't just learn—they understand deeply.
-                </p>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white/10 p-6 rounded-xl text-center">
-                        <div class="text-yellow-400 text-5xl mb-4">
-                            <i class="fas fa-cubes"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-3">1. Concrete</h4>
-                        <p class="text-gray-300 text-sm">Students manipulate physical objects like blocks and counters. They "see" and "feel" the math.</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-xl text-center">
-                        <div class="text-yellow-400 text-5xl mb-4">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-3">2. Pictorial</h4>
-                        <p class="text-gray-300 text-sm">They translate understanding into visual models like bar diagrams, bridging hands-on to abstract.</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-xl text-center">
-                        <div class="text-yellow-400 text-5xl mb-4">
-                            <i class="fas fa-function"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-3">3. Abstract</h4>
-                        <p class="text-gray-300 text-sm">Finally, they solve problems using symbolic notation with deep conceptual understanding.</p>
-                    </div>
                 </div>
 
+                <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
+                    HiAcademy's Math Program is built on the globally acclaimed Singaporean Math methodology, consistently
+                    ranked #1 in international assessments. This approach is renowned for its depth and mastery, ensuring
+                    students don't just learn—they understand. </p>
+
+                <!-- 🔧 Updated Grid -->
                 <div class="grid md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-white/10 p-6 rounded-xl">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fas fa-check-circle text-green-400 text-2xl"></i>
-                            <h4 class="text-white font-semibold text-lg">Mastery-Based Learning</h4>
+
+                    <!-- Left (CPA full height) -->
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform h-full">
+                        <div class="text-yellow-400 text-4xl mb-3">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <p class="text-gray-300 text-sm">We ensure students achieve true mastery before moving on, building strong foundations without learning gaps.</p>
+                        <h4 class="text-white font-semibold text-xl mb-2">Concrete -> Pictorial -> Abstract (CPA)
+                            Progression</h4>
+                        <br>
+                        <ul class="text-gray-200 text-md space-y-2 list-disc list-inside">
+                            <li><strong>Concrete</strong>: Students first learn concepts by manipulating physical objects
+                                like blocks, counters, and fraction tiles. They "see" and "feel" the math.</li>
+                            <li><strong>Pictorial</strong>: Next, they translate this physical understanding into visual
+                                models, such as bar models and diagrams. This step bridges the gap between hands-on
+                                experience and abstract numbers.</li>
+                            <li><strong>Abstract</strong>: Finally, students confidently solve problems using symbolic
+                                notation (numbers and equations) because they have a deep, conceptual foundation of what the
+                                symbols represent.</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white/10 p-6 rounded-xl">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fas fa-chart-bar text-blue-400 text-2xl"></i>
-                            <h4 class="text-white font-semibold text-lg">Bar Model Drawing</h4>
+                    <!-- Right column (stacked Mastery + Model) -->
+                    <div class="flex flex-col gap-6 h-full">
+
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Mastery-Based Learning</h4>
+                            <p class="text-gray-300 text-sm">
+                                Unlike spiral curricula that briefly touch on topics, we ensure students achieve true
+                                mastery of a concept before moving on. This builds a strong, unshakable foundation,
+                                preventing learning gaps.
+                            </p>
                         </div>
-                        <p class="text-gray-300 text-sm">A powerful visual strategy that helps solve complex word problems by organizing information clearly.</p>
+
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Focus on Model Drawing</h4>
+                            <p class="text-gray-300 text-sm">
+                                We specially train students in bar modeling, a powerful visual strategy that helps them
+                                solve complex word problems by organizing information and seeing the relationships between
+                                quantities.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Levels Section --}}
-    <section id="levels" class="py-24 px-6 text-center bg-white/1 text-white">
+    <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
                 <p class="text-gray-200 text-lg max-w-3xl mx-auto">
-                    Four progressive levels designed to meet the developmental and academic needs of every child
+                    Our program is divided into four progressive levels, each designed to meet the developmental and
+                    academic needs of your child.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 {{-- Level 1: Math Explorer --}}
-                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform" data-aos="fade-up">
+                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-20 h-20 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-compass text-4xl text-white"></i>
@@ -412,125 +546,200 @@
                             <p class="text-green-200 text-lg">Level 1 • Ages 5-7</p>
                         </div>
                     </div>
-                    
+
                     <div class="text-left space-y-4">
                         <div class="bg-white/10 p-4 rounded-lg">
                             <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
-                            <p class="text-gray-200">Abstract thinking and mastering advanced mathematics</p>
+                            <p class="text-gray-200">Building a joyful and solid numerical foundation.</p>
                         </div>
-                        
+
                         <div class="bg-white/10 p-4 rounded-lg">
                             <p class="text-yellow-300 font-semibold mb-2">Description:</p>
-                            <p class="text-gray-200 text-sm">Mavericks conquer abstract mathematical domains including algebraic expressions, polynomial operations, and geometric proofs. Students explore advanced number theory, systems of equations, indices, and real-world applications through profit-loss calculations and journey problems.</p>
+                            <p class="text-gray-200 text-sm">Young explorers embark on their math journey through hands-on games and storytelling. This level focuses on making math a fun, tangible experience, establishing a positive mindset towards numbers from the very start. Young explorers embark on their math journey through hands-on games and storytelling. Students develop early logical reasoning through number puzzles and pattern recognition, while building fundamental skills in time concepts and basic arithmetic operations.</p>
                         </div>
-                        
+
                         <div class="bg-white/10 p-4 rounded-lg">
                             <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
-                            <ul class="text-gray-200 text-sm space-y-1 list-disc list-inside">
-                                <li>Introduction to algebraic thinking</li>
-                                <li>Fundamental geometry theorems</li>
-                                <li>Data analysis & probability</li>
-                                <li>Advanced logical reasoning</li>
-                            </ul>
+                            <p class="text-gray-200 text-sm">Number sense & counting (1-100), basic addition & subtraction, introduction to shapes & patterns, and simple measurements using the CPA method.</p>
                         </div>
                     </div>
                 </div>
+
+                {{-- Level 2: Operation Heroes --}}
+                <div class="bg-gradient-to-br from-yellow-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield text-4xl text-white"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-3xl font-bold text-white">Operation Heroes</h3>
+                            <p class="text-yellow-200 text-lg">Level 2 • Ages 7-9</p>
+                        </div>
+                    </div>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Mastering core operations and developing strategic problem-solving skills.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Students become heroes of the four operations while learning to solve complex word problems using bar modeling. The program introduces strategic thinking through shortest path problems, queuing scenarios, and advanced number patterns, building strong foundations in number theory and logical reasoning.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Fluency with multiplication & division, remainder problems, mental math strategies, advanced number patterns, counting techniques, odd and even number properties, and working backwards strategies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Level 3: Challenge Champions --}}
+                <div class="bg-gradient-to-br from-red-500/20 to-amber-500/20 p-8 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-20 h-20 bg-red-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-crown text-4xl text-white"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-3xl font-bold text-white">Challenge Champions</h3>
+                            <p class="text-red-200 text-lg">Level 3 • Ages 9-12</p>
+                        </div>
+                    </div>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Tackling complex problems and applying mathematical reasoning.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">This is where our students become champion problem-solvers. They learn to tackle multi-step, non-routine problems that require deep thinking and the application of multiple concepts, preparing them for academic competitions and higher-level math. The curriculum covers advanced number sequences, prime factorization, percentage calculations, and geometric principles including circle areas and triangle properties.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Advanced fractions & decimals, ratios & percentages, geometry & area, and sophisticated model drawing for complex problems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Level 4: Math Mavericks --}}
+                <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-8 rounded-2xl border-2 border-blue-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-20 h-20 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-flag text-4xl text-white"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-3xl font-bold text-white">Math Mavericks</h3>
+                            <p class="text-blue-200 text-lg">Level 4 • Ages 12+</p>
+                        </div>
+                    </div>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Abstract thinking and mastering advanced mathematics for the future.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Our mavericks are ready to conquer the abstract world of algebra and advanced geometry. This level focuses on cultivating a truly mathematical mind, capable of logical proof and abstract reasoning, providing an unbeatable advantage for high school and university. Mavericks conquer abstract mathematical domains including algebraic expressions, polynomial operations, and geometric proofs. Students explore advanced number theory concepts, system of equations, indices, and real-world applications through profit-loss calculations and journey problems.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Introduction to algebraic thinking, fundamental geometry theorems, data analysis & probability, and advanced logical reasoning.</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
-
     {{-- Why Choose Us Section --}}
     <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy Math?</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy Math ?</h2>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert-Led, Passionate Instructors</h4>
+                        <p class="text-gray-300 text-sm text-center">Our educators are not just teachers; they are mentors who make math engaging and accessible. They are trained specifically in the Singaporean methodology.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                    <p class="text-gray-300 text-sm text-center">Passionate educators who make math engaging and accessible, trained specifically in Singaporean methodology.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
+                        <p class="text-gray-300 text-sm text-center">We ensure personalized attention for every student, allowing our instructors to identify and address individual learning needs.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                    <p class="text-gray-300 text-sm text-center">Personalized attention for every student, allowing instructors to identify and address individual learning needs.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Track Record</h4>
+                        <p class="text-gray-300 text-sm text-center">Our students show significant improvement in school grades, standardized test scores, and, most importantly, in their confidence and attitude toward math.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Track Record</h4>
-                    <p class="text-gray-300 text-sm text-center">Significant improvements in school grades, test scores, and confidence towards mathematics.</p>
                 </div>
 
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-star text-2xl text-blue-900"></i>
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
+                        <p class="text-gray-300 text-sm text-center">The problem-solving and logical reasoning skills honed in our program are exactly what universities and top employers are looking for in the 21st century.</p>
                     </div>
-                    <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                    <p class="text-gray-300 text-sm text-center">Problem-solving and logical reasoning skills that universities and employers seek in the 21st century.</p>
-                </div>
-            </div>
-
-            {{-- Additional Benefits --}}
-            <div class="mt-16 grid md:grid-cols-3 gap-6" data-aos="fade-up">
-                <div class="bg-gradient-to-br from-blue-600/30 to-purple-600/30 p-6 rounded-xl border border-blue-400/50">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-award text-yellow-400 text-3xl"></i>
-                        <h4 class="text-white font-semibold text-lg">World-Class Curriculum</h4>
-                    </div>
-                    <p class="text-gray-300 text-sm">Based on Singapore's #1 ranked methodology, proven effective worldwide</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-green-600/30 to-teal-600/30 p-6 rounded-xl border border-green-400/50">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-heartbeat text-yellow-400 text-3xl"></i>
-                        <h4 class="text-white font-semibold text-lg">Builds Confidence</h4>
-                    </div>
-                    <p class="text-gray-300 text-sm">Transform math anxiety into enthusiasm and genuine love for learning</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-orange-600/30 to-red-600/30 p-6 rounded-xl border border-orange-400/50">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-bullseye text-yellow-400 text-3xl"></i>
-                        <h4 class="text-white font-semibold text-lg">Competition Ready</h4>
-                    </div>
-                    <p class="text-gray-300 text-sm">Prepares students for academic competitions and higher-level mathematics</p>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- CTA Section --}}
-    <section class="relative py-20 bg-gradient-to-br from-purple-900/70 to-pink-900/70 backdrop-blur-sm">
+    <section id="trial" class="relative py-20 bg-gradient-to-br from-blue-900/70 to-purple-900/70 backdrop-blur-sm">
         <div class="absolute inset-0 bg-black/30"></div>
-        
+
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Unlock Your Child's <span class="text-yellow-300">Mathematical Potential?</span>
+                Ready to Unlock Your <span class="text-yellow-300">Child's Mathematical Potential?</span>
             </h2>
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
                 Find the perfect level for your child and transform math from a source of stress into their greatest strength.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
-                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Diagnostic Assessment!</h3>
+                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
                 <p class="text-gray-200 mb-6">
-                    Our diagnostic test will accurately place your child in the right level and identify any learning gaps. 
-                    Let us create a personalized learning pathway to unlock their confidence and success in math!
+                    Our diagnostic test will accurately place you or your child in the right level and identify any learning
+                    gaps.
+                    Let us create a personalized learning pathway to unlock confidence and success in English!
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                        <i class="fas fa-calendar-check"></i> Start Now
                     </a>
                     <a href="/#contact"
                         class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">
@@ -542,18 +751,18 @@
             <div class="grid md:grid-cols-3 gap-6 text-left">
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
                     <div class="text-yellow-400 text-3xl mb-3">
-                        <i class="fas fa-clipboard-list"></i>
+                        <i class="fas fa-clipboard-check"></i>
                     </div>
-                    <h4 class="text-white font-semibold text-lg mb-2">Step 1: Diagnostic Test</h4>
-                    <p class="text-gray-300 text-sm">Take our free assessment to determine your child's current level and identify learning gaps</p>
+                    <h4 class="text-white font-semibold text-lg mb-2">Step 1: Assessment</h4>
+                    <p class="text-gray-300 text-sm">Take our free diagnostic test to determine your current level</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
                     <div class="text-yellow-400 text-3xl mb-3">
-                        <i class="fas fa-route"></i>
+                        <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <h4 class="text-white font-semibold text-lg mb-2">Step 2: Personalized Pathway</h4>
-                    <p class="text-gray-300 text-sm">Receive a customized learning plan tailored to your child's needs and goals</p>
+                    <h4 class="text-white font-semibold text-lg mb-2">Step 2: Personalized Plan</h4>
+                    <p class="text-gray-300 text-sm">Receive a customized learning pathway based on your goals</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30">
@@ -561,70 +770,54 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h4 class="text-white font-semibold text-lg mb-2">Step 3: Start Learning</h4>
-                    <p class="text-gray-300 text-sm">Begin the journey with expert instructors using proven Singaporean methods</p>
+                    <p class="text-gray-300 text-sm">Begin your journey with expert instructors and proven methods</p>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Student Success Stories Teaser --}}
-    <section class="py-16 bg-gray-800/50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-white mb-4">From Math Anxiety to <span class="text-yellow-300">Math Excellence</span></h2>
-                <p class="text-gray-300 text-lg">See how HiAcademy transforms students' relationship with mathematics</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/10 p-6 rounded-xl border border-yellow-400/30" data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-yellow-400 text-5xl mb-4">📈</div>
-                    <h4 class="text-2xl font-bold text-white mb-2">85%</h4>
-                    <p class="text-gray-300 text-sm">Average grade improvement within 6 months</p>
-                </div>
-
-                <div class="bg-white/10 p-6 rounded-xl border border-yellow-400/30" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-yellow-400 text-5xl mb-4">🏆</div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Top Performers</h4>
-                    <p class="text-gray-300 text-sm">Our students excel in math competitions and academic assessments</p>
-                </div>
-
-                <div class="bg-white/10 p-6 rounded-xl border border-yellow-400/30" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-yellow-400 text-5xl mb-4">💪</div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Confidence Boost</h4>
-                    <p class="text-gray-300 text-sm">Students report loving math and feeling confident in their abilities</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Footer --}}
+    <!-- Footer -->
     <footer id="contact" class="relative bg-gradient-to-b from-gray-800 to-black text-white pt-20 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-800/20 via-transparent to-yellow-400/10 animate-pulse"></div>
 
+        <!-- Floating Gradient Effect -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-800/20 via-transparent to-yellow-400/10 animate-pulse">
+        </div>
+
+        <!-- Footer Content -->
         <div class="relative z-10 container mx-auto px-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
+                <!-- Column 1: Mascot + Connect + Contact -->
                 <div class="space-y-10 animate-fadeInUp" data-aos="fade-up" data-aos-duration="800">
                     <img src="{{ asset('img/2.png') }}" alt="h!academy logo"
                         class="w-56 md:w-72 drop-shadow-xl hover:scale-105 transition duration-500 mx-auto sm:mx-0">
 
+                    <!-- Connect with Us -->
                     <div>
                         <h5 class="text-lg font-semibold mb-4 text-yellow-400">Connect with Us</h5>
                         <div class="flex gap-4 justify-center sm:justify-start">
+
+                            <!-- Facebook -->
                             <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-facebook-f text-xl"></i>
                             </a>
+
+                            <!-- Instagram -->
                             <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
+
+                            <!-- YouTube -->
                             <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-youtube text-xl"></i>
                             </a>
+
                         </div>
 
+                        <!-- Contact Button -->
                         <a href="#"
                             class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition duration-300">
                             <i class="fa-solid fa-message"></i> Whatsapp Us
@@ -634,75 +827,100 @@
                             <i class="fa-solid fa-message"></i> Email Us
                         </a>
                     </div>
+
                 </div>
 
+                <!-- Column 2: Why Choose Us -->
                 <div class="space-y-6 animate-fadeInUp" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
                     <h5 class="text-2xl text-white tracking-wide">Why Choose Us?</h5>
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight">
-                        <span class="bg-gradient-to-r text-yellow-400 bg-clip-text text-transparent drop-shadow-md">
-                            Building Problem-Solvers
-                        </span><br>for Tomorrow
+                        <span class="bg-gradient-to-r text-yellow-400 bg-clip-text drop-shadow-md">
+                            Nurturing Bright Futures
+                        </span><br>with Love & Hope
                     </h3>
                     <p class="text-gray-300 text-lg leading-relaxed">
-                        At <span class="text-yellow-400 font-semibold">h!academy Math</span>, we don't just teach calculations — 
-                        we nurture mathematical thinkers equipped to solve the unknown challenges of tomorrow.
+                        At <span class="text-yellow-400 font-semibold">h!academy</span>, learning is more than just
+                        education — it’s a joyful journey filled with growth, inspiration, and care for every learner.
                     </p>
-                    <a href="{{ route('booktrial') }}"
+                    <a href="#"
                         class="inline-flex items-center gap-3 bg-yellow-400 text-blue-900 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                         Join Now
                     </a>
                 </div>
 
+                <!-- Column 3: Consultation Hours + Quick Links -->
                 <div class="space-y-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+
+                    <!-- Consultation Hours -->
                     <div class="hover:scale-[1.02] transition duration-300">
                         <h5 class="text-xl font-bold mb-4 text-yellow-400">Consultation Hour</h5>
                         <div class="space-y-3 text-sm">
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition duration-300">
-                                <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-yellow-300"></i> Weekdays</span>
+                            <!-- Weekdays -->
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition duration-300">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-yellow-300"></i>
+                                    Weekdays</span>
                                 <span class="text-green-400 font-medium">08:00 - 16:00</span>
                             </div>
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition duration-300">
-                                <span class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-yellow-400"></i> Saturday</span>
+                            <!-- Saturday -->
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 transition duration-300">
+                                <span class="flex items-center gap-2"><i
+                                        class="fa-solid fa-calendar-days text-yellow-400"></i> Saturday</span>
                                 <span class="text-green-400 font-medium">08:00 - 14:00</span>
                             </div>
+                            <!-- Sunday -->
                             <div class="flex items-center justify-between p-3 rounded-xl bg-white/10">
-                                <span class="flex items-center gap-2"><i class="fa-solid fa-xmark-circle text-yellow-400"></i> Sunday</span>
+                                <span class="flex items-center gap-2"><i
+                                        class="fa-solid fa-xmark-circle text-yellow-400"></i>
+                                    Sunday</span>
                                 <span class="text-red-400 font-semibold">Closed</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Quick Links -->
                     <div class="hover:scale-[1.02] transition duration-300">
                         <h5 class="text-xl font-bold mb-4 text-yellow-400">Quick Links</h5>
                         <ul class="grid grid-cols-1 gap-3 text-gray-300 text-base">
-                            <li><a href="{{ route('booktrial') }}" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
-                            <li><a href="/register" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="/login" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-solid fa-user-graduate"></i> Student Login</a></li>
-                            <li><a href="/#contact" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
+                            <li><a href="{{ route('booktrial') }}"
+                                    class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                                        class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
+                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                                        class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
+                            <li><a href="{{ route('loginindex') }}"
+                                    class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                                        class="fa-solid fa-user-graduate"></i> Student Login</a></li>
+                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                                        class="fa-solid fa-phone"></i> Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16 bg-yellow-400/80 py-4 text-center text-black text-sm relative z-10 border-t rounded-full border-blue-800/40">
+            <!-- Copyright -->
+            <div
+                class="mt-16 bg-yellow-400/80 py-4 text-center text-black text-sm relative z-10 border-t rounded-full border-blue-800/40">
                 © 2025 h!academy | Powered by <span class="text-white font-semibold">DayR</span>
             </div>
         </div>
     </footer>
-
-    {{-- Back to Top Button --}}
+    <!-- Tombol Back to Top -->
     <button id="backToTopBtn"
         class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
         ↑
     </button>
+
 
     <script>
         const backToTopBtn = document.getElementById("backToTopBtn");
 
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
+                // Muncul saat user mulai scroll
                 backToTopBtn.classList.remove("hidden");
             } else {
+                // Hilang saat di atas
                 backToTopBtn.classList.add("hidden");
             }
         });
@@ -712,12 +930,14 @@
         });
     </script>
 
+    <!-- Optional Animations with Tailwind + JS -->
     <style>
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -727,6 +947,131 @@
         .animate-fadeInUp {
             animation: fadeInUp 0.5s ease forwards;
         }
+
+        .animate-fadeInUp.delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-fadeInUp.delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-fadeInUp.delay-300 {
+            animation-delay: 0.3s;
+        }
     </style>
 
+    {{-- SwiperJS CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const swiper = new Swiper(".heroSwiper", {
+                loop: true,
+                effect: "fade",
+                fadeEffect: { crossFade: true },
+                speed: 800,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                on: {
+                    init: function () {
+                        const activeSlide = this.slides[this.activeIndex];
+                        activeSlide.querySelectorAll(".hero-animate").forEach((el, i) => {
+                            el.classList.add("animate-fade-in-up");
+                            el.style.animationDelay = `${i * 0.15}s`;
+                        });
+
+                        // 🚀 Hero title masuk pertama kali
+                        const heroTitle = activeSlide.querySelector(".hero-title");
+                        if (heroTitle) {
+                            heroTitle.classList.add("block-animate");
+                            setTimeout(() => {
+                                heroTitle.classList.add("revealed");
+                            }, 700);
+                        }
+                    },
+
+                    slideChangeTransitionStart: function () {
+                        const prevSlide = this.slides[this.previousIndex];
+                        const activeSlide = this.slides[this.activeIndex];
+
+                        // Hapus animasi dari slide aktif baru dulu
+                        activeSlide.querySelectorAll(".hero-animate").forEach(el => {
+                            el.classList.remove("animate-fade-in-up", "animate-fade-out-down");
+                            el.style.opacity = 0;
+                        });
+
+                        // 🎬 Fade out slide lama
+                        prevSlide?.querySelectorAll(".hero-animate").forEach(el => {
+                            el.classList.remove("animate-fade-in-up");
+                            el.classList.add("animate-fade-out-down");
+                        });
+
+                        // 🎞️ Hero title fade-out → block dari kanan ke kiri
+                        const prevTitle = prevSlide?.querySelector(".hero-title");
+                        if (prevTitle) {
+                            prevTitle.classList.remove("block-animate", "revealed");
+                            prevTitle.classList.add("block-animate-out");
+                            setTimeout(() => {
+                                prevTitle.classList.remove("block-animate-out");
+                            }, 600); // durasi block keluar
+                        }
+
+                        // Delay sebelum fade-in slide baru
+                        setTimeout(() => {
+                            activeSlide.querySelectorAll(".hero-animate").forEach((el, i) => {
+                                el.classList.remove("animate-fade-out-down");
+                                el.classList.add("animate-fade-in-up");
+                                el.style.animationDelay = `${i * 0.15}s`;
+                            });
+
+                            // 🚀 Animasi block masuk untuk slide baru
+                            const heroTitle = activeSlide.querySelector(".hero-title");
+                            if (heroTitle) {
+                                heroTitle.classList.add("block-animate");
+                                setTimeout(() => {
+                                    heroTitle.classList.add("revealed");
+                                }, 700);
+                            }
+
+                        }, 600); // sesuai dengan durasi fade-out
+                    },
+                },
+            });
+        });
+    </script>
+
+    {{-- Typed.js Script --}}
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    {{-- Extra CSS for custom bounce animation --}}
+    <style>
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 4s infinite;
+        }
+    </style>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
 @endsection
