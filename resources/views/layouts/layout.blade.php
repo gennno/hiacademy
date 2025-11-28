@@ -188,7 +188,7 @@
       animation: pulseSlow 2s infinite;
     }
   </style>
-
+  @include('component.footer')
 </body>
 
 </html>
