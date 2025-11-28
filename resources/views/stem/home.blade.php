@@ -7,7 +7,7 @@
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/english.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
+        <img src="{{ asset('img/robotic.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
@@ -311,15 +311,13 @@
 
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up"
                     data-aos-delay="100">
-                    English Program:<br>
-                    <span class="text-yellow-300">Global Communicators</span> for Tomorrow
+                    Coding & Tech Innovation:<br>
+                    Creating the<span class="text-yellow-300"> Digital Leaders </span>of Tomorrow
                 </h1>
 
                 <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto"
                     data-aos="fade-up" data-aos-delay="200">
-                    Building confident communicators for a connected world. We empower students to express themselves
-                    clearly,
-                    think critically, and connect globally through the English language.
+                    Code Your Imagination to Life.
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
@@ -341,27 +339,24 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy English</span>
+                    About <span class="text-yellow-300">HiAcademy Coding Education</span>
                 </h2>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
-                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner.
+                    HiAcademy Coding & STREAM is an innovation-driven tech learning program designed to develop young digital creators. We empower students to become not just technology users, but future innovators by teaching computational thinking, creative coding, game development, full-stack skills, and AI literacy through age-appropriate and project-based learning pathways.
                     <br>
-                    Our English Program is designed to transform the way
-                    students perceive and engage with the language, moving them from hesitation to fluency, and from
-                    memorization to authentic mastery.
+                    Our programs guide students through structured learning pathways—from Junior Coder to AI Engineer—where they build real projects such as 2D/3D games, websites, mobile apps, and AI models.
+Our approach focuses on hands-on learning, industry-relevant skills, creative problem-solving, and personalized progression, enabling every learner to unlock their potential as a future-ready digital creator.
                 </p>
             </div>
         </div>
         <div class="text-center pt-16 mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                Our Vision for <span class="text-yellow-300">English Education</span>
+                Our Vision for <span class="text-yellow-300">Coding Education</span>
             </h2>
             <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                We envision a future where every HiAcademy student doesn't just speak—they connect, persuade, and
-                innovate. We don't just teach English; we nurture articulate global citizens equipped to thrive in the
-                international landscapes of tomorrow.
+                We envision a future where every HiAcademy student is not just a consumer of technology, but an innovator
+                and creator. We don't just teach coding; we nurture a maker mindset, equipping students with the technical
+                skills and creative confidence to build solutions for the world of tomorrow.
             </p>
         </div>
 
@@ -371,11 +366,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                    The HiAcademy Advantage:<span class="text-yellow-300"> Skills for a Digital Future</span>
                 </h3>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    We go beyond textbooks to cultivate a deep and practical command of the English language. At HiAcademy,
-                    we focus on building:
+                    Our program develops exceptional digital creators through:
                 </p>
             </div>
 
@@ -389,12 +383,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-comments text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
+                            <h3 class="text-2xl font-semibold text-white">Computational Thinking</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We teach students to express themselves clearly and persuasively in both spoken and written
-                            English,
-                            developing the poise needed for academic, social, and professional success.
+                            Breaking down complex problems into manageable steps and creating algorithmic solutions.
                         </p>
                     </div>
                 </div>
@@ -406,12 +398,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-brain text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
+                            <h3 class="text-2xl font-semibold text-white">Creative Technical Design</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
-                            sources,
-                            forming the bedrock of academic and professional excellence.
+                            Merging artistry with technology to build engaging games, apps, and interactive experiences.
                         </p>
                     </div>
                 </div>
@@ -423,12 +413,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-language text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                            <h3 class="text-2xl font-semibold text-white">Full-Stack Development Skills</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We build a robust vocabulary and strong command of grammar, enabling students to use language
-                            accurately,
-                            creatively, and appropriately for any context.
+                            Progressing from visual programming to industry-standard languages like Python and JavaScript.
                         </p>
                     </div>
                 </div>
@@ -441,403 +429,237 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-globe text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                            <h3 class="text-2xl font-semibold text-white">AI & Future Tech Literacy</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Language is a window to the world. We expose students to diverse cultures and perspectives,
-                            fostering empathy and a truly global mindset.
+                            Gaining hands-on experience with artificial intelligence, data science, and the Internet of
+                            Things (IoT).
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    {{-- Proven Curriculum Section --}}
-    <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
-        <div class="max-w-7xl mx-auto px-6">
-            {{-- CEFR Framework --}}
-            <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400"
-                data-aos="fade-up">
-                <div class="text-center mb-8">
-                    <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
-                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized CEFR Framework</p>
-                </div>
-                <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
-                    HiAcademy's English Program is built on the internationally benchmarked Common European Framework of
-                    Reference for Languages (CEFR). This framework ensures students don't just learn—they can use the
-                    language effectively in real-world situations.
-                </p>
 
-                <div class="grid md:grid-cols-3 gap-6 mt-8">
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Can-Do Learning Objective</h4>
-                        <p class="text-gray-300 text-sm">Every lesson is goal-oriented. Students know exactly what they will
-                            be able to do by the end of each module—whether it's introducing themselves, writing a formal
-                            email, or delivering a persuasive presentation.</p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skill Integration</h4>
-                        <p class="text-gray-300 text-sm">Our lessons seamlessly integrate the four core language
-                            skills: Listening, Speaking, Reading, and Writing (LSRW). This ensures well-rounded development
-                            and the ability to function fully in an English-speaking environment.
-                        </p>
-                    </div>
-
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Communicative Language Teaching (CLT)</h4>
-                        <p class="text-gray-300 text-sm">We prioritize interaction as both the goal and the means of
-                            learning. Through role-plays, discussions, and collaborative projects, students use English in
-                            meaningful contexts, building natural fluency.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Programs Section --}}
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Innovation Pathway</h2>
                 <p class="text-gray-200 text-lg max-w-3xl mx-auto">
-                    Our program is divided into progressive streams and levels, each designed to meet the developmental,
-                    academic, and professional needs of every learner.
+                    Our program is divided into five specialized career pathways, allowing students to dive deep into their
+                    areas of passion and build a portfolio of real-world projects.
                 </p>
             </div>
 
-            {{-- Very Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-pink-400">
+            <div class="grid md:grid-cols-2 gap-8">
+                {{-- Level 1: Math Explorer --}}
+                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-baby text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-compass text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
-                            <p class="text-pink-200">Ages 6 | Pre-A1</p>
+                            <h3 class="text-3xl font-bold text-white">Pathway 1</h3>
+                            <p class="text-green-200 text-lg">Junior Coder (Ages 5-7)</p>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
-                        <strong>Description:</strong> Our littlest learners are immersed in English through songs, stories,
-                        games, and hands-on
-                        activities.
-                        Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
-                    </p>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Igniting digital creativity through playful, visual programming.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Our youngest innovators learn fundamental logic through
+                                drag-and-drop coding, designing their first 3D animations, simple websites, and virtual
+                                worlds. This pathway establishes a positive and exciting first contact with technology.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Levels & Key Concepts:</p>
+                            <ul class="text-gray-200 text-sm  list-disc list-outside">
+                                <li><strong>3D Animator</strong>: Creating simple 3D characters and stories.</li>
+                                <li><strong>Website Designer</strong>: Building a first web page with colors, images, and
+                                    text.</li>
+                                <li><strong>Virtual World Maker</strong>: Designing interactive environments and exploring
+                                    STEM concepts.</li>
+                                <li><strong>Little Programmer</strong>: Mastering sequence and loops to solve puzzles and
+                                    create mini-games.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8  rounded-2xl border-2 border-blue-400">
-
-                    {{-- Header --}}
+                {{-- Level 2: Operation Heroes --}}
+                <div class="bg-gradient-to-br from-yellow-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-child text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Young Learners English</h3>
-                            <p class="text-blue-200">Ages 6-12</p>
+                            <h3 class="text-3xl font-bold text-white">Pathway 2</h3>
+                            <p class="text-yellow-200 text-lg">Code Adventure (Ages 8-14)</p>
                         </div>
                     </div>
 
-                    {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-seedling text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Brave Starter <span class="text-yellow-200">(A1 | Grade 1–2)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Building basic communication skills and literacy.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students embark on their English adventure, learning to
-                                talk about themselves, their family, and their world while developing early reading
-                                and writing skills.
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Building a strong foundation in game development and interactive media.
                             </p>
                         </div>
 
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-running text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Super Movers <span class="text-green-200">(A2 | Grade 3–4)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Gaining independence in everyday communication.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students expand their ability to describe experiences
-                                and handle short conversations. They write simple paragraphs and understand clear,
-                                familiar texts.
-                            </p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Students embark on an adventure through different platforms,
+                                starting with 2D game development and progressing to master the popular Roblox platform,
+                                learning to code, design, and publish their own professional-grade games.</p>
                         </div>
 
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-red-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-paper-plane text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Fearless Flyers <span class="text-red-200">(B1 | Grade 5–6)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students handle real-life travel situations, express
-                                opinions, create simple essays, and understand the main ideas from more complex texts.
-                            </p>
-                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Levels & Key Concepts:</p>
+                            <ul class="text-gray-200 text-sm  list-disc list-outside">
+                                <li><strong>Coding Xplorer</strong>: Discovering core programming concepts with block-based
+                                    languages.</li>
+                                <li><strong>Game Dev with Construct</strong>: Creating 2D games and understanding game
+                                    design principles.</li>
+                                <li><strong>Code & Designer with Roblox</strong>: Introduction to Roblox Studio and Lua
+                                    scripting.</li>
+                                <li><strong>Interactive Mechanics on Roblox</strong>: Building advanced game mechanics,
+                                    tools, and GUIs.</li>
+                                <li><strong>Full Stack Programming for Roblox</strong>: Developing complex, multi-feature
+                                    games.</li>
+                                <li><strong>Advanced Lua Coding with Roblox</strong>: Mastering optimization, data
+                                    management, and publishing.</li>
 
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-
-            {{-- Teenagers --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div class="bg-gradient-to-r from-red-500/20 to-purple-500/20 p-8 rounded-2xl border-2 border-red-400">
-
-                    {{-- Header --}}
+                {{-- Level 3: Challenge Champions --}}
+                <div class="bg-gradient-to-br from-red-500/20 to-amber-500/20 p-8 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user-graduate text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-red-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-crown text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Teenagers</h3>
-                            <p class="text-red-200">Ages 12+</p>
+                            <h3 class="text-3xl font-bold text-white">Pathway 3</h3>
+                            <p class="text-red-200 text-lg">Python Developer (Ages 10-14)</p>
                         </div>
                     </div>
 
-                    {{-- Intro Text --}}
-                    <p class="text-red-100 leading-relaxed mb-8">
-                        This comprehensive pathway is designed for the evolving minds of teenagers, taking them from
-                        foundational
-                        communication to advanced, nuanced language use. Our curriculum not only builds grammatical accuracy
-                        and
-                        vocabulary but also sharpens critical thinking and cultural intelligence, preparing students for
-                        academic
-                        excellence and global citizenship.
-                    </p>
-
-                    {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-                        {{-- A1 Seeker --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-search text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Seeker <span class="text-blue-200">(A1)</span>
-                                </h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building a foundation for everyday
-                                communication.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand
-                                and use familiar, everyday expressions and very basic phrases aimed at satisfying concrete
-                                needs. They can introduce themselves and others, and ask and answer simple questions about
-                                personal details.</p>
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Mastering the world's most versatile programming language.</p>
                         </div>
 
-                        {{-- A2 Explorer --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-compass text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Explorer <span
-                                        class="text-green-200">(A2)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Confidence in routine situations.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to communicate
-                                in straightforward, routine tasks. They can describe aspects of their background and
-                                immediate environment, and write short, simple notes and messages.</p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">This pathway transitions students from visual coding to
+                                powerful text-based programming with Python, taking them from basic syntax to developing
+                                games and even diving into the fundamentals of artificial intelligence.</p>
                         </div>
 
-                        {{-- B1 Adventurer --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-hiking text-blue-900 text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Adventurer <span
-                                        class="text-yellow-200">(B1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to handle most
-                                situations while travelling, produce simple connected text on familiar topics, describe
-                                experiences and events, and briefly give reasons and explanations for opinions and plans.
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Levels & Key Concepts:</p>
+                            <ul class="text-gray-200 text-sm  list-disc list-outside">
+                                <li><strong>Python Coder</strong>: Mastering Python syntax, data structures, and logic.</li>
+                                <li><strong>Python Game Dev</strong>: Building graphical games using libraries like Pygame.
+                                </li>
+                                <li><strong>Python for AI</strong>: Introduction to AI concepts, data science, and machine
+                                    learning models.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Level 4: Math Mavericks --}}
+                <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-8 rounded-2xl border-2 border-blue-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-20 h-20 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-flag text-4xl text-white"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-3xl font-bold text-white">Pathway 4</h3>
+                            <p class="text-blue-200 text-lg">Software Developer (Ages 15-18)</p>
+                        </div>
+                    </div>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Becoming a professional-grade application developer.
                             </p>
                         </div>
 
-                        {{-- B1+ Voyager --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-rocket text-blue-900 text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Voyager <span
-                                        class="text-yellow-200">(B1+)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Bridging intermediate proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students solidify
-                                intermediate skills and push toward greater independence. They can understand the main ideas
-                                of complex text and interact with a degree of fluency and spontaneity.</p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Students learn the essential tech stack for modern web and
+                                mobile development, using industry-standard tools to build dynamic, responsive websites and
+                                fully functional mobile applications.</p>
                         </div>
 
-                        {{-- B2 Connector --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-orange-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-network-wired text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Connector <span
-                                        class="text-orange-200">(B2)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Effective social & professional
-                                interaction.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can interact with
-                                fluency and spontaneity. They understand the main ideas of complex text and can produce
-                                clear, detailed text on a wide range of subjects.</p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Levels & Key Concepts:</p>
+                            <ul class="text-gray-200 text-sm  list-disc list-outside">
+                                <li><strong>JavaScript Programmer</strong>: Gaining proficiency in JavaScript, the language
+                                    of the web.</li>
+                                <li><strong>Website Developer</strong>: Building full-stack websites with HTML, CSS, and
+                                    JavaScript frameworks.</li>
+                                <li><strong>Android Apps Developer</strong>: Creating, testing, and publishing native mobile
+                                    applications.</li>
+                            </ul>
                         </div>
-
-                        {{-- B2+ Elit --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-fire text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Elit <span class="text-red-200">(B2+)</span>
-                                </h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering nuance & persuasion.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students refine their skills
-                                to near-advanced proficiency. They learn to understand implicit meaning, use idiomatic
-                                expressions, and construct well-organized, detailed texts and arguments.</p>
-                        </div>
-
-                        {{-- C1 Legend --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-crown text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Legend <span
-                                        class="text-purple-200">(C1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Advanced proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can understand a
-                                wide range of demanding texts, express ideas fluently, and use language flexibly for social,
-                                academic and professional purposes.</p>
-                        </div>
-
                     </div>
-
                 </div>
-            </div>
-
-
-            {{-- Adults & Young Adults --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-purple-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-purple-400">
+                <div class="bg-gradient-to-br from-purple-500/20 to-cyan-500/20 p-8 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-briefcase text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-purple-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-brain text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Adults and Young Adults</h3>
-                            <p class="text-purple-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
+                            <h3 class="text-3xl font-bold text-white">Pathway 5</h3>
+                            <p class="text-purple-200 text-lg">AI Engineer (Ages 15-18)</p>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
 
-            {{-- Exam Preparation --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-yellow-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-yellow-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-certificate text-3xl text-white"></i>
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Leading the next technological revolution with Artificial Intelligence.
+                            </p>
                         </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Exam Preparation</h3>
-                            <p class="text-yellow-200">Ready for IELTS</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
 
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-green-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-green-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-handshake text-3xl text-white"></i>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">This advanced pathway prepares students for the forefront of
+                                technology, providing a practical foundation in data science, machine learning, and computer
+                                vision—the core disciplines of modern AI.</p>
                         </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Get Ready for International Business</h3>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Levels & Key Concepts:</p>
+                            <ul class="text-gray-200 text-sm  list-disc list-outside">
+                                <li><strong>Python for Data Science</strong>: Analyzing and visualizing data with Pandas and
+                                    NumPy.</li>
+                                <li><strong>AI Machine Learning</strong>: Building, training, and deploying predictive
+                                    machine learning models.</li>
+                                <li><strong>AI Computer Vision</strong>: Creating AI systems that can interpret and
+                                    understand visual information from the world.</li>
+                            </ul>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -846,7 +668,7 @@
     <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy English?</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why HiAcademy Coders Stand Out?</h2>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -856,9 +678,9 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                        <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
-                            communicative teaching approaches.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Industry-Relevant Curriculum</h4>
+                        <p class="text-gray-300 text-sm text-center">We teach the tools and languages used by tech
+                            professionals today, from Roblox Lua to Python and JavaScript.</p>
                     </div>
                 </div>
 
@@ -868,9 +690,9 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-users text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                        <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
-                            speaking practice and individual feedback.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Project-Based Learning</h4>
+                        <p class="text-gray-300 text-sm text-center">Students learn by doing, building a impressive
+                            portfolio of games, apps, and AI projects.</p>
                     </div>
                 </div>
 
@@ -880,9 +702,9 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-trophy text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
-                        <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
-                            real-world confidence using English.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Adaptive Learning Pathways</h4>
+                        <p class="text-gray-300 text-sm text-center">Courses are tailored to a student's age, skill, and
+                            interests, ensuring an engaging and personalized journey.</p>
                     </div>
                 </div>
 
@@ -892,9 +714,9 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-rocket text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                        <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
-                            universities and employers seek in the 21st century.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Specialization</h4>
+                        <p class="text-gray-300 text-sm text-center">Early exposure to high-demand fields like AI, Data
+                            Science, and Full-Stack Development.</p>
                     </div>
                 </div>
             </div>
@@ -907,23 +729,22 @@
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Unlock Your <span class="text-yellow-300">English Potential?</span>
+                Ready to Unleash Your Child's<span class="text-yellow-300"> Creative Potential?</span>
             </h2>
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Find the perfect program for you or your child and transform English from a subject into a superpower.
+                Let's build an incredible future together, one line of code at a time.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
                 <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
                 <p class="text-gray-200 mb-6">
-                    Our diagnostic test will accurately place you or your child in the right level and identify any learning
-                    gaps.
-                    Let us create a personalized learning pathway to unlock confidence and success in English!
+                    Experience our engaging learning platform firsthand. Our assessment will help identify your child's
+                    ideal starting pathway and unlock their potential as a digital creator.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                        <i class="fas fa-calendar-check"></i> Book a Free Trial Class & Tech Assessment!
                     </a>
                     <a href="/#contact"
                         class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">

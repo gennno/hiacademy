@@ -350,7 +350,7 @@
         </div>
         <div class="text-center pt-16 mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                Our Vision for <span class="text-yellow-300">Life SkillLab Program</span>
+                Our Vision for <span class="text-yellow-300">Life Skills Education</span>
             </h2>
             <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
                 We envision a future where every HiAcademy student doesn't just learn—they apply, lead, and innovate. We don't just teach skills; we nurture capable young leaders equipped to handle the complexities of modern life and future careers.
@@ -363,11 +363,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Practical Life Mastery</span>
                 </h3>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    We go beyond textbooks to cultivate a deep and practical command of the English language. At HiAcademy,
-                    we focus on building:
+                    We go beyond traditional education to cultivate essential life skills that last a lifetime. At HiAcademy Life SkillLab, we focus on building:
                 </p>
             </div>
 
@@ -381,12 +380,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-comments text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
+                            <h3 class="text-2xl font-semibold text-white">Financial Intelligence</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We teach students to express themselves clearly and persuasively in both spoken and written
-                            English,
-                            developing the poise needed for academic, social, and professional success.
+                            We teach students to manage money wisely, understand investments, and develop entrepreneurial thinking from an early age.
                         </p>
                     </div>
                 </div>
@@ -398,12 +395,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-brain text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
+                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
-                            sources,
-                            forming the bedrock of academic and professional excellence.
+                            Students learn to express ideas clearly, present with confidence, and communicate effectively in any situation.
                         </p>
                     </div>
                 </div>
@@ -415,12 +410,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-language text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                            <h3 class="text-2xl font-semibold text-white">Leadership & Collaboration</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We build a robust vocabulary and strong command of grammar, enabling students to use language
-                            accurately,
-                            creatively, and appropriately for any context.
+                            We develop team leadership skills, emotional intelligence, and the ability to work effectively with others.
                         </p>
                     </div>
                 </div>
@@ -433,17 +426,18 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-globe text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                            <h3 class="text-2xl font-semibold text-white">Innovation & Problem-Solving</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Language is a window to the world. We expose students to diverse cultures and perspectives,
-                            fostering empathy and a truly global mindset.
+                            Students learn to think creatively, solve complex problems, and turn ideas into actionable solutions.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     {{-- Proven Curriculum Section --}}
     <section class="bg-gray-800/50 pt-36 pb-16 relative backdrop-blur-md rounded-2xl shadow-xl -mt-16">
         <div class="max-w-7xl mx-auto px-6">
@@ -451,45 +445,53 @@
             <div class="bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-10 rounded-2xl backdrop-blur-sm border-2 border-yellow-400"
                 data-aos="fade-up">
                 <div class="text-center mb-8">
-                    <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
-                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized CEFR Framework</p>
+                    <h3 class="text-3xl font-bold text-white mb-4">Our Proven Framework</h3>
+                    <p class="text-xl text-yellow-300 font-semibold">Experiential Learning Methodology</p>
                 </div>
                 <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
-                    HiAcademy's English Program is built on the internationally benchmarked Common European Framework of
-                    Reference for Languages (CEFR). This framework ensures students don't just learn—they can use the
-                    language effectively in real-world situations.
+                    HiAcademy's Life SkillLab is built on the experiential learning framework, renowned for its hands-on, practical approach that ensures students don't just understand—they can do.
                 </p>
 
-                <div class="grid md:grid-cols-3 gap-6 mt-8">
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+
+                    <!-- Left (CPA full height) -->
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform h-full">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-bullseye"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Can-Do Learning Objective</h4>
-                        <p class="text-gray-300 text-sm">Every lesson is goal-oriented. Students know exactly what they will
-                            be able to do by the end of each module—whether it's introducing themselves, writing a formal
-                            email, or delivering a persuasive presentation.</p>
+                        <h4 class="text-white font-semibold text-xl mb-2">Learn -> Practice -> Apply Progression
+                        </h4>
+                        <br>
+                        <ul class="text-gray-200 text-md space-y-2 list-disc list-outside">
+                            <li><strong>Learn</strong>: Students first understand key concepts through engaging demonstrations and real-world examples.</li>
+                            <li><strong>Practice</strong>: Next, they apply these concepts through simulations, role-plays, and hands-on activities.</li>
+                            <li><strong>Apply</strong>: Next, they apply these concepts through simulations, role-plays, and hands-on activities.</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skill Integration</h4>
-                        <p class="text-gray-300 text-sm">Our lessons seamlessly integrate the four core language
-                            skills: Listening, Speaking, Reading, and Writing (LSRW). This ensures well-rounded development
-                            and the ability to function fully in an English-speaking environment.
-                        </p>
-                    </div>
+                    <!-- Right column (stacked Mastery + Model) -->
+                    <div class="flex flex-col gap-6 h-full">
 
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-users"></i>
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Project-Based Challenges</h4>
+                            <p class="text-gray-300 text-sm">
+                                Every skill is learned through meaningful projects that simulate real-world situations and challenges.
+                            </p>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Communicative Language Teaching (CLT)</h4>
-                        <p class="text-gray-300 text-sm">We prioritize interaction as both the goal and the means of
-                            learning. Through role-plays, discussions, and collaborative projects, students use English in
-                            meaningful contexts, building natural fluency.</p>
+
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Immediate Application</h4>
+                            <p class="text-gray-300 text-sm">
+                                Students see immediate results from their efforts, reinforcing learning and building motivation.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -500,35 +502,14 @@
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Monthly Workshop Structure</h2>
                 <p class="text-gray-200 text-lg max-w-3xl mx-auto">
-                    Our program is divided into progressive streams and levels, each designed to meet the developmental,
-                    academic, and professional needs of every learner.
+                    <strong>Program Type</strong>: Event-Based Workshops <br>
+                    <strong>Frequency</strong>: Once per month <br>
+                    <strong>Duration</strong>: 1.5 - 2 hours per session <br>
+                    <strong>Target Age</strong>: Primary – Junior High School (Ages 6-14) <br>
                 </p>
-            </div>
-
-            {{-- Very Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-pink-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-baby text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
-                            <p class="text-pink-200">Ages 6 | Pre-A1</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
-                        <strong>Description:</strong> Our littlest learners are immersed in English through songs, stories,
-                        games, and hands-on
-                        activities.
-                        Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
-                    </p>
-                </div>
-            </div>
+            </div>  
 
             {{-- Young Learners --}}
             <div class="mb-12" data-aos="fade-up">
@@ -540,8 +521,7 @@
                             <i class="fas fa-child text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Young Learners English</h3>
-                            <p class="text-blue-200">Ages 6-12</p>
+                            <h3 class="text-2xl font-bold text-white">Workshop Flow</h3>
                         </div>
                     </div>
 
@@ -555,17 +535,14 @@
                                     <i class="fas fa-seedling text-black text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">
-                                    Brave Starter <span class="text-yellow-200">(A1 | Grade 1–2)</span>
+                                    Phase 1 <span class="text-yellow-200"><br>Introduction & Engagement</span>
                                 </h4>
                             </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Building basic communication skills and literacy.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students embark on their English adventure, learning to
-                                talk about themselves, their family, and their world while developing early reading
-                                and writing skills.
-                            </p>
+                            <ul class="text-blue-100 list-disc list-outside">
+                                <li>Dynamic introduction to the monthly theme</li>
+                                <li>Overview of key concepts and learning goals</li>
+                                <li>Interactive ice-breakers and warm-up activities</li>
+                            </ul>
                         </div>
 
                         <div
@@ -575,17 +552,14 @@
                                     <i class="fas fa-running text-black text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">
-                                    Super Movers <span class="text-green-200">(A2 | Grade 3–4)</span>
+                                    Phase 2 <span class="text-green-200"><br>Hands-On Learning Experience</span>
                                 </h4>
                             </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Gaining independence in everyday communication.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students expand their ability to describe experiences
-                                and handle short conversations. They write simple paragraphs and understand clear,
-                                familiar texts.
-                            </p>
+                            <ul class="text-blue-100 list-disc list-outside">
+                                <li>Practical simulations and real-world scenarios</li>
+                                <li>Group challenges and creative problem-solving</li>
+                                <li>Role-playing and skill practice sessions</li>
+                            </ul>
                         </div>
 
                         <div
@@ -595,16 +569,15 @@
                                     <i class="fas fa-paper-plane text-black text-lg"></i>
                                 </div>
                                 <h4 class="text-lg font-semibold text-white">
-                                    Fearless Flyers <span class="text-red-200">(B1 | Grade 5–6)</span>
+                                    Phase 3 <span class="text-red-200"><br>Application & Reflection</span>
                                 </h4>
                             </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students handle real-life travel situations, express
-                                opinions, create simple essays, and understand the main ideas from more complex texts.
-                            </p>
+                            <ul class="text-blue-100 list-disc list-outside">
+                                <li>Q&A and group discussion</li>
+                                <li>Personal reflection and goal setting</li>
+                                <li>Skill demonstration and peer feedback</li>
+                                <li>E-Certificate and souvenir distribution</li>
+                            </ul>
                         </div>
 
                     </div>
@@ -622,24 +595,11 @@
                             <i class="fas fa-user-graduate text-3xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Teenagers</h3>
-                            <p class="text-red-200">Ages 12+</p>
+                            <h3 class="text-2xl font-bold text-white">2025 Life SkillLab Workshop Series</h3>
                         </div>
                     </div>
-
-                    {{-- Intro Text --}}
-                    <p class="text-red-100 leading-relaxed mb-8">
-                        This comprehensive pathway is designed for the evolving minds of teenagers, taking them from
-                        foundational
-                        communication to advanced, nuanced language use. Our curriculum not only builds grammatical accuracy
-                        and
-                        vocabulary but also sharpens critical thinking and cultural intelligence, preparing students for
-                        academic
-                        excellence and global citizenship.
-                    </p>
-
                     {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
 
                         {{-- A1 Seeker --}}
                         <div
@@ -648,15 +608,12 @@
                                 <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
                                     <i class="fas fa-search text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Seeker <span class="text-blue-200">(A1)</span>
+                                <h4 class="text-lg font-semibold text-white">Financial Literacy Bootcamp <span class="text-blue-200"><br>
+                                    (Kids & Teens)</span>
                                 </h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building a foundation for everyday
-                                communication.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand
-                                and use familiar, everyday expressions and very basic phrases aimed at satisfying concrete
-                                needs. They can introduce themselves and others, and ask and answer simple questions about
-                                personal details.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering money management and financial intelligence.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students become money masters through interactive budgeting games, investment simulations, and entrepreneurial challenges. They learn smart saving habits, basic investing principles, and financial responsibility in a fun, engaging environment.</p>
                         </div>
 
                         {{-- A2 Explorer --}}
@@ -666,13 +623,11 @@
                                 <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
                                     <i class="fas fa-compass text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Explorer <span
-                                        class="text-green-200">(A2)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Public Speaking & Communication Mastery <span
+                                        class="text-green-200"><br>(Kids & Teens)</span></h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Confidence in routine situations.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to communicate
-                                in straightforward, routine tasks. They can describe aspects of their background and
-                                immediate environment, and write short, simple notes and messages.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building confidence and eloquence in communication.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Young speakers transform into confident communicators through speech exercises, presentation practice, and debate activities. They learn to organize thoughts, engage audiences, and express ideas with clarity and conviction.</p>
                         </div>
 
                         {{-- B1 Adventurer --}}
@@ -682,14 +637,11 @@
                                 <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
                                     <i class="fas fa-hiking text-blue-900 text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Adventurer <span
-                                        class="text-yellow-200">(B1)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Leadership & Team Dynamics</h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing fluency and expressing ideas.
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing leadership qualities and collaboration skills.
                             </p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to handle most
-                                situations while travelling, produce simple connected text on familiar topics, describe
-                                experiences and events, and briefly give reasons and explanations for opinions and plans.
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Future leaders learn to inspire teams, manage projects, and resolve conflicts through leadership simulations and group challenges. They develop emotional intelligence, decision-making skills, and the ability to motivate others.
                             </p>
                         </div>
 
@@ -700,13 +652,10 @@
                                 <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-rocket text-blue-900 text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Voyager <span
-                                        class="text-yellow-200">(B1+)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">AI & Entrepreneurship Innovation</h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Bridging intermediate proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students solidify
-                                intermediate skills and push toward greater independence. They can understand the main ideas
-                                of complex text and interact with a degree of fluency and spontaneity.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Combining technology and business thinking.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Young innovators explore artificial intelligence applications while developing business ideas. They learn design thinking, prototype development, and pitch presentation skills for the digital age.</p>
                         </div>
 
                         {{-- B2 Connector --}}
@@ -716,14 +665,10 @@
                                 <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-network-wired text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Connector <span
-                                        class="text-orange-200">(B2)</span></h4>
+                                <h4 class="text-lg font-semibold text-white">Art & Engineering Fusion</h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Effective social & professional
-                                interaction.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can interact with
-                                fluency and spontaneity. They understand the main ideas of complex text and can produce
-                                clear, detailed text on a wide range of subjects.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Blending creativity with technical problem-solving.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Creative engineers discover how art and engineering intersect through hands-on building projects, design challenges, and creative technology applications. They learn to think both creatively and systematically.</p>
                         </div>
 
                         {{-- B2+ Elit --}}
@@ -733,29 +678,11 @@
                                 <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center">
                                     <i class="fas fa-fire text-white text-lg"></i>
                                 </div>
-                                <h4 class="text-lg font-semibold text-white">Elit <span class="text-red-200">(B2+)</span>
+                                <h4 class="text-lg font-semibold text-white">Discipline Dojo <span class="text-red-200"><br>(Kids Only)</span>
                                 </h4>
                             </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering nuance & persuasion.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students refine their skills
-                                to near-advanced proficiency. They learn to understand implicit meaning, use idiomatic
-                                expressions, and construct well-organized, detailed texts and arguments.</p>
-                        </div>
-
-                        {{-- C1 Legend --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-crown text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Legend <span
-                                        class="text-purple-200">(C1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Advanced proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can understand a
-                                wide range of demanding texts, express ideas fluently, and use language flexibly for social,
-                                academic and professional purposes.</p>
+                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building focus, self-control, and productive habits.</p>
+                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Children learn mindfulness techniques, goal-setting strategies, and time management skills through interactive games and challenges. They develop the self-discipline needed for academic and personal success.</p>
                         </div>
 
                     </div>
@@ -763,74 +690,6 @@
                 </div>
             </div>
 
-
-            {{-- Adults & Young Adults --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-purple-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-purple-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-briefcase text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Adults and Young Adults</h3>
-                            <p class="text-purple-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
-
-            {{-- Exam Preparation --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-yellow-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-yellow-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-certificate text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Exam Preparation</h3>
-                            <p class="text-yellow-200">Ready for IELTS</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
-
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-green-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-green-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-handshake text-3xl text-white"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Get Ready for International Business</h3>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -838,19 +697,40 @@
     <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy English?</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">The HiAcademy Life SkillLab Advantage:</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="hover:scale-105 transition-transform">
                     <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
                         data-aos="fade-up" data-aos-delay="0">
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                        <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
-                            communicative teaching approaches.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Facilitators</h4>
+                        <p class="text-gray-300 text-sm text-center">Our instructors are industry professionals and skilled educators who make learning practical and exciting.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Engaging Environment</h4>
+                        <p class="text-gray-300 text-sm text-center">Fun, interactive activities that make learning enjoyable and memorable.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Group Settings</h4>
+                        <p class="text-gray-300 text-sm text-center">We maintain small class sizes to ensure personalized attention and active participation.</p>
                     </div>
                 </div>
 
@@ -860,9 +740,8 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-users text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                        <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
-                            speaking practice and individual feedback.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Real-World Relevance</h4>
+                        <p class="text-gray-300 text-sm text-center">Every skill learned has immediate application in daily life and future careers.</p>
                     </div>
                 </div>
 
@@ -872,9 +751,8 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-trophy text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
-                        <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
-                            real-world confidence using English.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Progressive Learning</h4>
+                        <p class="text-gray-300 text-sm text-center">Monthly workshops build upon previous learning, creating comprehensive skill development.</p>
                     </div>
                 </div>
 
@@ -884,9 +762,128 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-rocket text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                        <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
-                            universities and employers seek in the 21st century.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Tangible Outcomes</h4>
+                        <p class="text-gray-300 text-sm text-center">Students receive e-certificates, souvenirs, and demonstrated skill improvements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24  backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Students Love HiAcademy Life SkillLab:</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Monthly Surprise</h4>
+                        <p class="text-gray-300 text-sm text-center">New topics every month keep learning fresh and exciting.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Hands-On Fun</h4>
+                        <p class="text-gray-300 text-sm text-center">Learning through games, simulations, and creative challenges.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Friendship Building</h4>
+                        <p class="text-gray-300 text-sm text-center">Meet and collaborate with peers from different backgrounds.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Confidence Boost</h4>
+                        <p class="text-gray-300 text-sm text-center">Each workshop builds new capabilities and self-assurance.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Real Skills</h4>
+                        <p class="text-gray-300 text-sm text-center">: Learn abilities that help in school, at home, and in future careers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Program Benefits for Parents:</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Convenient Scheduling</h4>
+                        <p class="text-gray-300 text-sm text-center">Once-monthly commitment fits busy family schedules.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Visible Progress</h4>
+                        <p class="text-gray-300 text-sm text-center">See your child grow in confidence and capability each month.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Community Connection</h4>
+                        <p class="text-gray-300 text-sm text-center">Join a network of families focused on holistic development.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Future Preparation</h4>
+                        <p class="text-gray-300 text-sm text-center">Equip your child with skills schools don't teach but life demands.</p>
                     </div>
                 </div>
             </div>
@@ -899,23 +896,21 @@
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Unlock Your <span class="text-yellow-300">English Potential?</span>
+                Ready to Equip Your <span class="text-yellow-300">Child for Future Success?</span>
             </h2>
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Find the perfect program for you or your child and transform English from a subject into a superpower.
+                Join our monthly Life SkillLab workshops and transform your child from a student into a capable, confident young leader.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
-                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
+                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Register for Our Next Monthly Workshop!</h3>
                 <p class="text-gray-200 mb-6">
-                    Our diagnostic test will accurately place you or your child in the right level and identify any learning
-                    gaps.
-                    Let us create a personalized learning pathway to unlock confidence and success in English!
+                   Spaces are limited for each workshop to ensure quality experience. Reserve your child's spot today and let us help them build the essential skills for lifelong success!
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all">
-                        <i class="fas fa-calendar-check"></i> Book Free Assessment
+                        <i class="fas fa-calendar-check"></i> Start Now
                     </a>
                     <a href="/#contact"
                         class="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all">

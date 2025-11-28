@@ -7,7 +7,7 @@
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/skilllav.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
+        <img src="{{ asset('img/design.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
@@ -713,10 +713,10 @@
                                 <strong>Focus:</strong> Designing digital experiences and user interfaces.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Future digital designers learn to create intuitive, user-friendly interfaces for websites and mobile apps. They master user research, wireframing, prototyping, and usability testing.
+                                <strong>Description:</strong> Future digital designers learn to create intuitive, user-friendly interfaces for websites and mobile apps. They master user research, wireframing, prototyping, and usability testing.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Key Skills:</strong> User research, wireframing, prototyping, interface design.
+                                <strong>Key Skills:</strong> User research, wireframing, prototyping, interface design.
                             </p>
                         </div>
 
@@ -737,7 +737,7 @@
                                 <strong>Description:</strong> Students discover the magic of bringing designs to life through animation. They learn fundamental principles of movement, timing, and storytelling through motion.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Key Skills:</strong> Animation principles, motion graphics, timing, basic 2D animation.
+                                <strong>Key Skills:</strong> Animation principles, motion graphics, timing, basic 2D animation.
                             </p>
                         </div>
 
@@ -756,7 +756,7 @@
                                 <strong>Focus:</strong> Mastering complex animation techniques and storytelling.
                             </p>
                             <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Advanced students push creative boundaries with complex animation projects, character animation, and sophisticated motion graphics for various media platforms.
+                                <strong>Description:</strong> Advanced students push creative boundaries with complex animation projects, character animation, and sophisticated motion graphics for various media platforms.
                             </p>
                             <p class="text-blue-100 mt-1">
                                 <strong>Key Skills:</strong> Character animation, advanced motion graphics, 3D basics, visual storytelling.

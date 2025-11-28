@@ -28,9 +28,7 @@
                 class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
                 <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
-                    </a>
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
@@ -43,9 +41,7 @@
                     </div>
                 </div>
                 <div class="relative group">
-                    <a href="/ipc" class="nav-link flex items-center">Curriculum
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
-                    </a>
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
@@ -442,7 +438,7 @@
                                 </div>
                                 <div class="text-4xl font-bold text-[#3AAEDB] mb-2">03</div>
                                 <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Parents' passports/Indonesian identification cards (photo page only)
+                                    Photocopy of Parents' passports/Thai identification cards (photo page only)
                                 </p>
                             </div>
 
@@ -459,7 +455,7 @@
                                 </div>
                                 <div class="text-4xl font-bold text-[#3AAEDB] mb-2">04</div>
                                 <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Child's house registration (for Indonesian applicants only)
+                                    Photocopy of Child's house registration (for Thai applicants only)
                                 </p>
                             </div>
                         </div>

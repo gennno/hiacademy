@@ -3,7 +3,6 @@
 @section('title', 'h!academy - International Preschool')
 
 @section('content')
-
     {{-- ✅ HEADER / NAVBAR --}}
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
         <div class="flex items-center justify-between px-6 lg:px-12 py-4 relative z-50">
@@ -28,9 +27,7 @@
                 class="hidden xl:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white font-medium tracking-wide">
                 <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
-                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
-                    </a>
+                    <a href="/aboutpreschool" class="nav-link flex items-center">About Us</a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
@@ -43,9 +40,7 @@
                     </div>
                 </div>
                 <div class="relative group">
-                    <a href="/ipc" class="nav-link flex items-center">Curriculum
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
-                    </a>
+                    <a href="/ipc" class="nav-link flex items-center">Curriculum</a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
@@ -272,6 +267,280 @@
         });
     </script>
 
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Nav underline */
+        .nav-link,
+        .nav-link-mobile {
+            position: relative;
+            display: inline-block;
+            padding-bottom: .25rem;
+        }
+
+        .nav-link::after,
+        .nav-link-mobile::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.12rem;
+            height: 2px;
+            width: 0%;
+            background: rgba(251, 191, 36, 1);
+            border-radius: 999px;
+            transition: width .22s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link-mobile:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #facc15;
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+        }
+
+        /* Mobile menu visible state */
+        #mobile-menu.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Philosophy Section Styles */
+        .philosophy-section {
+            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .philosophy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #64a1c2;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f59e0b;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        .philosophy-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .philosophy-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: center;
+            margin: 0;
+        }
+
+        .info-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #f59e0b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .short-content {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .full-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            color: #64748b;
+        }
+
+        .full-content.expanded {
+            max-height: 1000px;
+            transition: max-height 0.8s ease-in;
+        }
+
+        .full-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .full-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .full-content li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .full-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 1.5rem auto 0;
+            min-width: 120px;
+        }
+
+        .toggle-btn:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .philosophy-section {
+                padding: 100px 15px 50px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .philosophy-content {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .philosophy-text {
+                font-size: 1rem;
+            }
+
+            .info-cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .philosophy-content {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleContent(contentId, button) {
+            const content = document.getElementById(contentId);
+            const isExpanded = content.classList.contains('expanded');
+
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                button.textContent = 'Read more';
+            } else {
+                content.classList.add('expanded');
+                button.textContent = 'Read less';
+            }
+        }
+    </script>
+
     {{-- About --}}
     <section id="about" class="relative py-20 pt-36 bg-[#C0D6E8] overflow-hidden">
         {{-- Decorative background elements --}}
@@ -284,11 +553,12 @@
                 <div class="lg:w-1/2 pt-12 text-left">
                     <h2
                         class="text-4xl md:text-5xl font-mono font-extrabold max-w-2xl text-white mb-4 uppercase tracking-wide">
-                        Admission Process
+                        About Us
                     </h2>
                     <p class="text-md text-black font-sans text-base md:text-md leading-relaxed">
-                        Explore the essential steps of enrollment for your child to embark on an exciting journey of
-                        learning and discovery at h!academy.
+                        At h!academy, we embrace play-based learning, cultivating a joyful environment where children
+                        thrive. Through purposeful play, young learners develop essential skills, nurturing their curiosity
+                        and creativity.
                     </p>
                 </div>
 
@@ -300,436 +570,354 @@
             </div>
         </div>
     </section>
-    <style>
-        @keyframes float {
 
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
+    {{-- Philosophy Section --}}
+    <section class="philosophy-section">
+        <div class="philosophy-container">
+            <h4 class="section-title">PHILOSOPHY</h4>
+            <h3 class="section-subtitle">BUILDING BLOCKS TO NURTURE YOUNG CREATIVE THINKERS</h3>
 
-            50% {
-                transform: translateY(-20px);
-            }
-        }
+            <div class="philosophy-content">
+                <p class="philosophy-text">
+                    At h!academy, where learning through play is at the heart of everything we do, we focus on providing
+                    hands-on experiences that inspire curiosity, foster imagination, and develop problem-solving skills. By
+                    encouraging exploration and self-expression, we create a foundation for children to grow into confident,
+                    innovative thinkers.
+                </p>
+            </div>
 
-        @keyframes float-delayed {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-30px);
-            }
-        }
-
-        @keyframes bounce-slow {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        @keyframes spin-slow {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-            animation: float-delayed 8s ease-in-out infinite;
-        }
-
-        .animate-bounce-slow {
-            animation: bounce-slow 3s ease-in-out infinite;
-        }
-
-        .animate-spin-slow {
-            animation: spin-slow 20s linear infinite;
-        }
-    </style>
-
-    <section id="admission"
-        class="relative py-20 pt-36 bg-gradient-to-br from-[#C0D6E8] via-[#B1C29E]/20 to-[#FADA7A]/30 overflow-hidden">
-        {{-- Playful floating elements --}}
-        <div class="absolute top-10 left-10 w-20 h-20 bg-[#F0A04B]/30 rounded-full blur-2xl animate-float"></div>
-        <div class="absolute top-40 right-20 w-32 h-32 bg-[#B1C29E]/40 rounded-full blur-3xl animate-float-delayed"></div>
-        <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-[#FADA7A]/40 rounded-full blur-2xl animate-float"></div>
-
-        {{-- Decorative shapes --}}
-        <div class="absolute top-20 right-10 text-[#F0A04B]/20 text-6xl animate-bounce-slow">★</div>
-        <div class="absolute bottom-40 left-20 text-[#B1C29E]/20 text-5xl animate-spin-slow">✦</div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-
-            {{-- Step Cards with fun animations --}}
-            <div class="space-y-8">
-
-                {{-- STEP 1 --}}
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up">
-                    {{-- Header --}}
-                    <div class="bg-gradient-to-r from-[#3AAEDB] to-[#5BC0DE] p-8 text-center">
-                        <h3 class="text-3xl md:text-4xl font-bold text-white uppercase tracking-wide mb-2">
-                            STEP 1 DOCUMENT PREPARATION
-                        </h3>
-                        <p class="text-white/90 text-lg">
-                            The following documents are required to be submitted with the application form.
-                        </p>
-                    </div>
-
-                    {{-- Icon Grid --}}
-                    <div class="p-8 md:p-12 bg-white">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                            {{-- Item 01 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">01</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Child's birth certificate
-                                </p>
-                            </div>
-
-                            {{-- Item 02 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">02</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Child's passport (photo page only)
-                                </p>
-                            </div>
-
-                            {{-- Item 03 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">03</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Parents' passports/Indonesian identification cards (photo page only)
-                                </p>
-                            </div>
-
-                            {{-- Item 04 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">04</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Child's house registration (for Indonesian applicants only)
-                                </p>
-                            </div>
+            <div class="info-cards-container">
+                <!-- Vision Section -->
+                <div class="info-card">
+                    <h3 class="card-title">VISION</h3>
+                    <div class="card-content">
+                        <div class="short-content">
+                            h!academy is dedicated to nurturing well-rounded development in every child.
                         </div>
-
-                        {{-- Second Row --}}
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                            {{-- Item 05 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">05</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Photocopy of Child's immunization record
-                                </p>
-                            </div>
-
-                            {{-- Item 06 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">06</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Child's passport-size photo
-                                </p>
-                            </div>
-
-                            {{-- Item 07 --}}
-                            <div
-                                class="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
-                                <div
-                                    class="w-28 h-28 bg-[#E8F4F8] rounded-full flex items-center justify-center mb-4 group-hover:bg-[#3AAEDB]/20 transition-colors duration-300">
-                                    <svg class="w-14 h-14 text-[#3AAEDB]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 4v4m0 4v8" />
-                                    </svg>
-                                </div>
-                                <div class="text-4xl font-bold text-[#3AAEDB] mb-2">07</div>
-                                <p class="text-gray-700 text-sm leading-relaxed">
-                                    Medical certificates regarding medical conditions, allergies, long-term medication, or
-                                    treatment (if any)
-                                </p>
-                            </div>
+                        <div class="full-content" id="vision-content">
+                            <p>"To build a generation of children filled with hope,
+                                confidence, and enthusiasm for learning, by fostering
+                                an environment that supports the holistic growth of
+                                every child."
+                                <br>
+                                <br>
+                                With the slogan "Nurturing Bright Futures with
+                                Hope," h!Academy.
+                            </p>
                         </div>
+                        <button class="toggle-btn" onclick="toggleContent('vision-content', this)">Read more</button>
                     </div>
                 </div>
 
-                {{-- STEP 2 --}}
-                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-4 border-[#FADA7A]/20 hover:border-[#FADA7A] hover:-translate-y-2"
-                    data-aos="fade-left">
-                    <div class="bg-gradient-to-r from-[#FADA7A] to-[#F0A04B] p-6 relative overflow-hidden">
-                        <div class="absolute -right-10 -top-10 text-white/10 text-9xl font-bold">2</div>
-                        <div class="relative flex items-center gap-4">
-                            <div
-                                class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500">
-                                <span class="text-3xl">📝</span>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 uppercase tracking-wide">STEP 2
-                                    Application
-                                    Form Submission</h3>
-                                <p class="text-gray-700 mt-1">Submit your completed form</p>
-                            </div>
+                <!-- Mission Section -->
+                <div class="info-card">
+                    <h3 class="card-title">MISSION</h3>
+                    <div class="card-content">
+                        <div class="short-content">
+                            Our mission is to create a nurturing environment where children can explore, learn, and grow.
                         </div>
-                    </div>
-
-                    <div class="p-8 bg-gradient-to-br from-white to-[#FFFBEA]">
-                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                            Complete the application form and submit it to us via email or visit our school office in
-                            person. Our friendly admissions team is ready to assist you!
-                        </p>
-
-                        <div class="flex flex-wrap gap-4">
-                            <a href="{{ asset('file/3.2-Application-Form-hiacademy.pdf') }}" target="_blank"
-                                rel="noopener noreferrer">
-                                <button
-                                    class="flex items-center gap-3 bg-gradient-to-r from-[#F0A04B] to-[#FADA7A] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                                    <span class="text-2xl">⬇️</span>
-                                    <span>Application Form</span>
-                                </button>
-                            </a>
-
-                            <a href="mailto:info@hiacademy.id"
-                                class="flex items-center gap-3 bg-white border-2 border-[#F0A04B] text-[#F0A04B] px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#F0A04B] hover:text-white hover:scale-105 transition-all duration-300">
-                                <span class="text-2xl">✉️</span>
-                                <span>Email Form</span>
-                            </a>
-
+                        <div class="full-content" id="mission-content">
+                            <p>To provide a safe, inclusive,
+                                and loving learning
+                                environment where every child
+                                feels valued, accepted, and
+                                encouraged to explore their
+                                potential.</p>
+                            <p>To support the social,
+                                emotional, and academic
+                                development of each child
+                                through a fun and
+                                exploration-based learning
+                                approach.</p>
+                            <p>To build strong partnerships
+                                with parents and the
+                                community, ensuring a child's
+                                education is supported by
+                                close collaboration between
+                                home and school.</p>
                         </div>
+                        <button class="toggle-btn" onclick="toggleContent('mission-content', this)">Read more</button>
                     </div>
                 </div>
 
-                {{-- STEP 3 (Slider Version) --}}
-                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-4 border-[#B1C29E]/20 hover:border-[#B1C29E] hover:-translate-y-2"
-                    data-aos="fade-right">
-                    <div class="bg-gradient-to-r from-[#B1C29E] to-[#7FB069] p-6 relative overflow-hidden">
-                        <div class="absolute -right-10 -top-10 text-white/10 text-9xl font-bold">3</div>
-                        <div class="relative flex items-center gap-4">
-                            <div
-                                class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500">
-                                <span class="text-3xl">🎓</span>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">
-                                    Step 3 Review & Placement
-                                </h3>
-                                <p class="text-white/90 mt-1">We'll find the perfect fit for your child</p>
-                            </div>
+                <!-- Goals Section -->
+                <div class="info-card">
+                    <h3 class="card-title">GOALS</h3>
+                    <div class="card-content">
+                        <div class="short-content">
+                            Our goals focus on holistic development and preparing children for future success.
                         </div>
-                    </div>
-
-                    <div class="p-8 bg-gradient-to-br from-white to-[#F0FDF4]">
-                        <!-- Swiper Container -->
-                        <div class="relative group">
-                            <!-- Navigation Buttons -->
-                            <button
-                                class="review-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#7FB069] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -ml-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                            </button>
-
-                            <button
-                                class="review-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[#7FB069] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 -mr-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                    </path>
-                                </svg>
-                            </button>
-
-                            <!-- Swiper Wrapper -->
-                            <div class="swiper review-swiper">
-                                <div class="swiper-wrapper">
-
-                                    <!-- Slide 1 -->
-                                    <div class="swiper-slide">
-                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                            <img src="{{ asset('img/13.webp') }}" alt="Pre-Nursery"
-                                                class="w-full h-56 object-cover">
-                                            <div class="p-6 text-center">
-                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">PRE-NURSERY</h4>
-                                                <p class="text-gray-600">18–24 months</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Slide 2 -->
-                                    <div class="swiper-slide">
-                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                            <img src="{{ asset('img/18.webp') }}" alt="Nursery"
-                                                class="w-full h-56 object-cover">
-                                            <div class="p-6 text-center">
-                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">NURSERY</h4>
-                                                <p class="text-gray-600">2+ years</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Slide 3 -->
-                                    <div class="swiper-slide">
-                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                            <img src="{{ asset('img/15.webp') }}" alt="Kindergarten 1"
-                                                class="w-full h-56 object-cover">
-                                            <div class="p-6 text-center">
-                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 1</h4>
-                                                <p class="text-gray-600">3+ years</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Slide 4 -->
-                                    <div class="swiper-slide">
-                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                            <img src="{{ asset('img/16.webp') }}" alt="Kindergarten 2"
-                                                class="w-full h-56 object-cover">
-                                            <div class="p-6 text-center">
-                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 2</h4>
-                                                <p class="text-gray-600">4+ years</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                            <img src="{{ asset('img/17.webp') }}" alt="Kindergarten 2"
-                                                class="w-full h-56 object-cover">
-                                            <div class="p-6 text-center">
-                                                <h4 class="text-xl font-bold text-[#2C7DA0] mb-1">KINDERGARTEN 3</h4>
-                                                <p class="text-gray-600">5+ years</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <!-- Pagination -->
-                                <div class="swiper-pagination mt-6"></div>
-                            </div>
+                        <div class="full-content" id="goals-content">
+                            <ul>
+                                <li>Develop strong foundational skills in literacy and numeracy</li>
+                                <li>Promote creativity and critical thinking through play-based learning</li>
+                                <li>Build social skills and emotional intelligence</li>
+                                <li>Encourage physical development and healthy habits</li>
+                                <li>Foster curiosity and a love for learning about the world</li>
+                                <li>Prepare children for a smooth transition to primary education</li>
+                            </ul>
                         </div>
-
-                        <!-- Note -->
-                        <p class="mt-8 text-center text-gray-600 text-sm md:text-base">
-                            To maintain diversity, nationalities, and genders are also taken into consideration when
-                            assigning students to classes.
-                        </p>
+                        <button class="toggle-btn" onclick="toggleContent('goals-content', this)">Read more</button>
                     </div>
                 </div>
-
-
-
-                {{-- STEP 4 --}}
-                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-4 border-[#00809D]/20 hover:border-[#00809D] hover:-translate-y-2"
-                    data-aos="fade-left">
-                    <div class="bg-gradient-to-r from-[#00809D] to-[#0EA5E9] p-6 relative overflow-hidden">
-                        <div class="absolute -right-10 -top-10 text-white/10 text-9xl font-bold">4</div>
-                        <div class="relative flex items-center gap-4">
-                            <div
-                                class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500">
-                                <span class="text-3xl">🎉</span>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">step 4
-                                    Enrollment &
-                                    Welcome!</h3>
-                                <p class="text-white/90 mt-1">Secure your child's place</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 bg-gradient-to-br from-white to-[#F0F9FF]">
-                        <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                            Once your child receives an offer, we'll send you an invoice for the <strong>registration
-                                fee</strong>. This non-refundable fee secures your child's place in our learning family.
-                        </p>
-
-                        <div
-                            class="bg-gradient-to-r from-[#F0A04B]/10 to-[#FADA7A]/10 p-6 rounded-2xl border-2 border-dashed border-[#F0A04B]">
-                            <div class="flex items-start gap-4">
-                                <span class="text-3xl">💡</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2 text-lg">What Happens Next?</h4>
-                                    <p class="text-gray-700">The tuition fee invoice will be sent one month before your
-                                        child's first day. Get ready for an amazing learning adventure!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
+
+    <!-- Learning Approaches Section -->
+    <section class="relative py-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-40 h-40 bg-blue-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-56 h-56 bg-amber-200/30 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+            <!-- Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 uppercase tracking-wide">
+                    LEARNING APPROACHES
+                </h2>
+                <div class="w-24 h-1 bg-amber-500 rounded-full mx-auto mb-8"></div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="space-y-12">
+                <!-- Introduction Paragraph -->
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
+                        Our learning approaches are based on our philosophy of play, with a strong emphasis on
+                        <span class="font-bold text-amber-600">objective play and inquiry-based learning</span>.
+                        We believe that play is the foundation of all meaningful learning experiences. Through play,
+                        children not only explore and discover but also develop essential social and cognitive skills,
+                        mature emotionally, and build the self-confidence needed to thrive in new experiences and
+                        environments.
+                        By integrating inquiry-based approaches, we encourage curiosity and critical thinking,
+                        empowering children to actively engage with the world around them.
+                    </p>
+                </div>
+
+                <!-- Divider -->
+                <div class="relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="50">
+                    <div class="h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent w-3/4"></div>
+                </div>
+
+                <!-- Two Column Content - Card & Dropdown -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="50">
+                    <!-- Left Column - Card -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 border-l-4 border-amber-500">
+                        <div class="space-y-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="font-semibold text-amber-600">Play is the foundation of early childhood
+                                    learning</span>,
+                                offering endless opportunities for growth and development. Different types of play engage
+                                children
+                                in unique ways, nurturing their physical, cognitive, emotional, and social abilities. By
+                                exploring
+                                various approaches to play, children can develop problem-solving skills, creativity, and
+                                self-expression
+                                while building meaningful connections with others.
+                            </p>
+
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="font-semibold text-amber-600">Play-based learning fosters a child-centered
+                                    environment</span>
+                                where curiosity drives discovery. Each type of play has a distinct focus, encouraging
+                                children to explore
+                                the world through hands-on experiences. From imaginative scenarios to hands-on manipulation,
+                                the diversity
+                                of play allows children to develop essential skills in a natural, engaging way.
+                            </p>
+
+                            <p class="text-gray-700 leading-relaxed">
+                                Incorporating a variety of play types into learning environments helps educators and parents
+                                cater to
+                                children's individual interests and needs. By balancing different play opportunities,
+                                children gain a
+                                comprehensive toolkit of skills that support their growth and prepare them for future
+                                learning.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Play Types Dropdown -->
+                    <div class="space-y-4 h-fit">
+                        <!-- Dramatic / Role Play -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                            <button
+                                class="flex justify-between items-center w-full p-4 text-left bg-blue-50 hover:bg-blue-100 transition-colors"
+                                onclick="toggleDropdown('dramatic')">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🎭</span>
+                                    <span class="font-semibold text-blue-800">Dramatic / Role Play</span>
+                                </div>
+                                <span class="text-xl font-bold text-blue-600 transition-transform duration-300"
+                                    id="dramatic-icon">+</span>
+                            </button>
+                            <div id="dramatic-dropdown"
+                                class="dropdown-content max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+                                <div class="p-4 border-t border-blue-200">
+                                    <p class="text-gray-700">
+                                        Allows children to explore their imagination by pretending to be different
+                                        characters or
+                                        enacting
+                                        real-life scenarios. Through role-play, children practice social skills,
+                                        problem-solving, and
+                                        language development as they create and act out their own stories.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manipulative Play -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                            <button
+                                class="flex justify-between items-center w-full p-4 text-left bg-green-50 hover:bg-green-100 transition-colors"
+                                onclick="toggleDropdown('manipulative')">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🧩</span>
+                                    <span class="font-semibold text-green-800">Manipulative Play</span>
+                                </div>
+                                <span class="text-xl font-bold text-green-600 transition-transform duration-300"
+                                    id="manipulative-icon">+</span>
+                            </button>
+                            <div id="manipulative-dropdown"
+                                class="dropdown-content max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+                                <div class="p-4 border-t border-green-200">
+                                    <p class="text-gray-700">
+                                        Involves handling and manipulating objects to develop fine motor skills, hand-eye
+                                        coordination,
+                                        and problem-solving abilities. This type of play includes activities like building
+                                        with
+                                        blocks,
+                                        puzzles, and using tools that help children understand concepts of size, shape, and
+                                        spatial relationships.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Physical Play -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                            <button
+                                class="flex justify-between items-center w-full p-4 text-left bg-purple-50 hover:bg-purple-100 transition-colors"
+                                onclick="toggleDropdown('physical')">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🏃‍♂️</span>
+                                    <span class="font-semibold text-purple-800">Physical Play</span>
+                                </div>
+                                <span class="text-xl font-bold text-purple-600 transition-transform duration-300"
+                                    id="physical-icon">+</span>
+                            </button>
+                            <div id="physical-dropdown"
+                                class="dropdown-content max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+                                <div class="p-4 border-t border-purple-200">
+                                    <p class="text-gray-700">
+                                        Focuses on developing gross motor skills, coordination, strength, and overall
+                                        physical
+                                        health.
+                                        Activities like running, jumping, climbing, and balancing help children understand
+                                        their
+                                        bodies'
+                                        capabilities while promoting an active lifestyle and spatial awareness.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Creative Play -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                            <button
+                                class="flex justify-between items-center w-full p-4 text-left bg-amber-50 hover:bg-amber-100 transition-colors"
+                                onclick="toggleDropdown('creative')">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🎨</span>
+                                    <span class="font-semibold text-amber-800">Creative Play</span>
+                                </div>
+                                <span class="text-xl font-bold text-amber-600 transition-transform duration-300"
+                                    id="creative-icon">+</span>
+                            </button>
+                            <div id="creative-dropdown"
+                                class="dropdown-content max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+                                <div class="p-4 border-t border-amber-200">
+                                    <p class="text-gray-700">
+                                        Encourages self-expression, imagination, and innovation through various art forms
+                                        and
+                                        creative activities.
+                                        Drawing, painting, music, dance, and storytelling allow children to explore their
+                                        feelings, ideas,
+                                        and perspectives while developing their unique voice and aesthetic sensibilities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sensory Play -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                            <button
+                                class="flex justify-between items-center w-full p-4 text-left bg-pink-50 hover:bg-pink-100 transition-colors"
+                                onclick="toggleDropdown('sensory')">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">👃</span>
+                                    <span class="font-semibold text-pink-800">Sensory Play</span>
+                                </div>
+                                <span class="text-xl font-bold text-pink-600 transition-transform duration-300"
+                                    id="sensory-icon">+</span>
+                            </button>
+                            <div id="sensory-dropdown"
+                                class="dropdown-content max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+                                <div class="p-4 border-t border-pink-200">
+                                    <p class="text-gray-700">
+                                        Engages children's senses—touch, smell, taste, sight, and hearing—to help them
+                                        understand
+                                        and make sense of the world. Activities like playing with sand, water, playdough, or
+                                        sensory
+                                        bins stimulate neural pathways and support cognitive growth, language development,
+                                        and
+                                        scientific thinking.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="relative py-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-40 h-40 bg-blue-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-56 h-56 bg-amber-200/30 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+            <!-- Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 uppercase tracking-wide">
+                    Child Safeguarding
+                </h2>
+                <div class="w-24 h-1 bg-amber-500 rounded-full mx-auto mb-8"></div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="space-y-12">
+                <!-- Introduction Paragraph -->
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
+                        At h!academy, we are greatly concerned about child safeguarding. The school has a designated
+                        safeguarding lead who ensures that all staff members are trained on child safeguarding as we believe
+                        that every adult at school has a role to play in preventing all forms of child abuse (i.e.,
+                        emotional abuse, physical abuse, sexual abuse, child neglect, and bullying).
+
+                        We are trained on types of danger at school, ways students can be hurt, what to look for when
+                        protecting our students at school, appropriate ways for all adults at school to behave around
+                        children, what to do to protect our students from all harm, and lastly, whom to report to when we
+                        witness any child safeguarding issues. In a nutshell, we firmly believe that all children should
+                        grow up healthy and safe, and the school plays an important role in providing a safe environment for
+                        them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="why-choose-us" class="relative py-16 md:py-20 bg-gradient-to-br from-white to-[#FEF9E7] overflow-hidden">
         <!-- Decorative background elements -->
         <div class="absolute top-0 left-0 w-40 h-40 bg-[#B1C29E]/20 rounded-full blur-3xl"></div>
@@ -843,26 +1031,6 @@
                                 curriculum: IPC</h4>
                         </div>
                     </div>
-                </div>
-            </div>
-            {{-- Call to Action --}}
-            <div class="mt-16 text-center" data-aos="zoom-in">
-                <div class="bg-gradient-to-r from-[#F0A04B] via-[#FADA7A] to-[#B1C29E] p-12 rounded-3xl shadow-2xl">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Begin?</h3>
-                    <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">Join our vibrant community and give your child
-                        the foundation for lifelong learning!</p>
-
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
-                            class="bg-white text-[#F0A04B] px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            📞 Schedule Visit
-                        </a>
-                        <a href="/admissionpreschool#admission"
-                            class="bg-[#00809D] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            ✍️ Apply Now
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -1062,39 +1230,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({
-                duration: 1000,
+                duration: 800,
                 once: true
             });
         });
     </script>
-    <!-- Swiper JS & CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            new Swiper(".review-swiper", {
-                slidesPerView: 1,
-                spaceBetween: 24,
-                loop: true,
-                navigation: {
-                    nextEl: ".review-next",
-                    prevEl: ".review-prev",
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-        });
-    </script>
-
 @endsection

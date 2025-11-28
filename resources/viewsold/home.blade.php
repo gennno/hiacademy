@@ -214,36 +214,16 @@
             <nav id="primary-nav"
                 class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-10 text-white font-medium tracking-wide z-50"
                 role="navigation" aria-label="Primary Navigation">
-
                 <a href="#home" class="nav-link" data-target="home">Home</a>
-
-                <!-- ABOUT US DROPDOWN -->
-                <div class="relative group">
-                    <a href="#about" class="nav-link inline-flex items-center gap-1">
-                        About Us
-                        <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
-                    </a>
-
-                    <!-- Dropdown menu -->
-                    <div
-                        class="absolute left-0 mt-3 w-48 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                        <a href="#vision-mission" class="block px-4 py-2 text-black hover:bg-gray-100">Vision & Mission</a>
-                        <a href="#method" class="block px-4 py-2 text-black hover:bg-gray-100">Our Method</a>
-                    </div>
-                </div>
-
+                <a href="#about" class="nav-link" data-target="about">About Us</a>
                 <a href="#programs" class="nav-link" data-target="programs">Programs</a>
                 <a href="#contact" class="nav-link" data-target="contact">Contact Us</a>
             </nav>
 
             <!-- Visual container (desktop only) -->
             <div id="visual-container"
-                class="hidden lg:flex  gap-3 items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
+                class="hidden lg:flex items-center justify-end pl-10 pr-6 py-3 bg-white/10 backdrop-blur-md rounded-full ring-1 ring-yellow-400/30 shadow-lg transition-all duration-300 absolute z-30"
                 style="right:1rem;">
-                <a href="/register"
-                    class="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                    <span>Apply Now</span>
-                </a>
                 <a href="/login"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-black px-5 py-2.5 rounded-full text-sm font-semibold shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
                     <span>Login</span>
@@ -273,23 +253,13 @@
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile rounded-t-3xl"
                     data-target="home">Home</a>
                 <a href="#about" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="about">About Us</a>
-                <a href="#vision-mission"
-                    class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="#vision-mission">Vision & Mission</a>
-                <a href="#method" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
-                    data-target="method">Our Method</a>
+                    data-target="about">About</a>
                 <a href="#programs"
                     class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="programs">Programs</a>
                 <a href="#contact" class="px-6 py-4 hover:bg-yellow-400/15 hover:text-yellow-400 transition nav-link-mobile"
                     data-target="contact">Contact</a>
-                <div class="px-6 py-5 bg-yellow-400/10 text-center">
-                    <a href="/register"
-                        class="inline-flex items-center justify-center gap-2 bg-white text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
-                        <span>Apply Now</span>
-                    </a>
-                </div>
+
                 <div class="px-6 py-5 bg-yellow-400/10 text-center">
                     <a href="/login"
                         class="inline-flex items-center justify-center gap-2 bg-yellow-400 text-black w-full py-3 rounded-full font-semibold text-sm shadow hover:bg-yellow-300 hover:shadow-yellow-400/40 transition-transform transform hover:-translate-y-0.5">
@@ -573,6 +543,7 @@
             </div>
 
             {{-- Image gallery --}}
+            {{-- Image gallery --}}
             <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
                 <!-- Image 1 -->
                 <div class="relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
@@ -633,214 +604,6 @@
         </div>
     </section>
 
-
-    {{-- Vision & Mission Section --}}
-    <section id="vision-mission" class="bg-gray-800/50 pt-20 pb-20 relative backdrop-blur-md rounded-2xl shadow-xl">
-
-        <div class="max-w-6xl mx-auto px-6 space-y-20" data-aos="fade-up">
-
-            <!-- Title -->
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl text-white font-semibold tracking-tight">
-                    Our <span class="text-yellow-300">Mission</span> &
-                    <span class="text-yellow-300">Vision</span>
-                </h1>
-                <div class="w-28 h-1 bg-yellow-300 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Mission Section -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                                            text-center" data-aos="fade-up" data-aos-delay="100">
-
-                <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
-                    Our Mission
-                </h2>
-                <h3 class="text-xl md:text-2xl text-gray-100 font-light italic mb-8">
-                    Empowering Futures, One Mind at a Time.
-                </h3>
-
-                <p class="text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto">
-                    At HiAcademy, we are committed to nurturing bright futures filled with hope through
-                    comprehensive and forward-focused education. We believe every child possesses unique
-                    potential, and our mission is to create the perfect environment for that potential to
-                    blossom. From establishing strong foundations to developing advanced critical thinking,
-                    we equip students with the knowledge, creativity, and confidence needed to thrive in an
-                    ever-evolving global community.
-                </p>
-            </div>
-
-            <!-- Vision Section -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-14 shadow-xl 
-                                            hover:shadow-yellow-300/20 hover:scale-[1.02] transition duration-300 
-                                            text-center" data-aos="fade-up" data-aos-delay="200">
-
-                <h2 class="text-3xl md:text-4xl text-yellow-300 font-semibold mb-4">
-                    Our Vision
-                </h2>
-                <h3 class="text-xl md:text-2xl text-gray-100 font-light italic mb-8">
-                    A Holistic Journey of Discovery.
-                </h3>
-
-                <p class="text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto mb-10">
-                    We envision education as a transformative experience that shapes confident, curious,
-                    and well-rounded learners. Our approach blends modern teaching methods with meaningful,
-                    hands-on experiences — guided by three core pillars:
-                </p>
-
-                <!-- Professional Vision Points -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-                    <!-- Point 1 -->
-                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="250">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                       text-yellow-300 text-2xl font-bold shadow-inner">
-                            1
-                        </div>
-                        <h3 class="text-xl font-semibold text-yellow-300">Curiosity</h3>
-                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
-                            Cultivating a lifelong love of learning by encouraging exploration, inquiry,
-                            and discovery.
-                        </p>
-                    </div>
-
-                    <!-- Point 2 -->
-                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="350">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                       text-yellow-300 text-2xl font-bold shadow-inner">
-                            2
-                        </div>
-                        <h3 class="text-xl font-semibold text-yellow-300">Creativity</h3>
-                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
-                            Inspiring innovative thinking and self-expression across academic and creative
-                            disciplines.
-                        </p>
-                    </div>
-
-                    <!-- Point 3 -->
-                    <div class="flex flex-col items-center space-y-4" data-aos="zoom-in" data-aos-delay="450">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300/20 
-                                                       text-yellow-300 text-2xl font-bold shadow-inner">
-                            3
-                        </div>
-                        <h3 class="text-xl font-semibold text-yellow-300">Confidence</h3>
-                        <p class="text-gray-100 text-base md:text-lg leading-relaxed max-w-xs">
-                            Building strong self-belief through achievements, constructive guidance, and
-                            supportive learning environments.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section id="method" class="py-16 bg-gray-800/50">
-        <div class="container mx-auto px-6 lg:px-16">
-            <!-- Title -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">The <span class="text-yellow-300">HiAcademy</span>
-                    Difference: Where <span class="text-yellow-300">Hope</span> Meets <span
-                        class="text-yellow-300">Excellence</span></h2>
-                <p class="mt-4 text-white max-w-3xl mx-auto leading-relaxed">
-                    What makes <span class="text-yellow-300">HiAcademy</span> special is our dedication to being a <span
-                        class="text-yellow-300">One-Stop Education Center</span> that nurtures both
-                    academic excellence and personal growth. We provide a seamless learning pathway from early childhood
-                    education to mastery of advanced subjects, always maintaining our focus on creating hopeful futures.
-                </p>
-            </div>
-
-            <!-- Content -->
-            <div class="flex flex-col lg:flex-row items-center gap-8">
-                <!-- Left Image -->
-                <div class="lg:w-2/3">
-                    <img src="{{ asset('img/carousel3.webp') }}" alt="IPC vs Traditional"
-                        class="rounded-2xl shadow-md w-full object-cover">
-                </div>
-
-                <!-- Right Accordion -->
-                <div class="lg:w-1/3 space-y-4">
-                    <!-- Curriculum Design -->
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordiontraditional('curriculum')"
-                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
-                            Future-Ready Curriculum
-                            <span id="curriculum-icon"
-                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
-                        </button>
-                        <div id="curriculum-content"
-                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                Programs designed for tomorrow's world, integrating essential 21st-century skills like
-                                coding, design thinking, and global languages
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Teaching Methods -->
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordiontraditional('teaching')"
-                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
-                            Expert-Led Instruction
-                            <span id="teaching-icon"
-                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
-                        </button>
-                        <div id="teaching-content"
-                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                Passionate educators who serve as mentors, making learning engaging and effective
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Role of the Teacher -->
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <button onclick="toggleAccordiontraditional('teacher')"
-                            class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
-                            Nurturing Ecosystem
-                            <span id="teacher-icon"
-                                class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
-                        </button>
-                        <div id="teacher-content"
-                            class="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
-                            <p class="px-6 pb-4 text-gray-600 leading-relaxed">
-                                A supportive and inclusive community where every child feels safe, valued, and motivated to
-                                excel
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            function toggleIpcAccordion(id) {
-                const content = document.getElementById(id + '-content');
-                const icon = document.getElementById(id + '-icon');
-
-                const isOpen = content.classList.contains('max-h-[400px]');
-
-                // Tutup semua accordion lain di section ini
-                document.querySelectorAll("[id$='-content']").forEach(el => {
-                    el.classList.remove('max-h-[400px]', 'opacity-100');
-                    el.classList.add('max-h-0', 'opacity-0');
-                });
-                document.querySelectorAll("[id$='-icon']").forEach(el => el.textContent = '+');
-
-                // Buka accordion yang dipilih
-                if (!isOpen) {
-                    content.classList.remove('max-h-0', 'opacity-0');
-                    content.classList.add('max-h-[400px]', 'opacity-100');
-                    icon.textContent = '−';
-                }
-            }
-        </script>
-
-    </section>
-
-
     <!-- Programs Section -->
     <section id="programs" class="py-24 px-6 text-center bg-white/1 text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -881,14 +644,14 @@
                         <h3 class="text-lg font-semibold text-white mb-3">International Preschool</h3>
                         <p class="text-sm text-gray-200 mb-4">A global learning environment designed to nurture creativity
                             and confidence in young learners.</p>
-                        <a href="/preschool" target="_blank"
+                        <a href="/preschool"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
                     </div>
                 </div>
 
-                <!-- Child Development Program -->
+                <!-- Mandarin Program -->
                 <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
                     data-aos="fade-up" data-aos-delay="50">
                     <img src="{{ asset('img/child_develop.jpg') }}" class="absolute inset-0 w-full h-full object-cover"
@@ -901,7 +664,7 @@
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Child Development Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Child Development Program.</p>
-                        <a href="/childdev" target="_blank"
+                        <a href="#"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -921,7 +684,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">English Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Effective communication is key to success, and our English
                             Language Program is designed to build fluency and confidence.</p>
-                        <a href="/english" target="_blank"
+                        <a href="#"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -941,7 +704,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Mandarin Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Immersive learning that helps children master Mandarin
                             naturally and confidently.</p>
-                        <a href="/mandarin" target="_blank"
+                        <a href="#"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -959,7 +722,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">Math Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="/math" target="_blank"
+                        <a href="#"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition">
                             Explore →
                         </a>
@@ -980,7 +743,7 @@
                         <h3 class="text-lg font-semibold text-white mb-3">STEM & Coding</h3>
                         <p class="text-sm text-gray-200 mb-4">STEM & Coding
                         </p>
-                        <a href="/stem"
+                        <a href="https://timedooracademy.com/"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -994,14 +757,14 @@
                     <img src="{{ asset('img/design.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Design & Digital Creative Arts</h3>
+                        <h3 class="text-lg font-semibold text-white">Design Program</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                         <h3 class="text-lg font-semibold text-white mb-3">Design Program</h3>
                         <p class="text-sm text-gray-200 mb-4">Hands-on robotics classes that combine fun with STEM learning.
                         </p>
-                        <a href="/creative"
+                        <a href="https://timedooracademy.com/"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -1017,33 +780,13 @@
                     <img src="{{ asset('img/coding.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
                     <div
                         class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Life SkillLab</h3>
+                        <h3 class="text-lg font-semibold text-white">Creative Arts</h3>
                     </div>
                     <div
                         class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Life SkillLab</h3>
-                        <p class="text-sm text-gray-200 mb-4">Life SkillLab.</p>
-                        <a href="/skilllab"
-                            class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
-                            target="_blank" rel="noopener noreferrer">
-                            Explore →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Coding Classes -->
-                <div class="relative w-72 h-80 mx-auto rounded-xl overflow-hidden shadow-lg group cursor-pointer border-2 border-yellow-400"
-                    data-aos="fade-up" data-aos-delay="50">
-                    <img src="{{ asset('img/architec.png') }}" class="absolute inset-0 w-full h-full object-cover" alt="">
-                    <div
-                        class="relative z-10 bg-black/40 p-6 h-full flex flex-col items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                        <h3 class="text-lg font-semibold text-white">Architecture & Design</h3>
-                    </div>
-                    <div
-                        class="absolute inset-0 z-20 bg-black/70 p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                        <h3 class="text-lg font-semibold text-white mb-3">Architecture & Design</h3>
-                        <p class="text-sm text-gray-200 mb-4">Building Future Innovators and Creative Thinkers.</p>
-                        <a href="/architecture"
+                        <h3 class="text-lg font-semibold text-white mb-3">Creative Arts</h3>
+                        <p class="text-sm text-gray-200 mb-4">Creative Arts.</p>
+                        <a href="https://timedooracademy.com/"
                             class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-300 transition"
                             target="_blank" rel="noopener noreferrer">
                             Explore →
@@ -1075,8 +818,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- CTA / How It Works Section -->
     <section id="cta" class="relative py-20 bg-[url('/images/bg_hiacademy01.jpg')] bg-cover bg-center bg-no-repeat">
@@ -1230,19 +971,19 @@
                         <div class="flex gap-4 justify-center sm:justify-start">
 
                             <!-- Facebook -->
-                            <a href="#"  target="_blank"
+                            <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-facebook-f text-xl"></i>
                             </a>
 
                             <!-- Instagram -->
-                            <a href="https://www.instagram.com/hiacademyofficial/"  target="_blank"
+                            <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
 
                             <!-- YouTube -->
-                            <a href="https://www.youtube.com/@h.academyofficial"  target="_blank"
+                            <a href="#"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-youtube text-xl"></i>
                             </a>
@@ -1506,33 +1247,4 @@
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
-    {{-- method --}}
-    <script>
-        function toggleAccordiontraditional(id) {
-            const content = document.getElementById(id + '-content');
-            const icon = document.getElementById(id + '-icon');
-
-            const isOpen = content.classList.contains('max-h-[400px]');
-
-            // 🔒 Batasi hanya di dalam section "ipc-vs-traditional"
-            const accordionSection = document.getElementById('method');
-
-            accordionSection.querySelectorAll("[id$='-content']").forEach(el => {
-                el.classList.remove('max-h-[400px]', 'opacity-100');
-                el.classList.add('max-h-0', 'opacity-0');
-            });
-
-            accordionSection.querySelectorAll("[id$='-icon']").forEach(el => {
-                el.textContent = '+';
-            });
-
-            // 🔓 Buka yang diklik
-            if (!isOpen) {
-                content.classList.remove('max-h-0', 'opacity-0');
-                content.classList.add('max-h-[400px]', 'opacity-100');
-                icon.textContent = '−';
-            }
-        }
-    </script>
-
 @endsection

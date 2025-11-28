@@ -7,7 +7,7 @@
 
     {{-- Background Carousel --}}
     <div id="background-carousel" class="carousel-container">
-        <img src="{{ asset('img/english.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
+        <img src="{{ asset('img/architec.png') }}" class="carousel-slide active" alt="English Program" loading="eager">
     </div>
 
     <div class="carousel-overlay"></div>
@@ -311,15 +311,13 @@
 
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight" data-aos="fade-up"
                     data-aos-delay="100">
-                    English Program:<br>
-                    <span class="text-yellow-300">Global Communicators</span> for Tomorrow
+                    Architecture & Design:<br>
+                     <span class="text-yellow-300">Designing</span> Tomorrow's World
                 </h1>
 
                 <p class="text-base md:text-lg text-gray-300 leading-relaxed font-normal max-w-3xl ml-auto"
                     data-aos="fade-up" data-aos-delay="200">
-                    Building confident communicators for a connected world. We empower students to express themselves
-                    clearly,
-                    think critically, and connect globally through the English language.
+                    Building Future Innovators and Creative Thinkers
                 </p>
 
                 <div class="mt-10 flex gap-4 justify-end" data-aos="fade-up" data-aos-delay="300">
@@ -341,27 +339,21 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    About <span class="text-yellow-300">HiAcademy English</span>
+                    About <span class="text-yellow-300">HiAcademy Architecture Program</span>
                 </h2>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    At HiAcademy, our mission is to empower futures, one mind at a time. We believe that English proficiency
-                    is not a privilege for a select few, but a fundamental skill that unlocks global opportunities, cultural
-                    understanding, and confidence for every learner.
+                    At HiAcademy Architecture, our mission is to empower futures, one design at a time. We believe that architectural thinking is not just for future architects, but a fundamental skill that unlocks spatial intelligence, creative problem-solving, and environmental awareness for every child.
                     <br>
-                    Our English Program is designed to transform the way
-                    students perceive and engage with the language, moving them from hesitation to fluency, and from
-                    memorization to authentic mastery.
+                    Our Architecture Program is designed to transform the way students perceive and interact with their built environment, moving them from observers to creators, and from ideas to tangible structures.
                 </p>
             </div>
         </div>
         <div class="text-center pt-16 mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight mb-6">
-                Our Vision for <span class="text-yellow-300">English Education</span>
+                Our Vision for <span class="text-yellow-300">Architecture Education</span>
             </h2>
             <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                We envision a future where every HiAcademy student doesn't just speak—they connect, persuade, and
-                innovate. We don't just teach English; we nurture articulate global citizens equipped to thrive in the
-                international landscapes of tomorrow.
+                We envision a future where every HiAcademy student doesn't just see buildings—they understand spaces, imagine sustainable solutions, and create environments that enhance human experience. We don't just teach drawing; we nurture spatial thinkers equipped to shape the world of tomorrow.
             </p>
         </div>
 
@@ -371,11 +363,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl text-white font-semibold leading-tight tracking-tight mb-6">
-                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Essential Skills for Life</span>
+                    The HiAcademy Difference: <span class="text-yellow-300">Cultivating Spatial Intelligence and Design Thinking</span>
                 </h3>
                 <p class="text-lg text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    We go beyond textbooks to cultivate a deep and practical command of the English language. At HiAcademy,
-                    we focus on building:
+                    We go beyond traditional art education to cultivate a deep understanding of space, form, and function. At HiAcademy Architecture, we focus on building:
                 </p>
             </div>
 
@@ -389,12 +380,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-comments text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Confident Communication</h3>
+                            <h3 class="text-2xl font-semibold text-white">Spatial Awareness & Visualization</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We teach students to express themselves clearly and persuasively in both spoken and written
-                            English,
-                            developing the poise needed for academic, social, and professional success.
+                            We teach students to think in three dimensions, understanding scale, proportion, and spatial relationships.
                         </p>
                     </div>
                 </div>
@@ -406,12 +395,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-brain text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Critical Thinking</h3>
+                            <h3 class="text-2xl font-semibold text-white">Creative Problem-Solving</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Students learn to analyze texts, deconstruct arguments, and synthesize information from diverse
-                            sources,
-                            forming the bedrock of academic and professional excellence.
+                            Students learn to design solutions that balance aesthetics, function, and sustainability.
                         </p>
                     </div>
                 </div>
@@ -423,12 +410,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-language text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Linguistic Fluency</h3>
+                            <h3 class="text-2xl font-semibold text-white">Technical & Digital Skills</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            We build a robust vocabulary and strong command of grammar, enabling students to use language
-                            accurately,
-                            creatively, and appropriately for any context.
+                            We build proficiency with architectural tools, from hand sketching to 3D modeling software.
                         </p>
                     </div>
                 </div>
@@ -441,11 +426,10 @@
                             <div class="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center">
                                 <i class="fas fa-globe text-2xl text-blue-900"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-white">Cultural Intelligence</h3>
+                            <h3 class="text-2xl font-semibold text-white">Environmental Consciousness</h3>
                         </div>
                         <p class="text-gray-300 leading-relaxed">
-                            Language is a window to the world. We expose students to diverse cultures and perspectives,
-                            fostering empathy and a truly global mindset.
+                            Students develop an understanding of sustainable design, materials, and environmental impact.
                         </p>
                     </div>
                 </div>
@@ -460,44 +444,52 @@
                 data-aos="fade-up">
                 <div class="text-center mb-8">
                     <h3 class="text-3xl font-bold text-white mb-4">Our Proven Curriculum</h3>
-                    <p class="text-xl text-yellow-300 font-semibold">The Globally Recognized CEFR Framework</p>
+                    <p class="text-xl text-yellow-300 font-semibold">Project-Based Design Learning</p>
                 </div>
                 <p class="text-gray-200 text-lg leading-relaxed mb-6 max-w-4xl mx-auto">
-                    HiAcademy's English Program is built on the internationally benchmarked Common European Framework of
-                    Reference for Languages (CEFR). This framework ensures students don't just learn—they can use the
-                    language effectively in real-world situations.
+                    HiAcademy's Architecture Program is built on the design studio methodology used in top architecture schools worldwide, ensuring students learn through doing and develop both creative and technical skills.
                 </p>
 
-                <div class="grid md:grid-cols-3 gap-6 mt-8">
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+
+                    <!-- Left (CPA full height) -->
+                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform h-full">
                         <div class="text-yellow-400 text-4xl mb-3">
                             <i class="fas fa-bullseye"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Can-Do Learning Objective</h4>
-                        <p class="text-gray-300 text-sm">Every lesson is goal-oriented. Students know exactly what they will
-                            be able to do by the end of each module—whether it's introducing themselves, writing a formal
-                            email, or delivering a persuasive presentation.</p>
+                        <h4 class="text-white font-semibold text-xl mb-2">Concept -> Development -> Realization Progression
+                        </h4>
+                        <br>
+                        <ul class="text-gray-200 text-md space-y-2 list-disc list-outside">
+                            <li><strong>Concept</strong>: Students first learn to generate ideas through research, site analysis, and creative brainstorming.</li>
+                            <li><strong>Development</strong>: Next, they refine their concepts through sketching, model-making, and technical drawings.</li>
+                            <li><strong>Realization</strong>: Finally, students present complete projects with drawings, models, and digital presentations.</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Balanced Skill Integration</h4>
-                        <p class="text-gray-300 text-sm">Our lessons seamlessly integrate the four core language
-                            skills: Listening, Speaking, Reading, and Writing (LSRW). This ensures well-rounded development
-                            and the ability to function fully in an English-speaking environment.
-                        </p>
-                    </div>
+                    <!-- Right column (stacked Mastery + Model) -->
+                    <div class="flex flex-col gap-6 h-full">
 
-                    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform">
-                        <div class="text-yellow-400 text-4xl mb-3">
-                            <i class="fas fa-users"></i>
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Hands-On Model Making</h4>
+                            <p class="text-gray-300 text-sm">
+                                Physical model construction helps students understand spatial relationships and construction principles.
+                            </p>
                         </div>
-                        <h4 class="text-white font-semibold text-lg mb-2">Communicative Language Teaching (CLT)</h4>
-                        <p class="text-gray-300 text-sm">We prioritize interaction as both the goal and the means of
-                            learning. Through role-plays, discussions, and collaborative projects, students use English in
-                            meaningful contexts, building natural fluency.</p>
+
+                        <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform flex-1">
+                            <div class="text-yellow-400 text-4xl mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="text-white font-semibold text-lg mb-2">Digital Integration</h4>
+                            <p class="text-gray-300 text-sm">
+                                Progressive introduction to architectural software and digital presentation techniques.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -510,355 +502,155 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-yellow-400 mb-4">Our Structured Learning Pathway</h2>
                 <p class="text-gray-200 text-lg max-w-3xl mx-auto">
-                    Our program is divided into progressive streams and levels, each designed to meet the developmental,
-                    academic, and professional needs of every learner.
+                    Our program is divided into progressive levels, each designed to meet the developmental and creative needs of young architects.
                 </p>
             </div>
 
-            {{-- Very Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-pink-400">
+            <div class="grid md:grid-cols-2 gap-8">
+                {{-- Level 1: Math Explorer --}}
+                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-green-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-baby text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-compass text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Very Young Learners English</h3>
-                            <p class="text-pink-200">Ages 6 | Pre-A1</p>
+                            <h3 class="text-3xl font-bold text-white">Young Architects</h3>
+                            <p class="text-green-200 text-lg">Level 1 • Ages 7-9</p>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Sparking a love for English through play and discovery.<br>
-                        <strong>Description:</strong> Our littlest learners are immersed in English through songs, stories,
-                        games, and hands-on
-                        activities.
-                        Building foundational vocabulary, phonics awareness, and confidence in a joyful environment.
-                    </p>
+
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Discovering space and form through play and exploration.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Young builders embark on their architectural journey through hands-on activities with blocks, LEGO, and simple model-making. They learn basic spatial concepts, explore different building types, and develop an understanding of scale and proportion through playful construction.</p>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Basic shapes & forms, understanding scale, simple structures, color & texture in architecture.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-8  rounded-2xl border-2 border-blue-400">
-
-                    {{-- Header --}}
+                {{-- Level 2: Operation Heroes --}}
+                <div class="bg-gradient-to-br from-yellow-500/20 to-emerald-500/20 p-8 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-child text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Young Learners English</h3>
-                            <p class="text-blue-200">Ages 6-12</p>
+                            <h3 class="text-3xl font-bold text-white">Design Explorers</h3>
+                            <p class="text-yellow-200 text-lg">Level 2 • Ages 10-12</p>
                         </div>
                     </div>
 
-                    {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-seedling text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Brave Starter <span class="text-yellow-200">(A1 | Grade 1–2)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Building basic communication skills and literacy.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students embark on their English adventure, learning to
-                                talk about themselves, their family, and their world while developing early reading
-                                and writing skills.
-                            </p>
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Mastering fundamental design principles and technical skills..</p>
                         </div>
 
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-running text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Super Movers <span class="text-green-200">(A2 | Grade 3–4)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Gaining independence in everyday communication.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students expand their ability to describe experiences
-                                and handle short conversations. They write simple paragraphs and understand clear,
-                                familiar texts.
-                            </p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Students become design explorers, learning architectural drawing techniques, perspective drawing, and basic model-making skills. They explore different architectural styles, understand structural principles, and begin simple digital modeling.</p>
                         </div>
 
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-red-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-paper-plane text-black text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">
-                                    Fearless Flyers <span class="text-red-200">(B1 | Grade 5–6)</span>
-                                </h4>
-                            </div>
-                            <p class="text-blue-100 mt-2">
-                                <strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-blue-100 mt-1">
-                                <strong>Description:</strong> Students handle real-life travel situations, express
-                                opinions, create simple essays, and understand the main ideas from more complex texts.
-                            </p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Architectural drawing, perspective, basic model-making, introduction to architectural styles, simple structures.</p>
                         </div>
-
                     </div>
                 </div>
-            </div>
 
-
-            {{-- Teenagers --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div class="bg-gradient-to-r from-red-500/20 to-purple-500/20 p-8 rounded-2xl border-2 border-red-400">
-
-                    {{-- Header --}}
+                {{-- Level 3: Challenge Champions --}}
+                <div class="bg-gradient-to-br from-red-500/20 to-amber-500/20 p-8 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user-graduate text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-red-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-crown text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Teenagers</h3>
-                            <p class="text-red-200">Ages 12+</p>
+                            <h3 class="text-3xl font-bold text-white">Urban Innovators</h3>
+                            <p class="text-red-200 text-lg">Level 3 • Ages 13-15</p>
                         </div>
                     </div>
 
-                    {{-- Intro Text --}}
-                    <p class="text-red-100 leading-relaxed mb-8">
-                        This comprehensive pathway is designed for the evolving minds of teenagers, taking them from
-                        foundational
-                        communication to advanced, nuanced language use. Our curriculum not only builds grammatical accuracy
-                        and
-                        vocabulary but also sharpens critical thinking and cultural intelligence, preparing students for
-                        academic
-                        excellence and global citizenship.
-                    </p>
-
-                    {{-- Sub Cards --}}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-                        {{-- A1 Seeker --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-blue-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-search text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Seeker <span class="text-blue-200">(A1)</span>
-                                </h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Building a foundation for everyday
-                                communication.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to understand
-                                and use familiar, everyday expressions and very basic phrases aimed at satisfying concrete
-                                needs. They can introduce themselves and others, and ask and answer simple questions about
-                                personal details.</p>
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Tackling complex design challenges and sustainable solutions.</p>
                         </div>
 
-                        {{-- A2 Explorer --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-green-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-green-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-compass text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Explorer <span
-                                        class="text-green-200">(A2)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Confidence in routine situations.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to communicate
-                                in straightforward, routine tasks. They can describe aspects of their background and
-                                immediate environment, and write short, simple notes and messages.</p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">This is where our students become urban innovators. They learn to design complex buildings, understand urban planning concepts, and incorporate sustainable design principles. The curriculum covers advanced modeling techniques, digital presentation skills, and real-world design challenges.</p>
                         </div>
 
-                        {{-- B1 Adventurer --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-300 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-hiking text-blue-900 text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Adventurer <span
-                                        class="text-yellow-200">(B1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Developing fluency and expressing ideas.
-                            </p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students learn to handle most
-                                situations while travelling, produce simple connected text on familiar topics, describe
-                                experiences and events, and briefly give reasons and explanations for opinions and plans.
-                            </p>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Sustainable design, urban planning, advanced 3D modeling, structural systems, environmental considerations.</p>
                         </div>
-
-                        {{-- B1+ Voyager --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-yellow-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-rocket text-blue-900 text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Voyager <span
-                                        class="text-yellow-200">(B1+)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Bridging intermediate proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students solidify
-                                intermediate skills and push toward greater independence. They can understand the main ideas
-                                of complex text and interact with a degree of fluency and spontaneity.</p>
-                        </div>
-
-                        {{-- B2 Connector --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-orange-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-network-wired text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Connector <span
-                                        class="text-orange-200">(B2)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Effective social & professional
-                                interaction.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can interact with
-                                fluency and spontaneity. They understand the main ideas of complex text and can produce
-                                clear, detailed text on a wide range of subjects.</p>
-                        </div>
-
-                        {{-- B2+ Elit --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-red-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-red-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-fire text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Elit <span class="text-red-200">(B2+)</span>
-                                </h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Mastering nuance & persuasion.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students refine their skills
-                                to near-advanced proficiency. They learn to understand implicit meaning, use idiomatic
-                                expressions, and construct well-organized, detailed texts and arguments.</p>
-                        </div>
-
-                        {{-- C1 Legend --}}
-                        <div
-                            class="bg-white/10 p-6 rounded-2xl border-2 border-purple-400 hover:scale-105 transition-transform text-left">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-crown text-white text-lg"></i>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white">Legend <span
-                                        class="text-purple-200">(C1)</span></h4>
-                            </div>
-                            <p class="text-red-100 text-sm"><strong>Focus:</strong> Advanced proficiency.</p>
-                            <p class="text-red-100 text-sm mt-1"><strong>Description:</strong> Students can understand a
-                                wide range of demanding texts, express ideas fluently, and use language flexibly for social,
-                                academic and professional purposes.</p>
-                        </div>
-
                     </div>
-
                 </div>
-            </div>
 
-
-            {{-- Adults & Young Adults --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-purple-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-purple-400">
+                {{-- Level 4: Math Mavericks --}}
+                <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-8 rounded-2xl border-2 border-blue-400 hover:scale-105 transition-transform"
+                    data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-briefcase text-3xl text-white"></i>
+                        <div class="w-20 h-20 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-flag text-4xl text-white"></i>
                         </div>
                         <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Adults and Young Adults</h3>
-                            <p class="text-purple-200">Skillful Foundation, Level 1, Level 2, Level 3</p>
+                            <h3 class="text-3xl font-bold text-white">Future Architects</h3>
+                            <p class="text-blue-200 text-lg">Level 4 • Ages 16+</p>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
 
-            {{-- Exam Preparation --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-yellow-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-yellow-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-certificate text-3xl text-white"></i>
+                    <div class="text-left space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Focus:</p>
+                            <p class="text-gray-200">Portfolio development and mastering professional architectural practice.</p>
                         </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Exam Preparation</h3>
-                            <p class="text-yellow-200">Ready for IELTS</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
-                </div>
-            </div>
 
-            {{-- Young Learners --}}
-            <div class="mb-12" data-aos="fade-up">
-                <div
-                    class="bg-gradient-to-r from-green-500/20 to-purple-500/20 p-8 hover:scale-105 transition-transform rounded-2xl border-2 border-green-400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-handshake text-3xl text-white"></i>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Description:</p>
+                            <p class="text-gray-200 text-sm">Our future architects are ready to tackle professional-level projects and build impressive portfolios. This level focuses on developing individual design philosophy, mastering advanced software, and understanding architectural theory, providing a strong foundation for university architecture programs.</p>
                         </div>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white">Get Ready for International Business</h3>
+
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <p class="text-yellow-300 font-semibold mb-2">Key Concepts:</p>
+                            <p class="text-gray-200 text-sm">Portfolio development, advanced digital tools, architectural theory, professional practice, specialized design projects.</p>
                         </div>
                     </div>
-                    <p class="text-gray-200 text-left">
-                        <strong>Focus:</strong> Practical English for career advancement and global connectivity.<br>
-                        <strong>Description:</strong> Designed for the busy professional or university student, our adult
-                        curriculum focuses on real-world, practical English. From participating in meetings and writing
-                        reports to socializing and networking, we equip learners with the language and soft skills needed to
-                        excel in a globalized workplace.
-                    </p>
                 </div>
+
+
             </div>
         </div>
     </section>
-
     {{-- Why Choose Us Section --}}
     <section class="py-24 bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Choose HiAcademy English?</h2>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-4">Why Students and Parents Choose HiAcademy Architecture?</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
                 <div class="hover:scale-105 transition-transform">
                     <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
                         data-aos="fade-up" data-aos-delay="0">
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-chalkboard-teacher text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Expert Instructors</h4>
-                        <p class="text-gray-300 text-sm text-center">Passionate educators trained in CEFR methodology and
-                            communicative teaching approaches.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Professional Architect Instructors</h4>
+                        <p class="text-gray-300 text-sm text-center">Our educators are practicing architects and designers who bring real-world experience and passion for teaching.</p>
                     </div>
                 </div>
 
@@ -868,9 +660,8 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-users text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Small Class Sizes</h4>
-                        <p class="text-gray-300 text-sm text-center">Personalized attention for every student with ample
-                            speaking practice and individual feedback.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Studio-Based Learning</h4>
+                        <p class="text-gray-300 text-sm text-center">Students work in a creative studio environment that mimics real architectural practice.</p>
                     </div>
                 </div>
 
@@ -880,9 +671,19 @@
                         <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-trophy text-2xl text-blue-900"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Proven Results</h4>
-                        <p class="text-gray-300 text-sm text-center">Significant improvements in grades, test scores, and
-                            real-world confidence using English.</p>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Portfolio Development</h4>
+                        <p class="text-gray-300 text-sm text-center">Every student builds an impressive portfolio of work for school applications and future studies.</p>
+                    </div>
+                </div>
+
+                <div class="hover:scale-105 transition-transform">
+                    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-yellow-400/30 hover:scale-105 transition-transform"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-blue-900"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3 text-center">Hands-On Projects</h4>
+                        <p class="text-gray-300 text-sm text-center">From sketching to 3D printing, students experience the full spectrum of architectural creation.</p>
                     </div>
                 </div>
 
@@ -893,8 +694,7 @@
                             <i class="fas fa-rocket text-2xl text-blue-900"></i>
                         </div>
                         <h4 class="text-xl font-semibold text-white mb-3 text-center">Future-Ready Skills</h4>
-                        <p class="text-gray-300 text-sm text-center">Communication and critical thinking skills that
-                            universities and employers seek in the 21st century.</p>
+                        <p class="text-gray-300 text-sm text-center">The design thinking, spatial intelligence, and technical skills developed are valuable across multiple disciplines and careers.</p>
                     </div>
                 </div>
             </div>
@@ -907,18 +707,16 @@
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Unlock Your <span class="text-yellow-300">English Potential?</span>
+                Ready to Build Your <span class="text-yellow-300">Child's Architectural Future?</span>
             </h2>
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                Find the perfect program for you or your child and transform English from a subject into a superpower.
+                Find the perfect level for your child and transform their curiosity about buildings into a passion for creating spaces.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border-2 border-yellow-400 max-w-2xl mx-auto mb-8">
-                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Level Assessment!</h3>
+                <h3 class="text-2xl font-bold text-yellow-300 mb-4">Schedule a Free Design Assessment & Studio Tour!</h3>
                 <p class="text-gray-200 mb-6">
-                    Our diagnostic test will accurately place you or your child in the right level and identify any learning
-                    gaps.
-                    Let us create a personalized learning pathway to unlock confidence and success in English!
+                    Our design assessment will help place your child in the right level and identify their creative strengths. Let us create a personalized learning pathway to unlock their potential in architecture and design!
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('booktrial') }}"
