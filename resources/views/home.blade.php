@@ -1230,7 +1230,7 @@
                         <div class="flex gap-4 justify-center sm:justify-start">
 
                             <!-- Facebook -->
-                            <a href="#"  target="_blank"
+                            <a href="https://www.facebook.com/share/1BZY6i1Wqs/"  target="_blank"
                                 class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 hover:scale-110 transition transform duration-300">
                                 <i class="fab fa-facebook-f text-xl"></i>
                             </a>
@@ -1250,11 +1250,11 @@
                         </div>
 
                         <!-- Contact Button -->
-                        <a href="#"
+                        <a href="https://wa.me/6281334350127" target="_blank"
                             class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition duration-300">
                             <i class="fa-solid fa-message"></i> Whatsapp Us
                         </a>
-                        <a href="#"
+                        <a href="mailto:info@hiacademy.id" target="_blank"
                             class="inline-flex items-center gap-2 mt-6 bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-300 hover:scale-105 transition duration-300">
                             <i class="fa-solid fa-message"></i> Email Us
                         </a>
@@ -1323,7 +1323,7 @@
                             <li><a href="{{ route('loginindex') }}"
                                     class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
-                            <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
+                            <li><a href="https://wa.me/6281334350127" target="_blank" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-phone"></i> Contact Us</a></li>
                         </ul>
                     </div>
