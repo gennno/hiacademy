@@ -80,7 +80,7 @@
         <div class="bg-[#FBFBFB] border-4 border-transparent rounded-3xl shadow-xl p-6">
 
             <!-- HEADER -->
-            <h3 class="text-3xl font-bold text-yellow-500 mb-6">📖 My Programs</h3>
+            <h3 class="text-3xl font-bold text-yellow-500 mb-6">📚 My Programs</h3>
 
             <!-- GRID ITEMS INSIDE -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
