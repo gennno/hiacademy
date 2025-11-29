@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Learning Adventure 🚀</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
@@ -13,227 +12,54 @@
             font-family: 'Fredoka', sans-serif;
         }
         
-        body {
-            background: linear-gradient(135deg, #f2d546 0%, #f2d546 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            width: 260px;
-            background: linear-gradient(180deg, #000000 0%, #000000 100%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar.closed {
-            transform: translateX(-100%);
-        }
-        
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            z-index: 999;
-        }
-        
-        .sidebar-overlay.active {
-            display: block;
-        }
-        
-        .main-content {
-            margin-left: 260px;
-            transition: margin-left 0.3s ease;
-            padding: 20px;
-        }
-        
-        .main-content.expanded {
-            margin-left: 0;
-        }
-        
-        .topbar {
-            background: white;
-            border-radius: 20px;
-            padding: 15px 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
-        }
-        
-        .program-card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: 3px solid transparent;
-        }
-        
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-            border-color: #4F46E5;
-        }
-        
-        .sidebar-item {
-            color: black;
-            padding: 12px 20px;
-            margin: 8px 15px;
-            border-radius: 12px;
-            transition: all 0.3s;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .sidebar-item:hover, .sidebar-item.active {
-            background: rgba(255,255,255,0.2);
-            transform: translateX(5px);
-        }
-        
-        .progress-bar {
-            height: 10px;
-            border-radius: 10px;
-            background: #E0E7FF;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #4F46E5, #7C3AED);
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-        
-        .badge-item {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            background: linear-gradient(135deg, #FCD34D, #F59E0B);
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .badge-item:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        .stat-card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 280px;
-                transform: translateX(-100%);
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .emoji-bounce {
             display: inline-block;
             animation: bounce 2s infinite;
         }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .profile-dropdown {
-            position: relative;
-        }
-        
-        .dropdown-menu-custom {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            padding: 10px;
-            min-width: 200px;
-            display: none;
-            z-index: 1001;
-        }
-        
-        .dropdown-menu-custom.show {
-            display: block;
-        }
-        
-        .dropdown-item-custom {
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        
-        .dropdown-item-custom:hover {
-            background: #F3F4F6;
-        }
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-yellow-400 to-yellow-400 min-h-screen overflow-x-hidden">
     <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[999] hidden"></div>
     
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
+    <div id="sidebar" class="fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-black to-black transition-transform duration-300 z-[1000] shadow-2xl -translate-x-full lg:translate-x-0">
         <div class="p-4 text-center border-b border-white border-opacity-20">
             <h2 class="text-white text-2xl font-bold mb-1">🎓 LearnHub</h2>
             <p class="text-white text-opacity-80 text-sm">Kids Edition</p>
         </div>
         
         <div class="mt-4">
-            <div class="sidebar-item active">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 bg-white bg-opacity-20">
                 <span class="text-xl">🏠</span>
                 <span>Dashboard</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">📚</span>
                 <span>My Courses</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">📝</span>
                 <span>Assignments</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">🏆</span>
                 <span>Achievements</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">📅</span>
                 <span>Calendar</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">💬</span>
                 <span>Messages</span>
             </div>
-            <div class="sidebar-item">
+            <div class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
                 <span class="text-xl">⚙️</span>
                 <span>Settings</span>
             </div>
@@ -242,7 +68,7 @@
         <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
             <div class="bg-white bg-opacity-20 rounded-lg p-3">
                 <p class="text-white text-sm">Need help? 🤔</p>
-                <button class="bg-white text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold mt-2 hover:bg-opacity-90">
+                <button class="bg-white text-purple-600 px-4 py-2 rounded-lg text-sm font-semibold mt-2 hover:bg-opacity-90 transition-opacity">
                     Ask Teacher
                 </button>
             </div>
@@ -250,47 +76,49 @@
     </div>
     
     <!-- Main Content -->
-    <div class="main-content" id="mainContent">
+    <div id="mainContent" class="lg:ml-64 transition-all duration-300 p-5">
         <!-- Topbar -->
-        <div class="topbar d-flex justify-content-between  align-items-center">
-            <div class="d-flex align-items-center  gap-3">
-                <button class="btn btn-light rounded-circle  p-2" id="toggleSidebar" style="width: 45px; height: 45px;">
-                    <span style="font-size: 20px;">☰</span>
-                </button>
-                <div>
-                    <h4 class="mb-0 fw-bold" style="color: #4F46E5;">Welcome back, Alex! <span class="emoji-bounce">👋</span></h4>
-                    <p class="mb-0 text-muted small">Ready to learn something new today?</p>
+        <div class="bg-white rounded-3xl border border-white shadow-lg p-4 mb-6">
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div class="flex items-center gap-3">
+                    <button id="toggleSidebar" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 w-11 h-11 flex items-center justify-center transition-colors">
+                        <span class="text-xl">☰</span>
+                    </button>
+                    <div>
+                        <h4 class="text-xl font-bold text-indigo-600 mb-0">Welcome back, Alex! <span class="emoji-bounce">👋</span></h4>
+                        <p class="text-sm text-gray-500 mb-0">Ready to learn something new today?</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-light rounded-circle p-2 position-relative" style="width: 45px; height: 45px;">
-                    <span style="font-size: 20px;">🔔</span>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">3</span>
-                </button>
                 
-                <div class="profile-dropdown">
-                    <button class="btn btn-light rounded-pill d-flex align-items-center gap-2 px-3" id="profileBtn">
-                        <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #4F46E5, #7C3AED); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                            A
-                        </div>
-                        <span class="fw-semibold d-none d-md-inline">Alex</span>
-                        <span style="font-size: 12px;">▼</span>
+                <div class="flex items-center gap-3">
+                    <button class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 w-11 h-11 flex items-center justify-center relative transition-colors">
+                        <span class="text-xl">🔔</span>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
                     </button>
                     
-                    <div class="dropdown-menu-custom" id="profileDropdown">
-                        <div class="dropdown-item-custom">
-                            <span class="me-2">👤</span> My Profile
-                        </div>
-                        <div class="dropdown-item-custom">
-                            <span class="me-2">⚙️</span> Settings
-                        </div>
-                        <div class="dropdown-item-custom">
-                            <span class="me-2">❓</span> Help
-                        </div>
-                        <hr class="my-2">
-                        <div class="dropdown-item-custom text-danger">
-                            <span class="me-2">🚪</span> Logout
+                    <div class="relative">
+                        <button id="profileBtn" class="bg-gray-100 hover:bg-gray-200 rounded-full flex items-center gap-2 px-3 py-2 transition-colors">
+                            <div class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                                A
+                            </div>
+                            <span class="font-semibold hidden md:inline">Alex</span>
+                            <span class="text-xs">▼</span>
+                        </button>
+                        
+                        <div id="profileDropdown" class="hidden absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl p-2 min-w-[200px] z-[1001]">
+                            <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors">
+                                <span class="mr-2">👤</span> My Profile
+                            </div>
+                            <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors">
+                                <span class="mr-2">⚙️</span> Settings
+                            </div>
+                            <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors">
+                                <span class="mr-2">❓</span> Help
+                            </div>
+                            <hr class="my-2 border-gray-200">
+                            <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500 transition-colors">
+                                <span class="mr-2">🚪</span> Logout
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -298,215 +126,193 @@
         </div>
         
         <!-- Stats Cards -->
-        <div class="row g-3 mb-4">
-            <div class="col-md-3  col-sm-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span style="font-size: 32px;">📚</span>
-                        <span class="badge bg-primary rounded-pill">Active</span>
-                    </div>
-                    <h3 class="fw-bold mb-0" style="color: #4F46E5;">5</h3>
-                    <p class="text-muted mb-0 small">Enrolled Courses</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+            <div class="bg-white rounded-2xl p-5 shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-3xl">📚</span>
+                    <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
                 </div>
+                <h3 class="text-3xl font-bold text-indigo-600 mb-0">5</h3>
+                <p class="text-sm text-gray-500 mb-0">Enrolled Courses</p>
             </div>
             
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span style="font-size: 32px;">✅</span>
-                        <span class="badge bg-success rounded-pill">Done</span>
-                    </div>
-                    <h3 class="fw-bold mb-0" style="color: #10B981;">12</h3>
-                    <p class="text-muted mb-0 small">Completed Tasks</p>
+            <div class="bg-white rounded-2xl p-5 shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-3xl">✅</span>
+                    <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full">Done</span>
                 </div>
+                <h3 class="text-3xl font-bold text-green-600 mb-0">12</h3>
+                <p class="text-sm text-gray-500 mb-0">Completed Tasks</p>
             </div>
             
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span style="font-size: 32px;">⭐</span>
-                        <span class="badge bg-warning rounded-pill">Earned</span>
-                    </div>
-                    <h3 class="fw-bold mb-0" style="color: #F59E0B;">850</h3>
-                    <p class="text-muted mb-0 small">Total Points</p>
+            <div class="bg-white rounded-2xl p-5 shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-3xl">⭐</span>
+                    <span class="bg-yellow-500 text-white text-xs px-3 py-1 rounded-full">Earned</span>
                 </div>
+                <h3 class="text-3xl font-bold text-yellow-600 mb-0">850</h3>
+                <p class="text-sm text-gray-500 mb-0">Total Points</p>
             </div>
             
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span style="font-size: 32px;">🔥</span>
-                        <span class="badge bg-danger rounded-pill">Streak</span>
-                    </div>
-                    <h3 class="fw-bold mb-0" style="color: #EF4444;">7</h3>
-                    <p class="text-muted mb-0 small">Days in a Row</p>
+            <div class="bg-white rounded-2xl p-5 shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-3xl">🔥</span>
+                    <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full">Streak</span>
                 </div>
+                <h3 class="text-3xl font-bold text-red-600 mb-0">7</h3>
+                <p class="text-sm text-gray-500 mb-0">Days in a Row</p>
             </div>
         </div>
         
         <!-- My Programs Section -->
-        <div class="mb-4">
-            <h3 class="fw-bold mb-3" style="color: white;">📖 My Programs</h3>
-            <div class="row g-3">
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10B981, #059669); border-color: #4F46E5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                                🧮
-                            </div>
-                            <span class="badge bg-success">Active</span>
+        <div class="mb-6">
+            <h3 class="text-2xl font-bold text-white mb-4">📖 My Programs</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white rounded-3xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-600">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-2xl">
+                            🧮
                         </div>
-                        <h5 class="fw-bold mb-2">Math Adventure</h5>
-                        <p class="text-muted small mb-3">Learn numbers, shapes, and problem solving!</p>
-                        <div class="progress-bar mb-2">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">75% Complete</span>
-                            <span class="small fw-semibold" style="color: #10B981;">15/20 Lessons</span>
-                        </div>
+                        <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
+                    </div>
+                    <h5 class="text-lg font-bold mb-2">Math Adventure</h5>
+                    <p class="text-sm text-gray-500 mb-3">Learn numbers, shapes, and problem solving!</p>
+                    <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden mb-2">
+                        <div class="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-500" style="width: 75%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">75% Complete</span>
+                        <span class="text-sm font-semibold text-green-600">15/20 Lessons</span>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #3B82F6, #2563EB); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                                🔬
-                            </div>
-                            <span class="badge bg-primary">Active</span>
+                <div class="bg-white rounded-3xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-600">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-2xl">
+                            🔬
                         </div>
-                        <h5 class="fw-bold mb-2">Science Explorers</h5>
-                        <p class="text-muted small mb-3">Discover the wonders of science experiments!</p>
-                        <div class="progress-bar mb-2">
-                            <div class="progress-fill" style="width: 60%"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">60% Complete</span>
-                            <span class="small fw-semibold" style="color: #3B82F6;">9/15 Lessons</span>
-                        </div>
+                        <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
+                    </div>
+                    <h5 class="text-lg font-bold mb-2">Science Explorers</h5>
+                    <p class="text-sm text-gray-500 mb-3">Discover the wonders of science experiments!</p>
+                    <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden mb-2">
+                        <div class="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-500" style="width: 60%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">60% Complete</span>
+                        <span class="text-sm font-semibold text-blue-600">9/15 Lessons</span>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #F59E0B, #D97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                                📖
-                            </div>
-                            <span class="badge bg-warning">Active</span>
+                <div class="bg-white rounded-3xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-600">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl flex items-center justify-center text-2xl">
+                            📖
                         </div>
-                        <h5 class="fw-bold mb-2">Reading Rockets</h5>
-                        <p class="text-muted small mb-3">Improve your reading and vocabulary skills!</p>
-                        <div class="progress-bar mb-2">
-                            <div class="progress-fill" style="width: 40%"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">40% Complete</span>
-                            <span class="small fw-semibold" style="color: #F59E0B;">8/20 Lessons</span>
-                        </div>
+                        <span class="bg-yellow-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
+                    </div>
+                    <h5 class="text-lg font-bold mb-2">Reading Rockets</h5>
+                    <p class="text-sm text-gray-500 mb-3">Improve your reading and vocabulary skills!</p>
+                    <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden mb-2">
+                        <div class="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-500" style="width: 40%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">40% Complete</span>
+                        <span class="text-sm font-semibold text-yellow-600">8/20 Lessons</span>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                                🎨
-                            </div>
-                            <span class="badge bg-info">Active</span>
+                <div class="bg-white rounded-3xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-600">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-2xl">
+                            🎨
                         </div>
-                        <h5 class="fw-bold mb-2">Creative Arts</h5>
-                        <p class="text-muted small mb-3">Express yourself through art and creativity!</p>
-                        <div class="progress-bar mb-2">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">85% Complete</span>
-                            <span class="small fw-semibold" style="color: #8B5CF6;">17/20 Lessons</span>
-                        </div>
+                        <span class="bg-cyan-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
+                    </div>
+                    <h5 class="text-lg font-bold mb-2">Creative Arts</h5>
+                    <p class="text-sm text-gray-500 mb-3">Express yourself through art and creativity!</p>
+                    <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden mb-2">
+                        <div class="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-500" style="width: 85%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">85% Complete</span>
+                        <span class="text-sm font-semibold text-purple-600">17/20 Lessons</span>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #EC4899, #DB2777); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
-                                🎵
-                            </div>
-                            <span class="badge bg-danger">Active</span>
+                <div class="bg-white rounded-3xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-600">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl flex items-center justify-center text-2xl">
+                            🎵
                         </div>
-                        <h5 class="fw-bold mb-2">Music Makers</h5>
-                        <p class="text-muted small mb-3">Learn rhythm, melody, and instruments!</p>
-                        <div class="progress-bar mb-2">
-                            <div class="progress-fill" style="width: 30%"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">30% Complete</span>
-                            <span class="small fw-semibold" style="color: #EC4899;">3/10 Lessons</span>
-                        </div>
+                        <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
+                    </div>
+                    <h5 class="text-lg font-bold mb-2">Music Makers</h5>
+                    <p class="text-sm text-gray-500 mb-3">Learn rhythm, melody, and instruments!</p>
+                    <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden mb-2">
+                        <div class="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-500" style="width: 30%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">30% Complete</span>
+                        <span class="text-sm font-semibold text-pink-600">3/10 Lessons</span>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Bottom Section -->
-        <div class="row g-3">
-            <div class="col-lg-8">
-                <div class="stat-card">
-                    <h5 class="fw-bold mb-3">📅 Upcoming Assignments</h5>
-                    <div class="d-flex align-items-center justify-content-between p-3 mb-2" style="background: #F3F4F6; border-radius: 12px;">
-                        <div class="d-flex align-items-center gap-3">
-                            <span style="font-size: 24px;">📝</span>
-                            <div>
-                                <p class="mb-0 fw-semibold">Math Quiz - Chapter 5</p>
-                                <p class="mb-0 text-muted small">Due: Tomorrow</p>
-                            </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2 bg-white rounded-2xl p-5 shadow-md">
+                <h5 class="text-lg font-bold mb-4">📅 Upcoming Assignments</h5>
+                
+                <div class="flex items-center justify-between p-3 mb-3 bg-gray-100 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📝</span>
+                        <div>
+                            <p class="font-semibold mb-0">Math Quiz - Chapter 5</p>
+                            <p class="text-sm text-gray-500 mb-0">Due: Tomorrow</p>
                         </div>
-                        <button class="btn btn-sm btn-primary rounded-pill">Start</button>
                     </div>
-                    
-                    <div class="d-flex align-items-center justify-content-between p-3 mb-2" style="background: #F3F4F6; border-radius: 12px;">
-                        <div class="d-flex align-items-center gap-3">
-                            <span style="font-size: 24px;">🔬</span>
-                            <div>
-                                <p class="mb-0 fw-semibold">Science Project</p>
-                                <p class="mb-0 text-muted small">Due: In 3 days</p>
-                            </div>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-full transition-colors">Start</button>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 mb-3 bg-gray-100 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🔬</span>
+                        <div>
+                            <p class="font-semibold mb-0">Science Project</p>
+                            <p class="text-sm text-gray-500 mb-0">Due: In 3 days</p>
                         </div>
-                        <button class="btn btn-sm btn-outline-primary rounded-pill">View</button>
                     </div>
-                    
-                    <div class="d-flex align-items-center justify-content-between p-3" style="background: #F3F4F6; border-radius: 12px;">
-                        <div class="d-flex align-items-center gap-3">
-                            <span style="font-size: 24px;">📖</span>
-                            <div>
-                                <p class="mb-0 fw-semibold">Reading Report</p>
-                                <p class="mb-0 text-muted small">Due: Next week</p>
-                            </div>
+                    <button class="bg-white border-2 border-blue-500 text-blue-500 hover:bg-blue-50 text-sm px-4 py-2 rounded-full transition-colors">View</button>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-100 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📖</span>
+                        <div>
+                            <p class="font-semibold mb-0">Reading Report</p>
+                            <p class="text-sm text-gray-500 mb-0">Due: Next week</p>
                         </div>
-                        <button class="btn btn-sm btn-outline-primary rounded-pill">View</button>
                     </div>
+                    <button class="bg-white border-2 border-blue-500 text-blue-500 hover:bg-blue-50 text-sm px-4 py-2 rounded-full transition-colors">View</button>
                 </div>
             </div>
             
-            <div class="col-lg-4">
-                <div class="stat-card">
-                    <h5 class="fw-bold mb-3">🏆 My Badges</h5>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center">
-                        <div class="badge-item" title="Math Master">🧮</div>
-                        <div class="badge-item" title="Science Star">⭐</div>
-                        <div class="badge-item" title="Reading Pro">📚</div>
-                        <div class="badge-item" title="Creative Mind">🎨</div>
-                        <div class="badge-item" title="Perfect Week">🔥</div>
-                        <div class="badge-item" title="Quick Learner">⚡</div>
-                    </div>
+            <div class="bg-white rounded-2xl p-5 shadow-md">
+                <h5 class="text-lg font-bold mb-4">🏆 My Badges</h5>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Math Master">🧮</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Science Star">⭐</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Reading Pro">📚</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Creative Mind">🎨</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Perfect Week">🔥</div>
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer" title="Quick Learner">⚡</div>
                 </div>
             </div>
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('mainContent');
@@ -517,31 +323,32 @@
         
         // Toggle Sidebar
         toggleBtn.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                sidebar.classList.toggle('open');
-                overlay.classList.toggle('active');
+            if (window.innerWidth < 1024) {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
             } else {
-                sidebar.classList.toggle('closed');
-                mainContent.classList.toggle('expanded');
+                sidebar.classList.toggle('-translate-x-full');
+                mainContent.classList.toggle('lg:ml-64');
+                mainContent.classList.toggle('lg:ml-0');
             }
         });
         
         // Close sidebar on overlay click
         overlay.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('active');
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
         });
         
         // Profile dropdown toggle
         profileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            profileDropdown.classList.toggle('show');
+            profileDropdown.classList.toggle('hidden');
         });
         
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
-                profileDropdown.classList.remove('show');
+                profileDropdown.classList.add('hidden');
             }
         });
         
@@ -549,21 +356,26 @@
         const sidebarItems = document.querySelectorAll('.sidebar-item');
         sidebarItems.forEach(item => {
             item.addEventListener('click', () => {
-                sidebarItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
+                sidebarItems.forEach(i => {
+                    i.classList.remove('bg-white', 'bg-opacity-20');
+                });
+                item.classList.add('bg-white', 'bg-opacity-20');
                 
                 // Close sidebar on mobile after selection
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('open');
-                    overlay.classList.remove('active');
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                    overlay.classList.add('hidden');
                 }
             });
         });
         
         // Handle window resize
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                overlay.classList.remove('active');
+            if (window.innerWidth >= 1024) {
+                overlay.classList.add('hidden');
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
             }
         });
     </script>
