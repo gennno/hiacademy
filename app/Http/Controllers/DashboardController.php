@@ -11,9 +11,9 @@ class DashboardController extends Controller
         return view('lms.dashboard');
     }
 
-        public function program()
+        public function detailprogram()
     {
-        return view('lms.program-detail');
+        return view('lms.detail-program');
     }
     
 }

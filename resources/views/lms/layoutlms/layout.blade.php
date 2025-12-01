@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Learning Adventure 🚀</title>
+  <title>@yield('title', 'h!academy')</title>  {{-- Favicon --}}
+  <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
@@ -38,33 +39,41 @@
 
   <!-- Sidebar -->
   <div id="sidebar"
-    class="fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-black to-black transition-transform duration-300 z-[1000] shadow-2xl -translate-x-full">
+    class="fixed left-0 top-0 h-screen w-64 bg-[#FBF9D1]  transition-transform duration-300 z-[1000] shadow-2xl -translate-x-full">
 
     <div class="p-4 text-center border-b border-white border-opacity-20">
-      <h2 class="text-white text-2xl font-bold mb-1">🎓 H!Academy</h2>
-      <p class="text-white text-opacity-80 text-sm">Student Dashboard</p>
-    </div>
+
+  <!-- LOGO -->
+  <img src="{{ asset('img/logogelap.png') }}"
+       alt="HiAcademy Logo"
+       class="mx-auto w-44 h-auto mb-2">
+
+</div>
 
     <div class="mt-4">
+      <!-- Dashboard -->
+<a href="{{ route('dashboard') }}"
+  class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  <span class="text-2xl">🏠</span>
+  <span class="text-xl">Dashboard</span>
+    </a>
+      <!-- My Courses -->
+<a href="{{ route('detailprogram') }}"
+  class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('detail-program') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  <span class="text-2xl">📚</span>
+  <span class="text-xl">My Program</span>
+  </a>
       <div
-        class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 bg-white bg-opacity-20">
-        <span class="text-xl">🏠</span>
-        <span>Dashboard</span>
+        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        <span class="text-2xl">🏆</span>
+        <span class="text-xl">Achievements</span>
       </div>
       <div
-        class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-xl">📚</span>
-        <span>My Courses</span>
-      </div>
-      <div
-        class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-xl">🏆</span>
-        <span>Achievements</span>
-      </div>
-      <div
-        class="sidebar-item text-white px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-white hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-xl">⚙️</span>
-        <span>Settings</span>
+        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        <span class="text-2xl">⚙️</span>
+        <span class="text-xl">Settings</span>
       </div>
     </div>
 
@@ -74,10 +83,10 @@
     </div>
 
     <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
-      <div class="bg-white bg-opacity-20 rounded-lg p-3">
-        <p class="text-white text-sm">© 2025 h!academy </p>
+      <div class="bg-yellow-400 bg-opacity-20 rounded-lg p-3">
+        <p class="text-black text-sm">© 2025 h!academy </p>
         <hr>
-        <p class="text-white text-sm">Powered by DayR</p>
+        <p class="text-black text-sm">Powered by DayR</p>
       </div>
     </div>
   </div>
@@ -93,8 +102,10 @@
             <span class="text-xl">☰</span>
           </button>
           <div>
-            <h4 class="text-xl font-bold text-indigo-600 mb-0">🏠 Dashboard
-            </h4>
+            <h4 class="text-2xl font-bold text-indigo-600 mb-0">
+  @yield('pagetitle', 'Dashboard')
+</h4>
+
           </div>
         </div>
 

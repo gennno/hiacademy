@@ -1,6 +1,6 @@
 @extends('lms.layoutlms.layout')
 
-@section('title', 'dashboard')
+@section('pagetitle', 'Dashboard')
 
 @section('content')
 
@@ -41,7 +41,7 @@
                 <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
             </div>
             <h3 class="text-3xl font-bold text-indigo-600 mb-0">5</h3>
-            <p class="text-sm text-gray-500 mb-0">Enrolled Courses</p>
+            <p class="text-sm text-gray-500 mb-0">Enrolled Programs</p>
         </div>
 
         <div
@@ -86,6 +86,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                 {{-- Card 1 --}}
+                <a href="{{ route('detailprogram') }}" class="block">
                 <div
                     class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
 
@@ -123,6 +124,7 @@
                     </div>
 
                 </div>
+            </a>
 
                 {{-- Card 2 --}}
                 <div

@@ -30,4 +30,4 @@ Route::get('/register', [HomeController::class, 'register'])->name('register');
 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/program', [DashboardController::class, 'program'])->name('program');
+Route::get('/detail-program', [DashboardController::class, 'detailprogram'])->name('detailprogram');
