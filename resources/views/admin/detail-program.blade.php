@@ -1,6 +1,6 @@
-@extends('lms.layoutlms.layout')
+@extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'Program')
+@section('pagetitle', 'Manage Programs')
 
 @section('content')
 

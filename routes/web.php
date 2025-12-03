@@ -1,7 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,5 +30,12 @@ Route::get('/book-trial', [HomeController::class, 'booktrial'])->name('booktrial
 Route::get('/register', [HomeController::class, 'register'])->name('register');
 
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/detail-program', [DashboardController::class, 'detailprogram'])->name('detailprogram');
+Route::get('/student-dashboard', [StudentController::class, 'studentdashboard'])->name('studentdashboard');
+Route::get('/student-my-program', [StudentController::class, 'studentmyprogram'])->name('studentmyprogram');
+Route::get('/student-detail-program', [StudentController::class, 'studentdetailprogram'])->name('studentdetailprogram');
+
+
+Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admindashboard');
+Route::get('/admin-program', [AdminController::class, 'adminprogram'])->name('adminprogram');
+Route::get('/admin-detail-program', [AdminController::class, 'admindetailprogram'])->name('admindetailprogram');
+Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');

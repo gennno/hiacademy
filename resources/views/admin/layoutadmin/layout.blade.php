@@ -8,6 +8,8 @@
 
   {{-- Tailwind CDN --}}
   <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.tailwindcss.min.css"/>
 
   {{-- Favicon --}}
   <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
@@ -25,6 +27,7 @@
     rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       AOS.init({
@@ -81,23 +84,29 @@
 
     <div class="mt-4">
       <!-- Dashboard -->
-      <a href="{{ route('studentdashboard') }}"
+      <a href="{{ route('admindashboard') }}"
         class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('student-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('admin-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🏠</span>
         <span class="text-xl">Dashboard</span>
       </a>
       <!-- My Courses -->
-      <a href="{{ route('studentmyprogram') }}"
+      <a href="{{ route('adminprogram') }}"
         class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('student-my-program') || Request::is('student-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('admin-program') || Request::is('admin-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">📚</span>
-        <span class="text-xl">My Program</span>
+        <span class="text-xl">Programs</span>
+      </a>
+      <a href="{{ route('admininvoice') }}"
+        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-2xl">🧾</span>
+        <span class="text-xl">Invoice</span>
       </a>
       <div
         class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-2xl">🏆</span>
-        <span class="text-xl">Achievements</span>
+        <span class="text-2xl">👤</span>
+        <span class="text-xl">User Management</span>
       </div>
       <div
         class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
@@ -153,7 +162,7 @@
                 class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                 A
               </div>
-              <span class="font-semibold hidden md:inline">Alex</span>
+              <span class="font-semibold hidden md:inline">Admin</span>
               <span class="text-xs">▼</span>
             </button>
 
@@ -294,6 +303,10 @@
     applyResponsiveState();
   </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.tailwindcss.min.js"></script>
+@yield('scripts')
 </body>
 
 </html>
