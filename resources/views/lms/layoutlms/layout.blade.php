@@ -82,25 +82,25 @@
     <div class="mt-4">
       <!-- Dashboard -->
       <a href="{{ route('studentdashboard') }}"
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('student-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🏠</span>
         <span class="text-xl">Dashboard</span>
       </a>
       <!-- My Courses -->
       <a href="{{ route('studentmyprogram') }}"
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('student-my-program') || Request::is('student-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">📚</span>
         <span class="text-xl">My Program</span>
       </a>
       <div
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-2xl">🏆</span>
         <span class="text-xl">Achievements</span>
       </div>
       <div
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-2xl">⚙️</span>
         <span class="text-xl">Settings</span>
       </div>
