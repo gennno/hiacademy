@@ -85,31 +85,43 @@
     <div class="mt-4">
       <!-- Dashboard -->
       <a href="{{ route('admindashboard') }}"
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('admin-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🏠</span>
         <span class="text-xl">Dashboard</span>
       </a>
       <!-- My Courses -->
       <a href="{{ route('adminprogram') }}"
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('admin-program') || Request::is('admin-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">📚</span>
         <span class="text-xl">Programs</span>
       </a>
       <a href="{{ route('admininvoice') }}"
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-2xl">🧾</span>
+        <span class="text-xl">Invoice</span>
+      </a>
+      <a href="{{ route('admininvoice') }}"
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-2xl">🧾</span>
+        <span class="text-xl">Enrollment</span>
+      </a>
+      <a href="{{ route('admininvoice') }}"
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🧾</span>
         <span class="text-xl">Invoice</span>
       </a>
       <div
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-2xl">👤</span>
         <span class="text-xl">User Management</span>
       </div>
       <div
-        class="sidebar-item font-semibold text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-2xl">⚙️</span>
         <span class="text-xl">Settings</span>
       </div>
