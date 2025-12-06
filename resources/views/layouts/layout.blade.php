@@ -148,6 +148,7 @@
       color: white;
     }
   </style>
+@livewireStyles
 
 </head>
 
@@ -190,6 +191,8 @@
     }
   </style>
   @include('component.footer')
+  @livewireScripts
+
 </body>
 
 </html>

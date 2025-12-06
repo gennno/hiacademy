@@ -223,7 +223,7 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Residential Address <span
                             class="text-red-500">*</span></label>
                     <textarea name="address" required rows="3"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
                         placeholder="Enter complete address"></textarea>
                 </div>
 
@@ -231,7 +231,7 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number/WhatsApp <span
                             class="text-red-500">*</span></label>
                     <input type="tel" name="phone" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
                         placeholder="+62 XXX XXXX XXXX">
                 </div>
 
@@ -239,7 +239,7 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Active Email <span
                             class="text-red-500">*</span></label>
                     <input type="email" name="email" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
                         placeholder="example@email.com">
                 </div>
 
@@ -249,7 +249,7 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
                             class="text-red-500">*</span></label>
                     <select name="level" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition">
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
                         <option value="">Select Level</option>
                         <option value="beginner">Beginner (HSK 1)</option>
                         <option value="elementary">Elementary (HSK 2)</option>
@@ -262,7 +262,7 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
                     <select name="class" required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition">
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="weekday-evening">Weekday Evening (18:00 - 20:00)</option>
                         <option value="saturday-morning">Saturday Morning (09:00 - 12:00)</option>
@@ -273,7 +273,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
                     <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition">
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
                         <option value="">Select Batch (if applicable)</option>
                         <option value="batch1">Batch 1 - Starting January 2025</option>
                         <option value="batch2">Batch 2 - Starting March 2025</option>
@@ -286,22 +286,22 @@
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
-                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-red-500 transition">
+                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-cyan-500 transition">
                             <input type="radio" name="mode" value="online" class="mr-2">
-                            <i class="fa-solid fa-laptop text-red-500 mr-2"></i>
+                            <i class="fa-solid fa-laptop text-cyan-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
-                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-red-500 transition">
+                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-cyan-500 transition">
                             <input type="radio" name="mode" value="offline" class="mr-2">
-                            <i class="fa-solid fa-building text-red-500 mr-2"></i>
+                            <i class="fa-solid fa-building text-cyan-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
                     </div>
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white font-bold py-4 rounded-lg hover:from-red-600 hover:to-red-700 transition transform hover:scale-105 shadow-lg">
+                    class="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold py-4 rounded-lg hover:from-cyan-600 hover:to-cyan-700 transition transform hover:scale-105 shadow-lg">
                     <i class="fa-solid fa-paper-plane mr-2"></i>
                     Submit Registration
                 </button>
