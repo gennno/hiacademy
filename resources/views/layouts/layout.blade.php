@@ -15,7 +15,7 @@
   <!-- FontAwesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     integrity="sha512-TQ7iGLW6wMZ1xjF6mU9QK3fZc0D3mFjQFzUObZ7dkXAmIZ0+iL+OKFHZ1PZjZpbIQtHdwZb2FjGdYkPZwY+X2w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
   <!-- Import Google Fonts -->
   <link

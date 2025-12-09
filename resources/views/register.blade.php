@@ -389,11 +389,12 @@
                     <select name="level" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
                         <option value="">Select Level</option>
-                        <option value="starter">Starter (A1)</option>
-                        <option value="elementary">Elementary (A2)</option>
-                        <option value="intermediate">Intermediate (B1)</option>
-                        <option value="upper-intermediate">Upper Intermediate (B2)</option>
-                        <option value="advanced">Advanced (C1)</option>
+                        <option value="very-young-learners">Very Young Learners English (Ages 6 | Pre-A1)</option>
+                        <option value="younglearners">Young Learners English (Ages 6-12)</option>
+                        <option value="teenagers">Teenagers (Ages 12+)</option>
+                        <option value="adults-and-young-adults">Adults and Young Adults</option>
+                        <option value="exam-preparation">Exam Preparation</option>
+                        <option value="international-business">International Business</option>
                     </select>
                 </div>
 
