@@ -17,10 +17,10 @@ return new class extends Migration
             /** Account */
             $table->string('email');
             $table->string('name');
-            $table->string('phone')->after('name');
-            $table->text('address')->after('phone');
-            $table->date('birth_date')->after('address');
-            $table->enum('gender', ['male', 'female'])->after('birth_date');
+            $table->string('phone');
+            $table->text('address');
+            $table->date('birth_date');
+            $table->enum('gender', ['male', 'female']);
             
             /** Enrollment */
             $table->string('category');

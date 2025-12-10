@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('level');
             $table->string('category');
-            $table->string('tag');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('slogan')->nullable();

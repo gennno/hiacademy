@@ -1,10 +1,11 @@
 @extends('layouts.layout')
 
 @section('title', 'h!academy Login')
-
+@section('hide-footer')
+@endsection
 @section('content')
     {{-- 🔙 Back Button --}}
-    <a href="{{ url()->previous() }}"
+    <a href="{{ route('preschoolindex') }}"
        class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>

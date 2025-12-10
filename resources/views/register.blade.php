@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('title', 'h!academy - Registration')
-
+@section('hide-footer')
+@endsection
 @section('content')
     {{-- 🔙 Back Button --}}
     <a href="{{ route('home') }}"

@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('title', 'h!academy Login')
-
+@section('hide-footer')
+@endsection
 @section('content')
     {{-- 🔙 Back Button --}}
     <a href="{{ route('home') }}"
@@ -9,204 +10,168 @@
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
     </a>
-
-    {{-- 🔄 Background Carousel --}}
-    <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <img src="{{ asset('img/carousel1.jpg') }}" class="carousel-slide active" alt="Slide 1">
-        <img src="{{ asset('img/carousel2.jpg') }}" class="carousel-slide" alt="Slide 2">
-        <img src="{{ asset('img/carousel3.jpg') }}" class="carousel-slide" alt="Slide 3">
-        <img src="{{ asset('img/carousel4.jpg') }}" class="carousel-slide" alt="Slide 4">
-        <img src="{{ asset('img/carousel5.jpg') }}" class="carousel-slide" alt="Slide 5">
+    <div id="background-carousel" class="carousel-container">
+        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1" loading="eager">
+        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2" loading="lazy">
+        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3" loading="lazy">
     </div>
 
-    {{-- Overlay --}}
-    <div class="fixed inset-0 bg-black bg-opacity-60 -z-10"></div>
+    <div class="carousel-overlay"></div>
 
     <style>
-        #background-carousel img.carousel-slide {
+        /* ===== SOLUSI UTAMA: Gunakan dvh untuk mobile ===== */
+        .carousel-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Desktop: gunakan 100vh */
+            height: 100vh;
+            /* Mobile: gunakan dvh yang tidak berubah saat URL bar muncul/hilang */
+            height: 100dvh;
+            overflow: hidden;
+            z-index: -10;
+
+            /* GPU Acceleration - PENTING! */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+
+            /* Prevent layout shifts */
+            contain: layout style paint;
+        }
+
+        .carousel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -10;
+            pointer-events: none;
+
+            /* GPU Acceleration */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+
+        /* Optimized carousel slides */
+        .carousel-slide {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            transform: scale(1.05);
-        }
+            transition: opacity 1.2s ease-in-out;
 
-        #background-carousel img.carousel-slide.active {
-            opacity: 1;
-        }
+            /* CRITICAL: GPU layer untuk setiap image */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Admin Panel Styles */
-        #admin-panel {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.3s ease;
+            /* Prevent interactions */
             pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
         }
 
-        #admin-panel.active {
+        .carousel-slide.active {
             opacity: 1;
-            transform: scale(1);
-            pointer-events: all;
+            z-index: 1;
         }
 
-        .secret-spot {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            z-index: 40;
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .carousel-container {
+                /* Force height calculation once */
+                height: 100dvh !important;
+                /* Prevent repaints */
+                will-change: auto;
+            }
+
+            .carousel-slide {
+                /* Faster transition on mobile */
+                transition: opacity 0.8s ease-in-out;
+                /* Ensure stays in GPU */
+                transform: translate3d(0, 0, 0) scale(1.001);
+            }
+
+            /* Optional: Reduce quality on very small screens */
+            @media (max-width: 480px) {
+                .carousel-slide {
+                    image-rendering: -webkit-optimize-contrast;
+                }
+            }
+        }
+
+        /* Prevent flicker during orientation change */
+        @media (orientation: portrait) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
+            }
+        }
+
+        @media (orientation: landscape) {
+
+            .carousel-container,
+            .carousel-overlay {
+                height: 100dvh;
+            }
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Background carousel
-            const slides = document.querySelectorAll('#background-carousel .carousel-slide');
-            let currentIndex = 0;
-            setInterval(() => {
-                slides[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % slides.length;
-                slides[currentIndex].classList.add('active');
-            }, 4000);
-
-            // Admin panel functionality
-            const adminPanel = document.getElementById('admin-panel');
-            const closeAdminBtn = document.getElementById('close-admin');
-            const secretSpot = document.getElementById('secret-spot');
-
-            // Toggle admin panel when secret spot is clicked
-            secretSpot.addEventListener('click', () => {
-                adminPanel.classList.add('active');
-            });
-
-            // Close admin panel
-            closeAdminBtn.addEventListener('click', () => {
-                adminPanel.classList.remove('active');
-            });
-
-            // Close admin panel when clicking outside
-            adminPanel.addEventListener('click', (e) => {
-                if (e.target === adminPanel) {
-                    adminPanel.classList.remove('active');
-                }
-            });
-        });
-    </script>
-
-    {{-- Secret Admin Spot (hidden in mascot) --}}
-    <div id="secret-spot" class="secret-spot" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-
     {{-- 🔸 Main Section --}}
-    <div class="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-10 md:gap-16 overflow-y-auto">
+    <div class="w-full min-h-screen grid grid-cols-1  items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-10 md:gap-16 overflow-y-auto">
 
-        {{-- 🟡 Program Selection + Mascot --}}
-        <div class="flex flex-col items-center text-center space-y-6 max-w-6xl w-full text-white">
-            <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6 relative">
-                <img src="{{ asset('img/8.png') }}" alt="Mascot"
-                    class="w-24 sm:w-32 md:w-48 lg:w-56 animate-float drop-shadow-lg cursor-pointer" 
-                    onclick="document.getElementById('admin-panel').classList.add('active')">
-                <div>
-                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">
-                        Choose Your Program
-                    </h2>
-                    <p class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
-                        Select one of our programs below to access your dedicated h!academy portal.
-                    </p>
-                </div>
+        {{-- 🔹 Right: Login Form --}}
+        <div class="bg-black backdrop-blur-md w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md xl:max-w-lg p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg mx-auto">
+            <div class="flex justify-center mb-5 sm:mb-6">
+                <img src="{{ asset('img/logofull.png') }}" alt="Logo h!academy" class="h-12 sm:h-14 md:h-16 lg:h-20 object-contain">
             </div>
 
-            {{-- Grid Layout for Programs --}}
-            <div class="mt-4 w-full">
-                @php
-                    $programs = [
-                        ['name' => 'International Preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'url' => '/preschool-login'],
-                        ['name' => 'Child Development Program', 'icon' => 'fa-child', 'color' => 'border-cyan-400 hover:bg-cyan-400'],
-                        ['name' => 'English Program', 'icon' => 'fa-book-open', 'color' => 'border-green-400 hover:bg-green-400'],
-                        ['name' => 'Mandarin Program', 'icon' => 'fa-language', 'color' => 'border-red-500 hover:bg-red-500'],
-                        ['name' => 'Math Program', 'icon' => 'fa-square-root-variable', 'color' => 'border-purple-400 hover:bg-purple-400'],
-                        ['name' => 'STEM & Coding', 'icon' => 'fa-robot', 'color' => 'border-indigo-400 hover:bg-indigo-400'],
-                        ['name' => 'Design Program', 'icon' => 'fa-pen-nib', 'color' => 'border-pink-400 hover:bg-pink-400'],
-                        ['name' => 'Creative Arts', 'icon' => 'fa-palette', 'color' => 'border-orange-400 hover:bg-orange-400'],
-                        ['name' => 'Parenting life Indonesia', 'icon' => 'fa-users', 'color' => 'border-teal-400 hover:bg-teal-400'],
-                    ];
-                @endphp
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
-                    @foreach ($programs as $program)
-                        <a href="{{ $program['url'] ?? '#' }}"
-                            class="group bg-white/10 {{ $program['color'] }} border rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center hover:text-black transition-all transform hover:scale-105 duration-300 h-full min-h-[140px]">
-                            <i class="fa-solid {{ $program['icon'] }} text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3 group-hover:animate-bounce"></i>
-                            <h4 class="font-semibold text-center text-xs sm:text-sm md:text-base leading-tight">{{ $program['name'] }}</h4>
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Hidden Admin Login Panel --}}
-    <div id="admin-panel" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-        <div class="bg-gray-900 rounded-2xl p-6 sm:p-8 max-w-md w-full border-2 border-yellow-500 relative">
-            {{-- Close Button --}}
-            <button id="close-admin" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            {{-- Admin Login Form --}}
-            <div class="text-center mb-6">
-                <i class="fa-solid fa-user-shield text-yellow-500 text-4xl mb-4"></i>
-                <h2 class="text-2xl font-bold text-white">Admin Access</h2>
-                <p class="text-gray-400 mt-2">Restricted area - authorized personnel only</p>
-            </div>
-
-            <form action="" method="POST" class="space-y-4">
+            <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 sm:space-y-5">
                 @csrf
                 <div>
-                    <label for="admin-email" class="block text-sm font-medium text-gray-300 mb-1">Admin ID</label>
-                    <input type="text" id="admin-email" name="email" 
-                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                           placeholder="Enter admin ID" required>
+                    <label for="email" class="block text-xs sm:text-sm text-white font-medium mb-1">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required
+                        class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    @error('email') <p style="color:red">{{ $message }}</p> @enderror
                 </div>
-                
+
                 <div>
-                    <label for="admin-password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
-                    <input type="password" id="admin-password" name="password" 
-                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                           placeholder="Enter password" required>
+                    <label for="password" class="block text-xs sm:text-sm text-white font-medium mb-1">Password</label>
+                    <input type="password" id="password" name="password" placeholder="********" required
+                        class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
                 </div>
 
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-700 rounded bg-gray-800">
-                        <label for="remember" class="ml-2 block text-sm text-gray-300">Remember me</label>
-                    </div>
-                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-400">Forgot password?</a>
+                <div class="flex flex-wrap items-center justify-between text-xs sm:text-sm gap-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="remember" class="form-checkbox text-yellow-400 bg-gray-800">
+                        <span class="ml-2 text-white">Remember me</span>
+                    </label>
+                    <a href="#" class="text-yellow-400 hover:text-yellow-300 transition">Forgot password?</a>
                 </div>
 
-                <button type="submit" 
-                        class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
-                    Access Admin Panel
+                <button type="submit"
+                    class="w-full bg-yellow-400 text-black py-2 sm:py-2.5 rounded-lg font-semibold text-sm sm:text-base hover:bg-white transition duration-200">
+                    Sign In
                 </button>
             </form>
-
-            <div class="mt-6 text-center">
-                <p class="text-xs text-gray-500">For security reasons, all access attempts are logged</p>
-            </div>
         </div>
     </div>
-    
+
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 @endsection
+
+
