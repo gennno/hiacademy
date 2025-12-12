@@ -29,12 +29,16 @@ class LoginController extends Controller
     {
         // Validate input
         $request->validate([
-            'email' => 'required|email',
+            'username' => 'required|string',
             'password' => 'required'
         ]);
 
-        // Attempt login
-        if (Auth::attempt($request->only('email', 'password'), $request->remember)) {
+        // Attempt login using username instead of email
+        if (Auth::attempt([
+            'username' => $request->username,
+            'password' => $request->password
+        ], $request->remember)) 
+        {
             $request->session()->regenerate();
 
             // OPTIONAL: redirect based on role
@@ -42,21 +46,22 @@ class LoginController extends Controller
 
             switch ($user->role) {
                 case 'superadmin':
-                    return redirect()->route('admindashboard');
+                    return redirect()->route('admindashboard')->with('login_success', true);
                 case 'admin':
-                    return redirect()->route('admindashboard');
+                    return redirect()->route('admindashboard')->with('login_success', true);
                 case 'teacher':
-                    return redirect()->route('studentdashboard');
+                    return redirect()->route('studentdashboard')->with('login_success', true);
                 default:
-                    return redirect()->route('studentdashboard');
+                    return redirect()->route('studentdashboard')->with('login_success', true);
             }
         }
 
         // If login failed
         return back()->withErrors([
-            'email' => 'Invalid email or password.',
+            'username' => 'Invalid username or password.',
         ]);
     }
+
 
     /**
      * Logout

@@ -4,7 +4,17 @@
 
 @section('content')
 
-
+  @if(session('login_success'))
+<script>
+    Swal.fire({
+        title: "Login Berhasil!",
+        text: "Selamat datang kembali 👋",
+        icon: "success",
+        timer: 1800,
+        showConfirmButton: false
+    });
+</script>
+@endif
     <div class="grid grid-cols-1 gap-3 mb-6">
         <div
             class="bg-[#FBF9D1] border-4 border-yellow-400 rounded-2xl p-6 shadow-md flex items-center md:justify-start lg:justify-between gap-5">

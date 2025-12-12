@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
             // STUDENT
             [
                 'name' => 'Student User',
+                'username' => 'usr01',
                 'email' => 'student@example.com',
                 'password' => Hash::make('password'),
                 'role' => 'student',
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             // TEACHER
             [
                 'name' => 'Teacher User',
+                'username' => 'tch01',
                 'email' => 'teacher@example.com',
                 'password' => Hash::make('password'),
                 'role' => 'teacher',
@@ -45,12 +47,13 @@ class UserSeeder extends Seeder
 
             // ADMIN
             [
-                'name' => 'Admin User',
-                'email' => 'admin@example.com',
+                'name' => 'Staff User',
+                'username' => 'stf01',
+                'email' => 'staff@example.com',
                 'password' => Hash::make('password'),
-                'role' => 'admin',
+                'role' => 'staff',
                 'phone' => '081234567892',
-                'address' => 'Jl. Admin No.3',
+                'address' => 'Jl. Staff No.3',
                 'profile_photo' => null,
                 'birth_date' => '1985-11-20',
                 'gender' => 'male',
@@ -61,10 +64,11 @@ class UserSeeder extends Seeder
 
             // SUPERADMIN
             [
-                'name' => 'Super Admin',
-                'email' => 'superadmin@example.com',
+                'name' => 'Admin',
+                'username' => 'adm01',
+                'email' => 'admin@example.com',
                 'password' => Hash::make('password'),
-                'role' => 'superadmin',
+                'role' => 'admin',
                 'phone' => '081234567893',
                 'address' => 'Jl. Super No.4',
                 'profile_photo' => null,

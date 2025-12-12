@@ -8,8 +8,8 @@
 
   {{-- Tailwind CDN --}}
   <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.tailwindcss.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.tailwindcss.min.css" />
 
   {{-- Favicon --}}
   <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
@@ -27,7 +27,7 @@
     rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       AOS.init({
@@ -68,6 +68,7 @@
 </head>
 
 <body class="bg-gray-200 min-h-screen overflow-x-hidden">
+  
   <!-- Sidebar Overlay -->
   <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[999] hidden"></div>
 
@@ -190,9 +191,14 @@
                 <span class="mr-2">❓</span> Help
               </div>
               <hr class="my-2 border-gray-200">
-              <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500 transition-colors">
-                <span class="mr-2">🚪</span> Logout
-              </div>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="button" onclick="confirmLogout()"
+                  class="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500 transition-colors">
+                  <span class="mr-2">🚪</span> Logout
+                </button>
+              </form>
+
             </div>
           </div>
         </div>
@@ -315,10 +321,41 @@
     applyResponsiveState();
   </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.8/js/dataTables.tailwindcss.min.js"></script>
-@yield('scripts')
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/dataTables.tailwindcss.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function confirmLogout() {
+      Swal.fire({
+        title: "Logout?",
+        text: "Apakah kamu yakin ingin logout?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Ya, logout!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('logout-form').submit();
+        }
+      });
+    }
+  </script>
+
+  @yield('scripts')
+    @if(session('login_success'))
+<script>
+    Swal.fire({
+        title: "Login Berhasil!",
+        text: "Selamat datang kembali 👋",
+        icon: "success",
+        timer: 1800,
+        showConfirmButton: false
+    });
+</script>
+@endif
 </body>
 
 </html>

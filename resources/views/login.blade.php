@@ -6,7 +6,7 @@
 @section('content')
     {{-- 🔙 Back Button --}}
     <a href="{{ route('home') }}"
-       class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
+        class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
     </a>
@@ -131,27 +131,36 @@
     </style>
 
     {{-- 🔸 Main Section --}}
-    <div class="w-full min-h-screen grid grid-cols-1  items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-10 md:gap-16 overflow-y-auto">
+    <div
+        class="w-full min-h-screen grid grid-cols-1  items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-10 md:gap-16 overflow-y-auto">
 
         {{-- 🔹 Right: Login Form --}}
-        <div class="bg-black backdrop-blur-md w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md xl:max-w-lg p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg mx-auto">
+        <div
+            class="bg-black backdrop-blur-md w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md xl:max-w-lg p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg mx-auto">
             <div class="flex justify-center mb-5 sm:mb-6">
-                <img src="{{ asset('img/logofull.png') }}" alt="Logo h!academy" class="h-12 sm:h-14 md:h-16 lg:h-20 object-contain">
+                <img src="{{ asset('img/logofull.png') }}" alt="Logo h!academy"
+                    class="h-12 sm:h-14 md:h-16 lg:h-20 object-contain">
             </div>
 
             <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 sm:space-y-5">
                 @csrf
                 <div>
-                    <label for="email" class="block text-xs sm:text-sm text-white font-medium mb-1">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required
+                    <label for="username" class="block text-xs sm:text-sm text-white font-medium mb-1">Username</label>
+                    <input type="text" id="username" name="username" placeholder="PR001" required
                         class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
-                    @error('email') <p style="color:red">{{ $message }}</p> @enderror
+                    @error('username')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
+
 
                 <div>
                     <label for="password" class="block text-xs sm:text-sm text-white font-medium mb-1">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********" required
+                    <input type="password" id="password" name="password" placeholder="Password" required
                         class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    @error('password')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="flex flex-wrap items-center justify-between text-xs sm:text-sm gap-2">
@@ -171,7 +180,5 @@
     </div>
 
     {{-- Font Awesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">                                                                                                                       
 @endsection
-
-

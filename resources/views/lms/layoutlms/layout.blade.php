@@ -65,6 +65,7 @@
 </head>
 
 <body class="bg-gray-200 min-h-screen overflow-x-hidden">
+
   <!-- Sidebar Overlay -->
   <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[999] hidden"></div>
 
@@ -169,9 +170,15 @@
                 <span class="mr-2">❓</span> Help
               </div>
               <hr class="my-2 border-gray-200">
-              <div class="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500 transition-colors">
-                <span class="mr-2">🚪</span> Logout
-              </div>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="button" onclick="confirmLogout()"
+                  class="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500 transition-colors">
+                  <span class="mr-2">🚪</span> Logout
+                </button>
+              </form>
+
+
             </div>
           </div>
         </div>
@@ -293,7 +300,36 @@
     // initial invocation
     applyResponsiveState();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <script>
+    function confirmLogout() {
+      Swal.fire({
+        title: "Logout?",
+        text: "Apakah kamu yakin ingin logout?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Ya, logout!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('logout-form').submit();
+        }
+      });
+    }
+  </script>
+  @if(session('login_success'))
+<script>
+    Swal.fire({
+        title: "Login Berhasil!",
+        text: "Selamat datang kembali 👋",
+        icon: "success",
+        timer: 1800,
+        showConfirmButton: false
+    });
+</script>
+@endif
 </body>
 
 </html>
