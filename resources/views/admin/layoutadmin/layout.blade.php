@@ -343,7 +343,6 @@
       });
     }
   </script>
-
   @yield('scripts')
     @if(session('login_success'))
 <script>
@@ -356,6 +355,43 @@
     });
 </script>
 @endif
+<style>
+  /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
+
+  .swal2-container {
+    z-index: 99999 !important;
+  }
+
+  .swal2-popup button {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  .swal2-confirm {
+    background-color: #dc2626 !important; /* red-600 */
+    color: #fff !important;
+    border-radius: 9999px !important;
+    padding: 0.6rem 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .swal2-cancel {
+    background-color: #2563eb !important; /* blue-600 */
+    color: #fff !important;
+    border-radius: 9999px !important;
+    padding: 0.6rem 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .swal2-confirm:hover {
+    background-color: #b91c1c !important;
+  }
+
+  .swal2-cancel:hover {
+    background-color: #1d4ed8 !important;
+  }
+</style>
+
 </body>
 
 </html>

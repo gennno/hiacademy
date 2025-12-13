@@ -85,34 +85,34 @@
 
     <div class="mt-4">
       <!-- Dashboard -->
-      <a href="{{ route('admindashboard') }}"
+      <a href="{{ route('staffdashboard') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('staff-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🏠</span>
         <span class="text-xl">Dashboard</span>
       </a>
       <!-- My Courses -->
-      <a href="{{ route('adminprogram') }}"
+      <a href="{{ route('staffprogram') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-program') || Request::is('admin-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('staff-program') || Request::is('staff-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">📚</span>
         <span class="text-xl">Programs</span>
       </a>
-      <a href="{{ route('admininvoice') }}"
+      <a href="{{ route('staffinvoice') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🧾</span>
         <span class="text-xl">Invoice</span>
       </a>
-      <a href="{{ route('admininvoice') }}"
+      <a href="{{ route('staffinvoice') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🧾</span>
         <span class="text-xl">Enrollment</span>
       </a>
-      <a href="{{ route('admininvoice') }}"
+      <a href="{{ route('staffinvoice') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🧾</span>
         <span class="text-xl">Invoice</span>
       </a>
@@ -175,7 +175,7 @@
                 class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                 A
               </div>
-              <span class="font-semibold hidden md:inline">Admin</span>
+              <span class="font-semibold hidden md:inline">Staff</span>
               <span class="text-xs">▼</span>
             </button>
 
@@ -356,6 +356,42 @@
     });
 </script>
 @endif
+<style>
+  /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
+
+  .swal2-container {
+    z-index: 99999 !important;
+  }
+
+  .swal2-popup button {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  .swal2-confirm {
+    background-color: #dc2626 !important; /* red-600 */
+    color: #fff !important;
+    border-radius: 9999px !important;
+    padding: 0.6rem 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .swal2-cancel {
+    background-color: #2563eb !important; /* blue-600 */
+    color: #fff !important;
+    border-radius: 9999px !important;
+    padding: 0.6rem 1.5rem !important;
+    font-weight: 600;
+  }
+
+  .swal2-confirm:hover {
+    background-color: #b91c1c !important;
+  }
+
+  .swal2-cancel:hover {
+    background-color: #1d4ed8 !important;
+  }
+</style>
 </body>
 
 </html>

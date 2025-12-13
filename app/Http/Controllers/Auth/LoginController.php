@@ -45,12 +45,12 @@ class LoginController extends Controller
             $user = Auth::user();
 
             switch ($user->role) {
-                case 'superadmin':
-                    return redirect()->route('admindashboard')->with('login_success', true);
                 case 'admin':
                     return redirect()->route('admindashboard')->with('login_success', true);
+                case 'staff':
+                    return redirect()->route('staffdashboard')->with('login_success', true);
                 case 'teacher':
-                    return redirect()->route('studentdashboard')->with('login_success', true);
+                    return redirect()->route('teacherdashboard')->with('login_success', true);
                 default:
                     return redirect()->route('studentdashboard')->with('login_success', true);
             }

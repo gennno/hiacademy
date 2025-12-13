@@ -1,5 +1,4 @@
-@extends('admin.layoutadmin.layout')
-
+@extends('staff.layoutadmin.layout')
 @section('pagetitle', 'Manage Programs')
 
 @section('content')
@@ -24,7 +23,7 @@
             <!-- STATIC GRID ITEMS -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                                <div onclick="window.location='{{ route('admindetailprogram') }}'"
+                                <div onclick="window.location='{{ route('staffdetailprogram') }}'"
                     class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm cursor-pointer">
 
                     <!-- IMAGE -->
@@ -48,7 +47,7 @@
                         <div class="flex flex-col sm:flex-row justify-between gap-3 pt-3">
 
                             <!-- Open Button (same link as card click) -->
-                            <button onclick="event.stopPropagation(); window.location='{{ route('admindetailprogram') }}'"
+                            <button onclick="event.stopPropagation(); window.location='{{ route('staffdetailprogram') }}'"
                                 class="w-full sm:w-auto px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg transition">
                                 🔍 Open
                             </button>
@@ -69,7 +68,7 @@
 
                 </div>
 
-                                <div onclick="window.location='{{ route('admindetailprogram') }}'"
+                                <div onclick="window.location='{{ route('staffdetailprogram') }}'"
                     class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm cursor-pointer">
 
                     <!-- IMAGE -->
@@ -93,7 +92,7 @@
                         <div class="flex flex-col sm:flex-row justify-between gap-3 pt-3">
 
                             <!-- Open Button (same link as card click) -->
-                            <button onclick="event.stopPropagation(); window.location='{{ route('admindetailprogram') }}'"
+                            <button onclick="event.stopPropagation(); window.location='{{ route('staffdetailprogram') }}'"
                                 class="w-full sm:w-auto px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg transition">
                                 🔍 Open
                             </button>
@@ -114,7 +113,7 @@
 
                 </div>
 
-                                <div onclick="window.location='{{ route('admindetailprogram') }}'"
+                                <div onclick="window.location='{{ route('staffdetailprogram') }}'"
                     class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm cursor-pointer">
 
                     <!-- IMAGE -->
@@ -138,7 +137,7 @@
                         <div class="flex flex-col sm:flex-row justify-between gap-3 pt-3">
 
                             <!-- Open Button (same link as card click) -->
-                            <button onclick="event.stopPropagation(); window.location='{{ route('admindetailprogram') }}'"
+                            <button onclick="event.stopPropagation(); window.location='{{ route('staffdetailprogram') }}'"
                                 class="w-full sm:w-auto px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg transition">
                                 🔍 Open
                             </button>
@@ -159,7 +158,7 @@
 
                 </div>
 
-                <div onclick="window.location='{{ route('admindetailprogram') }}'"
+                <div onclick="window.location='{{ route('staffdetailprogram') }}'"
                     class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm cursor-pointer">
 
                     <!-- IMAGE -->
@@ -183,7 +182,7 @@
                         <div class="flex flex-col sm:flex-row justify-between gap-3 pt-3">
 
                             <!-- Open Button (same link as card click) -->
-                            <button onclick="event.stopPropagation(); window.location='{{ route('admindetailprogram') }}'"
+                            <button onclick="event.stopPropagation(); window.location='{{ route('staffdetailprogram') }}'"
                                 class="w-full sm:w-auto px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg transition">
                                 🔍 Open
                             </button>

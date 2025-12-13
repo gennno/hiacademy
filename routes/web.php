@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\Auth\LoginController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -17,26 +19,30 @@ Route::get('/stem', [HomeController::class, 'stemindex'])->name('stemindex');
 Route::get('/creative', [HomeController::class, 'creativeindex'])->name('creativeindex');
 Route::get('/architecture', [HomeController::class, 'architectureindex'])->name('architectureindex');
 
-
 Route::get('/aboutpreschool', [HomeController::class, 'preschoolabout'])->name('preschoolabout');
 Route::get('/admissionpreschool', [HomeController::class, 'preschooladmission'])->name('preschooladmission');
 Route::get('/ipc', [HomeController::class, 'ipc'])->name('ipc');
-
 
 Route::get('/login', [LoginController::class, 'loginindex'])->name('loginindex');
 Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
 Route::get('/preschool-login', [HomeController::class, 'loginpreschool'])->name('loginpreschool');
 Route::get('/book-trial', [HomeController::class, 'booktrial'])->name('booktrial');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
-
 
 Route::get('/student-dashboard', [StudentController::class, 'studentdashboard'])->name('studentdashboard');
 Route::get('/student-my-program', [StudentController::class, 'studentmyprogram'])->name('studentmyprogram');
 Route::get('/student-detail-program', [StudentController::class, 'studentdetailprogram'])->name('studentdetailprogram');
 
+Route::get('/teacher-dashboard', [TeacherController::class, 'teacherdashboard'])->name('teacherdashboard');
+Route::get('/teacher-my-program', [TeacherController::class, 'teachermyprogram'])->name('teachermyprogram');
+Route::get('/teacher-detail-program', [TeacherController::class, 'teacherdetailprogram'])->name('teacherdetailprogram');
+
+Route::get('/staff-dashboard', [StaffController::class, 'staffdashboard'])->name('staffdashboard');
+Route::get('/staff-program', [StaffController::class, 'staffprogram'])->name('staffprogram');
+Route::get('/staff-detail-program', [StaffController::class, 'staffdetailprogram'])->name('staffdetailprogram');
+Route::get('/staff-invoice', [StaffController::class, 'staffinvoice'])->name('staffinvoice');
 
 Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admindashboard');
 Route::get('/admin-program', [AdminController::class, 'adminprogram'])->name('adminprogram');

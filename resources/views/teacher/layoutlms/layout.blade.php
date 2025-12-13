@@ -82,16 +82,16 @@
 
     <div class="mt-4">
       <!-- Dashboard -->
-      <a href="{{ route('studentdashboard') }}"
+      <a href="{{ route('teacherdashboard') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('student-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('teacher-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🏠</span>
         <span class="text-xl">Dashboard</span>
       </a>
       <!-- My Courses -->
-      <a href="{{ route('studentmyprogram') }}"
+      <a href="{{ route('teachermyprogram') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('student-my-program') || Request::is('student-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('teacher-my-program') || Request::is('teacher-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">📚</span>
         <span class="text-xl">My Program</span>
       </a>
@@ -154,7 +154,7 @@
                 class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                 A
               </div>
-              <span class="font-semibold hidden md:inline">Alex</span>
+              <span class="font-semibold hidden md:inline">Teacher</span>
               <span class="text-xs">▼</span>
             </button>
 
