@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'h!academy - International Preschool')
+@section('title', 'HiAcademy - International Preschool')
 
 @section('content')
 
@@ -517,7 +517,7 @@
                         BUILDING BLOCKS TO NURTURE YOUNG CREATIVE THINKERS
                     </h2>
                     <p class="text-md text-black font-sans text-base md:text-md leading-relaxed">
-                        At h!aacademy,we are dedicated to nurturing well-rounded development in every child. Our curriculum
+                        At HiAcademy, we are dedicated to nurturing well-rounded development in every child. Our curriculum
                         is designed to enhance physical, emotional, social, and cognitive growth, helping children thrive in
                         a happy, supportive environment. We emphasize a deep understanding of nature and the world around
                         them while also providing a strong foundation in key subjects. With our focus on excellence in
@@ -527,7 +527,7 @@
 
                 {{-- Kolom kanan untuk gambar --}}
                 <div class="lg:w-1/2 flex justify-center lg:justify-end">
-                    <img src="{{ asset('img/carousel1.jpg') }}" alt="About h!aacademy"
+                    <img src="{{ asset('img/carousel1.jpg') }}" alt="About HiAcademy"
                         class="rounded-lg shadow-lg w-full max-w-md lg:max-w-full object-cover">
                 </div>
             </div>
@@ -572,7 +572,7 @@
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-[#FADA7A]/30">
                         <div class="message-text text-gray-700 text-base md:text-">
                             <p class="mb-6">
-                                At <span class="highlight font-semibold">h!academy Preschool</span>, we are deeply committed
+                                At <span class="highlight font-semibold">HiAcademy Preschool</span>, we are deeply committed
                                 to nurturing each child's innate
                                 <span class="text-[#F0A04B] font-semibold">curiosity</span> and
                                 <span class="text-[#F0A04B] font-semibold">creativity</span>, recognizing these qualities as
@@ -584,7 +584,7 @@
                                 emotional skills is through
                                 <span class="text-[#F0A04B] font-semibold">play-based learning</span> and
                                 <span class="text-[#F0A04B] font-semibold">hands-on experiences</span>. This approach makes
-                                Kids Kingdom an enjoyable and enriching experience.
+                                HiAcademy an enjoyable and enriching experience.
                             </p>
 
                             <p class="mb-6">
@@ -628,7 +628,7 @@
             <!-- Header Section -->
             <div class="text-center mb-12">
                 <p class="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                    h!academy offers a nurturing and creative world for children from 18 months to 6 years,
+                    HiAcademy offers a nurturing and creative world for children from 18 months to 6 years,
                     and we are committed to high-quality early childhood education.
                 </p>
             </div>
@@ -640,7 +640,7 @@
                     <div class="relative">
                         <!-- Main Image -->
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="{{ asset('img/kids.png') }}" alt="Happy children at Kids Kingdom Preschool"
+                            <img src="{{ asset('img/kids.png') }}" alt="Happy children at Preschool"
                                 class="w-full h-auto max-w-md rounded-2xl">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         </div>
@@ -661,7 +661,7 @@
                 <div class="w-full lg:w-3/5">
                     <div class="text-center mb-8">
                         <h3 class="fun-heading text-xl md:text-2xl text-[#F0A04B] mb-2">
-                            At h!academy, We Cultivate:
+                            At HiAcademy, We Cultivate:
                         </h3>
                         <div class="w-16 h-1 bg-[#FADA7A] rounded-full mx-auto"></div>
                     </div>
@@ -1171,19 +1171,19 @@
             <!-- Header Section -->
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-xl md:text-2xl font-bold text-[#F0A04B] mb-6 uppercase tracking-wide">
-                    WHY CHOOSE h!academy?
+                    WHY CHOOSE HiAcademy?
                 </h2>
                 <div class="w-24 h-2 bg-[#FADA7A] rounded-full mx-auto mb-8"></div>
 
                 <div class="max-w-4xl mx-auto">
                     <p class="text-md md:text-lg text-gray-700 mb-6 leading-relaxed">
-                        At h!academy, we believe the right foundation sets the stage for a successful academic journey.
+                        At HiAcademy, we believe the right foundation sets the stage for a successful academic journey.
                         Choosing the perfect school for your child is a crucial decision, and we understand the challenges
                         that come with it.
                     </p>
 
                     <p class="text-md md:text-lg text-gray-700 leading-relaxed">
-                        In the vibrant educational landscape of Indonesia, h!academy aims to nurture each child's
+                        In the vibrant educational landscape of Indonesia, HiAcademy aims to nurture each child's
                         development by promoting a sense of self-esteem, accomplishment, confidence, and independence using
                         objective play and inquiry-based learning approaches.
                     </p>

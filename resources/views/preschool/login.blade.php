@@ -13,11 +13,9 @@
 
     {{-- 🔄 Background Carousel --}}
     <div id="background-carousel" class="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <img src="{{ asset('img/carousel1.jpg') }}" class="carousel-slide active" alt="Slide 1">
-        <img src="{{ asset('img/carousel2.jpg') }}" class="carousel-slide" alt="Slide 2">
-        <img src="{{ asset('img/carousel3.jpg') }}" class="carousel-slide" alt="Slide 3">
-        <img src="{{ asset('img/carousel4.jpg') }}" class="carousel-slide" alt="Slide 4">
-        <img src="{{ asset('img/carousel5.jpg') }}" class="carousel-slide" alt="Slide 5">
+        <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1">
+        <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2">
+        <img src="{{ asset('img/carousel3.webp') }}" class="carousel-slide" alt="Slide 3">
     </div>
 
     {{-- Overlay --}}
@@ -79,18 +77,25 @@
                 <img src="{{ asset('img/logofull.png') }}" alt="Logo h!academy" class="h-12 sm:h-14 md:h-16 lg:h-20 object-contain">
             </div>
 
-            <form action="#" method="POST" class="space-y-4 sm:space-y-5">
+           <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 sm:space-y-5">
                 @csrf
                 <div>
-                    <label for="email" class="block text-xs sm:text-sm text-white font-medium mb-1">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required
+                    <label for="username" class="block text-xs sm:text-sm text-white font-medium mb-1">Username</label>
+                    <input type="text" id="username" name="username" placeholder="PR001" required
                         class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    @error('username')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
+
 
                 <div>
                     <label for="password" class="block text-xs sm:text-sm text-white font-medium mb-1">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********" required
+                    <input type="password" id="password" name="password" placeholder="Password" required
                         class="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-400 rounded-lg bg-transparent text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    @error('password')
+                        <p style="color:red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="flex flex-wrap items-center justify-between text-xs sm:text-sm gap-2">

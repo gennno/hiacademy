@@ -47,7 +47,6 @@ class HomeController extends Controller
         return view('architecture.home');
     }
 
-
         public function preschoolabout()
     {
         return view('preschool.about');

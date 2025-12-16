@@ -2,31 +2,33 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
+     * Mass assignable attributes
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
+        'role',
+        'phone',
+        'address',
+        'profile_photo',
+        'birth_date',
+        'gender',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
+     * Hidden attributes for serialization
      */
     protected $hidden = [
         'password',
@@ -34,15 +36,72 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Attribute casting
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'birth_date' => 'date',
+        'password' => 'hashed',
+    ];
+
+    /**
+     * Automatically hash password when setting
+     */
+    public function setPasswordAttribute($value): void
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        if (! empty($value)) {
+            $this->attributes['password'] = Hash::make($value);
+        }
     }
+
+    /**
+     * Accessor for profile photo URL
+     */
+    public function getProfilePhotoUrlAttribute(): string
+    {
+        if ($this->profile_photo) {
+            return asset('storage/' . $this->profile_photo);
+        }
+
+        return asset('img/default-avatar.png');
+    }
+
+    /**
+     * Role helpers
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isTeacher(): bool
+    {
+        return $this->role === 'teacher';
+    }
+
+    public function isStaff(): bool
+    {
+        return $this->role === 'staff';
+    }
+
+    public function isStudent(): bool
+    {
+        return $this->role === 'student';
+    }
+
+    /**
+     * Example future relationships
+     */
+
+    // A student can enroll in many classes
+    // public function enrollments()
+    // {
+    //     return $this->hasMany(Enrollment::class);
+    // }
+
+    // A teacher can teach many classes
+    // public function teachingClasses()
+    // {
+    //     return $this->hasMany(ProgramClass::class, 'teacher_id');
+    // }
 }

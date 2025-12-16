@@ -578,7 +578,7 @@
                                 emotional skills is through
                                 <span class="text-[#F0A04B] font-semibold">play-based learning</span> and
                                 <span class="text-[#F0A04B] font-semibold">hands-on experiences</span>. This approach makes
-                                Kids Kingdom an enjoyable and enriching experience.
+                                HiAcademy an enjoyable and enriching experience.
                             </p>
 
                             <p class="mb-6">
@@ -634,7 +634,7 @@
                     <div class="relative">
                         <!-- Main Image -->
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="{{ asset('img/kids.png') }}" alt="Happy children at Kids Kingdom Preschool"
+                            <img src="{{ asset('img/kids.png') }}" alt="Happy children at HiAcademy Preschool"
                                 class="w-full h-auto max-w-md rounded-2xl">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         </div>
@@ -1382,7 +1382,7 @@
                                         class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="{{ route('loginindex') }}"
+                            <li><a href="{{ route('login') }}"
                                     class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i

@@ -1146,7 +1146,7 @@
                                         class="fa-solid fa-book-open"></i> Book Free Trial</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-pen-to-square"></i> Register Now</a></li>
-                            <li><a href="{{ route('loginindex') }}"
+                            <li><a href="{{ route('login') }}"
                                     class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                         class="fa-solid fa-user-graduate"></i> Student Login</a></li>
                             <li><a href="#" class="hover:text-yellow-400 transition flex items-center gap-2"><i
