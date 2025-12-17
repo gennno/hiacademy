@@ -128,11 +128,6 @@
       </div>
     </div>
 
-    <!-- 🧸 Mascot Image -->
-    <div class="absolute bottom-20 left-0 right-0 flex justify-center">
-      <img src="{{ asset('img/5.png') }}" alt="Mascot" class="w-24 drop-shadow-xl animate-bounce">
-    </div>
-
     <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
       <div class="bg-yellow-400 bg-opacity-20 rounded-lg p-3">
         <p class="text-black text-sm">© 2025 h!academy </p>
