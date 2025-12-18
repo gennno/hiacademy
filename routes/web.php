@@ -36,6 +36,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-program', [AdminController::class, 'adminprogram'])->name('adminprogram');
     Route::get('/admin-detail-program', [AdminController::class, 'admindetailprogram'])->name('admindetailprogram');
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
+    Route::post('/admin/programs', [AdminController::class, 'storeprogram'])
+    ->name('admin.programs.store');
 
 });
 
