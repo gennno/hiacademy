@@ -12,7 +12,7 @@
 
                 <!-- Column 1: Mascot + Connect + Contact -->
                 <div class="space-y-10 animate-fadeInUp" data-aos="fade-up" data-aos-duration="800">
-                    <img src="{{ asset('img/2.png') }}" alt="h!academy logo"
+                    <img src="{{ asset('img/2.webp') }}" alt="h!academy logo"
                         class="w-56 md:w-72 drop-shadow-xl hover:scale-105 transition duration-500 mx-auto sm:mx-0">
 
                     <!-- Connect with Us -->
@@ -120,6 +120,63 @@
                     </div>
                 </div>
             </div>
+<!-- Partner Logos -->
+<div class="mt-20 mb-12 relative z-10">
+    <h4 class="text-center text-2xl md:text-3xl font-bold text-white mb-8">
+        Trusted by Our <span class="text-yellow-400">Partners</span>
+    </h4>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+        
+        <!-- Logo Card -->
+        <div class="flex justify-center">
+            <div
+                class="bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-lg 
+                       w-44 h-28 md:w-52 md:h-32
+                       flex items-center justify-center
+                       hover:scale-105 transition duration-300">
+                <img src="{{ asset('img/timedoor.webp') }}" alt="Partner Logo"
+                    class="h-16 md:h-20 object-contain">
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <div
+                class="bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-lg 
+                       w-44 h-28 md:w-52 md:h-32
+                       flex items-center justify-center
+                       hover:scale-105 transition duration-300">
+                <img src="{{ asset('img/iblaeducation.png') }}" alt="Partner Logo"
+                    class="h-16 md:h-20 object-contain">
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <div
+                class="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg 
+                       w-44 h-28 md:w-52 md:h-32
+                       flex items-center justify-center
+                       hover:scale-105 transition duration-300">
+                <img src="{{ asset('img/pearson.png') }}" alt="Partner Logo"
+                    class="h-16 md:h-20 object-contain">
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <div
+                class="bg-white backdrop-blur-md rounded-2xl p-5 shadow-lg 
+                       w-44 h-28 md:w-52 md:h-32
+                       flex items-center justify-center
+                       hover:scale-105 transition duration-300">
+                <img src="{{ asset('img/stem.jpg') }}" alt="Partner Logo"
+                    class="h-16 md:h-20 object-contain">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 
             <!-- Copyright -->
             <div
