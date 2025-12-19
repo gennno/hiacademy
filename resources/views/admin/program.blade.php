@@ -15,9 +15,9 @@
 
                 <!-- BUTTON ADD PROGRAM -->
                 <button onclick="openAddModal()"
-    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-5 py-2 rounded-xl shadow-md">
-    ➕ Add Program
-</button>
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-5 py-2 rounded-xl shadow-md">
+                    ➕ Add Program
+                </button>
 
             </div>
             <form method="GET" action="{{ route('adminprogram') }}" class="mb-6">
@@ -51,13 +51,31 @@
                     </div>
                 </div>
             </form>
+            @if (session('success'))
+                <div id="successToast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50">
+                    <div class="bg-green-500 text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3
+                                   animate-[slideDown_0.3s_ease-out]">
+
+                        <span class="text-xl">✅</span>
+                        <span class="font-semibold">{{ session('success') }}</span>
+                    </div>
+                </div>
+
+                <script>
+                    setTimeout(() => {
+                        const toast = document.getElementById('successToast');
+                        if (toast) toast.remove();
+                    }, 3000);
+                </script>
+            @endif
+
 
             <!-- STATIC GRID ITEMS -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                 @foreach ($programs as $program)
-                        <div onclick="window.location='{{ route('admindetailprogram', $program->slug) }}'"
-                            class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm cursor-pointer">
+                        <div
+                            class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
 
                             <!-- IMAGE -->
                             <div class="relative h-48 w-full overflow-hidden">
@@ -81,8 +99,8 @@
 
 
                                 <span class="absolute top-3 left-3 text-xs font-semibold
-                                {{ $categoryColors[$program->category] ?? 'text-white bg-gray-500' }}
-                                px-3 py-1 rounded-full shadow-md">
+                                                                                            {{ $categoryColors[$program->category] ?? 'text-white bg-gray-500' }}
+                                                                                            px-3 py-1 rounded-full shadow-md">
                                     {{ $program->category }}
                                 </span>
 
@@ -111,18 +129,20 @@
                                     </button>
 
                                     <!-- Edit -->
-                                    <button onclick="event.stopPropagation(); openEditModal({{ $program->id }})"
+                                    <button onclick="event.stopPropagation(); openEditModal(@js($program))"
                                         class="w-full sm:w-auto px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-lg transition">
                                         ✏️ Edit
                                     </button>
 
+
                                     <!-- Delete -->
-                                    <form action="" method="POST"
+                                    <form action="{{ route('admin.programs.destroy', $program) }}" method="POST"
                                         onsubmit="event.stopPropagation(); return confirm('Delete this program?')">
+
                                         @csrf
                                         @method('DELETE')
 
-                                        <button
+                                        <button type="submit"
                                             class="w-full sm:w-auto px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition">
                                             🗑 Delete
                                         </button>
@@ -139,134 +159,170 @@
         </div>
     </div>
 
-<div id="modalAddProgram"
-    class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+    <div id="modalAddProgram" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
 
-    <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6 overflow-y-auto max-h-[90vh]">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6 overflow-y-auto max-h-[90vh]">
 
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold text-blue-500">➕ Add New Program</h3>
-            <button onclick="closeAddModal()" class="text-gray-500 hover:text-gray-700 text-xl">
-                ✖
-            </button>
-        </div>
-
-        <!-- FORM -->
-        <form method="POST" action="{{ route('admin.programs.store') }}" enctype="multipart/form-data"
-            class="space-y-4">
-            @csrf
-
-            <div>
-                <label class="text-sm font-semibold">Program Name</label>
-                <input type="text" name="name" required
-                    class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
-            </div>
-
-            <div>
-                <label class="text-sm font-semibold">Level</label>
-                <input type="text" name="level"
-                    class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
-            </div>
-
-            <div>
-                <label class="text-sm font-semibold">Category</label>
-                <select name="category" required
-                    class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
-                    <option value="">-- Select Category --</option>
-                    <option>Preschool</option>
-                    <option>Child Dev</option>
-                    <option>English</option>
-                    <option>Mandarin</option>
-                    <option>Math</option>
-                    <option>Coding</option>
-                    <option>Design</option>
-                    <option>Life Skill</option>
-                    <option>Architect</option>
-                    <option>Parenting</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="text-sm font-semibold">Slogan</label>
-                <input type="text" name="slogan"
-                    class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
-            </div>
-
-            <div>
-                <label class="text-sm font-semibold">Description</label>
-                <textarea name="description" rows="3"
-                    class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
-            </div>
-
-            <div>
-                <label class="text-sm font-semibold">Image</label>
-                <input type="file" name="image"
-                    class="w-full p-2 border rounded-lg">
-            </div>
-
-            <!-- Actions -->
-            <div class="flex flex-col sm:flex-row justify-end gap-3 pt-4">
-                <button type="button" onclick="closeAddModal()"
-                    class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">
-                    Cancel
-                </button>
-
-                <button type="submit"
-                    class="px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold">
-                    Save Program
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-blue-500">➕ Add New Program</h3>
+                <button onclick="closeAddModal()" class="text-gray-500 hover:text-gray-700 text-xl">
+                    ✖
                 </button>
             </div>
 
-        </form>
-    </div>
-</div>
-
-
-    <div id="modalEditProgram" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-
-        <div class="bg-white rounded-2xl shadow-xl p-6 w-[90%] md:w-[40%]">
-
-            <h3 class="text-xl font-bold mb-4 text-yellow-400">✏️ Edit Program</h3>
-
-            <div class="space-y-3">
+            <!-- FORM -->
+            <form method="POST" action="{{ route('admin.programs.store') }}" enctype="multipart/form-data"
+                class="space-y-4">
+                @csrf
 
                 <div>
                     <label class="text-sm font-semibold">Program Name</label>
-                    <input type="text" class="w-full p-2 border rounded-lg">
+                    <input type="text" name="name" required
+                        class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Level</label>
+                    <input type="text" name="level" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
                 </div>
 
                 <div>
                     <label class="text-sm font-semibold">Category</label>
-                    <input type="text" class="w-full p-2 border rounded-lg">
+                    <select name="category" required class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
+                        <option value="">-- Select Category --</option>
+                        <option>Preschool</option>
+                        <option>Child Dev</option>
+                        <option>English</option>
+                        <option>Mandarin</option>
+                        <option>Math</option>
+                        <option>Coding</option>
+                        <option>Design</option>
+                        <option>Life Skill</option>
+                        <option>Architect</option>
+                        <option>Parenting</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Slogan</label>
+                    <input type="text" name="slogan" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200">
                 </div>
 
                 <div>
                     <label class="text-sm font-semibold">Description</label>
-                    <textarea class="w-full p-2 border rounded-lg"></textarea>
+                    <textarea name="description" rows="3"
+                        class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
                 </div>
 
                 <div>
                     <label class="text-sm font-semibold">Image</label>
-                    <input type="file" class="w-full p-2 border rounded-lg">
+                    <input type="file" name="image" class="w-full p-2 border rounded-lg">
                 </div>
-            </div>
 
-            <div class="mt-6 flex justify-end gap-3">
-                <button class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg"
-                    onclick="document.getElementById('modalEditProgram').classList.add('hidden')">
-                    Cancel
-                </button>
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row justify-end gap-3 pt-4">
+                    <button type="button" onclick="closeAddModal()"
+                        class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">
+                        Cancel
+                    </button>
 
-                <button class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold">
-                    <span class="text-white">Save (UI Only)</span>
-                </button>
-            </div>
+                    <button type="submit"
+                        class="px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold">
+                        Save Program
+                    </button>
+                </div>
 
+            </form>
         </div>
     </div>
+
+
+    <div id="modalEditProgram" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-yellow-400">✏️ Edit Program</h3>
+                <button onclick="closeEditModal()" class="text-gray-500 hover:text-gray-700 text-xl">✖</button>
+            </div>
+
+            <!-- FORM -->
+            <form id="editProgramForm" method="POST" enctype="multipart/form-data" class="space-y-4">
+                @csrf
+                @method('PUT')
+
+                <div>
+                    <label class="text-sm font-semibold">Program Name</label>
+                    <input type="text" name="name" id="edit_name" class="w-full p-2 border rounded-lg">
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Level</label>
+                    <input type="text" name="level" id="edit_level" class="w-full p-2 border rounded-lg">
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Category</label>
+                    <select name="category" id="edit_category" class="w-full p-2 border rounded-lg">
+                        <option>Preschool</option>
+                        <option>Child Dev</option>
+                        <option>English</option>
+                        <option>Mandarin</option>
+                        <option>Math</option>
+                        <option>Coding</option>
+                        <option>Design</option>
+                        <option>Life Skill</option>
+                        <option>Architect</option>
+                        <option>Parenting</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Slogan</label>
+                    <input type="text" name="slogan" id="edit_slogan" class="w-full p-2 border rounded-lg">
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Description</label>
+                    <textarea name="description" id="edit_description" rows="3"
+                        class="w-full p-2 border rounded-lg"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-sm font-semibold">Image (optional)</label>
+                    <input type="file" name="image" class="w-full p-2 border rounded-lg">
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row justify-end gap-3 pt-4">
+                    <button type="button" onclick="closeEditModal()"
+                        class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="px-5 py-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 font-semibold">
+                        Update Program
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
     <script>
-        function openEditModal() {
+        function openEditModal(program) {
+            const form = document.getElementById('editProgramForm');
+
+            form.action = `/admin/programs/${program.id}`;
+
+            document.getElementById('edit_name').value = program.name ?? '';
+            document.getElementById('edit_level').value = program.level ?? '';
+            document.getElementById('edit_category').value = program.category ?? '';
+            document.getElementById('edit_slogan').value = program.slogan ?? '';
+            document.getElementById('edit_description').value = program.description ?? '';
+
             document.getElementById('modalEditProgram').classList.remove('hidden');
         }
 
@@ -274,28 +330,28 @@
             document.getElementById('modalEditProgram').classList.add('hidden');
         }
 
-        // OPTIONAL: Klik area gelap untuk close
-        document.addEventListener("click", function (e) {
-            if (e.target.id === "modalEditProgram") {
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'modalEditProgram') {
                 closeEditModal();
             }
         });
     </script>
+
     <script>
-    function openAddModal() {
-        document.getElementById('modalAddProgram').classList.remove('hidden');
-    }
-
-    function closeAddModal() {
-        document.getElementById('modalAddProgram').classList.add('hidden');
-    }
-
-    document.addEventListener('click', function (e) {
-        if (e.target.id === 'modalAddProgram') {
-            closeAddModal();
+        function openAddModal() {
+            document.getElementById('modalAddProgram').classList.remove('hidden');
         }
-    });
-</script>
+
+        function closeAddModal() {
+            document.getElementById('modalAddProgram').classList.add('hidden');
+        }
+
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'modalAddProgram') {
+                closeAddModal();
+            }
+        });
+    </script>
 
 
 @endsection

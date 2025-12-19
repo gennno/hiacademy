@@ -69,6 +69,50 @@ public function storeprogram(Request $request)
         ->with('success', 'Program added successfully!');
 }
 
+public function programdestroy(Program $program)
+{
+
+    $program->delete();
+
+    return redirect()
+        ->route('adminprogram')
+        ->with('success', 'Program deleted successfully!');
+}
+
+
+public function programupdate(Request $request, Program $program)
+{
+    $request->validate([
+        'name'        => 'required|string|max:255',
+        'level'       => 'nullable|string|max:255',
+        'category'    => 'required|string|max:255',
+        'slogan'      => 'nullable|string|max:255',
+        'description' => 'nullable|string',
+        'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
+
+    // Handle image replace
+    if ($request->hasFile('image')) {
+
+        $filename = time() . '_' . $request->image->getClientOriginalName();
+        $request->image->move(public_path('img'), $filename);
+        $program->image = 'img/' . $filename;
+    }
+
+    // Update fields
+    $program->update([
+        'name'        => $request->name,
+        'level'       => $request->level,
+        'category'    => $request->category,
+        'slogan'      => $request->slogan,
+        'description' => $request->description,
+    ]);
+
+    return redirect()
+        ->route('adminprogram')
+        ->with('success', 'Program updated successfully!');
+}
+
         public function admindetailprogram()
     {
         return view('admin.detail-program');
@@ -78,5 +122,6 @@ public function storeprogram(Request $request)
     {
         return view('admin.invoice');
     }
+    
     
 }

@@ -4,25 +4,25 @@
 
 @section('content')
 
-<div class="bg-white rounded-xl shadow-md p-4 mb-2">
+  <div class="bg-white rounded-xl shadow-md p-4 mb-2">
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 ">
 
-        <!-- LEFT: BACK BUTTON -->
-        <a href="{{ route('studentdashboard') }}" 
-            class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>Back</span>
-        </a>
+      <!-- LEFT: BACK BUTTON -->
+      <a href="{{ route('studentdashboard') }}"
+        class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back</span>
+      </a>
 
-        <!-- RIGHT: PAGE STRUCTURE -->
-        <div class="text-gray-600 text-sm md:text-base font-medium">
-            <a href="{{ route('studentmyprogram') }}" class="hover:text-indigo-600 cursor-pointer">Program</a>
-            <span class="mx-2">/</span>
-            <span class="text-indigo-600 font-semibold">Math Maverick</span>
-        </div>
+      <!-- RIGHT: PAGE STRUCTURE -->
+      <div class="text-gray-600 text-sm md:text-base font-medium">
+        <a href="{{ route('studentmyprogram') }}" class="hover:text-indigo-600 cursor-pointer">Program</a>
+        <span class="mx-2">/</span>
+        <span class="text-indigo-600 font-semibold">Pre-Nursery</span>
+      </div>
 
     </div>
-</div>
+  </div>
 
 
   <div class="bg-white rounded-xl shadow-md p-8 mb-6">

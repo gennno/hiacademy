@@ -38,6 +38,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
     Route::post('/admin/programs', [AdminController::class, 'storeprogram'])
     ->name('admin.programs.store');
+    Route::delete('/admin/programs/{program}', [AdminController::class, 'programdestroy'])
+    ->name('admin.programs.destroy');
+    Route::put('/admin/programs/{program}', [AdminController::class, 'programupdate'])
+    ->name('admin.programs.update');
+
+
 
 });
 

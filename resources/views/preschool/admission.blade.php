@@ -551,7 +551,7 @@
                         </p>
 
                         <div class="flex flex-wrap gap-4">
-                            <a href="{{ asset('file/3.2-Application-Form-hiacademy.pdf') }}" target="_blank"
+                            <a href="{{ asset('file/hiacademy-application-form.pdf') }}" target="_blank"
                                 rel="noopener noreferrer">
                                 <button
                                     class="flex items-center gap-3 bg-gradient-to-r from-[#F0A04B] to-[#FADA7A] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
