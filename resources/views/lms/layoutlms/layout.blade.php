@@ -97,6 +97,11 @@
       </a>
       <div
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+        <span class="text-2xl">📚</span>
+        <span class="text-xl">Report</span>
+      </div>
+      <div
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-2xl">🏆</span>
         <span class="text-xl">Achievements</span>
       </div>
@@ -132,9 +137,10 @@
             <span class="text-xl">☰</span>
           </button>
           <div>
-            <h4 class="text-2xl font-bold text-indigo-600 mb-0">
+            <h4 class="text-2xl font-bold text-indigo-600 mb-0 hidden md:block">
               @yield('pagetitle', 'Dashboard')
             </h4>
+
 
           </div>
         </div>
@@ -320,52 +326,54 @@
     }
   </script>
   @if(session('login_success'))
-<script>
-    Swal.fire({
+    <script>
+      Swal.fire({
         title: "Login Berhasil!",
         text: "Selamat datang kembali 👋",
         icon: "success",
         timer: 1800,
         showConfirmButton: false
-    });
-</script>
-@endif
-<style>
-  /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
+      });
+    </script>
+  @endif
+  <style>
+    /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
 
-  .swal2-container {
-    z-index: 99999 !important;
-  }
+    .swal2-container {
+      z-index: 99999 !important;
+    }
 
-  .swal2-popup button {
-    background-image: none !important;
-    box-shadow: none !important;
-  }
+    .swal2-popup button {
+      background-image: none !important;
+      box-shadow: none !important;
+    }
 
-  .swal2-confirm {
-    background-color: #dc2626 !important; /* red-600 */
-    color: #fff !important;
-    border-radius: 9999px !important;
-    padding: 0.6rem 1.5rem !important;
-    font-weight: 600;
-  }
+    .swal2-confirm {
+      background-color: #dc2626 !important;
+      /* red-600 */
+      color: #fff !important;
+      border-radius: 9999px !important;
+      padding: 0.6rem 1.5rem !important;
+      font-weight: 600;
+    }
 
-  .swal2-cancel {
-    background-color: #2563eb !important; /* blue-600 */
-    color: #fff !important;
-    border-radius: 9999px !important;
-    padding: 0.6rem 1.5rem !important;
-    font-weight: 600;
-  }
+    .swal2-cancel {
+      background-color: #2563eb !important;
+      /* blue-600 */
+      color: #fff !important;
+      border-radius: 9999px !important;
+      padding: 0.6rem 1.5rem !important;
+      font-weight: 600;
+    }
 
-  .swal2-confirm:hover {
-    background-color: #b91c1c !important;
-  }
+    .swal2-confirm:hover {
+      background-color: #b91c1c !important;
+    }
 
-  .swal2-cancel:hover {
-    background-color: #1d4ed8 !important;
-  }
-</style>
+    .swal2-cancel:hover {
+      background-color: #1d4ed8 !important;
+    }
+  </style>
 </body>
 
 </html>

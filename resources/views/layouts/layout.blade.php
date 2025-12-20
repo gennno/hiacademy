@@ -23,6 +23,8 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -149,7 +151,6 @@
       color: white;
     }
   </style>
-  @livewireStyles
 
 </head>
 
@@ -195,7 +196,6 @@
     @include('component.footer')
   @endif
 
-  @livewireScripts
 
 </body>
 

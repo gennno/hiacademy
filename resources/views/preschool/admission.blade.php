@@ -861,6 +861,10 @@
                         </a>
                         <a href="/admissionpreschool#admission"
                             class="bg-[#00809D] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+                            ✍️ Start Trial
+                        </a>
+                        <a href="/admissionpreschool#admission"
+                            class="bg-[#00809D] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
                             ✍️ Apply Now
                         </a>
                     </div>

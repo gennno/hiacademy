@@ -800,7 +800,7 @@
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <button onclick="toggleAccordiontraditional('teacher')"
                             class="w-full flex justify-between items-center px-6 py-4 text-black font-semibold hover:bg-yellow-300 transition">
-                            Nurturing EcosySTREAM
+                            Nurturing Ecosystem
                             <span id="teacher-icon"
                                 class="bg-white text-black w-6 h-6 rounded-full flex items-center justify-center font-bold">+</span>
                         </button>

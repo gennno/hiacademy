@@ -222,13 +222,14 @@
                 <a href="/preschool#home" class="nav-link">Home</a>
                 <div class="relative group">
                     <a href="/aboutpreschool" class="nav-link flex items-center">About Us
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
                     </a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
                         <div class="py-1">
                             <a href="/aboutpreschool"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">About Us</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">About
+                                Us</a>
                             <a href="/preschool#programs"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F0A04B] hover:text-white">Programs</a>
                             <a href="/preschool#our-centre"
@@ -239,7 +240,7 @@
                 </div>
                 <div class="relative group">
                     <a href="/ipc" class="nav-link flex items-center">Curriculum
-                    <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
                     </a>
                     <div
                         class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
@@ -475,7 +476,8 @@
         {{-- Content --}}
         <div class="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl text-white" data-aos="fade-up"
             data-aos-duration="1200">
-            <h1 class="text-4xl font-mono sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+            <h1 style="font-family: 'Quicksand', sans-serif;"
+                class="text-4xl font-mono sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
                 Nurturing <span class="text-[#FADA7A]">Young </span>Creative Thinker
             </h1>
             <p class="text-base font-sans sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
@@ -505,30 +507,33 @@
         <div class="absolute top-0 left-0 w-40 h-40 bg-[#B1C29E]/40 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-56 h-56 bg-[#FADA7A]/40 rounded-full blur-3xl"></div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
             <div class="flex flex-col lg:flex-row items-start gap-12" data-aos="fade-up">
                 {{-- Kolom kiri untuk teks --}}
                 <div class="lg:w-1/2 text-left">
                     <h4 class="text-lg md:text-xl font-sans font-extrabold text-[#F0A04B] mb-4 uppercase tracking-wide">
                         Our Vision & Mission
                     </h4>
-                    <h2
-                        class="text-3xl md:text-3xl font-mono font-extrabold max-w-2xl text-[#B1C29E] mb-4 uppercase tracking-wide">
+                    <h2 style="font-family: 'Quicksand', sans-serif;"
+                        class="text-3xl md:text-3xl font-extrabold max-w-2xl text-[#B1C29E] mb-4 uppercase tracking-wide">
                         BUILDING BLOCKS TO NURTURE YOUNG CREATIVE THINKERS
                     </h2>
+
                     <p class="text-md text-black font-sans text-base md:text-md leading-relaxed">
-                        At HiAcademy, we are dedicated to nurturing well-rounded development in every child. Our curriculum
-                        is designed to enhance physical, emotional, social, and cognitive growth, helping children thrive in
-                        a happy, supportive environment. We emphasize a deep understanding of nature and the world around
-                        them while also providing a strong foundation in key subjects. With our focus on excellence in
-                        English language skills, we prepare students to succeed both academically and socially.
+                        HiAcademy is dedicated to nurturing well-rounded development in every child by building a generation
+                        filled with hope, confidence, and enthusiasm for learning. Guided by the spirit of “Nurturing Bright
+                        Futures with Hope,” we create a safe, inclusive, and loving environment where every child feels
+                        valued and encouraged to explore their full potential. Through fun and exploration-based learning,
+                        we support each child’s social, emotional, and academic growth while fostering strong partnerships
+                        with parents and the community to ensure holistic development through close collaboration between
+                        home and school.
                     </p>
                 </div>
 
                 {{-- Kolom kanan untuk gambar --}}
                 <div class="lg:w-1/2 flex justify-center lg:justify-end">
-                    <img src="{{ asset('img/carousel1.jpg') }}" alt="About HiAcademy"
-                        class="rounded-lg shadow-lg w-full max-w-md lg:max-w-full object-cover">
+                    <img src="{{ asset('img/carousel1.webp') }}" alt="About HiAcademy"
+                        class="rounded-lg shadow-lg w-full h-auto object-cover">
                 </div>
             </div>
         </div>
@@ -939,8 +944,8 @@
 
                 @foreach ($curriculums as $i => $c)
                     <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col md:flex-row 
-                                                    {{ $i % 2 !== 0 ? 'md:flex-row-reverse' : '' }}" data-aos="fade-up"
-                        data-aos-once="true" data-aos-delay="{{ $i * 50 }}">
+                                                                            {{ $i % 2 !== 0 ? 'md:flex-row-reverse' : '' }}"
+                        data-aos="fade-up" data-aos-once="true" data-aos-delay="{{ $i * 50 }}">
 
                         {{-- 📸 Image --}}
                         <div class="md:w-2/5 w-full">

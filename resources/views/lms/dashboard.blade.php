@@ -43,7 +43,7 @@
 
 
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <div
             class="bg-[#FBFBFB] border-2 hover:border-4 border-cyan-400 rounded-2xl hover:shadow-2xl hover:-translate-y-2 duration-300 hover:border-yellow-400 p-5 shadow-md">
             <div class="flex justify-between items-center mb-2">

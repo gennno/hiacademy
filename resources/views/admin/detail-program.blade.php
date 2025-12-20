@@ -40,16 +40,6 @@
           This comprehensive program will take you from beginner to job-ready developer.
         </p>
 
-        <div class="mb-6">
-          <div class="flex justify-between text-sm mb-1">
-            <span>Your Progress</span>
-            <span>65%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-3">
-            <div class="bg-blue-500 h-3 rounded-full" style="width: 65%"></div>
-          </div>
-        </div>
-
         <div class="grid grid-cols-2 gap-4 mb-6">
           <div>
             <h3 class="font-bold">Lessons</h3>
@@ -74,7 +64,7 @@
         <div class="flex items-center justify-between">
           <div>
             <h3 class="font-bold">1. HTML Fundamentals</h3>
-            <p class="text-sm text-gray-500">8 lessons • 4 hours</p>
+            <p class="text-sm text-gray-500">8 lessons</p>
           </div>
           <div class="flex items-center">
             <span class="text-green-500 mr-2">✓</span>

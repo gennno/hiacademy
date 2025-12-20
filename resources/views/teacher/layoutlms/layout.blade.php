@@ -132,7 +132,7 @@
             <span class="text-xl">☰</span>
           </button>
           <div>
-            <h4 class="text-2xl font-bold text-indigo-600 mb-0">
+            <h4 class="text-2xl font-bold text-indigo-600 mb-0 hidden md:block">
               @yield('pagetitle', 'Dashboard')
             </h4>
 
