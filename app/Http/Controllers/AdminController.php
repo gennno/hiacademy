@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Program;
-
+use App\Models\Registration;
+use App\Models\Enrollment;
+use App\Models\Invoice;
+use App\Models\Report;
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -120,7 +123,30 @@ public function programupdate(Request $request, Program $program)
 
         public function admininvoice()
     {
-        return view('admin.invoice');
+        $invoices = Invoice::latest()->get();
+        return view('admin.invoice', compact('invoices'));
+    }
+    
+
+    public function adminregistration()
+    {
+        $registrations = Registration::latest()->get();
+
+        return view('admin.registration', compact('registrations'));
+    }
+
+    public function adminreport()
+    {
+        $reports = Report::latest()->get();
+
+        return view('admin.report', compact('reports'));
+    }
+
+        public function adminenrollment()
+    {
+        $enrollments = Enrollment::latest()->get();
+
+        return view('admin.enrollment', compact('enrollments'));
     }
     
     

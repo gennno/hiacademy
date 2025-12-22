@@ -98,17 +98,23 @@
         <span class="text-2xl">📚</span>
         <span class="text-xl">Programs</span>
       </a>
-      <a href="{{ route('admininvoice') }}"
+      <a href="{{ route('adminenrollment') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">🧾</span>
-        <span class="text-xl">Invoice</span>
-      </a>
-      <a href="{{ route('admininvoice') }}"
-        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('admin-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+  {{ Request::is('admin-enrollment') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-2xl">🧾</span>
         <span class="text-xl">Enrollment</span>
+      </a>
+      <a href="{{ route('adminreport') }}"
+        class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-report') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-2xl">🧾</span>
+        <span class="text-xl">Report</span>
+      </a>
+      <a href="{{ route('adminregistration') }}"
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-registration') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-2xl">🧾</span>
+        <span class="text-xl">Registration  </span>
       </a>
       <a href="{{ route('admininvoice') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3

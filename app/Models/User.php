@@ -104,4 +104,27 @@ class User extends Authenticatable
     // {
     //     return $this->hasMany(ProgramClass::class, 'teacher_id');
     // }
+
+    public function enrollments()
+{
+    return $this->hasMany(Enrollment::class);
+}
+
+public function programs()
+{
+    return $this->belongsToMany(Program::class, 'enrollments')
+                ->withPivot(['status', 'enrolled_at', 'completed_at'])
+                ->withTimestamps();
+}
+
+public function teachingPrograms()
+{
+    return $this->belongsToMany(Program::class, 'program_teachers')
+                ->withTimestamps();
+}
+public function reports()
+{
+    return $this->hasMany(Report::class);
+}
+
 }

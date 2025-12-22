@@ -1,6 +1,6 @@
 @extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'invoice')
+@section('pagetitle', 'Registration')
 
 @section('content')
 
@@ -17,7 +17,7 @@
         <!-- RIGHT: CREATE NEW -->
         <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
             <i class="fa-solid fa-plus"></i>
-            Create invoice
+            Create Registration
         </button>
     </div>
 </div>
@@ -129,76 +129,84 @@ table.dataTable tbody tr:hover {
 <!-- TABLE CARD -->
 <div class="bg-white rounded-xl shadow-md p-6">
 
-    <h2 class="font-semibold mb-4">invoice List</h2>
+    <h2 class="font-semibold mb-4">Registration List</h2>
 
     <div class="overflow-x-auto">
-        <table id="invoiceTable" class="min-w-full border rounded-lg dataTable stripe hover">
-<thead class="bg-gray-100">
+        <table id="RegistrationTable" class="min-w-full border rounded-lg dataTable stripe hover">
+            <thead class="bg-gray-100">
     <tr>
-        <th class="p-3 text-left">Invoice #</th>
-        <th class="p-3 text-left">Customer</th>
-        <th class="p-3 text-left">Amount</th>
+        <th class="p-3 text-left">#</th>
+        <th class="p-3 text-left">Name</th>
+        <th class="p-3 text-left">Program</th>
+        <th class="p-3 text-left">Level</th>
+        <th class="p-3 text-left">Mode</th>
         <th class="p-3 text-left">Status</th>
-        <th class="p-3 text-left">Invoice Date</th>
+        <th class="p-3 text-left">Registered At</th>
         <th class="p-3 text-center">Actions</th>
     </tr>
 </thead>
 
 
 <tbody>
-@forelse ($invoices as $invoice)
+@forelse ($registrations as $registration)
 <tr class="border-b">
-    <td class="p-3 font-semibold">
-        {{ $invoice->invoice_number }}
+    <td class="p-3">{{ $registration->id }}</td>
+
+    <td class="p-3">
+        <div class="font-semibold">{{ $registration->name }}</div>
+        <div class="text-sm text-gray-500">{{ $registration->email }}</div>
     </td>
 
     <td class="p-3">
-        <div class="font-medium">{{ $invoice->customer_name }}</div>
-        <div class="text-sm text-gray-500">{{ $invoice->customer_email }}</div>
+        <div class="font-medium">{{ $registration->program_name }}</div>
+        <div class="text-sm text-gray-500">{{ $registration->class_type }}</div>
     </td>
 
-    <td class="p-3">
-        Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
-    </td>
+    <td class="p-3">{{ $registration->level ?? '-' }}</td>
+
+    <td class="p-3 capitalize">{{ $registration->learning_mode }}</td>
 
     <td class="p-3">
-        {{-- Placeholder status (future payment table) --}}
-        <span class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full">
-            Unpaid
+        @php
+            $statusColor = match($registration->registration_status) {
+                'new' => 'bg-blue-100 text-blue-700',
+                'contacted' => 'bg-yellow-100 text-yellow-700',
+                'approved' => 'bg-green-100 text-green-700',
+                'rejected' => 'bg-red-100 text-red-700',
+            };
+        @endphp
+
+        <span class="px-3 py-1 text-sm rounded-full {{ $statusColor }}">
+            {{ ucfirst($registration->registration_status) }}
         </span>
     </td>
 
     <td class="p-3">
-        {{ \Carbon\Carbon::parse($invoice->invoice_date)->format('d M Y') }}
+        {{ $registration->created_at->format('d M Y') }}
     </td>
 
     <td class="p-3 flex justify-center gap-2">
-        <a href="#" class="table-action-btn view" title="View Invoice">
+        <button class="table-action-btn view" title="View">
             <i class="fa-solid fa-eye"></i>
-        </a>
+        </button>
 
-        <a href="#" class="table-action-btn update" title="Edit Invoice">
+        <button class="table-action-btn update" title="Update">
             <i class="fa-solid fa-pen"></i>
-        </a>
+        </button>
 
-        <form action="#" method="POST" onsubmit="return confirm('Delete this invoice?')">
-            @csrf
-            @method('DELETE')
-            <button class="table-action-btn delete" title="Delete Invoice">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        </form>
+        <button class="table-action-btn delete" title="Delete">
+            <i class="fa-solid fa-trash"></i>
+        </button>
     </td>
 </tr>
 @empty
 <tr>
-    <td colspan="6" class="p-6 text-center text-gray-500">
-        No invoices found.
+    <td colspan="8" class="p-6 text-center text-gray-500">
+        No registrations found.
     </td>
 </tr>
 @endforelse
 </tbody>
-
 
 
         </table>
@@ -211,7 +219,7 @@ table.dataTable tbody tr:hover {
 @section('scripts')
 <script>
 $(document).ready(function() {
-    $('#invoiceTable').DataTable({
+    $('#RegistrationTable').DataTable({
         pageLength: 5,
         paging: true,
         searching: true,

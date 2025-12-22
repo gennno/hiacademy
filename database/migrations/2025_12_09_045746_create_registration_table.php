@@ -13,23 +13,35 @@ return new class extends Migration
     {
         Schema::create('registration', function (Blueprint $table) {
             $table->id();
-            
-            /** Account */
-            $table->string('email');
+
+            /** STUDENT INFO */
             $table->string('name');
+            $table->string('email');
             $table->string('phone');
-            $table->text('address');
-            $table->date('birth_date');
-            $table->enum('gender', ['male', 'female']);
-            
-            /** Enrollment */
-            $table->string('category');
-            $table->foreignId('program_id')->nullable()->constrained('programs')->onDelete('set null');
+            $table->date('birth_date')->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->text('address')->nullable();
+
+            /** PROGRAM INFO */
             $table->string('program_name');
+            $table->string('level')->nullable();
+            $table->string('class_type')->nullable();
+            $table->enum('learning_mode', ['online', 'offline'])->default('online');
             $table->enum('status', ['regular', 'trial'])->default('regular');
-            $table->enum('learning_mode', ['offline', 'online'])->default('online');
+
+            /** ADMIN FLOW */
+            $table->enum('registration_status', [
+                'new',
+                'contacted',
+                'approved',
+                'rejected'
+            ])->default('new');
+
+            $table->timestamp('processed_at')->nullable();
             $table->timestamps();
         });
+
+
     }
 
     /**

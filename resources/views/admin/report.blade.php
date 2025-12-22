@@ -1,6 +1,6 @@
 @extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'invoice')
+@section('pagetitle', 'Invoice')
 
 @section('content')
 
@@ -17,7 +17,7 @@
         <!-- RIGHT: CREATE NEW -->
         <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
             <i class="fa-solid fa-plus"></i>
-            Create invoice
+            Create Invoice
         </button>
     </div>
 </div>
@@ -129,77 +129,61 @@ table.dataTable tbody tr:hover {
 <!-- TABLE CARD -->
 <div class="bg-white rounded-xl shadow-md p-6">
 
-    <h2 class="font-semibold mb-4">invoice List</h2>
+    <h2 class="font-semibold mb-4">Invoice List</h2>
 
     <div class="overflow-x-auto">
         <table id="invoiceTable" class="min-w-full border rounded-lg dataTable stripe hover">
-<thead class="bg-gray-100">
-    <tr>
-        <th class="p-3 text-left">Invoice #</th>
-        <th class="p-3 text-left">Customer</th>
-        <th class="p-3 text-left">Amount</th>
-        <th class="p-3 text-left">Status</th>
-        <th class="p-3 text-left">Invoice Date</th>
-        <th class="p-3 text-center">Actions</th>
-    </tr>
-</thead>
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="p-3 text-left">#ID</th>
+                    <th class="p-3 text-left">Customer</th>
+                    <th class="p-3 text-left">Amount</th>
+                    <th class="p-3 text-left">Status</th>
+                    <th class="p-3 text-left">Date</th>
+                    <th class="p-3 text-center">Actions</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <tr class="border-b">
+                    <td class="p-3">INV001</td>
+                    <td class="p-3">John Doe</td>
+                    <td class="p-3">$120.00</td>
+                    <td class="p-3"><span class="px-3 py-1 text-sm bg-green-200 text-green-700 rounded-full">Paid</span></td>
+                    <td class="p-3">03 Dec 2025</td>
+                    <td class="p-3 flex justify-center gap-2">
+                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
+                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
+                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
 
-<tbody>
-@forelse ($invoices as $invoice)
-<tr class="border-b">
-    <td class="p-3 font-semibold">
-        {{ $invoice->invoice_number }}
-    </td>
+                <tr class="border-b">
+                    <td class="p-3">INV002</td>
+                    <td class="p-3">Sarah Smith</td>
+                    <td class="p-3">$89.00</td>
+                    <td class="p-3"><span class="px-3 py-1 text-sm bg-red-200 text-red-700 rounded-full">Unpaid</span></td>
+                    <td class="p-3">28 Nov 2025</td>
+                    <td class="p-3 flex justify-center gap-2">
+                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
+                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
+                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
 
-    <td class="p-3">
-        <div class="font-medium">{{ $invoice->customer_name }}</div>
-        <div class="text-sm text-gray-500">{{ $invoice->customer_email }}</div>
-    </td>
-
-    <td class="p-3">
-        Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
-    </td>
-
-    <td class="p-3">
-        {{-- Placeholder status (future payment table) --}}
-        <span class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full">
-            Unpaid
-        </span>
-    </td>
-
-    <td class="p-3">
-        {{ \Carbon\Carbon::parse($invoice->invoice_date)->format('d M Y') }}
-    </td>
-
-    <td class="p-3 flex justify-center gap-2">
-        <a href="#" class="table-action-btn view" title="View Invoice">
-            <i class="fa-solid fa-eye"></i>
-        </a>
-
-        <a href="#" class="table-action-btn update" title="Edit Invoice">
-            <i class="fa-solid fa-pen"></i>
-        </a>
-
-        <form action="#" method="POST" onsubmit="return confirm('Delete this invoice?')">
-            @csrf
-            @method('DELETE')
-            <button class="table-action-btn delete" title="Delete Invoice">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        </form>
-    </td>
-</tr>
-@empty
-<tr>
-    <td colspan="6" class="p-6 text-center text-gray-500">
-        No invoices found.
-    </td>
-</tr>
-@endforelse
-</tbody>
-
-
+                <tr class="border-b">
+                    <td class="p-3">INV003</td>
+                    <td class="p-3">Michael Brown</td>
+                    <td class="p-3">$250.00</td>
+                    <td class="p-3"><span class="px-3 py-1 text-sm bg-green-200 text-green-700 rounded-full">Paid</span></td>
+                    <td class="p-3">20 Nov 2025</td>
+                    <td class="p-3 flex justify-center gap-2">
+                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
+                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
+                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
 
         </table>
     </div>

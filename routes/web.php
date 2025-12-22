@@ -6,6 +6,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RegistrationController;
+
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,13 +31,18 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/preschool-login', [HomeController::class, 'loginpreschool'])->name('loginpreschool');
 Route::get('/book-trial', [HomeController::class, 'booktrial'])->name('booktrial');
+
+
 Route::get('/register', [HomeController::class, 'register'])->name('register');
+Route::post('/registrations', [RegistrationController::class, 'store'])
+    ->name('registrations.store');
+
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admindashboard');
     Route::get('/admin-program', [AdminController::class, 'adminprogram'])->name('adminprogram');
     Route::get('/admin-detail-program', [AdminController::class, 'admindetailprogram'])->name('admindetailprogram');
-    Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
+
     Route::post('/admin/programs', [AdminController::class, 'storeprogram'])
     ->name('admin.programs.store');
     Route::delete('/admin/programs/{program}', [AdminController::class, 'programdestroy'])
@@ -43,7 +50,19 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/admin/programs/{program}', [AdminController::class, 'programupdate'])
     ->name('admin.programs.update');
 
+    Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
 
+
+
+
+
+    Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');
+
+    Route::get('/admin-report', [AdminController::class, 'adminreport'])->name('adminreport');
+
+
+    Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
+    
 
 });
 
@@ -65,6 +84,10 @@ Route::middleware(['auth', 'role:teacher'])->group(function () {
 Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/student-dashboard', [StudentController::class, 'studentdashboard'])->name('studentdashboard');
     Route::get('/student-my-program', [StudentController::class, 'studentmyprogram'])->name('studentmyprogram');
-    Route::get('/student-detail-program', [StudentController::class, 'studentdetailprogram'])->name('studentdetailprogram');
-
+    Route::get('/lms/my-program/{program:slug}', [StudentController::class, 'studentDetailProgram'])
+    ->name('studentdetailprogram');
+    Route::get(
+        '/student/programs/{program:slug}/lessons/{lesson}',
+        [StudentController::class, 'studentlessondetail']
+    )->name('studentlessondetail');
 });

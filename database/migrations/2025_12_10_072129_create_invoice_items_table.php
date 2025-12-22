@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('program_name'); // ex: "English - Adventurer"
             $table->string('level');       // ex: "Teenagers"
             $table->string('category');    // ex: "English"
+            $table->string('description');    // ex: "English"
             $table->decimal('amount', 15, 2);    // 1200000
 
             $table->timestamps();

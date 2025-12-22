@@ -95,202 +95,77 @@
             <!-- GRID ITEMS INSIDE -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                {{-- Card 1 --}}
-                <a href="{{ route('studentdetailprogram') }}" class="block">
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
+@foreach ($programs as $program)
+<a href="{{ route('studentdetailprogram', $program->slug) }}"
+   class="block">
 
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/math.png') }}" class="w-full h-full object-cover " alt="Math Image">
+    <div
+        class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden
+               hover:shadow-2xl transition-all duration-300
+               hover:-translate-y-2 border-2 hover:border-4
+               border-indigo-400 hover:border-yellow-400 max-w-sm
+               cursor-pointer">
 
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-white bg-indigo-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            Math
-                        </span>
-                    </div>
+        <!-- IMAGE -->
+        <div class="relative h-48 w-full overflow-hidden">
+            <img src="{{ $program->image
+                ? asset($program->image)
+                : asset('img/default-program.png') }}"
+                class="w-full h-full object-cover">
 
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">Math - Explorer</h5>
-                            <p class="text-sm text-gray-500">Joyful and solid numerical foundation.</p>
-                        </div>
+            @php
+                $categoryColors = [
+                    'Preschool' => 'text-white bg-pink-500',
+                    'Child Dev' => 'text-white bg-purple-500',
+                    'English' => 'text-black bg-yellow-400',
+                    'Mandarin' => 'text-white bg-red-500',
+                    'Math' => 'text-white bg-indigo-600',
+                    'Coding' => 'text-white bg-emerald-500',
+                    'Design' => 'text-white bg-fuchsia-500',
+                    'Life Skill' => 'text-white bg-orange-500',
+                    'Architect' => 'text-white bg-sky-500',
+                    'Parenting' => 'text-white bg-rose-500',
+                ];
+            @endphp
 
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
-                            </div>
+            <span
+                class="absolute top-3 left-3 text-xs font-semibold
+                       {{ $categoryColors[$program->category] ?? 'text-white bg-gray-500' }}
+                       px-3 py-1 rounded-full shadow-md">
+                {{ $program->category }}
+            </span>
+        </div>
 
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
-                            </div>
-                        </div>
+        <!-- CONTENT -->
+        <div class="p-5 pt-2 space-y-3">
+            <div>
+                <h5 class="text-lg font-semibold mt-2">
+                    {{ $program->name }}
+                </h5>
 
-                    </div>
+                <p class="text-sm text-gray-500">
+                    {{ $program->slogan }}
+                </p>
+            </div>
 
-                </div>
-            </a>
-
-                {{-- Card 2 --}}
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
-
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/math.png') }}" class="w-full h-full object-cover " alt="Math Image">
-
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-white bg-indigo-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            Math
-                        </span>
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">Math - Mavericks</h5>
-                            <p class="text-sm text-gray-500">Mastering advanced mathematics.</p>
-                        </div>
-
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
-                            </div>
-
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
-                            </div>
-                        </div>
-
-                    </div>
-
+            <!-- PROGRESS BAR (placeholder) -->
+            <div class="space-y-2">
+                <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full"
+                         style="width: 75%"></div>
                 </div>
 
-                {{-- Card 3 --}}
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
-
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/english.png') }}" class="w-full h-full object-cover " alt="Math Image">
-
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-black bg-yellow-400/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            English
-                        </span>
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">English - Super Movers</h5>
-                            <p class="text-sm text-gray-500">Gaining independence in everyday communication.</p>
-                        </div>
-
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
-                            </div>
-
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
-                            </div>
-                        </div>
-
-                    </div>
-
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">75% Complete</span>
+                    <span class="font-semibold text-green-600">15/20 Lessons</span>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                {{-- Card 4 --}}
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
+</a>
+@endforeach
 
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/mandarin.png') }}" class="w-full h-full object-cover " alt="Math Image">
-
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-white bg-red-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            Mandarin
-                        </span>
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">Mandarin - Navigator</h5>
-                            <p class="text-sm text-gray-500">Achieving independence in daily communication.</p>
-                        </div>
-
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
-                            </div>
-
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                {{-- Card 5 --}}
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
-
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/robotic.png') }}" class="w-full h-full object-cover " alt="Math Image">
-
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-white bg-green-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            Coding
-                        </span>
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">STEM - Python Developer</h5>
-                            <p class="text-sm text-gray-500">Mastering the world's most versatile programming language.</p>
-                        </div>
-
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
-                            </div>
-
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
 
 
             </div>

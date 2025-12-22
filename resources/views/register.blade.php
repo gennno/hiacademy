@@ -181,12 +181,13 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <!-- Full Name -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -215,7 +216,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
                 </div>
 
@@ -244,7 +245,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="Mandarin Program">
+                <input type="hidden" name="program_name" value="Mandarin Program">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -262,7 +263,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="weekday-evening">Weekday Evening (18:00 - 20:00)</option>
@@ -272,29 +273,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-cyan-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-cyan-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-cyan-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-cyan-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -323,11 +313,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -354,7 +345,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
                 </div>
 
@@ -382,7 +373,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="English Program">
+                <input type="hidden" name="program_name" value="English Program">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -402,7 +393,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="weekday-morning">Weekday Morning (08:00 - 10:00)</option>
@@ -412,29 +403,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-green-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-green-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-green-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-green-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -463,11 +443,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -494,7 +475,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition">
                 </div>
 
@@ -522,7 +503,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="English Program">
+                <input type="hidden" name="program_name" value="English Program">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -541,7 +522,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="weekday-morning">Weekday Morning (08:00 - 10:00)</option>
@@ -551,29 +532,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-red-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-red-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-red-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-red-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -603,11 +573,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -634,7 +605,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
                 </div>
 
@@ -662,7 +633,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="Math Program">
+                <input type="hidden" name="program_name" value="Math Program">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -681,7 +652,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="regular">Regular Class (2x week)</option>
@@ -690,16 +661,6 @@
                     </select>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
@@ -707,13 +668,13 @@
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-purple-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-purple-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -742,11 +703,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -773,7 +735,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                 </div>
 
@@ -801,7 +763,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="STEM & Coding">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -819,7 +781,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="scratch">Scratch Programming</option>
@@ -831,29 +793,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-indigo-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-indigo-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -882,11 +833,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -913,7 +865,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                 </div>
 
@@ -941,7 +893,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="STEM & Coding">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -959,7 +911,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="scratch">Scratch Programming</option>
@@ -971,29 +923,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-pink-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-pink-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-pink-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-pink-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -1022,11 +963,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -1053,7 +995,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                 </div>
 
@@ -1081,7 +1023,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="STEM & Coding">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -1099,7 +1041,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="scratch">Scratch Programming</option>
@@ -1111,29 +1053,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
                             class="text-red-500">*</span></label>
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-blue-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-blue-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>
@@ -1162,11 +1093,12 @@
                 </div>
             </div>
 
-            <form class="p-6 space-y-4">
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
                             class="text-red-500">*</span></label>
-                    <input type="text" name="full_name" required
+                    <input type="text" name="name" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                         placeholder="Enter student's full name">
                 </div>
@@ -1193,7 +1125,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
                             class="text-red-500">*</span></label>
-                    <input type="date" name="dob" required
+                    <input type="date" name="birth_date" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                 </div>
 
@@ -1221,7 +1153,7 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="STEM & Coding">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -1239,7 +1171,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Class <span
                             class="text-red-500">*</span></label>
-                    <select name="class" required
+                    <select name="class_type" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
                         <option value="">Select Class</option>
                         <option value="scratch">Scratch Programming</option>
@@ -1250,16 +1182,6 @@
                     </select>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Schedule Preference</label>
-                    <select name="schedule"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                        <option value="">Select Batch (if applicable)</option>
-                        <option value="batch1">Batch 1 - Starting January 2025</option>
-                        <option value="batch2">Batch 2 - Starting March 2025</option>
-                        <option value="batch3">Batch 3 - Starting June 2025</option>
-                    </select>
-                </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Learning Mode Preference <span
@@ -1267,13 +1189,13 @@
                     <div class="grid grid-cols-2 gap-3">
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-orange-500 transition">
-                            <input type="radio" name="mode" value="online" class="mr-2">
+                            <input type="radio" name="learning_mode" value="online" class="mr-2">
                             <i class="fa-solid fa-laptop text-orange-500 mr-2"></i>
                             <span class="font-medium">Online</span>
                         </label>
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-orange-500 transition">
-                            <input type="radio" name="mode" value="offline" class="mr-2">
+                            <input type="radio" name="learning_mode" value="offline" class="mr-2">
                             <i class="fa-solid fa-building text-orange-500 mr-2"></i>
                             <span class="font-medium">Offline</span>
                         </label>

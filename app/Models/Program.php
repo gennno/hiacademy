@@ -57,4 +57,33 @@ class Program extends Model
     // {
     //     return $this->hasMany(ProgramClass::class);
     // }
+
+        public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'program_id')
+                    ->orderBy('order');
+    }
+    public function enrollments()
+{
+    return $this->hasMany(Enrollment::class);
+}
+
+public function students()
+{
+    return $this->belongsToMany(User::class, 'enrollments')
+                ->withPivot(['status', 'enrolled_at', 'completed_at'])
+                ->withTimestamps();
+}
+
+public function teachers()
+{
+    return $this->belongsToMany(User::class, 'program_teachers')
+                ->withTimestamps();
+}
+public function reports()
+{
+    return $this->hasMany(Report::class);
+}
+
+
 }
