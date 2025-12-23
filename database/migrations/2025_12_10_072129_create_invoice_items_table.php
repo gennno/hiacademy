@@ -17,9 +17,9 @@ return new class extends Migration
 
             // Item fields
             $table->string('program_name'); // ex: "English - Adventurer"
-            $table->string('level');       // ex: "Teenagers"
+            $table->string('level');       // ex: "english-teenagers"
             $table->string('category');    // ex: "English"
-            $table->string('description');    // ex: "English"
+            $table->string('description');    // ex: "Admission Fee"
             $table->decimal('amount', 15, 2);    // 1200000
 
             $table->timestamps();

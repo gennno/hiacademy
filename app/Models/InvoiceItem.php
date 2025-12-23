@@ -14,6 +14,7 @@ class InvoiceItem extends Model
         'program_name',
         'level',
         'category',
+        'description',
         'amount',
     ];
 

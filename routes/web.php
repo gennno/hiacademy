@@ -7,6 +7,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\InvoiceController;
 
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -52,8 +53,25 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
 
+    Route::post('/admin/invoices', [AdminController::class, 'storeinvoice'])
+        ->name('invoices.store');
 
+    Route::get('/admin/invoices/{invoice}', [AdminController::class, 'showinvoice'])
+        ->name('invoices.show');
 
+    Route::get('/admin/invoices/{invoice}/edit', [AdminController::class, 'editinvoice'])
+        ->name('invoices.edit');
+
+    Route::put('/admin/invoices/{invoice}', [AdminController::class, 'updateinvoice'])
+        ->name('invoices.update');
+
+    Route::delete('/admin/invoices/{invoice}', [AdminController::class, 'destroyinvoice'])
+        ->name('invoices.destroy');
+
+    Route::get(
+        '/admin/invoices/{invoice}/generate',
+        [AdminController::class, 'generateinvoice']
+    )->name('invoices.generate');
 
 
     Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');

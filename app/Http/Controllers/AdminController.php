@@ -9,6 +9,9 @@ use App\Models\Registration;
 use App\Models\Enrollment;
 use App\Models\Invoice;
 use App\Models\Report;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+use App\Models\InvoiceItem;
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -148,6 +151,89 @@ public function programupdate(Request $request, Program $program)
 
         return view('admin.enrollment', compact('enrollments'));
     }
+
+        public function storeinvoice(Request $request)
+    {
+        DB::transaction(function () use ($request) {
+
+            $subtotal = collect($request->items)->sum('amount');
+
+            $invoice = Invoice::create([
+                'invoice_number' => 'INV' . date('Y') . rand(1000, 9999),
+                'invoice_date' => now(),
+
+                'customer_name' => $request->customer_name,
+                'customer_email' => $request->customer_email,
+                'customer_phone' => $request->customer_phone,
+                'customer_address' => $request->customer_address,
+
+                'subtotal' => $subtotal,
+                'discount' => 0,
+                'grand_total' => $subtotal,
+            ]);
+
+            foreach ($request->items as $item) {
+                $invoice->items()->create($item);
+            }
+        });
+
+        return redirect()->back()->with('success', 'Invoice created');
+    }
+
+    public function showinvoice(Invoice $invoice)
+    {
+        $invoice->load('items');
+        return response()->json($invoice);
+    }
+
+    public function editinvoice(Invoice $invoice)
+    {
+        $invoice->load('items');
+        return response()->json($invoice);
+    }
+
+
+    public function updateinvoice(Request $request, Invoice $invoice)
+    {
+        DB::transaction(function () use ($request, $invoice) {
+
+            $subtotal = collect($request->items)->sum('amount');
+
+            $invoice->update([
+                'customer_name' => $request->customer_name,
+                'customer_email' => $request->customer_email,
+                'customer_phone' => $request->customer_phone,
+                'customer_address' => $request->customer_address,
+                'subtotal' => $subtotal,
+                'grand_total' => $subtotal,
+            ]);
+
+            $invoice->items()->delete();
+
+            foreach ($request->items as $item) {
+                $invoice->items()->create($item);
+            }
+        });
+
+        return redirect()->route('admininvoice');
+    }
+
+    public function destroyinvoice(Invoice $invoice)
+    {
+        $invoice->delete();
+        return redirect()->back()->with('success', 'Invoice deleted');
+    }
     
+    public function generateinvoice(Invoice $invoice)
+{
+    $invoice->load('items');
+
+    $pdf = Pdf::loadView('admin.invoicepdf', [
+        'invoice' => $invoice
+    ])->setPaper('A4');
+
+    return $pdf->stream($invoice->invoice_number . '.pdf');
+    // or ->download()
+}
     
 }
