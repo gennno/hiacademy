@@ -1245,4 +1245,21 @@
 
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    @if(session('registration_success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful!',
+        html: `
+            <p class="text-sm">
+                Thank you for registering.<br>
+                Please wait for <b>WhatsApp</b> and <b>Email</b> confirmation from our admin.
+            </p>
+        `,
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#facc15',
+    });
+</script>
+@endif
+
 @endsection
