@@ -27,12 +27,18 @@ class RegistrationController extends Controller
             'level'         => 'required|string|max:255',
             'class_type'    => 'required|string|max:255',
             'learning_mode' => 'required|in:online,offline',
+
+            //regist info
+            'status'      => 'required|in:male,female',
         ]);
 
         // 2️⃣ Store into database
         Registration::create($validated);
 
         // 3️⃣ Response
-        return redirect()->back()->with('success', 'Registration submitted successfully!');
+        return redirect()
+            ->back()
+            ->with('registration_success', true);
+
     }
 }

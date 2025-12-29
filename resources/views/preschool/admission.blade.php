@@ -859,7 +859,7 @@
                             class="bg-white text-[#F0A04B] px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
                             📞 Schedule Visit
                         </a>
-                        <a href="/admissionpreschool#admission"
+                        <a href="/book-trial"
                             class="bg-[#00809D] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
                             ✍️ Start Trial
                         </a>
