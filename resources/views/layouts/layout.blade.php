@@ -151,6 +151,38 @@
       color: white;
     }
   </style>
+<style>
+    .partner-item {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-img {
+        object-fit: contain;
+    }
+
+    @media (min-width: 640px) {
+        .partner-item {
+            flex: 0 0 50%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .partner-item {
+            flex: 0 0 33.3333%;
+            padding: 0 1.5rem; /* ✅ FIX */
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .partner-item {
+            flex: 0 0 auto;
+            padding: 0 2rem;
+        }
+    }
+</style>
 
 </head>
 
@@ -195,7 +227,84 @@
   @if (!View::hasSection('hide-footer'))
     @include('component.footer')
   @endif
+<script>
+    const slider = document.getElementById('partner-slider');
+    let items = Array.from(document.querySelectorAll('.partner-item'));
 
+    let index = 0;
+    let visibleItems = 3;
+    let isAnimating = false;
+
+    function updateVisibleItems() {
+        const width = window.innerWidth;
+
+        if (width < 640) {
+            visibleItems = 1;
+        } else if (width < 768) {
+            visibleItems = 2;
+        } else if (width < 1280) {
+            visibleItems = 3;
+        } else {
+            visibleItems = items.length;
+            slider.style.transform = 'translateX(0)';
+            return;
+        }
+    }
+
+    function cloneItems() {
+        // Remove old clones
+        slider.querySelectorAll('.clone').forEach(el => el.remove());
+
+        updateVisibleItems();
+
+        if (window.innerWidth >= 1280) return;
+
+        // Clone first N items
+        for (let i = 0; i < visibleItems; i++) {
+            const clone = items[i].cloneNode(true);
+            clone.classList.add('clone');
+            slider.appendChild(clone);
+        }
+
+        items = Array.from(document.querySelectorAll('.partner-item'));
+    }
+
+    function slideLogos() {
+        if (window.innerWidth >= 1280 || isAnimating) return;
+
+        isAnimating = true;
+        index++;
+
+        const offset = -(items[0].offsetWidth * index);
+        slider.style.transition = 'transform 0.7s ease-in-out';
+        slider.style.transform = `translateX(${offset}px)`;
+
+        // When reaching cloned items → jump back silently
+        if (index === items.length - visibleItems) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                index = 0;
+                slider.style.transform = 'translateX(0)';
+                isAnimating = false;
+            }, 700);
+        } else {
+            setTimeout(() => {
+                isAnimating = false;
+            }, 700);
+        }
+    }
+
+    // Init
+    cloneItems();
+    setInterval(slideLogos, 3000);
+
+    window.addEventListener('resize', () => {
+        index = 0;
+        slider.style.transition = 'none';
+        slider.style.transform = 'translateX(0)';
+        cloneItems();
+    });
+</script>
 
 
 </body>

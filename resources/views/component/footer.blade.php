@@ -120,72 +120,51 @@
                 </div>
             </div>
         </div>
-        <!-- Partner Logos -->
-        <div class="mt-20 mb-12 relative z-10">
+    </div>
+    <!-- Partner Logos -->
+    <div class="mt-20 mb-12 bg-gray-400 py-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
 
-            <div class="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-6 items-center">
+            <!-- Slider Wrapper -->
+            <div id="partner-slider-wrapper" class="overflow-hidden">
 
-                <!-- Logo Card -->
-                <div class="flex justify-center">
-                    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-lg 
-                       w-44 h-28 md:w-52 md:h-32
-                       flex items-center justify-center
-                       hover:scale-105 transition duration-300">
-                        <img src="{{ asset('img/timedoor.webp') }}" alt="Partner Logo"
-                            class="h-16 md:h-20 object-contain">
+                <!-- Slider Track -->
+                <div id="partner-slider" class="flex transition-transform duration-700 ease-in-out
+                       xl:justify-center xl:translate-x-0">
+
+                    <!-- Logo Item -->
+                    <div class="partner-item">
+                        <img src="{{ asset('img/franchise.png') }}" class="logo-img h-28 object-contain shrink-0">
                     </div>
-                </div>
 
-                <div class="flex justify-center">
-                    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-lg 
-                       w-44 h-28 md:w-52 md:h-32
-                       flex items-center justify-center
-                       hover:scale-105 transition duration-300">
-                        <img src="{{ asset('img/Iblaeducation.png') }}" alt="Partner Logo"
-                            class="h-16 md:h-20 object-contain">
+                    <div class="partner-item">
+                        <img src="{{ asset('img/timedoor.webp') }}" class="logo-img h-16 object-contain shrink-0">
                     </div>
-                </div>
 
-
-                <div class="flex justify-center">
-                    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-lg 
-                       w-44 h-28 md:w-52 md:h-32
-                       flex items-center justify-center
-                       hover:scale-105 transition duration-300">
-                        <img src="{{ asset('img/franchise.png') }}" alt="Partner Logo"
-                            class="h-16 md:h-24 object-contain">
+                    <div class="partner-item">
+                        <img src="{{ asset('img/Iblaeducation.png') }}" class="logo-img h-16 object-contain shrink-0">
                     </div>
-                </div>
 
-                <div class="flex justify-center">
-                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg 
-                       w-44 h-28 md:w-52 md:h-32
-                       flex items-center justify-center
-                       hover:scale-105 transition duration-300">
-                        <img src="{{ asset('img/pearson.png') }}" alt="Partner Logo"
-                            class="h-16 md:h-20 object-contain">
+                    <div class="partner-item">
+                        <img src="{{ asset('img/pearson.png') }}" class="logo-img h-16 object-contain shrink-0">
                     </div>
-                </div>
 
-                <div class="flex justify-center">
-                    <div class="bg-white backdrop-blur-md rounded-2xl p-5 shadow-lg 
-                       w-44 h-28 md:w-52 md:h-32
-                       flex items-center justify-center
-                       hover:scale-105 transition duration-300">
-                        <img src="{{ asset('img/stem.jpg') }}" alt="Partner Logo" class="h-16 md:h-20 object-contain">
+                    <div class="partner-item">
+                        <img src="{{ asset('img/stem.png') }}" class="logo-img h-16 object-contain shrink-0">
                     </div>
+
+
                 </div>
-
-
             </div>
-        </div>
 
-        
-
-        <!-- Copyright -->
-        <div
-            class="mt-16 bg-yellow-400/80 py-4 text-center text-black text-sm relative z-10 border-t rounded-full border-blue-800/40">
-            © 2025 h!academy | Powered by <span class="text-white font-semibold">DayR</span>
         </div>
+    </div>
+
+
+
+    <!-- Copyright -->
+    <div
+        class="mt-16 bg-yellow-400/80 py-4 text-center text-black text-sm relative z-10 border-t rounded-full border-blue-800/40">
+        © 2025 h!academy | Powered by <span class="text-white font-semibold">DayR</span>
     </div>
 </footer>
