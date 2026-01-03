@@ -124,10 +124,8 @@
     <!-- Partner Logos -->
     <div class="mt-20 mb-12 bg-gray-400 py-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 relative">
-
             <!-- Slider Wrapper -->
             <div id="partner-slider-wrapper" class="overflow-hidden">
-
                 <!-- Slider Track -->
                 <div id="partner-slider" class="flex transition-transform duration-700 ease-in-out
                        xl:justify-center xl:translate-x-0">
@@ -152,8 +150,6 @@
                     <div class="partner-item">
                         <img src="{{ asset('img/stem.png') }}" class="logo-img h-16 object-contain shrink-0">
                     </div>
-
-
                 </div>
             </div>
 
