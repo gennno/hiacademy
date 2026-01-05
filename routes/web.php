@@ -108,4 +108,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
         '/student/programs/{program:slug}/lessons/{lesson}',
         [StudentController::class, 'studentlessondetail']
     )->name('studentlessondetail');
+
+    Route::get('/student-report', [StudentController::class, 'studentreport'])->name('studentreport');
+
 });

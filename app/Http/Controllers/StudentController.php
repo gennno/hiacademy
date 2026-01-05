@@ -7,12 +7,13 @@ use Illuminate\Support\Str;
 use App\Models\Program;
 use App\Models\Enrollment;
 use App\Models\Lesson;
+use App\Models\Report;
 
 class StudentController extends Controller
 {
     public function studentdashboard(Request $request)
     {
-            $user = auth()->user();
+    $user = auth()->user();
 
     $query = Program::query()
 
@@ -122,6 +123,17 @@ public function studentlessondetail(Program $program, Lesson $lesson)
                 'program',
                 'lesson'
             ));
+    }
+
+        public function studentreport()
+    {
+        $user = auth()->user();
+        $reports = Report::with(['program', 'lesson'])
+            ->where('user_id', $user->id)
+            ->latest()
+            ->get();
+
+        return view('lms.report', compact('reports'));
     }
     
 }

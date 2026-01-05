@@ -84,7 +84,7 @@
                 {{-- PDF --}}
                 @elseif ($material->type === 'pdf')
                     <div class="space-y-3">
-                        <div class="h-[600px] rounded-lg overflow-hidden border bg-white">
+                        <div class="h-[300px] md:h-[600px] rounded-lg overflow-hidden border bg-white">
                             <iframe src="{{ asset($material->content) }}#toolbar=0"
                                     class="w-full h-full"
                                     loading="lazy"></iframe>
@@ -143,21 +143,22 @@
                         </div>
 
                     {{-- PDF --}}
-                    @elseif ($task->isPdf())
-                        <div class="space-y-3">
-                            <div class="h-[600px] rounded-lg overflow-hidden border bg-white">
-                                <iframe src="{{ asset($task->content) }}#toolbar=0"
-                                        class="w-full h-full"
-                                        loading="lazy"></iframe>
-                            </div>
+@elseif ($task->isPdf())
+    <div class="space-y-3">
+        <div class="h-[300px] md:h-[600px] rounded-lg overflow-hidden border bg-white">
+            <iframe src="{{ asset($task->content) }}#toolbar=0"
+                    class="w-full h-full"
+                    loading="lazy"></iframe>
+        </div>
 
-                            <a href="{{ asset($task->content) }}" target="_blank"
-                               class="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline">
-                                <i class="fa-solid fa-file-pdf"></i>
-                                Open assignment PDF
-                            </a>
-                        </div>
-                    @endif
+        <a href="{{ asset($task->content) }}" target="_blank"
+           class="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline">
+            <i class="fa-solid fa-file-pdf"></i>
+            Open assignment PDF
+        </a>
+    </div>
+@endif
+
 
                 </div>
 

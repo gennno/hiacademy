@@ -74,8 +74,8 @@
     <div class="space-y-4">
       @foreach ($lessons as $index => $lesson)
         <a href="{{ route('studentlessondetail', [$program->slug, $lesson->id]) }}" class="block border rounded-lg p-4 transition-all
-                  hover:bg-gray-50 hover:shadow-md
-                  {{ $index === 0 ? 'bg-blue-50' : '' }}">
+                  hover:bg-blue-50 hover:shadow-md
+                  {{ $index === 0 ? 'bg-gray-50' : '' }}">
 
           <div class="flex items-center justify-between">
             <div>
@@ -84,8 +84,7 @@
               </h3>
 
               <p class="text-sm text-gray-500">
-                {{ $lesson->total_lessons }} lessons •
-                {{ $lesson->duration_hours }} hours
+                {{ $lesson->total_lessons }}5 Materials
               </p>
             </div>
 
@@ -104,7 +103,7 @@
                 </div>
 
               @else
-                <span class="text-gray-400">Locked</span>
+                <span class="text-sm text-gray-400">✅Completed</span>
               @endif
             </div>
           </div>
