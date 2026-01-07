@@ -916,28 +916,34 @@
                 @php
                     $curriculums = [
                         [
-                            'title' => 'Little Sprouts',
-                            'age' => '6 months – 1 year old',
+                            'title' => 'Pre-Nursery',
+                            'age' => '1–2 y.o',
                             'img' => 'img/6month.webp',
-                            'desc' => 'The curriculum focuses on sensory exploration and foundational development, fostering growth through tummy time, grasping toys, and exploring textures, colors, and sounds. Babies engage in activities that encourage bonding, responding to coos and babbles, and participating in simple songs and rhymes.'
+                            'desc' => 'The curriculum focuses on sensory exploration and foundational development, fostering growth through tummy time, grasping toys, and exploring textures, colors, and sounds.'
                         ],
                         [
-                            'title' => 'Blossom Buds',
-                            'age' => '1 – 2 years old',
+                            'title' => 'Nursery',
+                            'age' => '2–3 y.o',
                             'img' => 'img/buds.webp',
                             'desc' => 'This stage emphasizes early independence and discovery, with activities designed to enhance walking, climbing, and stacking skills. Children explore shapes, colors, and cause-effect toys while expanding their vocabulary and responding to simple instructions.'
                         ],
                         [
-                            'title' => 'Sunshine Explorer',
-                            'age' => '3 – 4 years old',
+                            'title' => 'Kindergarten 1',
+                            'age' => '3–4 y.o',
                             'img' => 'img/1years.webp',
-                            'desc' => 'Focused on creativity, communication, and social skills, this curriculum includes running, jumping, and improving fine motor coordination through art and play. Children engage in imaginative activities, pattern recognition, and early numeracy.'
+                            'desc' => 'Focused on creativity, communication, and social skills, this curriculum includes running, jumping, and improving fine motor coordination through art and play. '
                         ],
                         [
-                            'title' => 'Morning Glories',
-                            'age' => '5 – 6 years old',
+                            'title' => 'Kindergarten 2',
+                            'age' => '4–5 y.o',
+                            'img' => 'img/4years.webp',
+                            'desc' => 'Children engage in imaginative activities, pattern recognition, and early numeracy. Activities include pre-literacy, numeracy development & teamwork.'
+                        ],
+                        [
+                            'title' => 'Kindergarten 3',
+                            'age' => '5–6 y.o',
                             'img' => 'img/5years.webp',
-                            'desc' => 'Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced motor skills like skipping and writing readiness. Activities include pre-literacy and numeracy development, teamwork, and leadership opportunities.'
+                            'desc' => 'Preparing for kindergarten, this curriculum emphasizes holistic growth through advanced motor skills like skipping and writing readiness.'
                         ],
                     ];
                 @endphp

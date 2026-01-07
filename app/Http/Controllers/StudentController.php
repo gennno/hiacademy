@@ -45,65 +45,65 @@ class StudentController extends Controller
     }
 
 
-public function studentmyprogram(Request $request)
-{
-    $user = auth()->user();
+    public function studentmyprogram(Request $request)
+    {
+        $user = auth()->user();
 
-    $query = Program::query()
+        $query = Program::query()
 
-        // 🔒 HANYA program yang user enroll
-        ->whereHas('enrollments', function ($q) use ($user) {
-            $q->where('user_id', $user->id);
-        });
+            // 🔒 HANYA program yang user enroll
+            ->whereHas('enrollments', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            });
 
-    // 🔍 Search by program name
-    if ($request->filled('search')) {
-        $query->where('name', 'like', '%' . $request->search . '%');
+        // 🔍 Search by program name
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // 🏷 Filter by category
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        $programs = $query->latest()->get();
+
+        // 🔽 Category filter hanya dari program yang dimiliki user
+        $categories = Program::whereHas('enrollments', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            })
+            ->select('category')
+            ->distinct()
+            ->pluck('category');
+
+        return view('lms.myprogram', compact('programs', 'categories'));
     }
 
-    // 🏷 Filter by category
-    if ($request->filled('category')) {
-        $query->where('category', $request->category);
+    public function studentDetailProgram(Program $program)
+    {
+        $user = auth()->user();
+
+        // 🔐 Security: hanya program yang user enroll
+        if (! $program->enrollments()
+            ->where('user_id', $user->id)
+            ->exists()) {
+            abort(403);
+        }
+
+        // Ambil lesson milik program ini
+        $lessons = $program->lessons;
+
+        // Dummy progress (nanti bisa dari lesson_progress table)
+        $progressPercent = 65;
+
+        return view('lms.detail-program', compact(
+            'program',
+            'lessons',
+            'progressPercent'
+        ));
     }
 
-    $programs = $query->latest()->get();
-
-    // 🔽 Category filter hanya dari program yang dimiliki user
-    $categories = Program::whereHas('enrollments', function ($q) use ($user) {
-            $q->where('user_id', $user->id);
-        })
-        ->select('category')
-        ->distinct()
-        ->pluck('category');
-
-    return view('lms.myprogram', compact('programs', 'categories'));
-}
-
-public function studentDetailProgram(Program $program)
-{
-    $user = auth()->user();
-
-    // 🔐 Security: hanya program yang user enroll
-    if (! $program->enrollments()
-        ->where('user_id', $user->id)
-        ->exists()) {
-        abort(403);
-    }
-
-    // Ambil lesson milik program ini
-    $lessons = $program->lessons;
-
-    // Dummy progress (nanti bisa dari lesson_progress table)
-    $progressPercent = 65;
-
-    return view('lms.detail-program', compact(
-        'program',
-        'lessons',
-        'progressPercent'
-    ));
-}
-
-public function studentlessondetail(Program $program, Lesson $lesson)
+    public function studentlessondetail(Program $program, Lesson $lesson)
     {
             $user = auth()->user();
 
@@ -125,7 +125,7 @@ public function studentlessondetail(Program $program, Lesson $lesson)
             ));
     }
 
-        public function studentreport()
+    public function studentreport()
     {
         $user = auth()->user();
         $reports = Report::with(['program', 'lesson'])
@@ -135,5 +135,11 @@ public function studentlessondetail(Program $program, Lesson $lesson)
 
         return view('lms.report', compact('reports'));
     }
-    
+    public function studentreportshow(Report $report)
+    {
+        // Optional: authorization (recommended)
+        // abort_if($report->student_id !== auth()->id(), 403);
+
+        return view('lms.report-detail', compact('report'));
+    }
 }

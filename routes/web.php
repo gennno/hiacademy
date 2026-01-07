@@ -110,5 +110,6 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     )->name('studentlessondetail');
 
     Route::get('/student-report', [StudentController::class, 'studentreport'])->name('studentreport');
+    Route::get('/student/reports/{report}', [StudentController::class, 'studentreportshow'])->name('student.reports.show');
 
 });

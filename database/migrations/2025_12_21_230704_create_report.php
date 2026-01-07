@@ -42,10 +42,6 @@ return new class extends Migration
                 ->default('submitted');
 
             $table->timestamps();
-
-            // Constraints
-            $table->unique(['user_id', 'lesson_id'], 'unique_lesson_report');
-            $table->unique(['user_id', 'program_id', 'type'], 'unique_program_report');
         });
 
     }
@@ -55,6 +51,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('report');
+        Schema::dropIfExists('reports');
     }
 };
