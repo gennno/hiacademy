@@ -594,13 +594,15 @@
         $(document).ready(function () {
             $('#reportTable').DataTable({
                 pageLength: 5,
+                searching: true,
+                ordering: true,
                 responsive: true
             });
 
             $('#finalReportTable').DataTable({
                 pageLength: 3,
-                searching: false,
-                ordering: false,
+                searching: true,
+                ordering: true,
                 responsive: true
             });
         });
