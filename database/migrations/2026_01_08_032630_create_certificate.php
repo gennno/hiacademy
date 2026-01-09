@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('certificate', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
 
             // Student
@@ -19,16 +19,20 @@ return new class extends Migration
                 ->constrained('users')
                 ->cascadeOnDelete();
 
+            $table->string('name');
+
             // Program
-            $table->foreignId('program_id')
-                ->constrained('programs')
-                ->cascadeOnDelete();
+            $table->string('program_name');
+
+            // Academic info
+            $table->string('academic_year');          // e.g. 2026 - 2027
+            $table->date('completion_date');          // e.g. 2026-06-12
 
             // Content
             $table->string('file')->nullable();
             $table->text('description')->nullable();
 
-            // Review
+            // Status
             $table->enum('status', ['submitted', 'opened'])
                 ->default('submitted');
 
@@ -41,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('certificate');
+        Schema::dropIfExists('certificates');
     }
 };

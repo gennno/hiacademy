@@ -13,95 +13,63 @@
             margin: 0;
             padding: 0;
             font-family: "DejaVu Sans", sans-serif;
+            color: #2e3f5f;
         }
 
         .certificate {
             width: 1123px;
             height: 794px;
-            background: url('{{ public_path("certificates/preschool-bg.png") }}') no-repeat center;
+            background: url('{{ public_path("preschool-bg.png") }}') no-repeat center;
             background-size: cover;
             position: relative;
         }
 
-        /* NAME */
+        /* STUDENT NAME */
         .student-name {
             position: absolute;
-            top: 360px;
-            left: 0;
+            top: 270px;
             width: 100%;
             text-align: center;
-            font-size: 56px;
-            font-weight: bold;
-            color: #d4a437;
+            font-size: 64px;
             font-family: "DejaVu Serif", serif;
-        }
-
-        /* LINE UNDER NAME */
-        .name-line {
-            position: absolute;
-            top: 430px;
-            left: 15%;
-            width: 70%;
-            height: 2px;
-            background-color: #444;
+            font-weight: normal;
+            color: #2f2f2f;
         }
 
         /* PROGRAM TEXT */
         .program-text {
             position: absolute;
-            top: 460px;
-            left: 0;
+            top: 390px;
             width: 100%;
             text-align: center;
             font-size: 22px;
-            color: #333;
+            line-height: 1.6;
         }
 
-        /* SIGNATURE */
-        .signature {
-            position: absolute;
-            bottom: 160px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-
-        .signature-name {
-            font-size: 16px;
+        .program-name {
+            font-size: 30px;
             font-weight: bold;
-        }
-
-        .signature-title {
-            font-size: 14px;
+            color: #b08a2e;
         }
     </style>
 </head>
 
 <body>
 
-<div class="certificate">5
+<div class="certificate">
 
     <!-- STUDENT NAME -->
     <div class="student-name">
-        {{ $studentName }}
+        {{ $name }}
     </div>
 
-    <div class="name-line"></div>
-
-    <!-- PROGRAM -->
+    <!-- PROGRAM INFO -->
     <div class="program-text">
-        For successfully completing the
-        <strong>{{ $programName }}</strong>
-    </div>
-
-    <!-- SIGNATURE -->
-    <div class="signature">
-        <div style="margin-bottom:6px;">
-            <img src="{{ public_path('certificates/signature.png') }}" height="50">
-        </div>
-
-        <div class="signature-name">THOMAS TAN</div>
-        <div class="signature-title">CEO of Hiacademy</div>
+        has successfully completed the program of study for<br>
+        <span class="program-name">{{ $program_name }}</span><br>
+        at Hi Academy International Preschool<br>
+        Academic Year: {{ $academic_year }}<br>
+        Date of Completion: {{ \Carbon\Carbon::parse($completion_date)->format('F d, Y') }}
     </div>
 
 </div>
