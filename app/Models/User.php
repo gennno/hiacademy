@@ -127,4 +127,9 @@ public function reports()
     return $this->hasMany(Report::class);
 }
 
+public function certificates()
+{
+    return $this->hasMany(Certificate::class);
+}
+
 }

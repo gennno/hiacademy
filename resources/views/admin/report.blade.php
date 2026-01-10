@@ -6,24 +6,35 @@
     @php
         $finalReports = $reports->where('type', 'final');
         $otherReports = $reports->where('type', '!=', 'final');
-    @endphp 
+    @endphp
 <div class="bg-white rounded-xl shadow-md p-4 mb-4">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex justify-between items-center">
 
         <!-- LEFT: BACK BUTTON -->
         <a href="{{ route('admindashboard') }}"
-            class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
+           class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
             <i class="fa-solid fa-arrow-left"></i>
             <span>Back</span>
         </a>
 
-        <!-- RIGHT: CREATE NEW -->
-        <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-            <i class="fa-solid fa-plus"></i>
-            Create Report
-        </button>
+        <!-- RIGHT: ACTION BUTTONS -->
+        <div class="flex gap-3">
+            <a href="{{ route('reports.create') }}"
+               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                <i class="fa-solid fa-plus"></i>
+                Create Report
+            </a>
+
+            <a href="{{ route('certificates.create') }}"
+               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                <i class="fa-solid fa-plus"></i>
+                Create Certificate
+            </a>
+        </div>
+
     </div>
 </div>
+
     <style>
         /* ---- DataTables Styling Fix ---- */
         .dataTables_wrapper {
@@ -152,8 +163,8 @@
         }
 
         /* ===========================
-       RESPONSIVE CARD MODE
-       =========================== */
+               RESPONSIVE CARD MODE
+               =========================== */
 
         /* Hide card view on desktop */
         .report-cards {
@@ -265,9 +276,9 @@
                                     <div class="action-wrapper">
                                         @if ($report->file)
                                             <a href="{{ route('student.reports.show', $report->id) }}"
-                            class="table-action-btn view">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
+                                                class="table-action-btn view">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
 
                                             <a href="{{ asset($report->file) }}" download
                                                 class="table-action-btn bg-green-200 border border-green-400">
@@ -284,9 +295,9 @@
                                         @else
                                             <span class="text-gray-400 italic">No File</span>
                                         @endif
-                                        
+
                                     </div>
-                                    
+
                                 </td>
                             </tr>
                         @empty
@@ -304,48 +315,40 @@
         <div class="report-cards">
             @forelse ($otherReports as $report)
                 <div class="report-card">
-
                     <div class="report-card-header">
                         <div class="report-program">
                             {{ $report->program->name ?? '-' }}
                         </div>
-
-                       <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
-                            @if($report->type === 'lesson')
-                                bg-blue-100 text-blue-800
-                            @elseif($report->type === 'weekly')
-                                bg-green-100 text-green-800
-                            @elseif($report->type === 'monthly')
-                                bg-yellow-100 text-yellow-800
-                            @elseif($report->type === 'final')
-                                bg-red-100 text-red-800
-                            @else
-                                bg-gray-100 text-gray-800
-                            @endif
-                        ">
+                        <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
+                                            @if($report->type === 'lesson')
+                                                bg-blue-100 text-blue-800
+                                            @elseif($report->type === 'weekly')
+                                                bg-green-100 text-green-800
+                                            @elseif($report->type === 'monthly')
+                                                bg-yellow-100 text-yellow-800
+                                            @elseif($report->type === 'final')
+                                                bg-red-100 text-red-800
+                                            @else
+                                                bg-gray-100 text-gray-800
+                                            @endif
+                                        ">
                             {{ ucfirst($report->type) }}
                         </span>
-
                     </div>
-
                     @if ($report->lesson)
                         <div class="report-meta">
                             Lesson: {{ $report->lesson->title }}
                         </div>
                     @endif
-
                     <div class="report-meta">
                         Date: {{ $report->created_at->format('d M Y') }}
                     </div>
-
                     <div class="report-desc">
                         {{ Str::limit($report->description, 100) }}
                     </div>
-
                     <div class="report-actions">
                         @if ($report->file)
-                            <a href="{{ route('student.reports.show', $report->id) }}"
-                            class="table-action-btn view">
+                            <a href="{{ route('student.reports.show', $report->id) }}" class="table-action-btn view">
                                 <i class="fa-solid fa-file-pdf"></i> Detail
                             </a>
 
@@ -357,7 +360,6 @@
                             <span class="text-gray-400 italic">No File</span>
                         @endif
                     </div>
-
                 </div>
             @empty
                 <p class="text-center text-gray-500">
@@ -365,11 +367,8 @@
                 </p>
             @endforelse
         </div>
-
     </div>
-
     <div class="bg-white rounded-xl shadow-md p-6 mt-8">
-
         <h2 class="font-semibold mb-4 text-red-600">
             Final Reports
         </h2>
@@ -385,25 +384,20 @@
                             <th class="p-3 text-left">Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         @forelse ($finalReports as $report)
                             <tr class="border-b">
                                 <td class="p-3">{{ $loop->iteration }}</td>
-
                                 <td class="p-3">{{ $report->program->name ?? '-' }}</td>
-
                                 <td class="p-3">{{ $report->created_at->format('d M Y') }}</td>
-
                                 <td class="p-3">
                                     {{ Str::limit($report->description, 80) }}
                                 </td>
-
                                 <td class="p-3">
                                     <div class="action-wrapper">
                                         @if ($report->file)
                                             <a href="{{ route('student.reports.show', $report->id) }}"
-                                            class="table-action-btn view">
+                                                class="table-action-btn view">
                                                 <i class="fa-solid fa-file-pdf"></i> Detail
                                             </a>
 
@@ -437,19 +431,19 @@
                             {{ $report->program->name ?? '-' }}
                         </div>
 
-                       <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
-                            @if($report->type === 'lesson')
-                                bg-blue-100 text-blue-800
-                            @elseif($report->type === 'weekly')
-                                bg-green-100 text-green-800
-                            @elseif($report->type === 'monthly')
-                                bg-yellow-100 text-yellow-800
-                            @elseif($report->type === 'final')
-                                bg-red-100 text-red-800
-                            @else
-                                bg-gray-100 text-gray-800
-                            @endif
-                        ">
+                        <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
+                                            @if($report->type === 'lesson')
+                                                bg-blue-100 text-blue-800
+                                            @elseif($report->type === 'weekly')
+                                                bg-green-100 text-green-800
+                                            @elseif($report->type === 'monthly')
+                                                bg-yellow-100 text-yellow-800
+                                            @elseif($report->type === 'final')
+                                                bg-red-100 text-red-800
+                                            @else
+                                                bg-gray-100 text-gray-800
+                                            @endif
+                                        ">
                             {{ ucfirst($report->type) }}
                         </span>
                     </div>
@@ -464,11 +458,9 @@
 
                     <div class="report-actions">
                         @if ($report->file)
-                            <a href="{{ route('student.reports.show', $report->id) }}"
-                                class="table-action-btn view">
-                                    <i class="fa-solid fa-file-pdf"></i> Detail
-                                </a>
-
+                            <a href="{{ route('student.reports.show', $report->id) }}" class="table-action-btn view">
+                                <i class="fa-solid fa-file-pdf"></i> Detail
+                            </a>
                             <a href="{{ asset($report->file) }}" download
                                 class="table-action-btn bg-green-200 border border-green-400">
                                 <i class="fa-solid fa-download"></i> Download
@@ -495,47 +487,61 @@
         </h2>
         <div class="report-table-wrapper">
             <div class="overflow-x-auto">
-                <table id="finalReportTable" class="min-w-full border rounded-lg dataTable stripe hover">
+                <table class="min-w-full border dataTable rounded-lg">
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="p-3 text-left">#</th>
+                            <th class="p-3 text-left">Certificate</th>
                             <th class="p-3 text-left">Program</th>
-                            <th class="p-3 text-left">Date</th>
-                            <th class="p-3 text-left">Description</th>
+                            <th class="p-3 text-left">Academic Year</th>
+                            <th class="p-3 text-left">Completion Date</th>
+                            <th class="p-3 text-left">Status</th>
                             <th class="p-3 text-left">Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        @forelse ($finalReports as $report)
+                        @forelse ($certificates as $certificate)
                             <tr class="border-b">
                                 <td class="p-3">{{ $loop->iteration }}</td>
 
-                                <td class="p-3">{{ $report->program->name ?? '-' }}</td>
-
-                                <td class="p-3">{{ $report->created_at->format('d M Y') }}</td>
-
-                                <td class="p-3">
-                                    {{ Str::limit($report->description, 80) }}
+                                <td class="p-3 font-medium">
+                                    {{ $certificate->name }}
                                 </td>
 
                                 <td class="p-3">
-                                    <div class="action-wrapper">
-                                        @if ($report->file)
-                                            <a href="{{ asset($report->file) }}" download
-                                                class="table-action-btn bg-green-200 border border-green-400">
-                                                <i class="fa-solid fa-download"></i> Download
-                                            </a>
-                                        @else
-                                            <span class="text-gray-400 italic">No File</span>
-                                        @endif
-                                    </div>
+                                    {{ $certificate->program_name }}
+                                </td>
+
+                                <td class="p-3">
+                                    {{ $certificate->academic_year }}
+                                </td>
+
+                                <td class="p-3">
+                                    {{ $certificate->formatted_completion_date }}
+                                </td>
+
+                                <td class="p-3">
+                                    <span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold
+                                {{ $certificate->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600' }}">
+                                        {{ ucfirst($certificate->status) }}
+                                    </span>
+                                </td>
+                                <td class="p-3">
+                                    @if ($certificate->file)
+                                        <a href="{{ asset($certificate->file) }}" download
+                                            class="table-action-btn bg-green-200 border border-green-400">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </a>
+                                    @else
+                                        <span class="text-gray-400 italic">No File</span>
+                                    @endif
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="p-4 text-center text-gray-500">
-                                    No final report submitted
+                                <td colspan="7" class="p-4 text-center text-gray-500">
+                                    No certificates available
                                 </td>
                             </tr>
                         @endforelse
@@ -543,59 +549,52 @@
                 </table>
             </div>
         </div>
-        <div class="report-cards">
-            @forelse ($finalReports as $report)
-                <div class="report-card border-red-200">
+<div class="report-cards">
+    @forelse ($certificates as $certificate)
+        <div class="report-card border-yellow-200">
 
-                    <div class="report-card-header">
-                        <div class="report-program">
-                            {{ $report->program->name ?? '-' }}
-                        </div>
-
-                       <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
-                            @if($report->type === 'lesson')
-                                bg-blue-100 text-blue-800
-                            @elseif($report->type === 'weekly')
-                                bg-green-100 text-green-800
-                            @elseif($report->type === 'monthly')
-                                bg-yellow-100 text-yellow-800
-                            @elseif($report->type === 'final')
-                                bg-red-100 text-red-800
-                            @else
-                                bg-gray-100 text-gray-800
-                            @endif
-                        ">
-                            {{ ucfirst($report->type) }}
-                        </span>
-                    </div>
-
-                    <div class="report-meta">
-                        Date: {{ $report->created_at->format('d M Y') }}
-                    </div>
-
-                    <div class="report-desc">
-                        {{ Str::limit($report->description, 120) }}
-                    </div>
-
-                    <div class="report-actions">
-                        @if ($report->file)
-                            
-                            <a href="{{ asset($report->file) }}" download
-                                class="table-action-btn bg-green-200 border border-green-400">
-                                <i class="fa-solid fa-download"></i> Download
-                            </a>
-                        @else
-                            <span class="text-gray-400 italic">No File</span>
-                        @endif
-                    </div>
-
+            <div class="report-card-header">
+                <div class="report-program font-semibold">
+                    {{ $certificate->name }}
                 </div>
-            @empty
-                <p class="text-center text-gray-500">
-                    No Certificate
-                </p>
-            @endforelse
+
+                <span class="px-3 py-1 rounded-full text-sm font-semibold
+                    {{ $certificate->status === 'active'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-gray-100 text-gray-600' }}">
+                    {{ ucfirst($certificate->status) }}
+                </span>
+            </div>
+
+            <div class="report-meta text-sm text-gray-600">
+                Program: {{ $certificate->program_name }} <br>
+                Academic Year: {{ $certificate->academic_year }} <br>
+                Completed: {{ $certificate->formatted_completion_date }}
+            </div>
+
+            <div class="report-desc mt-2">
+                {{ Str::limit($certificate->description, 120) }}
+            </div>
+
+            <div class="report-actions mt-3">
+                @if ($certificate->file)
+                    <a href="{{ asset($certificate->file) }}" download
+                       class="table-action-btn bg-green-200 border border-green-400">
+                        <i class="fa-solid fa-download"></i> Download
+                    </a>
+                @else
+                    <span class="text-gray-400 italic">No File</span>
+                @endif
+            </div>
+
         </div>
+    @empty
+        <p class="text-center text-gray-500">
+            No certificates found
+        </p>
+    @endforelse
+</div>
+
 
     </div>
 
@@ -603,15 +602,15 @@
 
 
 @section('scripts')
-<script>
-$(document).ready(function() {
-    $('#invoiceTable').DataTable({
-        pageLength: 5,
-        paging: true,
-        searching: true,
-        ordering: true,
-        responsive: true
-    });
-});
-</script>
+    <script>
+        $(document).ready(function () {
+            $('#invoiceTable').DataTable({
+                pageLength: 5,
+                paging: true,
+                searching: true,
+                ordering: true,
+                responsive: true
+            });
+        });
+    </script>
 @endsection

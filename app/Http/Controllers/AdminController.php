@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Program;
@@ -141,8 +142,10 @@ public function programupdate(Request $request, Program $program)
     public function adminreport()
     {
         $reports = Report::latest()->get();
+        $certificates = Certificate::latest()->get();
 
-        return view('admin.report', compact('reports'));
+
+        return view('admin.report', compact('reports', 'certificates'));
     }
 
         public function adminenrollment()

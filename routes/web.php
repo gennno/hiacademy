@@ -77,7 +77,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');
 
     Route::get('/admin-report', [AdminController::class, 'adminreport'])->name('adminreport');
-
+    Route::post('/admin/reports', [AdminController::class, 'storereports'])
+        ->name('reports.store');
+    Route::post('/admin/certificates', [AdminController::class, 'storecertificates'])
+        ->name('certificates.store');
 
     Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
     
