@@ -63,7 +63,7 @@ class User extends Authenticatable
             return asset('storage/' . $this->profile_photo);
         }
 
-        return asset('img/default-avatar.png');
+        return asset('img/1.png');
     }
 
     /**

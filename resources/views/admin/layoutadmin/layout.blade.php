@@ -122,11 +122,12 @@
         <span class="text-xl">🧾</span>
         <span class="text-md">Invoice</span>
       </a>
-      <div
-        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
+      <a href="{{ route('adminuser') }}"
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('admin-user') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
         <span class="text-xl">👤</span>
         <span class="text-md">User Management</span>
-      </div>
+      </a>
       <div
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
         <span class="text-xl">⚙️</span>

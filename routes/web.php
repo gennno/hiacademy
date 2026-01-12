@@ -96,6 +96,7 @@ Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmate
 
 
     Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');
+    Route::get('/admin-user', [AdminController::class, 'adminuser'])->name('adminuser');
 
     Route::get('/admin-report', [AdminController::class, 'adminreport'])->name('adminreport');
     Route::post('/admin/reports', [AdminController::class, 'storereports'])

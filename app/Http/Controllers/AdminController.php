@@ -12,6 +12,7 @@ use App\Models\Material;
 use App\Models\Task;
 use App\Models\Enrollment;
 use App\Models\Invoice;
+use App\Models\User;
 use App\Models\Report;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
@@ -180,6 +181,12 @@ public function programupdate(Request $request, Program $program)
         $enrollments = Enrollment::latest()->get();
 
         return view('admin.enrollment', compact('enrollments'));
+    }
+            public function adminuser()
+    {
+        $users = User::latest()->get();
+
+        return view('admin.user', compact('users'));
     }
 
         public function storeinvoice(Request $request)

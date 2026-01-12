@@ -1,6 +1,6 @@
 @extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'Invoice')
+@section('pagetitle', 'User Management')
 
 @section('content')
 
@@ -129,65 +129,77 @@ table.dataTable tbody tr:hover {
 <!-- TABLE CARD -->
 <div class="bg-white rounded-xl shadow-md p-6">
 
-    {{-- <h2 class="font-semibold mb-4">Invoice List</h2>
+    <h2 class="font-semibold mb-4">User List</h2>
 
     <div class="overflow-x-auto">
-        <table id="invoiceTable" class="min-w-full border rounded-lg dataTable stripe hover">
+        <table id="userTable" class="min-w-full border rounded-lg dataTable stripe hover">
             <thead class="bg-gray-100">
                 <tr>
-                    <th class="p-3 text-left">#ID</th>
-                    <th class="p-3 text-left">Customer</th>
-                    <th class="p-3 text-left">Amount</th>
-                    <th class="p-3 text-left">Status</th>
-                    <th class="p-3 text-left">Date</th>
+                    <th class="p-3 text-left">#</th>
+                    <th class="p-3 text-left">Username</th>
+                    <th class="p-3 text-left">Name</th>
+                    <th class="p-3 text-left">Email</th>
+                    <th class="p-3 text-left">Role</th>
                     <th class="p-3 text-center">Actions</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr class="border-b">
-                    <td class="p-3">INV001</td>
-                    <td class="p-3">John Doe</td>
-                    <td class="p-3">$120.00</td>
-                    <td class="p-3"><span class="px-3 py-1 text-sm bg-green-200 text-green-700 rounded-full">Paid</span></td>
-                    <td class="p-3">03 Dec 2025</td>
-                    <td class="p-3 flex justify-center gap-2">
-                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
-                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
-                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
+                @forelse ($users as $user)
+                    <tr class="border-b">
+                        <td class="p-3">{{ $loop->iteration }}</td>
+                        <td class="p-3">{{ $user->username }}</td>
+                        <td class="p-3">{{ $user->name }}</td>
+                        <td class="p-3">{{ $user->email }}</td>
+                        <td class="p-3">
+                            <span class="px-3 py-1 text-sm rounded-full
+                                @if($user->isAdmin()) bg-red-200 text-red-700
+                                @elseif($user->isTeacher()) bg-blue-200 text-blue-700
+                                @elseif($user->isStaff()) bg-yellow-200 text-yellow-700
+                                @else bg-green-200 text-green-700
+                                @endif
+                            ">
+                                {{ ucfirst($user->role) }}
+                            </span>
+                        </td>
+                        <td class="p-3 flex justify-center gap-2">
+                            <!-- VIEW -->
+                            <a href=""
+                               class="p-2 text-blue-600 hover:text-blue-800">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
 
-                <tr class="border-b">
-                    <td class="p-3">INV002</td>
-                    <td class="p-3">Sarah Smith</td>
-                    <td class="p-3">$89.00</td>
-                    <td class="p-3"><span class="px-3 py-1 text-sm bg-red-200 text-red-700 rounded-full">Unpaid</span></td>
-                    <td class="p-3">28 Nov 2025</td>
-                    <td class="p-3 flex justify-center gap-2">
-                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
-                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
-                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
+                            <!-- EDIT -->
+                            <a href=""
+                               class="p-2 text-yellow-500 hover:text-yellow-600">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
 
-                <tr class="border-b">
-                    <td class="p-3">INV003</td>
-                    <td class="p-3">Michael Brown</td>
-                    <td class="p-3">$250.00</td>
-                    <td class="p-3"><span class="px-3 py-1 text-sm bg-green-200 text-green-700 rounded-full">Paid</span></td>
-                    <td class="p-3">20 Nov 2025</td>
-                    <td class="p-3 flex justify-center gap-2">
-                        <button class="p-2 text-blue-600 hover:text-blue-800 table-action-btn view"><i class="fa-solid fa-eye"></i></button>
-                        <button class="p-2 text-yellow-500 hover:text-yellow-600 table-action-btn update"><i class="fa-solid fa-pen"></i></button>
-                        <button class="p-2 text-red-600 hover:text-red-800 table-action-btn delete"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
+                            <!-- DELETE -->
+                            <form action=""
+                                  method="POST"
+                                  onsubmit="return confirm('Delete this user?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="p-2 text-red-600 hover:text-red-800">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" class="p-4 text-center text-gray-500">
+                            No users found
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
 
         </table>
-    </div> --}}
+    </div>
 </div>
+
 
 @endsection
 
@@ -195,7 +207,7 @@ table.dataTable tbody tr:hover {
 @section('scripts')
 <script>
 $(document).ready(function() {
-    $('#invoiceTable').DataTable({
+    $('#userTable').DataTable({
         pageLength: 5,
         paging: true,
         searching: true,
