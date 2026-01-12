@@ -182,13 +182,11 @@
                                     title="Edit Invoice">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
-<!-- GENERATE PDF -->
-<a href="{{ route('invoices.generate', $invoice->id) }}"
-   target="_blank"
-   class="table-action-btn bg-green-200 border border-green-400"
-   title="Generate Invoice">
-    <i class="fa-solid fa-download"></i>
-</a>
+                                <!-- GENERATE PDF -->
+                                <a href="{{ route('invoices.generate', $invoice->id) }}" target="_blank"
+                                    class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
+                                    <i class="fa-solid fa-download"></i>
+                                </a>
 
                                 <form action="{{ route('invoices.destroy', $invoice) }}" method="POST"
                                     onsubmit="return confirm('Delete this invoice?')">
@@ -250,102 +248,173 @@
         </div>
     </div>
 
-    <div id="invoiceModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
-        <div class="bg-white w-full max-w-4xl rounded-xl shadow-lg p-6 overflow-y-auto max-h-[90vh]">
+<div id="invoiceModal"
+    class="fixed inset-0 z-[9991] hidden bg-black/50 flex items-center justify-center px-4">
 
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold">Create Invoice</h3>
-                <button onclick="closeInvoiceModal()">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
+    <div
+        class="bg-white w-full max-w-5xl rounded-2xl shadow-xl flex flex-col max-h-[90vh]">
+
+        <!-- HEADER -->
+        <div class="flex justify-between items-center px-6 py-4 border-b">
+            <h3 class="text-xl font-semibold">Create Invoice</h3>
+            <button onclick="closeInvoiceModal()"
+                class="text-gray-500 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- BODY -->
+        <form action="{{ route('invoices.store') }}" method="POST"
+            class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            @csrf
+
+            <!-- CUSTOMER INFO -->
+            <div>
+                <h4 class="font-semibold mb-3">Customer Information</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input name="customer_name" required
+                        class="border rounded-lg px-4 py-3"
+                        placeholder="Customer Name">
+
+                    <input name="customer_email" required
+                        class="border rounded-lg px-4 py-3"
+                        placeholder="Customer Email">
+
+                    <input name="customer_phone"
+                        class="border rounded-lg px-4 py-3"
+                        placeholder="Phone">
+
+                    <input name="customer_address"
+                        class="border rounded-lg px-4 py-3"
+                        placeholder="Address">
+                </div>
             </div>
 
-            <form action="{{ route('invoices.store') }}" method="POST">
-                @csrf
-
-                <!-- Customer Info -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <input name="customer_name" required class="border p-3 rounded-lg" placeholder="Customer Name">
-                    <input name="customer_email" required class="border p-3 rounded-lg" placeholder="Customer Email">
-                    <input name="customer_phone" class="border p-3 rounded-lg" placeholder="Phone">
-                    <input name="customer_address" class="border p-3 rounded-lg" placeholder="Address">
+            <!-- ITEMS -->
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-semibold">Invoice Items</h4>
+                    <button type="button" onclick="addItem()"
+                        class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        + Add Item
+                    </button>
                 </div>
 
-                <!-- Items -->
-                <h4 class="font-semibold mb-2">Invoice Items</h4>
+                <!-- TABLE HEADER (Desktop Only) -->
+                <div class="hidden md:grid grid-cols-12 gap-2 text-sm font-medium text-gray-600 mb-2">
+                    <div class="col-span-2">Program</div>
+                    <div class="col-span-2">Level</div>
+                    <div class="col-span-2">Category</div>
+                    <div class="col-span-3">Description</div>
+                    <div class="col-span-2 text-right">Amount</div>
+                    <div class="col-span-1"></div>
+                </div>
 
-                <div id="itemsWrapper" class="space-y-3">
+                <!-- ITEMS WRAPPER -->
+                <div id="itemsWrapper" class="space-y-4">
                     <!-- ITEM ROW -->
-                    <div class="grid grid-cols-6 gap-2 item-row">
-                        <input name="items[0][program_name]" class="border p-2 rounded" placeholder="Program">
-                        <input name="items[0][level]" class="border p-2 rounded" placeholder="Level">
-                        <input name="items[0][category]" class="border p-2 rounded" placeholder="Category">
-                        <input name="items[0][description]" class="border p-2 rounded" placeholder="Description">
-                        <input name="items[0][amount]" type="number" class="border p-2 rounded amount" placeholder="Amount">
-                        <button type="button" onclick="removeItem(this)" class="bg-red-200 rounded">
+                    <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+                        <input name="items[0][program_name]"
+                            class="md:col-span-2 border rounded-lg px-3 py-2"
+                            placeholder="Program">
+
+                        <input name="items[0][level]"
+                            class="md:col-span-2 border rounded-lg px-3 py-2"
+                            placeholder="Level">
+
+                        <input name="items[0][category]"
+                            class="md:col-span-2 border rounded-lg px-3 py-2"
+                            placeholder="Category">
+
+                        <input name="items[0][description]"
+                            class="md:col-span-3 border rounded-lg px-3 py-2"
+                            placeholder="Description">
+
+                        <input name="items[0][amount]" type="number"
+                            class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                            placeholder="0">
+
+                        <button type="button" onclick="removeItem(this)"
+                            class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <button type="button" onclick="addItem()" class="mt-3 px-4 py-2 bg-blue-100 rounded">
-                    + Add Item
+            <!-- FOOTER -->
+            <div class="sticky bottom-0 bg-white pt-4 border-t flex justify-end">
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 px-8 py-3 rounded-xl font-semibold">
+                    Save Invoice
                 </button>
-
-                <!-- Submit -->
-                <div class="mt-6 text-right">
-                    <button class="bg-yellow-400 px-6 py-2 rounded-lg font-semibold">
-                        Save Invoice
-                    </button>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-    <script>
-        let itemIndex = 1;
+</div>
 
-        function openInvoiceModal() {
-            document.getElementById('invoiceModal').classList.remove('hidden');
-        }
+<script>
+    let itemIndex = 1;
 
-        function closeInvoiceModal() {
-            document.getElementById('invoiceModal').classList.add('hidden');
-        }
+    function openInvoiceModal() {
+        document.getElementById('invoiceModal').classList.remove('hidden');
+    }
 
-        function addItem() {
-            const wrapper = document.getElementById('itemsWrapper');
+    function closeInvoiceModal() {
+        document.getElementById('invoiceModal').classList.add('hidden');
+    }
 
-            wrapper.insertAdjacentHTML('beforeend', `
-                <div class="grid grid-cols-6 gap-2 item-row">
-                    <input name="items[${itemIndex}][program_name]" class="border p-2 rounded">
-                    <input name="items[${itemIndex}][level]" class="border p-2 rounded">
-                    <input name="items[${itemIndex}][category]" class="border p-2 rounded">
-                    <input name="items[${itemIndex}][description]" class="border p-2 rounded">
-                    <input name="items[${itemIndex}][amount]" type="number" class="border p-2 rounded amount">
-                    <button type="button" onclick="removeItem(this)" class="bg-red-200 rounded">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            `);
+    function addItem() {
+        const wrapper = document.getElementById('itemsWrapper');
 
-            itemIndex++;
-        }
+        wrapper.insertAdjacentHTML('beforeend', `
+            <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+                <input name="items[${itemIndex}][program_name]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2"
+                    placeholder="Program">
 
-        function removeItem(btn) {
-            btn.closest('.item-row').remove();
-        }
-    </script>
+                <input name="items[${itemIndex}][level]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2"
+                    placeholder="Level">
+
+                <input name="items[${itemIndex}][category]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2"
+                    placeholder="Category">
+
+                <input name="items[${itemIndex}][description]"
+                    class="md:col-span-3 border rounded-lg px-3 py-2"
+                    placeholder="Description">
+
+                <input name="items[${itemIndex}][amount]" type="number"
+                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                    placeholder="0">
+
+                <button type="button" onclick="removeItem(this)"
+                    class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        `);
+
+        itemIndex++;
+    }
+
+    function removeItem(btn) {
+        btn.closest('.item-row').remove();
+    }
+</script>
+
     <script>
         function viewInvoice(id) {
             fetch(`/admin/invoices/${id}`)
                 .then(res => res.json())
                 .then(data => {
                     let html = `
-                    <div><strong>${data.invoice_number}</strong></div>
-                    <div>${data.customer_name}</div>
-                    <div>${data.customer_email}</div>
-                    <hr>
-                `;
+                        <div><strong>${data.invoice_number}</strong></div>
+                        <div>${data.customer_name}</div>
+                        <div>${data.customer_email}</div>
+                        <hr>
+                    `;
 
                     data.items.forEach(item => {
                         html += `<div>${item.program_name} - Rp ${item.amount}</div>`;
@@ -368,14 +437,14 @@
 
                     data.items.forEach((item, index) => {
                         html += `
-                        <div class="grid grid-cols-5 gap-2 mb-2">
-                            <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
-                            <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
-                            <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
-                            <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
-                            <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
-                        </div>
-                    `;
+                            <div class="grid grid-cols-5 gap-2 mb-2">
+                                <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
+                                <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
+                                <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
+                                <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
+                                <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
+                            </div>
+                        `;
                     });
 
                     document.getElementById('editInvoiceItems').innerHTML = html;

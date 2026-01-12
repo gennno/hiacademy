@@ -29,7 +29,7 @@ class RegistrationController extends Controller
             'learning_mode' => 'required|in:online,offline',
 
             //regist info
-            'status'      => 'required|in:male,female',
+            'status'      => 'required|in:regular,trial',
         ]);
 
         // 2️⃣ Store into database

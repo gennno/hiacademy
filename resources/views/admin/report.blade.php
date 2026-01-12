@@ -19,13 +19,13 @@
 
         <!-- RIGHT: ACTION BUTTONS -->
         <div class="flex gap-3">
-            <a href="{{ route('reports.create') }}"
+            <a href=""
                class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
                 <i class="fa-solid fa-plus"></i>
                 Create Report
             </a>
 
-            <a href="{{ route('certificates.create') }}"
+            <a href=""
                class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
                 <i class="fa-solid fa-plus"></i>
                 Create Certificate

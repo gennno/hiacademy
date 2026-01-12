@@ -42,7 +42,11 @@ Route::post('/registrations', [RegistrationController::class, 'store'])
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admindashboard');
     Route::get('/admin-program', [AdminController::class, 'adminprogram'])->name('adminprogram');
-    Route::get('/admin-detail-program', [AdminController::class, 'admindetailprogram'])->name('admindetailprogram');
+    Route::get('/admin/program/{program:slug}', [AdminController::class, 'adminDetailProgram'])
+    ->name('admindetailprogram');
+    Route::get('/admin/programs/{program:slug}/lessons/{lesson}',
+        [AdminController::class, 'adminlessondetail']
+    )->name('adminlessondetail');
 
     Route::post('/admin/programs', [AdminController::class, 'storeprogram'])
     ->name('admin.programs.store');
@@ -50,6 +54,23 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     ->name('admin.programs.destroy');
     Route::put('/admin/programs/{program}', [AdminController::class, 'programupdate'])
     ->name('admin.programs.update');
+
+    Route::post('/admin/lessons', [AdminController::class, 'adminlessonstore'])
+    ->name('adminlesson.store');
+Route::put('/admin/lessons/{lesson}', [AdminController::class, 'adminlessonupdate'])
+    ->name('adminlesson.update');
+
+Route::delete('/admin/lessons/{lesson}', [AdminController::class, 'adminlessondestroy'])
+    ->name('adminlesson.destroy');
+
+    Route::post('/admin/materials', [AdminController::class, 'adminmaterialstore'])
+  ->name('adminmaterial.store');
+
+Route::put('/admin/materials/{material}', [AdminController::class, 'adminmaterialupdate'])
+  ->name('adminmaterial.update');
+
+Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmaterialdestroy'])
+  ->name('adminmaterial.destroy');
 
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
 

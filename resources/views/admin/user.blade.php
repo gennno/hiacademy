@@ -17,7 +17,7 @@
         <!-- RIGHT: CREATE NEW -->
         <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
             <i class="fa-solid fa-plus"></i>
-            Create Invoice
+            Add User
         </button>
     </div>
 </div>

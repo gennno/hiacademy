@@ -6,7 +6,10 @@ use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Program;
+use App\Models\Lesson;
 use App\Models\Registration;
+use App\Models\Material;
+use App\Models\Task;
 use App\Models\Enrollment;
 use App\Models\Invoice;
 use App\Models\Report;
@@ -120,15 +123,39 @@ public function programupdate(Request $request, Program $program)
         ->with('success', 'Program updated successfully!');
 }
 
-        public function admindetailprogram()
+    public function adminDetailProgram(Program $program)
     {
-        return view('admin.detail-program');
-    }
 
+        // Ambil lesson milik program ini
+        $lessons = $program->lessons;
+
+        // Dummy progress (nanti bisa dari lesson_progress table)
+        $progressPercent = 65;
+
+        return view('admin.detail-program', compact(
+            'program',
+            'lessons',
+            'progressPercent'
+        ));
+    }
         public function admininvoice()
     {
         $invoices = Invoice::latest()->get();
         return view('admin.invoice', compact('invoices'));
+    }
+        public function adminlessondetail(Program $program, Lesson $lesson)
+    {
+
+            if ($lesson->program_id !== $program->id) {
+                abort(404);
+            }
+
+            $lesson->load(['materials', 'tasks']);
+
+            return view('admin.detail-lesson', compact(
+                'program',
+                'lesson'
+            ));
     }
     
 
@@ -239,6 +266,95 @@ public function programupdate(Request $request, Program $program)
     // or ->download()
 }
 
+public function adminlessonstore(Request $request)
+{
+    $request->validate([
+        'program_id' => 'required|exists:programs,id',
+        'title' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'order' => 'nullable|integer',
+    ]);
 
+    Lesson::create([
+        'program_id' => $request->program_id,
+        'title' => $request->title,
+        'description' => $request->description,
+        'order' => $request->order ?? 0,
+    ]);
+
+    return redirect()->back()->with('success', 'Lesson added successfully.');
+}
     
+public function adminlessonupdate(Request $request, Lesson $lesson)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'order' => 'nullable|integer',
+    ]);
+
+    $lesson->update($request->only('title', 'description', 'order'));
+
+    return back()->with('success', 'Lesson updated.');
+}
+
+public function adminlessondestroy(Lesson $lesson)
+{
+    $lesson->delete();
+    return back()->with('success', 'Lesson deleted.');
+}
+public function adminmaterialstore(Request $request)
+{
+    $request->validate([
+        'lesson_id' => 'required|exists:lessons,id',
+        'type' => 'required|in:text,image,link,pdf',
+        'order' => 'nullable|integer',
+    ]);
+
+    $content = null;
+
+    if ($request->type === 'text') {
+        $content = $request->content_text;
+    }
+
+    if ($request->type === 'link') {
+        $content = $request->content_link;
+    }
+
+    if (in_array($request->type, ['image', 'pdf'])) {
+        $content = $request->file('content_file')
+            ->store('materials', 'public');
+    }
+
+    Material::create([
+        'lesson_id' => $request->lesson_id,
+        'type' => $request->type,
+        'content' => $content,
+        'order' => $request->order ?? 0,
+    ]);
+
+    return back()->with('success', 'Material added.');
+}
+
+
+public function adminmaterialupdate(Request $request, Material $material)
+{
+    $request->validate([
+        'type' => 'required|in:text,image,link,pdf',
+        'content' => 'required',
+        'order' => 'nullable|integer',
+    ]);
+
+    $material->update($request->only('type', 'content', 'order'));
+
+    return back()->with('success', 'Material updated.');
+}
+
+public function adminmaterialdestroy(Material $material)
+{
+    $material->delete();
+    return back()->with('success', 'Material deleted.');
+}
+
+
 }

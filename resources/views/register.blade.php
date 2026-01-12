@@ -245,7 +245,9 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="Mandarin Program">
+                <input type="hidden" name="program_name" value="Child Development">
+                
+                <input type="hidden" name="status" value="regular">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
