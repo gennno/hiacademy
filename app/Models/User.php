@@ -47,12 +47,12 @@ class User extends Authenticatable
     /**
      * Automatically hash password when setting
      */
-    public function setPasswordAttribute($value): void
-    {
-        if (! empty($value)) {
-            $this->attributes['password'] = Hash::make($value);
-        }
-    }
+    // public function setPasswordAttribute($value): void
+    // {
+    //     if (! empty($value)) {
+    //         $this->attributes['password'] = Hash::make($value);
+    //     }
+    // }
 
     /**
      * Accessor for profile photo URL
@@ -131,5 +131,16 @@ public function certificates()
 {
     return $this->hasMany(Certificate::class);
 }
+public function roleBadge(): array
+{
+    return match ($this->role) {
+        'admin'   => ['bg' => 'bg-red-200',    'text' => 'text-red-700'],
+        'teacher' => ['bg' => 'bg-blue-200',   'text' => 'text-blue-700'],
+        'staff'   => ['bg' => 'bg-yellow-200', 'text' => 'text-yellow-700'],
+        'student' => ['bg' => 'bg-green-200',  'text' => 'text-green-700'],
+        default   => ['bg' => 'bg-gray-200',   'text' => 'text-gray-700'],
+    };
+}
+
 
 }

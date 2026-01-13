@@ -15,10 +15,12 @@
         </a>
 
         <!-- RIGHT: CREATE NEW -->
-        <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-            <i class="fa-solid fa-plus"></i>
-            Add User
-        </button>
+<button id="addUserBtn"
+    class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+    <i class="fa-solid fa-plus"></i>
+    Add User
+</button>
+
     </div>
 </div>
 <style>
@@ -163,28 +165,27 @@ table.dataTable tbody tr:hover {
                             </span>
                         </td>
                         <td class="p-3 flex justify-center gap-2">
-                            <!-- VIEW -->
-                            <a href=""
-                               class="p-2 text-blue-600 hover:text-blue-800">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
+<!-- VIEW -->
+<button onclick="viewUser({{ $user->id }})" class="p-2 text-blue-600">
+    <i class="fa-solid fa-eye"></i>
+</button>
 
-                            <!-- EDIT -->
-                            <a href=""
-                               class="p-2 text-yellow-500 hover:text-yellow-600">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
+<!-- EDIT -->
+<button onclick='editUser(@json($user))' class="p-2 text-yellow-500">
+    <i class="fa-solid fa-pen"></i>
+</button>
+
 
                             <!-- DELETE -->
-                            <form action=""
-                                  method="POST"
-                                  onsubmit="return confirm('Delete this user?')">
-                                @csrf
-                                @method('DELETE')
-                                <button class="p-2 text-red-600 hover:text-red-800">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form>
+<form action="{{ route('users.destroy', $user->id) }}"
+      method="POST"
+      onsubmit="return confirm('Delete this user?')">
+    @csrf
+    @method('DELETE')
+    <button class="p-2 text-red-600 hover:text-red-800">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</form>
                         </td>
                     </tr>
                 @empty
@@ -197,6 +198,75 @@ table.dataTable tbody tr:hover {
             </tbody>
 
         </table>
+        <!-- ADD USER MODAL -->
+<div id="addUserModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl w-full max-w-lg p-6">
+        <h2 class="text-lg font-semibold mb-4">Add User</h2>
+
+        <form action="{{ route('users.store') }}" method="POST" class="space-y-3">
+            @csrf
+
+            <input name="username" placeholder="Username" class="w-full border p-2 rounded" required>
+            <input name="name" placeholder="Name" class="w-full border p-2 rounded" required>
+            <input name="email" type="email" placeholder="Email" class="w-full border p-2 rounded" required>
+            <input name="password" type="password" placeholder="Password" class="w-full border p-2 rounded" required>
+
+            <select name="role" class="w-full border p-2 rounded" required>
+                <option value="">-- Select Role --</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="staff">Staff</option>
+                <option value="student">Student</option>
+            </select>
+
+            <div class="flex justify-end gap-2">
+                <button type="button" onclick="closeModal('addUserModal')" class="px-4 py-2 bg-gray-200 rounded">Cancel</button>
+                <button class="px-4 py-2 bg-yellow-400 rounded font-semibold">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- VIEW USER MODAL -->
+<div id="viewUserModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl w-full max-w-md p-6">
+        <h2 class="text-lg font-semibold mb-4">User Detail</h2>
+
+        <div id="viewUserContent" class="space-y-2 text-sm"></div>
+
+        <div class="text-right mt-4">
+            <button onclick="closeModal('viewUserModal')" class="px-4 py-2 bg-gray-200 rounded">Close</button>
+        </div>
+    </div>
+</div>
+<!-- EDIT USER MODAL -->
+<div id="editUserModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl w-full max-w-lg p-6">
+        <h2 class="text-lg font-semibold mb-4">Edit User</h2>
+
+        <form id="editUserForm" method="POST" class="space-y-3">
+            @csrf
+            @method('PUT')
+
+            <input name="username" id="edit_username" class="w-full border p-2 rounded">
+            <input name="name" id="edit_name" class="w-full border p-2 rounded">
+            <input name="email" id="edit_email" type="email" class="w-full border p-2 rounded">
+            <input name="password" type="password" placeholder="New password (optional)" class="w-full border p-2 rounded">
+
+            <select name="role" id="edit_role" class="w-full border p-2 rounded">
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="staff">Staff</option>
+                <option value="student">Student</option>
+            </select>
+
+            <div class="flex justify-end gap-2">
+                <button type="button" onclick="closeModal('editUserModal')" class="px-4 py-2 bg-gray-200 rounded">Cancel</button>
+                <button class="px-4 py-2 bg-yellow-400 rounded font-semibold">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
     </div>
 </div>
 
@@ -216,4 +286,45 @@ $(document).ready(function() {
     });
 });
 </script>
+<script>
+function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+}
+
+// ADD
+document.getElementById('addUserBtn').addEventListener('click', () => {
+    openModal('addUserModal');
+});
+
+
+// VIEW
+function viewUser(id) {
+    fetch(`/users/${id}`)
+        .then(res => res.json())
+        .then(user => {
+            document.getElementById('viewUserContent').innerHTML = `
+                <p><b>Username:</b> ${user.username}</p>
+                <p><b>Name:</b> ${user.name}</p>
+                <p><b>Email:</b> ${user.email}</p>
+                <p><b>Role:</b> ${user.role}</p>
+            `;
+            openModal('viewUserModal');
+        });
+}
+
+// EDIT
+function editUser(user) {
+document.getElementById('editUserForm').action = `/users/${user.id}/update`;
+    document.getElementById('edit_username').value = user.username;
+    document.getElementById('edit_name').value = user.name;
+    document.getElementById('edit_email').value = user.email;
+    document.getElementById('edit_role').value = user.role;
+    openModal('editUserModal');
+}
+</script>
+
 @endsection

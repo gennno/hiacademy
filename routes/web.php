@@ -106,6 +106,12 @@ Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmate
 
     Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
     
+        Route::post('/users/store', [AdminController::class, 'userstore'])->name('users.store');
+        Route::get('/users/{user}', [AdminController::class, 'usershow'])->name('users.show');
+        Route::put('/users/{user}/update', [AdminController::class, 'userupdate'])->name('users.update');
+        Route::delete('/users/{user}', [AdminController::class, 'userdestroy'])
+            ->name('users.destroy');
+
 
 });
 

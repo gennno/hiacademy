@@ -113,9 +113,9 @@ class StudentController extends Controller
                 abort(403);
             }
 
-            if ($lesson->program_id !== $program->id) {
-                abort(404);
-            }
+            // if ($lesson->program_id !== $program->id) {
+            //     abort(404);
+            // }
 
             $lesson->load(['materials', 'tasks']);
 

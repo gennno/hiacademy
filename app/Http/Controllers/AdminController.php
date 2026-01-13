@@ -17,6 +17,9 @@ use App\Models\Report;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Models\InvoiceItem;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
+
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -147,9 +150,9 @@ public function programupdate(Request $request, Program $program)
         public function adminlessondetail(Program $program, Lesson $lesson)
     {
 
-            if ($lesson->program_id !== $program->id) {
-                abort(404);
-            }
+            // if ($lesson->program_id !== $program->id) {
+            //     abort(404);
+            // }
 
             $lesson->load(['materials', 'tasks']);
 
@@ -363,5 +366,67 @@ public function adminmaterialdestroy(Material $material)
     return back()->with('success', 'Material deleted.');
 }
 
+public function userstore(Request $request)
+    {
+        $validated = $request->validate([
+            'username' => 'required|string|max:50|unique:users,username',
+            'name'     => 'required|string|max:100',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'role'     => 'required|in:admin,teacher,staff,student',
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string',
+        ]);
 
+        $validated['password'] = Hash::make($validated['password']);
+
+        User::create($validated);
+
+        return redirect()->back()->with('success', 'User created successfully.');
+    }
+
+    public function usershow(User $user)
+    {
+        return response()->json($user);
+    }
+
+public function userupdate(Request $request, User $user)
+{
+    $validated = $request->validate([
+        'username' => [
+            'required','string','max:50',
+            Rule::unique('users')->ignore($user->id)
+        ],
+        'name'  => 'required|string|max:100',
+        'email' => [
+            'required','email',
+            Rule::unique('users')->ignore($user->id)
+        ],
+        'password' => 'nullable|min:6',
+        'role'     => 'required|in:admin,teacher,staff,student',
+        'phone'    => 'nullable|string|max:20',
+        'address'  => 'nullable|string',
+    ]);
+
+    if ($request->filled('password')) {
+        $validated['password'] = Hash::make($request->password);
+    } else {
+        unset($validated['password']);
+    }
+
+    $user->update($validated);
+
+    return back()->with('success', 'User updated successfully.');
+}
+
+    public function userdestroy(User $user)
+    {
+        if ($user->id === auth()->id()) {
+            return back()->with('error', 'You cannot delete your own account.');
+        }
+
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted.');
+    }
 }
