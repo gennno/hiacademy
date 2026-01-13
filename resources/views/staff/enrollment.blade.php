@@ -1,6 +1,6 @@
-@extends('admin.layoutadmin.layout')
+@extends('staff.layoutadmin.layout')
 
-@section('pagetitle', 'Enrollment')
+@section('pagetitle', 'Invoice')
 
 @section('content')
 
@@ -8,7 +8,7 @@
     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
 
         <!-- LEFT: BACK BUTTON -->
-        <a href="{{ route('admindashboard') }}"
+        <a href="{{ route('staffdashboard') }}"
             class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
             <i class="fa-solid fa-arrow-left"></i>
             <span>Back</span>
@@ -17,7 +17,7 @@
         <!-- RIGHT: CREATE NEW -->
         <button class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
             <i class="fa-solid fa-plus"></i>
-            Create Enrollment
+            Create Invoice
         </button>
     </div>
 </div>

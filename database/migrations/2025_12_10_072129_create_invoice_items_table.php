@@ -13,17 +13,23 @@ return new class extends Migration
 
             $table->foreignId('invoice_id')
                 ->constrained('invoices')
-                ->onDelete('cascade');
+                ->cascadeOnDelete();
 
-            // Item fields
-            $table->string('program_name'); // ex: "English - Adventurer"
-            $table->string('level');       // ex: "english-teenagers"
-            $table->string('category');    // ex: "English"
-            $table->string('description');    // ex: "Admission Fee"
-            $table->decimal('amount', 15, 2);    // 1200000
+            $table->string('program_name');
+            $table->string('level');
+            $table->string('category');
+            $table->string('description');
+
+            $table->decimal('amount', 15, 2); // harga asli
+
+            // DISCOUNT PER ITEM
+            $table->decimal('discount_percent', 5, 2)->default(0); // ex: 10.00
+            $table->decimal('discount_amount', 15, 2)->default(0);
+            $table->decimal('amount_after_discount', 15, 2);
 
             $table->timestamps();
         });
+
     }
 
     public function down(): void

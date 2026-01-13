@@ -20,7 +20,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('registration')
                 ->onDelete('set null');
-
+    
             // Customer data (copied from registration)
             $table->string('customer_name');
             $table->string('customer_email');

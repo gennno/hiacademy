@@ -1,6 +1,6 @@
 @extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'invoice')
+@section('pagetitle', 'Invoice')
 
 @section('content')
 
@@ -13,12 +13,20 @@
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back</span>
             </a>
+        <div class="flex gap-3">
+            
             <button onclick="openInvoiceModal()"
                 class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
                 <i class="fa-solid fa-plus"></i>
                 Create invoice
             </button>
 
+            <a href=""
+               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                <i class="fa-solid fa-plus"></i>
+                Create Receipt
+            </a>
+        </div>
         </div>
     </div>
     <style>
@@ -126,9 +134,7 @@
     </style>
 
     <!-- TABLE CARD -->
-    <div class="bg-white rounded-xl shadow-md p-6">
-
-        <h2 class="font-semibold mb-4">invoice List</h2>
+    <div class="bg-white rounded-xl shadow-md mb-4 p-6">Invoice List</h2>
 
         <div class="overflow-x-auto">
             <table id="invoiceTable" class="min-w-full border rounded-lg dataTable stripe hover">
@@ -183,7 +189,7 @@
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
                                 <!-- GENERATE PDF -->
-                                <a href="{{ route('invoices.generate', $invoice->id) }}" target="_blank"
+                                <a href="{{ route('admininvoices.generate', $invoice->id) }}" target="_blank"
                                     class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
                                     <i class="fa-solid fa-download"></i>
                                 </a>
@@ -212,6 +218,94 @@
             </table>
         </div>
     </div>
+
+        <!-- TABLE CARD -->
+    <div class="bg-white rounded-xl shadow-md p-6">Receipt List</h2>
+
+        <div class="overflow-x-auto">
+            <table id="receiptTable" class="min-w-full border rounded-lg dataTable stripe hover">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 text-left">Invoice #</th>
+                        <th class="p-3 text-left">Customer</th>
+                        <th class="p-3 text-left">Amount</th>
+                        <th class="p-3 text-left">Status</th>
+                        <th class="p-3 text-left">Invoice Date</th>
+                        <th class="p-3 text-center">Actions</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    @forelse ($invoices as $invoice)
+                        <tr class="border-b">
+                            <td class="p-3 font-semibold">
+                                {{ $invoice->invoice_number }}
+                            </td>
+
+                            <td class="p-3">
+                                <div class="font-medium">{{ $invoice->customer_name }}</div>
+                                <div class="text-sm text-gray-500">{{ $invoice->customer_email }}</div>
+                            </td>
+
+                            <td class="p-3">
+                                Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
+                            </td>
+
+                            <td class="p-3">
+                                {{-- Placeholder status (future payment table) --}}
+                                <span class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full">
+                                    Unpaid
+                                </span>
+                            </td>
+
+                            <td class="p-3">
+                                {{ \Carbon\Carbon::parse($invoice->invoice_date)->format('d M Y') }}
+                            </td>
+
+                            <td class="p-3 flex justify-center gap-2">
+                                <!-- VIEW -->
+                                <button onclick="viewInvoice({{ $invoice->id }})" class="table-action-btn view"
+                                    title="View Invoice">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <!-- EDIT -->
+                                <button onclick="editInvoice({{ $invoice->id }})" class="table-action-btn update"
+                                    title="Edit Invoice">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <!-- GENERATE PDF -->
+                                <a href="{{ route('admininvoices.generate', $invoice->id) }}" target="_blank"
+                                    class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
+                                    <i class="fa-solid fa-download"></i>
+                                </a>
+
+                                <form action="{{ route('invoices.destroy', $invoice) }}" method="POST"
+                                    onsubmit="return confirm('Delete this invoice?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="table-action-btn delete" title="Delete Invoice">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="6" class="p-6 text-center text-gray-500">
+                                No invoices found.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+
+    
     <div id="viewInvoiceModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
         <div class="bg-white max-w-4xl w-full rounded-xl p-6">
 
@@ -264,7 +358,7 @@
         </div>
 
         <!-- BODY -->
-        <form action="{{ route('invoices.store') }}" method="POST"
+        <form action="{{ route('admininvoices.store') }}" method="POST"
             class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
             @csrf
 
@@ -469,6 +563,18 @@
 
         $(document).ready(function () {
             $('#invoiceTable').DataTable({
+                pageLength: 5,
+                paging: true,
+                searching: true,
+                ordering: true,
+                responsive: true
+            });
+        });
+    </script>
+        <script>
+
+        $(document).ready(function () {
+            $('#receiptTable').DataTable({
                 pageLength: 5,
                 paging: true,
                 searching: true,

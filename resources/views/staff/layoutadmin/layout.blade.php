@@ -68,7 +68,7 @@
 </head>
 
 <body class="bg-gray-200 min-h-screen overflow-x-hidden">
-  
+
   <!-- Sidebar Overlay -->
   <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[999] hidden"></div>
 
@@ -88,49 +88,45 @@
       <a href="{{ route('staffdashboard') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('staff-dashboard') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">🏠</span>
-        <span class="text-xl">Dashboard</span>
+        <span class="text-xl">🏠</span>
+        <span class="text-md">Dashboard</span>
       </a>
       <!-- My Courses -->
       <a href="{{ route('staffprogram') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('staff-program') || Request::is('staff-detail-program*') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">📚</span>
-        <span class="text-xl">Programs</span>
+        <span class="text-xl">📚</span>
+        <span class="text-md">Programs</span>
       </a>
-      <a href="{{ route('staffinvoice') }}"
+      <a href="{{ route('staffenrollment') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">🧾</span>
-        <span class="text-xl">Invoice</span>
+  {{ Request::is('staff-enrollment') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-xl">🗂️</span>
+        <span class="text-md">Enrollment</span>
       </a>
-      <a href="{{ route('staffinvoice') }}"
+      <a href="{{ route('staffreport') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
-  {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">🧾</span>
-        <span class="text-xl">Enrollment</span>
+  {{ Request::is('staff-report') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-xl">📊</span>
+        <span class="text-md">Report</span>
+      </a>
+      <a href="{{ route('staffregistration') }}"
+        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
+  {{ Request::is('staff-registration') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
+        <span class="text-xl">📝</span>
+        <span class="text-md">Registration </span>
       </a>
       <a href="{{ route('staffinvoice') }}"
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
   {{ Request::is('staff-invoice') ? 'bg-yellow-400 bg-opacity-40' : 'hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1' }}">
-        <span class="text-2xl">🧾</span>
-        <span class="text-xl">Invoice</span>
+        <span class="text-xl">🧾</span>
+        <span class="text-md">Invoice</span>
       </a>
       <div
         class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-2xl">👤</span>
-        <span class="text-xl">User Management</span>
+        <span class="text-xl">⚙️</span>
+        <span class="text-md">Settings</span>
       </div>
-      <div
-        class="sidebar-item text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3 hover:bg-yellow-400 hover:bg-opacity-20 hover:translate-x-1">
-        <span class="text-2xl">⚙️</span>
-        <span class="text-xl">Settings</span>
-      </div>
-    </div>
-
-    <!-- 🧸 Mascot Image -->
-    <div class="absolute bottom-20 left-0 right-0 flex justify-center">
-      <img src="{{ asset('img/5.png') }}" alt="Mascot" class="w-24 drop-shadow-xl animate-bounce">
     </div>
 
     <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
@@ -343,55 +339,57 @@
       });
     }
   </script>
-
   @yield('scripts')
-    @if(session('login_success'))
-<script>
-    Swal.fire({
+  @if(session('login_success'))
+    <script>
+      Swal.fire({
         title: "Login Berhasil!",
         text: "Selamat datang kembali 👋",
         icon: "success",
         timer: 1800,
         showConfirmButton: false
-    });
-</script>
-@endif
-<style>
-  /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
+      });
+    </script>
+  @endif
+  <style>
+    /* ===== FIX SWEETALERT + TAILWIND + FLOWBITE ===== */
 
-  .swal2-container {
-    z-index: 99999 !important;
-  }
+    .swal2-container {
+      z-index: 99999 !important;
+    }
 
-  .swal2-popup button {
-    background-image: none !important;
-    box-shadow: none !important;
-  }
+    .swal2-popup button {
+      background-image: none !important;
+      box-shadow: none !important;
+    }
 
-  .swal2-confirm {
-    background-color: #dc2626 !important; /* red-600 */
-    color: #fff !important;
-    border-radius: 9999px !important;
-    padding: 0.6rem 1.5rem !important;
-    font-weight: 600;
-  }
+    .swal2-confirm {
+      background-color: #dc2626 !important;
+      /* red-600 */
+      color: #fff !important;
+      border-radius: 9999px !important;
+      padding: 0.6rem 1.5rem !important;
+      font-weight: 600;
+    }
 
-  .swal2-cancel {
-    background-color: #2563eb !important; /* blue-600 */
-    color: #fff !important;
-    border-radius: 9999px !important;
-    padding: 0.6rem 1.5rem !important;
-    font-weight: 600;
-  }
+    .swal2-cancel {
+      background-color: #2563eb !important;
+      /* blue-600 */
+      color: #fff !important;
+      border-radius: 9999px !important;
+      padding: 0.6rem 1.5rem !important;
+      font-weight: 600;
+    }
 
-  .swal2-confirm:hover {
-    background-color: #b91c1c !important;
-  }
+    .swal2-confirm:hover {
+      background-color: #b91c1c !important;
+    }
 
-  .swal2-cancel:hover {
-    background-color: #1d4ed8 !important;
-  }
-</style>
+    .swal2-cancel:hover {
+      background-color: #1d4ed8 !important;
+    }
+  </style>
+
 </body>
 
 </html>

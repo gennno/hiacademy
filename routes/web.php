@@ -75,24 +75,24 @@ Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmate
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
 
     Route::post('/admin/invoices', [AdminController::class, 'storeinvoice'])
-        ->name('invoices.store');
+        ->name('admininvoices.store');
 
     Route::get('/admin/invoices/{invoice}', [AdminController::class, 'showinvoice'])
-        ->name('invoices.show');
+        ->name('admininvoices.show');
 
     Route::get('/admin/invoices/{invoice}/edit', [AdminController::class, 'editinvoice'])
-        ->name('invoices.edit');
+        ->name('admininvoices.edit');
 
     Route::put('/admin/invoices/{invoice}', [AdminController::class, 'updateinvoice'])
-        ->name('invoices.update');
+        ->name('admininvoices.update');
 
     Route::delete('/admin/invoices/{invoice}', [AdminController::class, 'destroyinvoice'])
-        ->name('invoices.destroy');
+        ->name('admininvoices.destroy');
 
     Route::get(
         '/admin/invoices/{invoice}/generate',
         [AdminController::class, 'generateinvoice']
-    )->name('invoices.generate');
+    )->name('admininvoices.generate');
 
 
     Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');
@@ -121,6 +121,70 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
     Route::get('/staff-detail-program', [StaffController::class, 'staffdetailprogram'])->name('staffdetailprogram');
     Route::get('/staff-invoice', [StaffController::class, 'staffinvoice'])->name('staffinvoice');
 
+
+    Route::get('/staff-program', [StaffController::class, 'staffprogram'])->name('staffprogram');
+    Route::get('/staff/program/{program:slug}', [StaffController::class, 'staffDetailProgram'])
+    ->name('staffdetailprogram');
+    Route::get('/staff/programs/{program:slug}/lessons/{lesson}',
+        [StaffController::class, 'stafflessondetail']
+    )->name('stafflessondetail');
+
+    Route::post('/staff/programs', [StaffController::class, 'storeprogram'])
+    ->name('staff.programs.store');
+    Route::delete('/staff/programs/{program}', [StaffController::class, 'programdestroy'])
+    ->name('staff.programs.destroy');
+    Route::put('/staff/programs/{program}', [StaffController::class, 'programupdate'])
+    ->name('staff.programs.update');
+
+    Route::post('/staff/lessons', [StaffController::class, 'stafflessonstore'])
+    ->name('stafflesson.store');
+Route::put('/staff/lessons/{lesson}', [StaffController::class, 'stafflessonupdate'])
+    ->name('stafflesson.update');
+
+Route::delete('/staff/lessons/{lesson}', [StaffController::class, 'stafflessondestroy'])
+    ->name('stafflesson.destroy');
+
+    Route::post('/staff/materials', [StaffController::class, 'staffmaterialstore'])
+  ->name('staffmaterial.store');
+
+Route::put('/staff/materials/{material}', [StaffController::class, 'staffmaterialupdate'])
+  ->name('staffmaterial.update');
+
+Route::delete('/staff/materials/{material}', [StaffController::class, 'staffmaterialdestroy'])
+  ->name('staffmaterial.destroy');
+
+    Route::get('/staff-invoice', [StaffController::class, 'staffinvoice'])->name('staffinvoice');
+
+    Route::post('/staff/invoices', [StaffController::class, 'storeinvoice'])
+        ->name('invoices.store');
+
+    Route::get('/staff/invoices/{invoice}', [StaffController::class, 'showinvoice'])
+        ->name('invoices.show');
+
+    Route::get('/staff/invoices/{invoice}/edit', [StaffController::class, 'editinvoice'])
+        ->name('invoices.edit');
+
+    Route::put('/staff/invoices/{invoice}', [StaffController::class, 'updateinvoice'])
+        ->name('invoices.update');
+
+    Route::delete('/staff/invoices/{invoice}', [StaffController::class, 'destroyinvoice'])
+        ->name('invoices.destroy');
+
+    Route::get(
+        '/staff/invoices/{invoice}/generate',
+        [StaffController::class, 'generateinvoice']
+    )->name('invoices.generate');
+
+
+    Route::get('/staff-enrollment', [StaffController::class, 'staffenrollment'])->name('staffenrollment');
+
+    Route::get('/staff-report', [StaffController::class, 'staffreport'])->name('staffreport');
+    Route::post('/staff/reports', [StaffController::class, 'storereports'])
+        ->name('reports.store');
+    Route::post('/staff/certificates', [StaffController::class, 'storecertificates'])
+        ->name('certificates.store');
+
+    Route::get('/staff-registration', [StaffController::class, 'staffregistration'])->name('staffregistration');
 });
 
 Route::middleware(['auth', 'role:teacher'])->group(function () {

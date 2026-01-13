@@ -98,7 +98,7 @@
         <table class="header">
             <tr>
                 <td>
-                    <img src="img/logogelap.png" class="logo">
+                    <img src="{{ public_path('img/logogelap.png') }}" class="logo">
                 </td>
                 <td class="company-info">
                     <strong>H!Academy</strong><br>
