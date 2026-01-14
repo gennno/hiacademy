@@ -16,6 +16,9 @@ class InvoiceItem extends Model
         'category',
         'description',
         'amount',
+        'discount_percent',
+        'discount_amount',
+        'amount_after_discount',
     ];
 
     /**

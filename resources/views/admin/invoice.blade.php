@@ -399,7 +399,8 @@
                     <div class="col-span-2">Program</div>
                     <div class="col-span-2">Level</div>
                     <div class="col-span-2">Category</div>
-                    <div class="col-span-3">Description</div>
+                    <div class="col-span-2">Description</div>
+                    <div class="col-span-1">Discount</div>
                     <div class="col-span-2 text-right">Amount</div>
                     <div class="col-span-1"></div>
                 </div>
@@ -421,8 +422,12 @@
                             placeholder="Category">
 
                         <input name="items[0][description]"
-                            class="md:col-span-3 border rounded-lg px-3 py-2"
+                            class="md:col-span-2 border rounded-lg px-3 py-2"
                             placeholder="Description">
+                        
+                        <input name="items[0][discount]" type="number"
+                            class="md:col-span-1 border rounded-lg px-3 py-2 text-right"
+                            placeholder="0">
 
                         <input name="items[0][amount]" type="number"
                             class="md:col-span-2 border rounded-lg px-3 py-2 text-right"

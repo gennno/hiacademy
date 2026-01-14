@@ -62,4 +62,10 @@ class Invoice extends Model
         return $this->hasMany(InvoiceItem::class);
     }
 
+    public function receipts()
+{
+    return $this->hasMany(Receipt::class);
+}
+
+
 }

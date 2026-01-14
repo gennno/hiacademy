@@ -173,7 +173,28 @@ Route::delete('/staff/materials/{material}', [StaffController::class, 'staffmate
     Route::get(
         '/staff/invoices/{invoice}/generate',
         [StaffController::class, 'generateinvoice']
-    )->name('invoices.generate');
+    )->name('staffinvoices.generate');
+
+    // Receipt 
+        Route::post('/staff/receipts', [StaffController::class, 'storereceipt'])
+        ->name('receipts.store');
+
+    Route::get('/staff/receipts/{receipt}', [StaffController::class, 'showreceipt'])
+        ->name('receipts.show');
+
+    Route::get('/staff/receipts/{receipt}/edit', [StaffController::class, 'editreceipt'])
+        ->name('receipts.edit');
+
+    Route::put('/staff/receipts/{receipt}', [StaffController::class, 'updatereceipt'])
+        ->name('receipts.update');
+
+    Route::delete('/staff/receipts/{receipt}', [StaffController::class, 'destroyreceipt'])
+        ->name('receipts.destroy');
+
+    Route::get(
+        '/staff/receipts/{receipt}/generate',
+        [StaffController::class, 'generatereceipt']
+    )->name('staffreceipt.generate');
 
 
     Route::get('/staff-enrollment', [StaffController::class, 'staffenrollment'])->name('staffenrollment');

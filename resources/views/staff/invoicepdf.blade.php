@@ -98,14 +98,14 @@
         <table class="header">
             <tr>
                 <td>
-                    <img src="{{ public_path('img/logogelap.png') }}" class="logo">
+                    <img src="img/logogelap.png" class="logo">
                 </td>
                 <td class="company-info">
                     <strong>H!Academy</strong><br>
                     Komplek Ruko Grand Niaga Mas A No 61-62<br>
                     Batam - Center, Kepri - Indonesia<br>
-                    +62 778 4888 111<br>
-                    no-reply@hiacademy.id
+                    +62 853-7329-6248<br>
+                    info@hiacademy.id
                 </td>
             </tr>
         </table>
@@ -121,8 +121,8 @@
                 </td>
                 <td width="40%">
                     <strong>{{ $invoice->invoice_number }}</strong><br>
-                    Tanggal Invoice: {{ $invoice->invoice_date->format('d/M/Y') }}<br>
-                    Outlet: HIACADEMY
+                    Invoice Date: {{ $invoice->invoice_date->format('d/M/Y') }}<br>
+                    Outlet: h!academy
                 </td>
             </tr>
         </table>
@@ -137,45 +137,58 @@
                     <th width="25%" class="text-right">TOTAL</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach($invoice->items as $index => $item)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $item->category }}</td>
-                        <td>
-                            {{ $item->program_name }}<br>
-                            <small>{{ $item->description }}</small>
-                        </td>
+<tbody>
+@foreach($invoice->items as $index => $item)
+    <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ $item->program_name }}</td>
+        <td>
+            {{ $item->level }}<br>
+            <small>{{ $item->description }}</small>
+        </td>
 
-                        <td class="text-right">
-                            IDR {{ number_format($item->amount, 0, ',', '.') }}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+        <td class="text-right">
+            IDR {{ number_format($item->amount, 0, ',', '.') }}
+
+            @if($item->discount_amount > 0)
+                <br>
+                <small style="color:red;">
+                    - IDR {{ number_format($item->discount_amount, 0, ',', '.') }}
+                </small>
+            @endif
+        </td>
+    </tr>
+@endforeach
+</tbody>
+
         </table>
 
         <!-- SUMMARY -->
-        <table class="summary">
-            <tr>
-                <td width="75%" class="text-right"><strong>SUBTOTAL</strong></td>
-                <td width="25%" class="text-right">
-                    IDR {{ number_format($invoice->subtotal, 0, ',', '.') }}
-                </td>
-            </tr>
-            <tr>
-                <td class="text-right"><strong>DISC.</strong></td>
-                <td class="text-right">
-                    IDR {{ number_format($invoice->discount, 0, ',', '.') }}
-                </td>
-            </tr>
-            <tr>
-                <td class="text-right"><strong>GRAND TOTAL</strong></td>
-                <td class="text-right">
-                    <strong>IDR {{ number_format($invoice->grand_total, 0, ',', '.') }}</strong>
-                </td>
-            </tr>
-        </table>
+<table class="summary">
+    <tr>
+        <td width="75%" class="text-right"><strong>SUBTOTAL</strong></td>
+        <td width="25%" class="text-right">
+            IDR {{ number_format($invoice->subtotal, 0, ',', '.') }}
+        </td>
+    </tr>
+
+    <tr>
+        <td class="text-right"><strong>DISC.</strong></td>
+        <td class="text-right" style="color:red;">
+            - IDR {{ number_format($invoice->total_discount, 0, ',', '.') }}
+        </td>
+    </tr>
+
+    <tr>
+        <td class="text-right"><strong>GRAND TOTAL</strong></td>
+        <td class="text-right">
+            <strong>
+                IDR {{ number_format($invoice->grand_total, 0, ',', '.') }}
+            </strong>
+        </td>
+    </tr>
+</table>
+
 
         <!-- THANK YOU -->
         <p style="margin-top:20px;"><strong>Thank you!</strong></p>
@@ -183,9 +196,9 @@
         <!-- NOTICE -->
         <div class="notice">
             <strong>NOTICE:</strong><br>
-            Pembayaran dapat dilakukan dengan cara:<br>
-            Mandiri Rek No. 1090077795888<br>
-            an. PT. Thomas Consulting Group
+            Payment can be made by transfer via:<br>
+            Mandiri a/c 10900 79737 888<br>
+            an. PT THOMAS CONSULTING GROUP
         </div>
         <hr>
         <!-- FOOTER -->
