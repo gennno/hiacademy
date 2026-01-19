@@ -102,8 +102,8 @@
                 </td>
                 <td class="company-info">
                     <strong>H!Academy</strong><br>
-                    Komplek Ruko Grand Niaga Mas A No 61-62<br>
-                    Batam - Center, Kepri - Indonesia<br>
+                    Jl. Abuyaltama komplek papa mama residence B 20-22A <br>
+                    Batam, Riau, Indonesia - 29464<br>
                     +62 853-7329-6248<br>
                     info@hiacademy.id
                 </td>
@@ -146,17 +146,21 @@
             {{ $item->level }}<br>
             <small>{{ $item->description }}</small>
         </td>
-
         <td class="text-right">
-            IDR {{ number_format($item->amount, 0, ',', '.') }}
+            @if($item->amount == 0)
+                <strong>FREE</strong>
+            @else
+                IDR {{ number_format($item->amount, 0, ',', '.') }}
 
-            @if($item->discount_amount > 0)
-                <br>
-                <small style="color:red;">
-                    - IDR {{ number_format($item->discount_amount, 0, ',', '.') }}
-                </small>
+                @if($item->discount_amount > 0)
+                    <br>
+                    <small style="color:red;">
+                        - IDR {{ number_format($item->discount_amount, 0, ',', '.') }}
+                    </small>
+                @endif
             @endif
         </td>
+
     </tr>
 @endforeach
 </tbody>

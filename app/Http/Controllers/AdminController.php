@@ -14,6 +14,7 @@ use App\Models\Enrollment;
 use App\Models\Invoice;
 use App\Models\User;
 use App\Models\Report;
+use App\Models\Receipt;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Models\InvoiceItem;
@@ -192,33 +193,78 @@ public function programupdate(Request $request, Program $program)
         return view('admin.user', compact('users'));
     }
 
-        public function storeinvoice(Request $request)
-    {
-        DB::transaction(function () use ($request) {
 
-            $subtotal = collect($request->items)->sum('amount');
+public function storeinvoice(Request $request)
+{
+    DB::transaction(function () use ($request) {
 
-            $invoice = Invoice::create([
-                'invoice_number' => 'INV' . date('Y') . rand(1000, 9999),
-                'invoice_date' => now(),
+        $subtotal = 0;
+        $totalDiscount = 0;
+        $year = date('Y');
 
-                'customer_name' => $request->customer_name,
-                'customer_email' => $request->customer_email,
-                'customer_phone' => $request->customer_phone,
-                'customer_address' => $request->customer_address,
+        $lastInvoice = Invoice::whereYear('invoice_date', $year)
+            ->orderBy('id', 'desc')
+            ->lockForUpdate() // PENTING: anti double number
+            ->first();
 
-                'subtotal' => $subtotal,
-                'discount' => 0,
-                'grand_total' => $subtotal,
+        $lastNumber = 0;
+
+        if ($lastInvoice) {
+            // Ambil angka terakhir dari INV2026-0005
+            $lastNumber = (int) substr($lastInvoice->invoice_number, -4);
+        }
+
+        $nextNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
+
+        $invoiceNumber = "INV{$year}{$nextNumber}";
+
+        $invoice = Invoice::create([
+            'invoice_number' => $invoiceNumber,
+            'invoice_date'     => now(),
+
+            'customer_name'    => $request->customer_name,
+            'customer_email'   => $request->customer_email,
+            'customer_phone'   => $request->customer_phone,
+            'customer_address' => $request->customer_address,
+
+            'subtotal'         => 0,
+            'discount'         => 0,
+            'grand_total'      => 0,
+        ]);
+
+        foreach ($request->items as $item) {
+
+            $amount = (float) $item['amount'];
+            $discountPercent = (float) ($item['discount'] ?? 0);
+
+            $discountAmount = ($amount * $discountPercent) / 100;
+            $amountAfterDiscount = $amount - $discountAmount;
+
+            $subtotal += $amount;
+            $totalDiscount += $discountAmount;
+
+            $invoice->items()->create([
+                'program_name'          => $item['Program'],
+                'level'                 => $item['level'] ?? '',
+                'category'              => $item['category'] ?? '',
+                'description'           => $item['description'] ?? '',
+
+                'amount'                => $amount,
+                'discount_percent'      => $discountPercent,
+                'discount_amount'       => $discountAmount,
+                'amount_after_discount' => $amountAfterDiscount,
             ]);
+        }
 
-            foreach ($request->items as $item) {
-                $invoice->items()->create($item);
-            }
-        });
+        $invoice->update([
+            'subtotal'    => $subtotal,
+            'discount'    => $totalDiscount,
+            'grand_total' => $subtotal - $totalDiscount,
+        ]);
+    });
 
-        return redirect()->back()->with('success', 'Invoice created');
-    }
+    return redirect()->back()->with('success', 'Invoice created');
+}
 
     public function showinvoice(Invoice $invoice)
     {
@@ -231,7 +277,6 @@ public function programupdate(Request $request, Program $program)
         $invoice->load('items');
         return response()->json($invoice);
     }
-
 
     public function updateinvoice(Request $request, Invoice $invoice)
     {
@@ -255,7 +300,7 @@ public function programupdate(Request $request, Program $program)
             }
         });
 
-        return redirect()->route('admininvoice');
+        return redirect()->route('staffinvoice');
     }
 
     public function destroyinvoice(Invoice $invoice)
@@ -264,17 +309,153 @@ public function programupdate(Request $request, Program $program)
         return redirect()->back()->with('success', 'Invoice deleted');
     }
     
-    public function generateinvoice(Invoice $invoice)
+public function generateinvoice(Invoice $invoice)
 {
     $invoice->load('items');
 
-    $pdf = Pdf::loadView('admin.invoicepdf', [
+    // Hitung ulang (safety)
+    $invoice->subtotal = $invoice->items->sum('amount');
+    $invoice->total_discount = $invoice->items->sum('discount_amount');
+    $invoice->grand_total = $invoice->subtotal - $invoice->total_discount;
+
+    $pdf = Pdf::loadView('staff.invoicepdf', [
         'invoice' => $invoice
     ])->setPaper('A4');
 
     return $pdf->stream($invoice->invoice_number . '.pdf');
-    // or ->download()
 }
+
+public function storereceipt(Request $request)
+    {
+        DB::transaction(function () use ($request) {
+
+            $totalPaid = 0;
+            $year = date('Y');
+
+            // 🔒 Lock untuk anti double receipt number
+            $lastReceipt = Receipt::whereYear('receipt_date', $year)
+                ->orderBy('id', 'desc')
+                ->lockForUpdate()
+                ->first();
+
+            $lastNumber = 0;
+
+            if ($lastReceipt) {
+                // RCPT20260001 → ambil 0001
+                $lastNumber = (int) substr($lastReceipt->receipt_number, -4);
+            }
+
+            $nextNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
+            $receiptNumber = "RCPT{$year}{$nextNumber}";
+
+            // 📌 Create receipt
+            $receipt = Receipt::create([
+                'receipt_number'   => $receiptNumber,
+                'receipt_date'     => $request->receipt_date,
+                'invoice_number'   => $request->invoice_number,
+
+                'customer_name'    => $request->customer_name,
+                'customer_email'   => $request->customer_email,
+                'customer_phone'   => $request->customer_phone,
+                'customer_address' => $request->customer_address,
+
+                'total_paid'       => 0,
+                'payment_reference'=> $request->payment_reference,
+                'note'             => $request->note,
+            ]);
+
+            // 📦 Receipt items
+            foreach ($request->items as $item) {
+
+                $paidAmount = (float) $item['paid_amount'];
+                $totalPaid += $paidAmount;
+
+                $receipt->items()->create([
+                    'program_name' => $item['program_name'],
+                    'level'        => $item['level'] ?? '',
+                    'category'     => $item['category'] ?? '',
+                    'description'  => $item['description'] ?? '',
+                    'paid_amount'  => $paidAmount,
+                ]);
+            }
+
+            // 🧮 Update total
+            $receipt->update([
+                'total_paid' => $totalPaid,
+            ]);
+        });
+
+        return redirect()->back()->with('success', 'Receipt created');
+    }
+
+    public function showreceipt(Receipt $receipt)
+    {
+        $receipt->load('items');
+        return response()->json($receipt);
+    }
+
+    public function editreceipt(Receipt $receipt)
+    {
+        $receipt->load('items');
+        return response()->json($receipt);
+    }
+
+    public function updatereceipt(Request $request, Receipt $receipt)
+    {
+        DB::transaction(function () use ($request, $receipt) {
+
+            $totalPaid = collect($request->items)->sum('paid_amount');
+
+            $receipt->update([
+                'receipt_date'     => $request->receipt_date,
+                'invoice_number'   => $request->invoice_number,
+
+                'customer_name'    => $request->customer_name,
+                'customer_email'   => $request->customer_email,
+                'customer_phone'   => $request->customer_phone,
+                'customer_address' => $request->customer_address,
+
+                'total_paid'       => $totalPaid,
+                'payment_reference'=> $request->payment_reference,
+                'note'             => $request->note,
+            ]);
+
+            // Replace items
+            $receipt->items()->delete();
+
+            foreach ($request->items as $item) {
+                $receipt->items()->create([
+                    'program_name' => $item['program_name'],
+                    'level'        => $item['level'],
+                    'category'     => $item['category'],
+                    'description'  => $item['description'],
+                    'paid_amount'  => $item['paid_amount'],
+                ]);
+            }
+        });
+
+        return redirect()->back()->with('success', 'Receipt updated');
+    }
+
+    public function destroyreceipt(Receipt $receipt)
+    {
+        $receipt->delete();
+        return redirect()->back()->with('success', 'Receipt deleted');
+    }
+
+    public function generatereceipt(Receipt $receipt)
+    {
+        $receipt->load('items');
+
+        // Safety recalculation
+        $receipt->total_paid = $receipt->items->sum('paid_amount');
+
+        $pdf = Pdf::loadView('staff.receiptpdf', [
+            'receipt' => $receipt
+        ])->setPaper('A4');
+
+        return $pdf->stream($receipt->receipt_number . '.pdf');
+    }
 
 public function adminlessonstore(Request $request)
 {

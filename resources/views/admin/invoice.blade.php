@@ -13,25 +13,25 @@
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back</span>
             </a>
-        <div class="flex gap-3">
-            
-            <button onclick="openInvoiceModal()"
-                class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-                <i class="fa-solid fa-plus"></i>
-                Create invoice
-            </button>
+            <div class="flex gap-3">
 
-            <a href=""
-               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-                <i class="fa-solid fa-plus"></i>
-                Create Receipt
-            </a>
-        </div>
+                <button onclick="openInvoiceModal()"
+                    class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Invoice
+                </button>
+
+                <button onclick="openReceiptModal()"
+                    class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Receipt
+                </button>
+            </div>
         </div>
     </div>
     <style>
         /* ---- DataTables Styling Fix ---- */
-        .dataTables_wrapper {
+        .invoice-table-wrapper .dataTables_wrapper {
             padding-top: 10px;
         }
 
@@ -134,7 +134,9 @@
     </style>
 
     <!-- TABLE CARD -->
-    <div class="bg-white rounded-xl shadow-md mb-4 p-6">Invoice List</h2>
+    <div class="bg-white rounded-xl shadow-md mb-4 p-6">
+
+        <h2 class="font-semibold mb-4">Invoice List</h2>
 
         <div class="overflow-x-auto">
             <table id="invoiceTable" class="min-w-full border rounded-lg dataTable stripe hover">
@@ -143,7 +145,6 @@
                         <th class="p-3 text-left">Invoice #</th>
                         <th class="p-3 text-left">Customer</th>
                         <th class="p-3 text-left">Amount</th>
-                        <th class="p-3 text-left">Status</th>
                         <th class="p-3 text-left">Invoice Date</th>
                         <th class="p-3 text-center">Actions</th>
                     </tr>
@@ -167,13 +168,6 @@
                             </td>
 
                             <td class="p-3">
-                                {{-- Placeholder status (future payment table) --}}
-                                <span class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full">
-                                    Unpaid
-                                </span>
-                            </td>
-
-                            <td class="p-3">
                                 {{ \Carbon\Carbon::parse($invoice->invoice_date)->format('d M Y') }}
                             </td>
 
@@ -193,7 +187,6 @@
                                     class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
                                     <i class="fa-solid fa-download"></i>
                                 </a>
-
                                 <form action="{{ route('invoices.destroy', $invoice) }}" method="POST"
                                     onsubmit="return confirm('Delete this invoice?')">
                                     @csrf
@@ -212,75 +205,71 @@
                         </tr>
                     @endforelse
                 </tbody>
-
-
-
             </table>
         </div>
     </div>
 
-        <!-- TABLE CARD -->
-    <div class="bg-white rounded-xl shadow-md p-6">Receipt List</h2>
+    <!-- TABLE CARD -->
+    <div class="bg-white rounded-xl shadow-md p-6">
+
+        <h2 class="font-semibold mb-4">Receipt List</h2>
 
         <div class="overflow-x-auto">
             <table id="receiptTable" class="min-w-full border rounded-lg dataTable stripe hover">
                 <thead class="bg-gray-100">
                     <tr>
+                        <th class="p-3 text-left">Receipt #</th>
                         <th class="p-3 text-left">Invoice #</th>
                         <th class="p-3 text-left">Customer</th>
                         <th class="p-3 text-left">Amount</th>
-                        <th class="p-3 text-left">Status</th>
-                        <th class="p-3 text-left">Invoice Date</th>
+                        <th class="p-3 text-left">Receipt Date</th>
                         <th class="p-3 text-center">Actions</th>
                     </tr>
                 </thead>
 
 
                 <tbody>
-                    @forelse ($invoices as $invoice)
+                    @forelse ($receipts as $receipt)
                         <tr class="border-b">
                             <td class="p-3 font-semibold">
-                                {{ $invoice->invoice_number }}
+                                {{ $receipt->receipt_number }}
+                            </td>
+
+                            <td class="p-3 font-semibold">
+                                {{ $receipt->invoice_number }}
                             </td>
 
                             <td class="p-3">
-                                <div class="font-medium">{{ $invoice->customer_name }}</div>
-                                <div class="text-sm text-gray-500">{{ $invoice->customer_email }}</div>
+                                <div class="font-medium">{{ $receipt->customer_name }}</div>
+                                <div class="text-sm text-gray-500">{{ $receipt->customer_email }}</div>
                             </td>
 
                             <td class="p-3">
-                                Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
+                                Rp {{ number_format($receipt->total_paid, 0, ',', '.') }}
                             </td>
 
                             <td class="p-3">
-                                {{-- Placeholder status (future payment table) --}}
-                                <span class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full">
-                                    Unpaid
-                                </span>
-                            </td>
-
-                            <td class="p-3">
-                                {{ \Carbon\Carbon::parse($invoice->invoice_date)->format('d M Y') }}
+                                {{ \Carbon\Carbon::parse($receipt->receipt_date)->format('d M Y') }}
                             </td>
 
                             <td class="p-3 flex justify-center gap-2">
                                 <!-- VIEW -->
-                                <button onclick="viewInvoice({{ $invoice->id }})" class="table-action-btn view"
+                                <button onclick="viewReceipt({{ $receipt->id }})" class="table-action-btn view"
                                     title="View Invoice">
                                     <i class="fa-solid fa-eye"></i>
                                 </button>
                                 <!-- EDIT -->
-                                <button onclick="editInvoice({{ $invoice->id }})" class="table-action-btn update"
+                                <button onclick="editRecipt({{ $receipt->id }})" class="table-action-btn update"
                                     title="Edit Invoice">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
                                 <!-- GENERATE PDF -->
-                                <a href="{{ route('admininvoices.generate', $invoice->id) }}" target="_blank"
+                                <a href="{{ route('adminreceipt.generate', $receipt->id) }}" target="_blank"
                                     class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
                                     <i class="fa-solid fa-download"></i>
                                 </a>
 
-                                <form action="{{ route('invoices.destroy', $invoice) }}" method="POST"
+                                <form action="{{ route('receipts.destroy', $receipt) }}" method="POST"
                                     onsubmit="return confirm('Delete this invoice?')">
                                     @csrf
                                     @method('DELETE')
@@ -293,19 +282,16 @@
                     @empty
                         <tr>
                             <td colspan="6" class="p-6 text-center text-gray-500">
-                                No invoices found.
+                                No Receipt found.
                             </td>
                         </tr>
                     @endforelse
                 </tbody>
 
-
-
             </table>
         </div>
     </div>
 
-    
     <div id="viewInvoiceModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
         <div class="bg-white max-w-4xl w-full rounded-xl p-6">
 
@@ -342,151 +328,300 @@
         </div>
     </div>
 
-<div id="invoiceModal"
-    class="fixed inset-0 z-[9991] hidden bg-black/50 flex items-center justify-center px-4">
+    <div id="viewReceiptModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white max-w-4xl w-full rounded-xl p-6">
 
-    <div
-        class="bg-white w-full max-w-5xl rounded-2xl shadow-xl flex flex-col max-h-[90vh]">
-
-        <!-- HEADER -->
-        <div class="flex justify-between items-center px-6 py-4 border-b">
-            <h3 class="text-xl font-semibold">Create Invoice</h3>
-            <button onclick="closeInvoiceModal()"
-                class="text-gray-500 hover:text-gray-700">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-        </div>
-
-        <!-- BODY -->
-        <form action="{{ route('admininvoices.store') }}" method="POST"
-            class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
-            @csrf
-
-            <!-- CUSTOMER INFO -->
-            <div>
-                <h4 class="font-semibold mb-3">Customer Information</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input name="customer_name" required
-                        class="border rounded-lg px-4 py-3"
-                        placeholder="Customer Name">
-
-                    <input name="customer_email" required
-                        class="border rounded-lg px-4 py-3"
-                        placeholder="Customer Email">
-
-                    <input name="customer_phone"
-                        class="border rounded-lg px-4 py-3"
-                        placeholder="Phone">
-
-                    <input name="customer_address"
-                        class="border rounded-lg px-4 py-3"
-                        placeholder="Address">
-                </div>
+            <div class="flex justify-between mb-4">
+                <h3 class="font-semibold text-lg">Invoice Detail</h3>
+                <button onclick="closeViewReceiptModal()">✕</button>
             </div>
 
-            <!-- ITEMS -->
-            <div>
-                <div class="flex justify-between items-center mb-3">
-                    <h4 class="font-semibold">Invoice Items</h4>
-                    <button type="button" onclick="addItem()"
-                        class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                        + Add Item
+            <div id="viewReceiptContent" class="space-y-4">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </div>
+    <div id="editReceiptModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white max-w-4xl w-full rounded-xl p-6">
+
+            <div class="flex justify-between mb-4">
+                <h3 class="font-semibold text-lg">Edit Invoice</h3>
+                <button onclick="closeEditReceiptModal()">✕</button>
+            </div>
+
+            <form id="editReceiptForm" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div id="editReceiptItems"></div>
+
+                <div class="text-right mt-6">
+                    <button class="bg-yellow-400 px-6 py-2 rounded-lg font-semibold">
+                        Update Receipt
                     </button>
                 </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add Invoice -->
+    <div id="invoiceModal" class="fixed inset-0 z-[9991] hidden bg-black/50 flex items-center justify-center px-4">
 
-                <!-- TABLE HEADER (Desktop Only) -->
-                <div class="hidden md:grid grid-cols-12 gap-2 text-sm font-medium text-gray-600 mb-2">
-                    <div class="col-span-2">Program</div>
-                    <div class="col-span-2">Level</div>
-                    <div class="col-span-2">Category</div>
-                    <div class="col-span-2">Description</div>
-                    <div class="col-span-1">Discount</div>
-                    <div class="col-span-2 text-right">Amount</div>
-                    <div class="col-span-1"></div>
-                </div>
+        <div class="bg-white w-full max-w-5xl rounded-2xl shadow-xl flex flex-col max-h-[90vh]">
 
-                <!-- ITEMS WRAPPER -->
-                <div id="itemsWrapper" class="space-y-4">
-                    <!-- ITEM ROW -->
-                    <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
-                        <input name="items[0][program_name]"
-                            class="md:col-span-2 border rounded-lg px-3 py-2"
-                            placeholder="Program">
-
-                        <input name="items[0][level]"
-                            class="md:col-span-2 border rounded-lg px-3 py-2"
-                            placeholder="Level">
-
-                        <input name="items[0][category]"
-                            class="md:col-span-2 border rounded-lg px-3 py-2"
-                            placeholder="Category">
-
-                        <input name="items[0][description]"
-                            class="md:col-span-2 border rounded-lg px-3 py-2"
-                            placeholder="Description">
-                        
-                        <input name="items[0][discount]" type="number"
-                            class="md:col-span-1 border rounded-lg px-3 py-2 text-right"
-                            placeholder="0">
-
-                        <input name="items[0][amount]" type="number"
-                            class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
-                            placeholder="0">
-
-                        <button type="button" onclick="removeItem(this)"
-                            class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FOOTER -->
-            <div class="sticky bottom-0 bg-white pt-4 border-t flex justify-end">
-                <button
-                    class="bg-yellow-400 hover:bg-yellow-500 px-8 py-3 rounded-xl font-semibold">
-                    Save Invoice
+            <!-- HEADER -->
+            <div class="flex justify-between items-center px-6 py-4 border-b">
+                <h3 class="text-xl font-semibold">Create Invoice</h3>
+                <button onclick="closeInvoiceModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-        </form>
+
+            <!-- BODY -->
+            <form action="{{ route('invoices.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+                @csrf
+
+                <!-- CUSTOMER INFO -->
+                <div>
+                    <h4 class="font-semibold mb-3">Customer Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input name="customer_name" required class="border rounded-lg px-4 py-3"
+                            placeholder="Customer Name">
+
+                        <input name="customer_email" required class="border rounded-lg px-4 py-3"
+                            placeholder="Customer Email">
+
+                        <input name="customer_phone" class="border rounded-lg px-4 py-3" placeholder="Phone" required>
+
+                        <input name="customer_address" class="border rounded-lg px-4 py-3" placeholder="Address" required>
+                    </div>
+                </div>
+
+                <!-- ITEMS -->
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-semibold">Invoice Items</h4>
+                        <button type="button" onclick="addItem()"
+                            class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            + Add Item
+                        </button>
+                    </div>
+
+                    <!-- TABLE HEADER (Desktop Only) -->
+                    <div class="hidden md:grid grid-cols-12 gap-2 text-sm font-medium text-gray-600 mb-2">
+                        <div class="col-span-2">Program</div>
+                        <div class="col-span-2">Level</div>
+                        <div class="col-span-2">Category</div>
+                        <div class="col-span-2">Description</div>
+                        <div class="col-span-1">Discount</div>
+                        <div class="col-span-2 text-left">Amount</div>
+                        <div class="col-span-1"></div>
+                    </div>
+
+                    <!-- ITEMS WRAPPER -->
+                    <div id="itemsWrapper" class="space-y-4">
+                        <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+
+                            <input name="items[0][Program]" class="md:col-span-2 border rounded-lg px-3 py-2"
+                                placeholder="Program" required>
+
+                            <select name="items[0][level]" class="md:col-span-2 border rounded-lg px-3 py-2">
+                                <option value="">Level</option>
+                                <option value="Pre-Nursery">Pre-Nursery</option>
+                                <option value="Nursery">Nursery</option>
+                                <option value="Kindergarten 1">Kindergarten 1</option>
+                                <option value="Kindergarten 2">Kindergarten 2</option>
+                                <option value="Kindergarten 3">Kindergarten 3</option>
+                            </select>
+
+                            <select name="items[0][category]" class="md:col-span-2 border rounded-lg px-3 py-2">
+                                <option value="">Category</option>
+                                <option value="Preschool">Preschool</option>
+                                <option value="English">English</option>
+                                <option value="Math">Math</option>
+                            </select>
+
+                            <input name="items[0][description]" class="md:col-span-2 border rounded-lg px-3 py-2"
+                                placeholder="Description" required>
+
+                            <input name="items[0][discount]" type="number"
+                                class="md:col-span-1 border rounded-lg px-3 py-2 text-right" placeholder="0">
+
+                            <input name="items[0][amount]" type="number"
+                                class="md:col-span-2 border rounded-lg px-3 py-2 text-right" placeholder="0" required>
+
+                            <button type="button" onclick="removeItem(this)"
+                                class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="sticky bottom-0 bg-white pt-4 border-t flex justify-end">
+                    <button class="bg-yellow-400 hover:bg-yellow-500 px-8 py-3 rounded-xl font-semibold">
+                        Save Invoice
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    <!-- Add Receipt -->
+    <div id="receiptModal" class="fixed inset-0 z-[9991] hidden bg-black/50 flex items-center justify-center px-4">
 
-<script>
-    let itemIndex = 1;
+        <div class="bg-white w-full max-w-5xl rounded-2xl shadow-xl flex flex-col max-h-[90vh]">
 
-    function openInvoiceModal() {
-        document.getElementById('invoiceModal').classList.remove('hidden');
-    }
+            <!-- HEADER -->
+            <div class="flex justify-between items-center px-6 py-4 border-b">
+                <h3 class="text-xl font-semibold">Create Receipt</h3>
+                <button onclick="closeReceiptModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
 
-    function closeInvoiceModal() {
-        document.getElementById('invoiceModal').classList.add('hidden');
-    }
+            <!-- BODY -->
+            <form action="{{ route('receipts.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+                @csrf
 
-    function addItem() {
-        const wrapper = document.getElementById('itemsWrapper');
+                <!-- RECEIPT INFO -->
+                <div>
+                    <h4 class="font-semibold mb-3">Receipt Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="date" name="receipt_date" class="border rounded-lg px-4 py-3" required>
 
-        wrapper.insertAdjacentHTML('beforeend', `
+                        <input name="invoice_number" class="border rounded-lg px-4 py-3"
+                            placeholder="Invoice Number (INV2026001)" required>
+                    </div>
+                </div>
+
+                <!-- CUSTOMER INFO -->
+                <div>
+                    <h4 class="font-semibold mb-3">Customer Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input name="customer_name" required class="border rounded-lg px-4 py-3"
+                            placeholder="Customer Name">
+
+                        <input name="customer_email" required class="border rounded-lg px-4 py-3"
+                            placeholder="Customer Email">
+
+                        <input name="customer_phone" required class="border rounded-lg px-4 py-3" placeholder="Phone">
+
+                        <input name="customer_address" required class="border rounded-lg px-4 py-3" placeholder="Address">
+                    </div>
+                </div>
+
+                <!-- ITEMS -->
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-semibold">Receipt Items</h4>
+                        <button type="button" onclick="addReceiptItem()"
+                            class="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            + Add Item
+                        </button>
+                    </div>
+
+                    <!-- TABLE HEADER (Desktop Only) -->
+                    <div class="hidden md:grid grid-cols-12 gap-2 text-sm font-medium text-gray-600 mb-2">
+                        <div class="col-span-2">Program</div>
+                        <div class="col-span-2">Level</div>
+                        <div class="col-span-2">Category</div>
+                        <div class="col-span-3">Description</div>
+                        <div class="col-span-2 text-left">Paid Amount</div>
+                        <div class="col-span-1"></div>
+                    </div>
+
+
+                    <!-- ITEMS WRAPPER -->
+                    <div id="receiptitemsWrapper" class="space-y-4">
+                        <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+
+                            <input name="items[0][program_name]" class="md:col-span-2 border rounded-lg px-3 py-2"
+                                placeholder="Program" required>
+
+                            <select name="items[0][level]" class="md:col-span-2 border rounded-lg px-3 py-2">
+                                <option value="">Level</option>
+                                <option value="Pre-Nursery">Pre-Nursery</option>
+                                <option value="Nursery">Nursery</option>
+                                <option value="Kindergarten 1">Kindergarten 1</option>
+                                <option value="Kindergarten 2">Kindergarten 2</option>
+                                <option value="Kindergarten 3">Kindergarten 3</option>
+                            </select>
+
+                            <select name="items[0][category]" class="md:col-span-2 border rounded-lg px-3 py-2">
+                                <option value="">Category</option>
+                                <option value="Preschool">Preschool</option>
+                                <option value="English">English</option>
+                                <option value="Math">Math</option>
+                            </select>
+
+                            <input name="items[0][description]" class="md:col-span-3 border rounded-lg px-3 py-2"
+                                placeholder="Description" required>
+
+                            <input name="items[0][paid_amount]" type="number" step="0.01"
+                                class="md:col-span-2 border rounded-lg px-3 py-2 text-right" placeholder="0" required>
+
+                            <button type="button" onclick="removeReceiptItem(this)"
+                                class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="sticky bottom-0 bg-white pt-4 border-t flex justify-end">
+                    <button class="bg-yellow-400 hover:bg-yellow-500 px-8 py-3 rounded-xl font-semibold">
+                        Save Receipt
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add Item Invoice -->
+    <script>
+        let invoiceItemIndex = 1;
+
+        function addItem() {
+            const wrapper = document.getElementById('itemsWrapper');
+
+            wrapper.insertAdjacentHTML('beforeend', `
             <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
-                <input name="items[${itemIndex}][program_name]"
+
+                <input name="items[${invoiceItemIndex}][Program]"
                     class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Program">
+                    placeholder="Program" required>
 
-                <input name="items[${itemIndex}][level]"
+                <select name="items[${invoiceItemIndex}][level]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2">
+                    <option value="">Level</option>
+                    <option value="Pre-Nursery">Pre-Nursery</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Kindergarten 1">Kindergarten 1</option>
+                    <option value="Kindergarten 2">Kindergarten 2</option>
+                    <option value="Kindergarten 3">Kindergarten 3</option>
+                </select>
+
+                <select name="items[${invoiceItemIndex}][category]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2">
+                    <option value="">Category</option>
+                    <option value="Preschool">Preschool</option>
+                    <option value="English">English</option>
+                    <option value="Math">Math</option>
+                </select>
+
+                <input name="items[${invoiceItemIndex}][description]"
                     class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Level">
+                    placeholder="Description" required>
 
-                <input name="items[${itemIndex}][category]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Category">
-
-                <input name="items[${itemIndex}][description]"
-                    class="md:col-span-3 border rounded-lg px-3 py-2"
-                    placeholder="Description">
-
-                <input name="items[${itemIndex}][amount]" type="number"
-                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                <input name="items[${invoiceItemIndex}][discount]" type="number"
+                    class="md:col-span-1 border rounded-lg px-3 py-2 text-right"
                     placeholder="0">
+
+                <input name="items[${invoiceItemIndex}][amount]" type="number"
+                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                    placeholder="0" required>
 
                 <button type="button" onclick="removeItem(this)"
                     class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
@@ -495,25 +630,100 @@
             </div>
         `);
 
-        itemIndex++;
-    }
+            invoiceItemIndex++;
+        }
 
-    function removeItem(btn) {
-        btn.closest('.item-row').remove();
-    }
-</script>
+        function removeItem(btn) {
+            btn.closest('.item-row').remove();
+        }
+    </script>
+    <!-- Add Item Receipt -->
+    <script>
+        let receiptItemIndex = 1;
 
+        function addReceiptItem() {
+            const wrapper = document.getElementById('receiptitemsWrapper');
+
+            wrapper.insertAdjacentHTML('beforeend', `
+            <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+
+                <input name="items[${receiptItemIndex}][program_name]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2"
+                    placeholder="Program" required>
+
+                <select name="items[${receiptItemIndex}][level]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2">
+                    <option value="">Level</option>
+                    <option value="Pre-Nursery">Pre-Nursery</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Kindergarten 1">Kindergarten 1</option>
+                    <option value="Kindergarten 2">Kindergarten 2</option>
+                    <option value="Kindergarten 3">Kindergarten 3</option>
+                </select>
+
+                <select name="items[${receiptItemIndex}][category]"
+                    class="md:col-span-2 border rounded-lg px-3 py-2">
+                    <option value="">Category</option>
+                    <option value="Preschool">Preschool</option>
+                    <option value="English">English</option>
+                    <option value="Math">Math</option>
+                </select>
+
+                <input name="items[${receiptItemIndex}][description]"
+                    class="md:col-span-3 border rounded-lg px-3 py-2"
+                    placeholder="Description" required>
+
+                <input name="items[${receiptItemIndex}][paid_amount]" type="number" step="0.01"
+                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                    placeholder="0" required>
+
+                <button type="button" onclick="removeReceiptItem(this)"
+                    class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        `);
+
+            receiptItemIndex++;
+        }
+
+        function removeReceiptItem(btn) {
+            btn.closest('.item-row').remove();
+        }
+    </script>
+
+    <!-- Trigger Invoice Modal -->
+    <script>
+        function openInvoiceModal() {
+            document.getElementById('invoiceModal').classList.remove('hidden');
+        }
+
+        function closeInvoiceModal() {
+            document.getElementById('invoiceModal').classList.add('hidden');
+        }
+    </script>
+    <!-- Trigger Receipt Modal -->
+    <script>
+        function openReceiptModal() {
+            document.getElementById('receiptModal').classList.remove('hidden');
+        }
+
+        function closeReceiptModal() {
+            document.getElementById('receiptModal').classList.add('hidden');
+        }
+    </script>
+    <!-- Action Invoice Modal -->
     <script>
         function viewInvoice(id) {
             fetch(`/admin/invoices/${id}`)
                 .then(res => res.json())
                 .then(data => {
                     let html = `
-                        <div><strong>${data.invoice_number}</strong></div>
-                        <div>${data.customer_name}</div>
-                        <div>${data.customer_email}</div>
-                        <hr>
-                    `;
+                                                    <div><strong>${data.invoice_number}</strong></div>
+                                                    <div>${data.customer_name}</div>
+                                                    <div>${data.customer_email}</div>
+                                                    <hr>
+                                                `;
 
                     data.items.forEach(item => {
                         html += `<div>${item.program_name} - Rp ${item.amount}</div>`;
@@ -536,14 +746,14 @@
 
                     data.items.forEach((item, index) => {
                         html += `
-                            <div class="grid grid-cols-5 gap-2 mb-2">
-                                <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
-                                <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
-                                <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
-                                <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
-                                <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
-                            </div>
-                        `;
+                                                        <div class="grid grid-cols-5 gap-2 mb-2">
+                                                            <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
+                                                            <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
+                                                            <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
+                                                            <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
+                                                            <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
+                                                        </div>
+                                                    `;
                     });
 
                     document.getElementById('editInvoiceItems').innerHTML = html;
@@ -559,6 +769,63 @@
             document.getElementById('editInvoiceModal').classList.add('hidden');
         }
     </script>
+    <!-- Action Receipt Modal -->
+    <script>
+        function viewReceipt(id) {
+            fetch(`/admin/receipts/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    let html = `
+                                                    <div><strong>${data.invoice_number}</strong></div>
+                                                    <div>${data.customer_name}</div>
+                                                    <div>${data.customer_email}</div>
+                                                    <hr>
+                                                `;
+
+                    data.items.forEach(item => {
+                        html += `<div>${item.program_name} - Rp ${item.amount}</div>`;
+                    });
+
+                    document.getElementById('viewReceiptContent').innerHTML = html;
+                    document.getElementById('viewReceiptModal').classList.remove('hidden');
+                });
+        }
+
+        function editReceipt(id) {
+            fetch(`/admin/receipts/${id}/edit`)
+                .then(res => res.json())
+                .then(data => {
+
+                    document.getElementById('editReceiptForm')
+                        .setAttribute('action', `/admin/receipts/${id}`);
+
+                    let html = '';
+
+                    data.items.forEach((item, index) => {
+                        html += `
+                                                        <div class="grid grid-cols-5 gap-2 mb-2">
+                                                            <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
+                                                            <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
+                                                            <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
+                                                            <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
+                                                            <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
+                                                        </div>
+                                                    `;
+                    });
+
+                    document.getElementById('editReceiptItems').innerHTML = html;
+                    document.getElementById('editReceiptModal').classList.remove('hidden');
+                });
+        }
+
+        function closeViewReceiptModal() {
+            document.getElementById('viewReceiptModal').classList.add('hidden');
+        }
+
+        function closeEditReceiptModal() {
+            document.getElementById('editReceiptModal').classList.add('hidden');
+        }
+    </script>
 
 @endsection
 
@@ -566,6 +833,7 @@
 @section('scripts')
     <script>
 
+        $.fn.dataTable.ext.errMode = 'none';
         $(document).ready(function () {
             $('#invoiceTable').DataTable({
                 pageLength: 5,
@@ -576,8 +844,9 @@
             });
         });
     </script>
-        <script>
+    <script>
 
+        $.fn.dataTable.ext.errMode = 'none';
         $(document).ready(function () {
             $('#receiptTable').DataTable({
                 pageLength: 5,
