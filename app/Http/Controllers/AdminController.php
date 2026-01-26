@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\DB;
 use App\Models\InvoiceItem;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
-
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -609,5 +608,22 @@ public function userupdate(Request $request, User $user)
         $user->delete();
 
         return redirect()->back()->with('success', 'User deleted.');
+    }
+
+        public function certificatestore(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'program_name' => 'required|string|max:255',
+            'academic_year' => 'required|string|max:20',
+            'completion_date' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        $validated['user_id'] = auth()->id();
+
+        Certificate::create($validated);
+
+        return back()->with('success', 'Certificate created successfully!');
     }
 }

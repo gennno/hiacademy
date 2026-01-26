@@ -112,6 +112,8 @@ Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmate
         Route::delete('/users/{user}', [AdminController::class, 'userdestroy'])
             ->name('users.destroy');
 
+    Route::post('/certificates', [AdminController::class, 'certificatestore'])
+    ->name('certificates.store');
 
 });
 

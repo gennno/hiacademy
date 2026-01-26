@@ -15,7 +15,7 @@
             <a href="{{ route('studentdashboard') }}"
                 class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
                 <i class="fa-solid fa-arrow-left"></i>
-                <span>Back</span>
+                <span>Back</span>2
             </a>
 
         </div>

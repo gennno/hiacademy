@@ -7,33 +7,34 @@
         $finalReports = $reports->where('type', 'final');
         $otherReports = $reports->where('type', '!=', 'final');
     @endphp
-<div class="bg-white rounded-xl shadow-md p-4 mb-4">
-    <div class="flex justify-between items-center">
+    <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <div class="flex justify-between items-center">
 
-        <!-- LEFT: BACK BUTTON -->
-        <a href="{{ route('admindashboard') }}"
-           class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>Back</span>
-        </a>
-
-        <!-- RIGHT: ACTION BUTTONS -->
-        <div class="flex gap-3">
-            <a href=""
-               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-                <i class="fa-solid fa-plus"></i>
-                Create Report
+            <!-- LEFT: BACK BUTTON -->
+            <a href="{{ route('admindashboard') }}"
+                class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back</span>
             </a>
 
-            <a href=""
-               class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-                <i class="fa-solid fa-plus"></i>
-                Create Certificate
-            </a>
+            <!-- RIGHT: ACTION BUTTONS -->
+            <div class="flex gap-3">
+                <a href=""
+                    class="flexx items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Report
+                </a>
+
+                <a href="javascript:void(0)" onclick="openCertificateModal()"
+                    class="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Certificate
+                </a>
+
+            </div>
+
         </div>
-
     </div>
-</div>
 
     <style>
         /* ---- DataTables Styling Fix ---- */
@@ -163,8 +164,8 @@
         }
 
         /* ===========================
-               RESPONSIVE CARD MODE
-               =========================== */
+                   RESPONSIVE CARD MODE
+                   =========================== */
 
         /* Hide card view on desktop */
         .report-cards {
@@ -320,18 +321,18 @@
                             {{ $report->program->name ?? '-' }}
                         </div>
                         <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
-                                            @if($report->type === 'lesson')
-                                                bg-blue-100 text-blue-800
-                                            @elseif($report->type === 'weekly')
-                                                bg-green-100 text-green-800
-                                            @elseif($report->type === 'monthly')
-                                                bg-yellow-100 text-yellow-800
-                                            @elseif($report->type === 'final')
-                                                bg-red-100 text-red-800
-                                            @else
-                                                bg-gray-100 text-gray-800
-                                            @endif
-                                        ">
+                                                    @if($report->type === 'lesson')
+                                                        bg-blue-100 text-blue-800
+                                                    @elseif($report->type === 'weekly')
+                                                        bg-green-100 text-green-800
+                                                    @elseif($report->type === 'monthly')
+                                                        bg-yellow-100 text-yellow-800
+                                                    @elseif($report->type === 'final')
+                                                        bg-red-100 text-red-800
+                                                    @else
+                                                        bg-gray-100 text-gray-800
+                                                    @endif
+                                                ">
                             {{ ucfirst($report->type) }}
                         </span>
                     </div>
@@ -368,6 +369,7 @@
             @endforelse
         </div>
     </div>
+
     <div class="bg-white rounded-xl shadow-md p-6 mt-8">
         <h2 class="font-semibold mb-4 text-red-600">
             Final Reports
@@ -432,18 +434,18 @@
                         </div>
 
                         <span class="report-type px-3 py-1 rounded-full text-sm font-semibold
-                                            @if($report->type === 'lesson')
-                                                bg-blue-100 text-blue-800
-                                            @elseif($report->type === 'weekly')
-                                                bg-green-100 text-green-800
-                                            @elseif($report->type === 'monthly')
-                                                bg-yellow-100 text-yellow-800
-                                            @elseif($report->type === 'final')
-                                                bg-red-100 text-red-800
-                                            @else
-                                                bg-gray-100 text-gray-800
-                                            @endif
-                                        ">
+                                                    @if($report->type === 'lesson')
+                                                        bg-blue-100 text-blue-800
+                                                    @elseif($report->type === 'weekly')
+                                                        bg-green-100 text-green-800
+                                                    @elseif($report->type === 'monthly')
+                                                        bg-yellow-100 text-yellow-800
+                                                    @elseif($report->type === 'final')
+                                                        bg-red-100 text-red-800
+                                                    @else
+                                                        bg-gray-100 text-gray-800
+                                                    @endif
+                                                ">
                             {{ ucfirst($report->type) }}
                         </span>
                     </div>
@@ -523,7 +525,7 @@
                                 <td class="p-3">
                                     <span
                                         class="px-3 py-1 rounded-full text-sm font-semibold
-                                {{ $certificate->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600' }}">
+                                        {{ $certificate->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600' }}">
                                         {{ ucfirst($certificate->status) }}
                                     </span>
                                 </td>
@@ -549,54 +551,113 @@
                 </table>
             </div>
         </div>
-<div class="report-cards">
-    @forelse ($certificates as $certificate)
-        <div class="report-card border-yellow-200">
+        <div class="report-cards">
+            @forelse ($certificates as $certificate)
+                <div class="report-card border-yellow-200">
 
-            <div class="report-card-header">
-                <div class="report-program font-semibold">
-                    {{ $certificate->name }}
+                    <div class="report-card-header">
+                        <div class="report-program font-semibold">
+                            {{ $certificate->name }}
+                        </div>
+
+                        <span class="px-3 py-1 rounded-full text-sm font-semibold
+                            {{ $certificate->status === 'active'
+                ? 'bg-green-100 text-green-800'
+                : 'bg-gray-100 text-gray-600' }}">
+                            {{ ucfirst($certificate->status) }}
+                        </span>
+                    </div>
+
+                    <div class="report-meta text-sm text-gray-600">
+                        Program: {{ $certificate->program_name }} <br>
+                        Academic Year: {{ $certificate->academic_year }} <br>
+                        Completed: {{ $certificate->formatted_completion_date }}
+                    </div>
+
+                    <div class="report-desc mt-2">
+                        {{ Str::limit($certificate->description, 120) }}
+                    </div>
+
+                    <div class="report-actions mt-3">
+                        @if ($certificate->file)
+                            <a href="{{ asset($certificate->file) }}" download
+                                class="table-action-btn bg-green-200 border border-green-400">
+                                <i class="fa-solid fa-download"></i> Download
+                            </a>
+                        @else
+                            <span class="text-gray-400 italic">No File</span>
+                        @endif
+                    </div>
+
                 </div>
-
-                <span class="px-3 py-1 rounded-full text-sm font-semibold
-                    {{ $certificate->status === 'active'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-gray-100 text-gray-600' }}">
-                    {{ ucfirst($certificate->status) }}
-                </span>
-            </div>
-
-            <div class="report-meta text-sm text-gray-600">
-                Program: {{ $certificate->program_name }} <br>
-                Academic Year: {{ $certificate->academic_year }} <br>
-                Completed: {{ $certificate->formatted_completion_date }}
-            </div>
-
-            <div class="report-desc mt-2">
-                {{ Str::limit($certificate->description, 120) }}
-            </div>
-
-            <div class="report-actions mt-3">
-                @if ($certificate->file)
-                    <a href="{{ asset($certificate->file) }}" download
-                       class="table-action-btn bg-green-200 border border-green-400">
-                        <i class="fa-solid fa-download"></i> Download
-                    </a>
-                @else
-                    <span class="text-gray-400 italic">No File</span>
-                @endif
-            </div>
-
+            @empty
+                <p class="text-center text-gray-500">
+                    No certificates found
+                </p>
+            @endforelse
         </div>
-    @empty
-        <p class="text-center text-gray-500">
-            No certificates found
-        </p>
-    @endforelse
-</div>
 
 
     </div>
+<!-- Modal -->
+<div id="certificateModal"
+     class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white w-full max-w-lg rounded-xl p-6">
+        <h2 class="text-xl font-bold mb-4">Create Certificate</h2>
+
+        <form action="{{ route('certificates.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="space-y-4">
+
+                <!-- Name -->
+                <div>
+                    <label class="font-semibold">Certificate Name</label>
+                    <input type="text" name="name" class="w-full border rounded-lg px-3 py-2" required>
+                </div>
+
+                <!-- Program -->
+                <div>
+                    <label class="font-semibold">Program Name</label>
+                    <input type="text" name="program_name" class="w-full border rounded-lg px-3 py-2" required>
+                </div>
+
+                <!-- Academic Year -->
+                <div>
+                    <label class="font-semibold">Academic Year</label>
+                    <input type="text" name="academic_year" placeholder="2026 - 2027"
+                           class="w-full border rounded-lg px-3 py-2" required>
+                </div>
+
+                <!-- Completion Date -->
+                <div>
+                    <label class="font-semibold">Completion Date</label>
+                    <input type="date" name="completion_date"
+                           class="w-full border rounded-lg px-3 py-2" required>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label class="font-semibold">Description</label>
+                    <textarea name="description" class="w-full border rounded-lg px-3 py-2"></textarea>
+                </div>
+
+            </div>
+
+            <div class="flex justify-end gap-2 mt-6">
+                <button type="button" onclick="closeCertificateModal()"
+                        class="px-4 py-2 rounded-lg border">
+                    Cancel
+                </button>
+                <button type="submit"
+                        class="px-4 py-2 rounded-lg bg-yellow-400 font-semibold hover:bg-yellow-500">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 @endsection
 
@@ -604,13 +665,30 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            $('#invoiceTable').DataTable({
+            $('#reportTable').DataTable({
                 pageLength: 5,
-                paging: true,
+                searching: true,
+                ordering: true,
+                responsive: true
+            });
+
+            $('#finalReportTable').DataTable({
+                pageLength: 3,
                 searching: true,
                 ordering: true,
                 responsive: true
             });
         });
     </script>
+    <script>
+    function openCertificateModal() {
+        document.getElementById('certificateModal').classList.remove('hidden');
+        document.getElementById('certificateModal').classList.add('flex');
+    }
+
+    function closeCertificateModal() {
+        document.getElementById('certificateModal').classList.add('hidden');
+        document.getElementById('certificateModal').classList.remove('flex');
+    }
+</script>
 @endsection
