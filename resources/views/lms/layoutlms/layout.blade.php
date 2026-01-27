@@ -70,9 +70,10 @@
   <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[999] hidden"></div>
 
   <!-- Sidebar -->
-  <div id="sidebar"
-    class="fixed left-0 top-0 h-screen w-64 bg-[#FBF9D1]  transition-transform duration-300 z-[1000] shadow-2xl -translate-x-full">
-
+ <div id="sidebar"
+  class="fixed left-0 top-0 h-screen w-64 bg-[#FBF9D1]
+         transition-transform duration-300 z-[1000] shadow-2xl
+         -translate-x-full flex flex-col">
     <div class="p-4 text-center border-b border-white border-opacity-20">
 
       <!-- LOGO -->
@@ -80,7 +81,8 @@
 
     </div>
 
-    <div class="mt-4">
+<div class="mt-4 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-yellow-400 scrollbar-track-transparent">
+
       <!-- Dashboard -->
       <a href="{{ route('studentdashboard') }}"
         class="sidebar-item  text-black px-5 py-3 mx-4 my-2 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-3
@@ -113,18 +115,21 @@
       </div>
     </div>
 
-    <!-- 🧸 Mascot Image -->
-    <div class="absolute bottom-20 left-0 right-0 flex justify-center">
-      <img src="{{ asset('img/5.png') }}" alt="Mascot" class="w-24 drop-shadow-xl animate-bounce">
-    </div>
+<!-- Mascot -->
+<div class="flex justify-center mt-4 shrink-0">
+  <img src="{{ asset('img/5.png') }}"
+       alt="Mascot"
+       class="w-24 drop-shadow-xl animate-bounce">
+</div>
 
-    <div class="absolute bottom-0 left-0 right-0 p-4 text-center">
-      <div class="bg-yellow-400 bg-opacity-20 rounded-lg p-3">
-        <p class="text-black text-sm">© 2025 h!academy </p>
-        <hr>
-        <p class="text-black text-sm">Powered by DayR</p>
-      </div>
-    </div>
+<!-- Footer -->
+<div class="p-4 text-center shrink-0">
+  <div class="bg-yellow-400 bg-opacity-20 rounded-lg p-3">
+    <p class="text-black text-sm">© 2025 h!academy</p>
+    <hr>
+    <p class="text-black text-sm">Powered by DayR</p>
+  </div>
+</div>
   </div>
 
   <!-- Main Content -->

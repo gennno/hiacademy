@@ -57,20 +57,21 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('/admin/lessons', [AdminController::class, 'adminlessonstore'])
     ->name('adminlesson.store');
-Route::put('/admin/lessons/{lesson}', [AdminController::class, 'adminlessonupdate'])
-    ->name('adminlesson.update');
 
-Route::delete('/admin/lessons/{lesson}', [AdminController::class, 'adminlessondestroy'])
-    ->name('adminlesson.destroy');
+    Route::put('/admin/lessons/{lesson}', [AdminController::class, 'adminlessonupdate'])
+        ->name('adminlesson.update');
 
-    Route::post('/admin/materials', [AdminController::class, 'adminmaterialstore'])
-  ->name('adminmaterial.store');
+    Route::delete('/admin/lessons/{lesson}', [AdminController::class, 'adminlessondestroy'])
+        ->name('adminlesson.destroy');
 
-Route::put('/admin/materials/{material}', [AdminController::class, 'adminmaterialupdate'])
-  ->name('adminmaterial.update');
+        Route::post('/admin/materials', [AdminController::class, 'adminmaterialstore'])
+    ->name('adminmaterial.store');
 
-Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmaterialdestroy'])
-  ->name('adminmaterial.destroy');
+    Route::put('/admin/materials/{material}', [AdminController::class, 'adminmaterialupdate'])
+    ->name('adminmaterial.update');
+
+    Route::delete('/admin/materials/{material}', [AdminController::class, 'adminmaterialdestroy'])
+    ->name('adminmaterial.destroy');
 
     Route::get('/admin-invoice', [AdminController::class, 'admininvoice'])->name('admininvoice');
 
@@ -140,20 +141,20 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
 
     Route::post('/staff/lessons', [StaffController::class, 'stafflessonstore'])
     ->name('stafflesson.store');
-Route::put('/staff/lessons/{lesson}', [StaffController::class, 'stafflessonupdate'])
-    ->name('stafflesson.update');
+    Route::put('/staff/lessons/{lesson}', [StaffController::class, 'stafflessonupdate'])
+        ->name('stafflesson.update');
 
-Route::delete('/staff/lessons/{lesson}', [StaffController::class, 'stafflessondestroy'])
-    ->name('stafflesson.destroy');
+    Route::delete('/staff/lessons/{lesson}', [StaffController::class, 'stafflessondestroy'])
+        ->name('stafflesson.destroy');
 
     Route::post('/staff/materials', [StaffController::class, 'staffmaterialstore'])
   ->name('staffmaterial.store');
 
-Route::put('/staff/materials/{material}', [StaffController::class, 'staffmaterialupdate'])
-  ->name('staffmaterial.update');
+    Route::put('/staff/materials/{material}', [StaffController::class, 'staffmaterialupdate'])
+    ->name('staffmaterial.update');
 
-Route::delete('/staff/materials/{material}', [StaffController::class, 'staffmaterialdestroy'])
-  ->name('staffmaterial.destroy');
+    Route::delete('/staff/materials/{material}', [StaffController::class, 'staffmaterialdestroy'])
+    ->name('staffmaterial.destroy');
 
     Route::get('/staff-invoice', [StaffController::class, 'staffinvoice'])->name('staffinvoice');
 
