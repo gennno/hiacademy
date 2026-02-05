@@ -40,7 +40,7 @@
                     </div>
 
                     <!-- Contact Button -->
-                    <a href="https://wa.me/6281334350127" target="_blank"
+                    <a href="https://wa.me/6285373296248" target="_blank"
                         class="inline-flex items-center gap-2 mt-6 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition duration-300">
                         <i class="fa-solid fa-message"></i> Whatsapp Us
                     </a>

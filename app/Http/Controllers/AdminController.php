@@ -145,7 +145,8 @@ public function programupdate(Request $request, Program $program)
         public function admininvoice()
     {
         $invoices = Invoice::latest()->get();
-        return view('admin.invoice', compact('invoices'));
+        $receipts = Receipt::latest()->get();
+        return view('admin.invoice', compact('invoices', 'receipts'));
     }
         public function adminlessondetail(Program $program, Lesson $lesson)
     {
@@ -625,5 +626,13 @@ public function userupdate(Request $request, User $user)
         Certificate::create($validated);
 
         return back()->with('success', 'Certificate created successfully!');
+    }
+
+        public function adminreportshow(Report $report)
+    {
+        // Optional: authorization (recommended)
+        // abort_if($report->student_id !== auth()->id(), 403);
+
+        return view('admin.report-detail', compact('report'));
     }
 }

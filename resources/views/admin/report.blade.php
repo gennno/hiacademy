@@ -1,6 +1,6 @@
 @extends('admin.layoutadmin.layout')
 
-@section('pagetitle', 'Invoice')
+@section('pagetitle', 'Report')
 
 @section('content')
     @php
@@ -276,7 +276,7 @@
                                 <td class="p-3">
                                     <div class="action-wrapper">
                                         @if ($report->file)
-                                            <a href="{{ route('student.reports.show', $report->id) }}"
+                                            <a href="{{ route('admin.reports.show', $report->id) }}"
                                                 class="table-action-btn view">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
@@ -349,7 +349,7 @@
                     </div>
                     <div class="report-actions">
                         @if ($report->file)
-                            <a href="{{ route('student.reports.show', $report->id) }}" class="table-action-btn view">
+                            <a href="{{ route('admin.reports.show', $report->id) }}" class="table-action-btn view">
                                 <i class="fa-solid fa-file-pdf"></i> Detail
                             </a>
 
@@ -398,7 +398,7 @@
                                 <td class="p-3">
                                     <div class="action-wrapper">
                                         @if ($report->file)
-                                            <a href="{{ route('student.reports.show', $report->id) }}"
+                                            <a href="{{ route('admin.reports.show', $report->id) }}"
                                                 class="table-action-btn view">
                                                 <i class="fa-solid fa-file-pdf"></i> Detail
                                             </a>
@@ -460,7 +460,7 @@
 
                     <div class="report-actions">
                         @if ($report->file)
-                            <a href="{{ route('student.reports.show', $report->id) }}" class="table-action-btn view">
+                            <a href="{{ route('admin.reports.show', $report->id) }}" class="table-action-btn view">
                                 <i class="fa-solid fa-file-pdf"></i> Detail
                             </a>
                             <a href="{{ asset($report->file) }}" download

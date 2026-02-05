@@ -187,7 +187,7 @@
                                     class="table-action-btn bg-green-200 border border-green-400" title="Generate Invoice">
                                     <i class="fa-solid fa-download"></i>
                                 </a>
-                                <form action="{{ route('invoices.destroy', $invoice) }}" method="POST"
+                                <form action="{{ route('admininvoices.destroy', $invoice) }}" method="POST"
                                     onsubmit="return confirm('Delete this invoice?')">
                                     @csrf
                                     @method('DELETE')
@@ -269,7 +269,7 @@
                                     <i class="fa-solid fa-download"></i>
                                 </a>
 
-                                <form action="{{ route('receipts.destroy', $receipt) }}" method="POST"
+                                <form action="{{ route('adminreceipts.destroy', $receipt) }}" method="POST"
                                     onsubmit="return confirm('Delete this invoice?')">
                                     @csrf
                                     @method('DELETE')
@@ -377,7 +377,7 @@
             </div>
 
             <!-- BODY -->
-            <form action="{{ route('invoices.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <form action="{{ route('admininvoices.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
                 @csrf
 
                 <!-- CUSTOMER INFO -->
@@ -481,7 +481,7 @@
             </div>
 
             <!-- BODY -->
-            <form action="{{ route('receipts.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <form action="{{ route('adminreceipts.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
                 @csrf
 
                 <!-- RECEIPT INFO -->

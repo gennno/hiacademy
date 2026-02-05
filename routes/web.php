@@ -95,15 +95,41 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         [AdminController::class, 'generateinvoice']
     )->name('admininvoices.generate');
 
+        // Receipt 
+    Route::post('/admin/receipts', [AdminController::class, 'storereceipt'])
+        ->name('adminreceipts.store');
+
+    Route::get('/admin/receipts/{receipt}', [AdminController::class, 'showreceipt'])
+        ->name('adminreceipts.show');
+
+    Route::get('/admin/receipts/{receipt}/edit', [AdminController::class, 'editreceipt'])
+        ->name('adminreceipts.edit');
+
+    Route::put('/admin/receipts/{receipt}', [AdminController::class, 'updatereceipt'])
+        ->name('adminreceipts.update');
+
+    Route::delete('/admin/receipts/{receipt}', [AdminController::class, 'destroyreceipt'])
+        ->name('adminreceipts.destroy');
+
+    Route::get(
+        '/admin/receipts/{receipt}/generate',
+        [AdminController::class, 'generatereceipt']
+    )->name('adminreceipt.generate');
+
 
     Route::get('/admin-enrollment', [AdminController::class, 'adminenrollment'])->name('adminenrollment');
     Route::get('/admin-user', [AdminController::class, 'adminuser'])->name('adminuser');
 
+
+
+
     Route::get('/admin-report', [AdminController::class, 'adminreport'])->name('adminreport');
+    Route::get('/admiin/reports/{report}', [AdminController::class, 'adminreportshow'])->name('admin.reports.show');
+
     Route::post('/admin/reports', [AdminController::class, 'storereports'])
         ->name('reports.store');
-    Route::post('/admin/certificates', [AdminController::class, 'storecertificates'])
-        ->name('certificates.store');
+    Route::post('/admin/certificates', [AdminController::class, 'certificatestore'])
+    ->name('certificates.store');
 
     Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
     
@@ -113,8 +139,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::delete('/users/{user}', [AdminController::class, 'userdestroy'])
             ->name('users.destroy');
 
-    Route::post('/certificates', [AdminController::class, 'certificatestore'])
-    ->name('certificates.store');
+    
+
 
 });
 
@@ -179,7 +205,7 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
     )->name('staffinvoices.generate');
 
     // Receipt 
-        Route::post('/staff/receipts', [StaffController::class, 'storereceipt'])
+    Route::post('/staff/receipts', [StaffController::class, 'storereceipt'])
         ->name('receipts.store');
 
     Route::get('/staff/receipts/{receipt}', [StaffController::class, 'showreceipt'])
