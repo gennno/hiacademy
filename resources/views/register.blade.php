@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     {{-- 🔙 Back Button --}}
-    <a href="{{ route('home') }}"
+    <a href="{{ url()->previous() }}"
         class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
@@ -82,7 +82,7 @@
                     class="w-24 sm:w-32 md:w-48 lg:w-56 animate-float drop-shadow-lg">
                 <div>
                     <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">
-                        Select Program
+                        Select Program To Registrasi
                     </h2>
                     <p class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
                         Select a program below to register class. Experience our teaching methods firsthand!

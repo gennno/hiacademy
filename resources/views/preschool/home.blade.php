@@ -468,36 +468,46 @@
         });
     </script>
 
-    {{-- HERO SECTION --}}
-    <section id="home"
-        class="relative flex items-center justify-center text-center h-[85vh] sm:h-[90vh] bg-cover bg-center overflow-hidden"
-        style="background-image: url('{{ asset('img/hero.jpg') }}');">
+{{-- HERO SECTION --}}
+<section id="home"
+    class="relative flex items-center justify-center text-center h-[85vh] sm:h-[90vh] bg-cover bg-center overflow-hidden"
+    style="background-image: url('{{ asset('img/hero.jpg') }}');">
 
-        {{-- Content --}}
-        <div class="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl text-white" data-aos="fade-up"
-            data-aos-duration="1200">
-            <h1 style="font-family: 'Quicksand', sans-serif;"
-                class="text-4xl font-mono sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
-                Nurturing <span class="text-[#FADA7A]">Young </span>Creative Thinker
-            </h1>
-            <p class="text-base font-sans sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
-                18 months - 6 years
-                International Preschool Curriculum (IPC)
+    {{-- Content --}}
+    <div class="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl text-white"
+        data-aos="fade-up" data-aos-duration="1200">
 
-            </p>
+        <h1 style="font-family: 'Quicksand', sans-serif;"
+            class="text-4xl font-mono sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+            Nurturing <span class="text-[#FADA7A]">Young </span>Creative Thinker
+        </h1>
 
-            <div class="flex justify-center">
-                <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
-                    class="inline-block bg-[#FADA7A] text-[#4B5563] px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-[#F0A04B] hover:text-white transition-all duration-300 hover:scale-105">
-                    Book A School Tour
-                </a>
-            </div>
+        <p class="text-base font-sans sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
+            18 months - 6 years<br>
+            International Preschool Curriculum (IPC)
+        </p>
+
+        {{-- Buttons --}}
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://calendar.app.google/MvSTNUGe89gkwmAYA" target="_blank"
+                class="inline-block bg-[#FADA7A] text-[#4B5563] px-8 py-3 rounded-full font-semibold shadow-lg
+                       hover:bg-[#F0A04B] hover:text-white transition-all duration-300 hover:scale-105">
+                Book A School Tour
+            </a>
+
+            <a href="/book-trial"
+                class="inline-block border-2 border-[#FADA7A] text-[#FADA7A] px-8 py-3 rounded-full font-semibold
+                       hover:bg-[#FADA7A] hover:text-[#4B5563] transition-all duration-300 hover:scale-105">
+                Trial Class
+            </a>
         </div>
+    </div>
 
-        {{-- Decorative shapes --}}
-        <div class="absolute bottom-10 left-10 w-28 h-28 bg-[#FADA7A]/30 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute top-10 right-10 w-40 h-40 bg-[#B1C29E]/30 rounded-full blur-3xl animate-pulse"></div>
-    </section>
+    {{-- Decorative shapes --}}
+    <div class="absolute bottom-10 left-10 w-28 h-28 bg-[#FADA7A]/30 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-10 right-10 w-40 h-40 bg-[#B1C29E]/30 rounded-full blur-3xl animate-pulse"></div>
+</section>
+
     {{-- VISI & MISI SECTION --}}
     <section id="vision" class="relative py-20 bg-white overflow-hidden">
         {{-- Garis transisi untuk menyatu dengan section sebelumnya --}}

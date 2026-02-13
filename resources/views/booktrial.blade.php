@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     {{-- 🔙 Back Button --}}
-    <a href="{{ route('home') }}"
+    <a href="{{ url()->previous() }}"
         class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
@@ -85,7 +85,7 @@
                         Select Program
                     </h2>
                     <p class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
-                        Select a program below to register class. Experience our teaching methods firsthand!
+                        Select a program below to register trial class. Experience our teaching methods firsthand!
                     </p>
                 </div>
             </div>
@@ -94,7 +94,7 @@
             <div class="mt-4 w-full">
                 @php
                     $programs = [
-                        ['name' => 'International Preschool', 'slug' => 'preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'type' => 'preschool', 'url' => '/admissionpreschool'],
+                        ['name' => 'International Preschool', 'slug' => 'preschool', 'icon' => 'fa-seedling', 'color' => 'border-yellow-400 hover:bg-yellow-400', 'type' => 'register'],
 
                         ['name' => 'Child Development Program', 'slug' => 'child-development', 'icon' => 'fa-child', 'color' => 'border-cyan-400 hover:bg-cyan-400', 'type' => 'register'],
 
@@ -166,6 +166,109 @@
 
     <!-- TEMPLATES FOR EACH PROGRAM (hidden) -->
     <div id="modalTemplates" class="hidden">
+
+        
+        <!-- International Preschool -->
+        <div id="preschool" data-program-name="International Preschool">
+            <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-seedling text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">International Preschool</h2>
+                        <p class="text-cyan-100 text-sm">Register for International Preschool Trial Class</p>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" action="{{ route('registrations.store') }}" class="p-6 space-y-4">
+                @csrf
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
+                            class="text-red-500">*</span></label>
+                    <input type="text" name="name" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
+                        placeholder="Enter student's full name">
+                </div>
+
+                <!-- Gender -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Gender <span
+                            class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label
+                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-yellow-500 transition">
+                            <input type="radio" name="gender" value="male" class="mr-2">
+                            <i class="fa-solid fa-mars text-blue-500 mr-2"></i>
+                            <span class="font-medium">Male</span>
+                        </label>
+                        <label
+                            class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-yellow-500 transition">
+                            <input type="radio" name="gender" value="female" class="mr-2">
+                            <i class="fa-solid fa-venus text-pink-500 mr-2"></i>
+                            <span class="font-medium">Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Date of Birth -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Date of Birth <span
+                            class="text-red-500">*</span></label>
+                    <input type="date" name="birth_date" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition">
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Residential Address <span
+                            class="text-red-500">*</span></label>
+                    <textarea name="address" required rows="3"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
+                        placeholder="Enter complete address"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number/WhatsApp <span
+                            class="text-red-500">*</span></label>
+                    <input type="number" name="phone" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
+                        placeholder="+62 XXX XXXX XXXX">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Active Email <span
+                            class="text-red-500">*</span></label>
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
+                        placeholder="example@email.com">
+                </div>
+
+                <input type="hidden" name="program_name" value="International Preschool">
+                <input type="hidden" name="status" value="trial">
+                <input type="hidden" name="class_type" value="preschool">
+                <input type="hidden" name="learning_mode" value="offline">
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
+                            class="text-red-500">*</span></label>
+                    <select name="level" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition">
+                        <option value="">Select Level</option>
+                        <option value="infant">Infant</option>
+                        <option value="preschool">Preschool</option>
+                    </select>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-bold py-4 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition transform hover:scale-105 shadow-lg">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+                    Submit Registration
+                </button>
+            </form>
+        </div>
 
         <!-- Child Development Program -->
         <div id="child-development" data-program-name="Child Development Program">
@@ -245,7 +348,9 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="Mandarin Program">
+                <input type="hidden" name="program_name" value="Child Development Program">
+
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -374,6 +479,7 @@
                 </div>
 
                 <input type="hidden" name="program_name" value="English Program">
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -503,7 +609,8 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="English Program">
+                <input type="hidden" name="program_name" value="Mandarin Program">
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -634,6 +741,7 @@
                 </div>
 
                 <input type="hidden" name="program_name" value="Math Program">
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -764,6 +872,8 @@
                 </div>
 
                 <input type="hidden" name="program_name" value="STEM & Coding">
+                
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -893,7 +1003,9 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="Design & Digital Creative Arts">
+                
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -986,7 +1098,7 @@
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500 transition">
                             <input type="radio" name="gender" value="female" class="mr-2">
-                            <i class="fa-solid fa-venus text-blue-500 mr-2"></i>
+                            <i class="fa-solid fa-venus text-pink-500 mr-2"></i>
                             <span class="font-medium">Female</span>
                         </label>
                     </div>
@@ -1023,7 +1135,9 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="Life SkillLab">
+                
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span
@@ -1116,7 +1230,7 @@
                         <label
                             class="flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500 transition">
                             <input type="radio" name="gender" value="female" class="mr-2">
-                            <i class="fa-solid fa-venus text-blue-500 mr-2"></i>
+                            <i class="fa-solid fa-venus text-pink-500 mr-2"></i>
                             <span class="font-medium">Female</span>
                         </label>
                     </div>
@@ -1153,7 +1267,8 @@
                         placeholder="example@email.com">
                 </div>
 
-                <input type="hidden" name="program_name" value="STEM & Coding">
+                <input type="hidden" name="program_name" value="Architecture & Design">
+                <input type="hidden" name="status" value="trial">
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Course Level <span

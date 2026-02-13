@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
-    /**
-     * Store registration form
-     */
+
     public function store(Request $request)
     {
         // 1️⃣ Validate input (match migration exactly)

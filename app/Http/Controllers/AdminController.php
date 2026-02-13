@@ -582,7 +582,7 @@ public function userupdate(Request $request, User $user)
         'email' => [
             'required','email',
             Rule::unique('users')->ignore($user->id)
-        ],
+        ], 
         'password' => 'nullable|min:6',
         'role'     => 'required|in:admin,teacher,staff,student',
         'phone'    => 'nullable|string|max:20',
