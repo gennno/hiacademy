@@ -1209,11 +1209,33 @@
     </section>
 
 
-    <!-- Tombol Back to Top -->
+<!-- Wrapper Floating Buttons -->
+<div class="fixed bottom-6 right-6 flex items-center gap-3 z-50">
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6285373296248?text=Hi%20Hiacademy,%20I%20would%20like%20to%20ask%20about%20trial%20class"
+        target="_blank"
+        class="w-12 h-12 flex items-center justify-center
+               bg-green-500 hover:bg-green-600
+               rounded-full shadow-lg
+               transition-all duration-300 hover:scale-110">
+
+        <!-- WhatsApp SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="white">
+            <path d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.89.755 5.71 2.19 8.188L0 32l7.63-2.146a15.93 15.93 0 008.37 2.36c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.16a13.1 13.1 0 01-6.68-1.82l-.48-.29-4.53 1.27 1.21-4.41-.31-.46A13.11 13.11 0 012.89 16.4c0-7.25 5.9-13.15 13.15-13.15S29.19 9.15 29.19 16.4 23.29 29.56 16.04 29.56zm7.27-9.83c-.4-.2-2.37-1.17-2.73-1.3-.36-.13-.62-.2-.88.2s-1 1.3-1.22 1.56c-.22.26-.44.3-.82.1-.4-.2-1.68-.62-3.2-1.98-1.18-1.05-1.98-2.35-2.2-2.74-.22-.4-.02-.62.17-.82.17-.17.4-.44.6-.66.2-.22.26-.4.4-.66.13-.26.07-.5-.03-.7-.1-.2-.88-2.12-1.2-2.9-.32-.76-.64-.66-.88-.67-.22-.01-.48-.01-.74-.01s-.66.1-1 .48c-.35.4-1.32 1.28-1.32 3.12s1.35 3.62 1.53 3.88c.2.26 2.64 4.03 6.4 5.65.9.4 1.6.63 2.14.8.9.3 1.72.26 2.37.16.72-.1 2.37-.97 2.7-1.9.34-.93.34-1.73.24-1.9-.1-.16-.36-.26-.76-.46z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top Button -->
     <button id="backToTopBtn"
-        class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
-        ↑
+        class="hidden w-12 h-12 flex items-center justify-center
+               bg-yellow-400 text-black font-semibold
+               rounded-full shadow-lg hover:bg-white
+               transition-all duration-300 hover:scale-110">
+        <span class="text-lg leading-none">↑</span>
     </button>
+
+</div>
 
 
     <script>

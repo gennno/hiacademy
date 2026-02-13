@@ -193,8 +193,11 @@
     @yield('content')
     <!-- Tombol Back to Top -->
     <button id="backToTopBtn"
-      class="hidden fixed bottom-6 right-6 bg-yellow-400 text-black font-semibold p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-300 z-50">
-      ↑
+        class="hidden fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center
+            bg-yellow-400 text-black font-semibold
+            rounded-full shadow-lg hover:bg-white
+            transition-colors duration-300 z-50">
+        <span class="text-lg leading-none">↑</span>
     </button>
   </div>
   <script>

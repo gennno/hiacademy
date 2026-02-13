@@ -32,7 +32,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/preschool-login', [HomeController::class, 'loginpreschool'])->name('loginpreschool');
 
-
 Route::get('/book-trial', [HomeController::class, 'booktrial'])->name('booktrial');
 
 

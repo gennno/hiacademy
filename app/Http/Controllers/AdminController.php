@@ -164,12 +164,19 @@ public function programupdate(Request $request, Program $program)
     }
     
 
-    public function adminregistration()
-    {
-        $registrations = Registration::latest()->get();
+public function adminregistration()
+{
+    $registrations = Registration::where('status', 'regular')
+        ->latest()
+        ->get();
 
-        return view('admin.registration', compact('registrations'));
-    }
+    $trials = Registration::where('status', 'trial')
+        ->latest()
+        ->get();
+
+    return view('admin.registration', compact('registrations', 'trials'));
+}
+
 
     public function adminreport()
     {

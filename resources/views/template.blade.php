@@ -588,7 +588,7 @@
 
 												<div class="contact__body">
 													<h6 class="title"><span class="ttl">Call:</span> <a
-															href="https://wa.me/6281334350127">+62 813 3435 0127</a>
+															href="https://wa.me/6285373296248">+62 813 3435 0127</a>
 													</h6>
 												</div>
 											</div>
@@ -726,7 +726,7 @@
 																			<div class="contact__body">
 																				<h6 class="title"><span
 																						class="ttl">Call:</span> <a
-																						href="https://wa.me/6281334350127">+62
+																						href="https://wa.me/6285373296248">+62
 																						813 3435 0127</a></h6>
 																			</div>
 																		</div>

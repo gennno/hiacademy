@@ -113,7 +113,7 @@
                         <li><a href="{{ route('login') }}"
                                 class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                     class="fa-solid fa-user-graduate"></i> Student Login</a></li>
-                        <li><a href="https://wa.me/6281334350127" target="_blank"
+                        <li><a href="https://wa.me/6285373296248" target="_blank"
                                 class="hover:text-yellow-400 transition flex items-center gap-2"><i
                                     class="fa-solid fa-phone"></i> Contact Us</a></li>
                     </ul>

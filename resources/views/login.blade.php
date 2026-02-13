@@ -4,12 +4,24 @@
 @section('hide-footer')
 @endsection
 @section('content')
-    {{-- 🔙 Back Button --}}
-    <a href="{{ route('home') }}"
-        class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition z-50">
+{{-- 🔙 Back & Home Buttons --}}
+<div class="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-4 z-50">
+
+    {{-- Back Button --}}
+    <a href="{{ url()->previous() }}"
+        class="flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition">
         <i class="fa-solid fa-arrow-left text-lg sm:text-xl"></i>
         <span class="hidden sm:inline">Back</span>
     </a>
+
+    {{-- Home Button --}}
+    <a href="{{ route('home') }}"
+        class="flex items-center gap-2 text-yellow-400 hover:text-white font-semibold text-sm sm:text-base transition">
+        <i class="fa-solid fa-house text-lg sm:text-xl"></i>
+        <span class="hidden sm:inline">Home</span>
+    </a>
+
+</div>
     <div id="background-carousel" class="carousel-container">
         <img src="{{ asset('img/carousel1.webp') }}" class="carousel-slide active" alt="Slide 1" loading="eager">
         <img src="{{ asset('img/carousel2.webp') }}" class="carousel-slide" alt="Slide 2" loading="lazy">
