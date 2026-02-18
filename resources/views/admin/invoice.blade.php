@@ -377,7 +377,8 @@
             </div>
 
             <!-- BODY -->
-            <form action="{{ route('admininvoices.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <form action="{{ route('admininvoices.store') }}" method="POST"
+                class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
                 @csrf
 
                 <!-- CUSTOMER INFO -->
@@ -481,7 +482,8 @@
             </div>
 
             <!-- BODY -->
-            <form action="{{ route('adminreceipts.store') }}" method="POST" class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <form action="{{ route('adminreceipts.store') }}" method="POST"
+                class="flex-1 overflow-y-auto px-6 py-5 space-y-6">
                 @csrf
 
                 <!-- RECEIPT INFO -->
@@ -587,48 +589,48 @@
             const wrapper = document.getElementById('itemsWrapper');
 
             wrapper.insertAdjacentHTML('beforeend', `
-            <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+                <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
 
-                <input name="items[${invoiceItemIndex}][Program]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Program" required>
+                    <input name="items[${invoiceItemIndex}][Program]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2"
+                        placeholder="Program" required>
 
-                <select name="items[${invoiceItemIndex}][level]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2">
-                    <option value="">Level</option>
-                    <option value="Pre-Nursery">Pre-Nursery</option>
-                    <option value="Nursery">Nursery</option>
-                    <option value="Kindergarten 1">Kindergarten 1</option>
-                    <option value="Kindergarten 2">Kindergarten 2</option>
-                    <option value="Kindergarten 3">Kindergarten 3</option>
-                </select>
+                    <select name="items[${invoiceItemIndex}][level]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2">
+                        <option value="">Level</option>
+                        <option value="Pre-Nursery">Pre-Nursery</option>
+                        <option value="Nursery">Nursery</option>
+                        <option value="Kindergarten 1">Kindergarten 1</option>
+                        <option value="Kindergarten 2">Kindergarten 2</option>
+                        <option value="Kindergarten 3">Kindergarten 3</option>
+                    </select>
 
-                <select name="items[${invoiceItemIndex}][category]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2">
-                    <option value="">Category</option>
-                    <option value="Preschool">Preschool</option>
-                    <option value="English">English</option>
-                    <option value="Math">Math</option>
-                </select>
+                    <select name="items[${invoiceItemIndex}][category]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2">
+                        <option value="">Category</option>
+                        <option value="Preschool">Preschool</option>
+                        <option value="English">English</option>
+                        <option value="Math">Math</option>
+                    </select>
 
-                <input name="items[${invoiceItemIndex}][description]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Description" required>
+                    <input name="items[${invoiceItemIndex}][description]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2"
+                        placeholder="Description" required>
 
-                <input name="items[${invoiceItemIndex}][discount]" type="number"
-                    class="md:col-span-1 border rounded-lg px-3 py-2 text-right"
-                    placeholder="0">
+                    <input name="items[${invoiceItemIndex}][discount]" type="number"
+                        class="md:col-span-1 border rounded-lg px-3 py-2 text-right"
+                        placeholder="0">
 
-                <input name="items[${invoiceItemIndex}][amount]" type="number"
-                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
-                    placeholder="0" required>
+                    <input name="items[${invoiceItemIndex}][amount]" type="number"
+                        class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                        placeholder="0" required>
 
-                <button type="button" onclick="removeItem(this)"
-                    class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </div>
-        `);
+                    <button type="button" onclick="removeItem(this)"
+                        class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `);
 
             invoiceItemIndex++;
         }
@@ -645,44 +647,44 @@
             const wrapper = document.getElementById('receiptitemsWrapper');
 
             wrapper.insertAdjacentHTML('beforeend', `
-            <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
+                <div class="item-row grid grid-cols-1 md:grid-cols-12 gap-3 border rounded-xl p-4">
 
-                <input name="items[${receiptItemIndex}][program_name]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2"
-                    placeholder="Program" required>
+                    <input name="items[${receiptItemIndex}][program_name]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2"
+                        placeholder="Program" required>
 
-                <select name="items[${receiptItemIndex}][level]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2">
-                    <option value="">Level</option>
-                    <option value="Pre-Nursery">Pre-Nursery</option>
-                    <option value="Nursery">Nursery</option>
-                    <option value="Kindergarten 1">Kindergarten 1</option>
-                    <option value="Kindergarten 2">Kindergarten 2</option>
-                    <option value="Kindergarten 3">Kindergarten 3</option>
-                </select>
+                    <select name="items[${receiptItemIndex}][level]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2">
+                        <option value="">Level</option>
+                        <option value="Pre-Nursery">Pre-Nursery</option>
+                        <option value="Nursery">Nursery</option>
+                        <option value="Kindergarten 1">Kindergarten 1</option>
+                        <option value="Kindergarten 2">Kindergarten 2</option>
+                        <option value="Kindergarten 3">Kindergarten 3</option>
+                    </select>
 
-                <select name="items[${receiptItemIndex}][category]"
-                    class="md:col-span-2 border rounded-lg px-3 py-2">
-                    <option value="">Category</option>
-                    <option value="Preschool">Preschool</option>
-                    <option value="English">English</option>
-                    <option value="Math">Math</option>
-                </select>
+                    <select name="items[${receiptItemIndex}][category]"
+                        class="md:col-span-2 border rounded-lg px-3 py-2">
+                        <option value="">Category</option>
+                        <option value="Preschool">Preschool</option>
+                        <option value="English">English</option>
+                        <option value="Math">Math</option>
+                    </select>
 
-                <input name="items[${receiptItemIndex}][description]"
-                    class="md:col-span-3 border rounded-lg px-3 py-2"
-                    placeholder="Description" required>
+                    <input name="items[${receiptItemIndex}][description]"
+                        class="md:col-span-3 border rounded-lg px-3 py-2"
+                        placeholder="Description" required>
 
-                <input name="items[${receiptItemIndex}][paid_amount]" type="number" step="0.01"
-                    class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
-                    placeholder="0" required>
+                    <input name="items[${receiptItemIndex}][paid_amount]" type="number" step="0.01"
+                        class="md:col-span-2 border rounded-lg px-3 py-2 text-right"
+                        placeholder="0" required>
 
-                <button type="button" onclick="removeReceiptItem(this)"
-                    class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </div>
-        `);
+                    <button type="button" onclick="removeReceiptItem(this)"
+                        class="md:col-span-1 flex items-center justify-center text-red-600 hover:bg-red-50 rounded-lg">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `);
 
             receiptItemIndex++;
         }
@@ -719,11 +721,11 @@
                 .then(res => res.json())
                 .then(data => {
                     let html = `
-                                                    <div><strong>${data.invoice_number}</strong></div>
-                                                    <div>${data.customer_name}</div>
-                                                    <div>${data.customer_email}</div>
-                                                    <hr>
-                                                `;
+                                                        <div><strong>${data.invoice_number}</strong></div>
+                                                        <div>${data.customer_name}</div>
+                                                        <div>${data.customer_email}</div>
+                                                        <hr>
+                                                    `;
 
                     data.items.forEach(item => {
                         html += `<div>${item.program_name} - Rp ${item.amount}</div>`;
@@ -746,14 +748,14 @@
 
                     data.items.forEach((item, index) => {
                         html += `
-                                                        <div class="grid grid-cols-5 gap-2 mb-2">
-                                                            <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
-                                                            <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
-                                                            <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
-                                                            <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
-                                                            <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
-                                                        </div>
-                                                    `;
+                                                            <div class="grid grid-cols-5 gap-2 mb-2">
+                                                                <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
+                                                                <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
+                                                                <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
+                                                                <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
+                                                                <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
+                                                            </div>
+                                                        `;
                     });
 
                     document.getElementById('editInvoiceItems').innerHTML = html;
@@ -776,11 +778,11 @@
                 .then(res => res.json())
                 .then(data => {
                     let html = `
-                                                    <div><strong>${data.invoice_number}</strong></div>
-                                                    <div>${data.customer_name}</div>
-                                                    <div>${data.customer_email}</div>
-                                                    <hr>
-                                                `;
+                                                        <div><strong>${data.invoice_number}</strong></div>
+                                                        <div>${data.customer_name}</div>
+                                                        <div>${data.customer_email}</div>
+                                                        <hr>
+                                                    `;
 
                     data.items.forEach(item => {
                         html += `<div>${item.program_name} - Rp ${item.amount}</div>`;
@@ -803,14 +805,14 @@
 
                     data.items.forEach((item, index) => {
                         html += `
-                                                        <div class="grid grid-cols-5 gap-2 mb-2">
-                                                            <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
-                                                            <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
-                                                            <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
-                                                            <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
-                                                            <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
-                                                        </div>
-                                                    `;
+                                                            <div class="grid grid-cols-5 gap-2 mb-2">
+                                                                <input name="items[${index}][program_name]" value="${item.program_name}" class="border p-2 rounded">
+                                                                <input name="items[${index}][level]" value="${item.level}" class="border p-2 rounded">
+                                                                <input name="items[${index}][category]" value="${item.category}" class="border p-2 rounded">
+                                                                <input name="items[${index}][description]" value="${item.description}" class="border p-2 rounded">
+                                                                <input name="items[${index}][amount]" value="${item.amount}" type="number" class="border p-2 rounded">
+                                                            </div>
+                                                        `;
                     });
 
                     document.getElementById('editReceiptItems').innerHTML = html;

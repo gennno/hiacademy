@@ -188,7 +188,8 @@
                                 {{ $registration->created_at->format('d M Y') }}
                             </td>
                             <td class="p-3 flex justify-center gap-2">
-                                <button class="table-action-btn view" title="View">
+                                <button onclick="viewRegist({{ $receipt->id }})" class="table-action-btn view"
+                                    title="View Invoice">
                                     <i class="fa-solid fa-eye"></i>
                                 </button>
                                 <button class="table-action-btn update" title="Update">
@@ -268,9 +269,10 @@
                         </td>
 
                         <td class="p-3 flex justify-center gap-2">
-                            <button class="table-action-btn view" title="View">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
+                            <button onclick="viewRegist({{ $registration->id }})" class="table-action-btn view"
+                                    title="View Invoice">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
 
                             <button class="table-action-btn update" title="Update">
                                 <i class="fa-solid fa-pen"></i>

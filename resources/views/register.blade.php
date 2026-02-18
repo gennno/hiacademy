@@ -93,7 +93,7 @@
                     class="w-24 sm:w-32 md:w-48 lg:w-56 animate-float drop-shadow-lg">
                 <div>
                     <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">
-                        Select Program To Registrasi
+                        Select Program
                     </h2>
                     <p class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
                         Select a program below to register class. Experience our teaching methods firsthand!

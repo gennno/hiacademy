@@ -140,7 +140,7 @@
                                 <h4 class="font-semibold text-center text-xs sm:text-sm md:text-base leading-tight">
                                     {{ $program['name'] }}
                                 </h4>
-                                <span class="text-xs text-gray-300 mt-2 group-hover:text-black">Click to book free register</span>
+                                <span class="text-xs text-gray-300 mt-2 group-hover:text-black">Click to book free Trial</span>
                             </div>
                         @else
                             <a href="{{ $program['url'] ?? '#' }}" target="_blank"
@@ -178,8 +178,6 @@
 
     <!-- TEMPLATES FOR EACH PROGRAM (hidden) -->
     <div id="modalTemplates" class="hidden">
-
-        
         <!-- International Preschool -->
         <div id="preschool" data-program-name="International Preschool">
             <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 text-white">
