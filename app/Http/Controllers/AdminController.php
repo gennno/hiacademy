@@ -27,105 +27,104 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-public function adminprogram(Request $request)
-{
-    $query = Program::query();
+    public function adminprogram(Request $request)
+    {
+        $query = Program::query();
 
-    // 🔍 Search by name
-    if ($request->filled('search')) {
-        $query->where('name', 'like', '%' . $request->search . '%');
+        // 🔍 Search by name
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // 🏷 Filter by category
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        $programs = $query->latest()->get();
+
+        // Get distinct categories for filter dropdown
+        $categories = Program::select('category')->distinct()->pluck('category');
+
+        return view('admin.program', compact('programs', 'categories'));
     }
 
-    // 🏷 Filter by category
-    if ($request->filled('category')) {
-        $query->where('category', $request->category);
+    public function storeprogram(Request $request)
+    {
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'level'       => 'nullable|string|max:255',
+            'category'    => 'required|string|max:255',
+            'slogan'      => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        // Handle image upload (public/img)
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $filename = time() . '_' . $request->image->getClientOriginalName();
+            $request->image->move(public_path('img'), $filename);
+            $imagePath = 'img/' . $filename;
+        }
+
+        Program::create([
+            'name'        => $request->name,
+            'level'       => $request->level,
+            'category'    => $request->category,
+            'slug'        => Str::slug($request->name),
+            'slogan'      => $request->slogan,
+            'description' => $request->description,
+            'image'       => $imagePath,
+        ]);
+
+        return redirect()
+            ->route('adminprogram')
+            ->with('success', 'Program added successfully!');
     }
 
-    $programs = $query->latest()->get();
+    public function programdestroy(Program $program)
+    {
 
-    // Get distinct categories for filter dropdown
-    $categories = Program::select('category')->distinct()->pluck('category');
+        $program->delete();
 
-    return view('admin.program', compact('programs', 'categories'));
-}
-
-public function storeprogram(Request $request)
-{
-    $request->validate([
-        'name'        => 'required|string|max:255',
-        'level'       => 'nullable|string|max:255',
-        'category'    => 'required|string|max:255',
-        'slogan'      => 'nullable|string|max:255',
-        'description' => 'nullable|string',
-        'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-    ]);
-
-    // Handle image upload (public/img)
-    $imagePath = null;
-    if ($request->hasFile('image')) {
-        $filename = time() . '_' . $request->image->getClientOriginalName();
-        $request->image->move(public_path('img'), $filename);
-        $imagePath = 'img/' . $filename;
+        return redirect()
+            ->route('adminprogram')
+            ->with('success', 'Program deleted successfully!');
     }
 
-    Program::create([
-        'name'        => $request->name,
-        'level'       => $request->level,
-        'category'    => $request->category,
-        'slug'        => Str::slug($request->name),
-        'slogan'      => $request->slogan,
-        'description' => $request->description,
-        'image'       => $imagePath,
-    ]);
+    public function programupdate(Request $request, Program $program)
+    {
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'level'       => 'nullable|string|max:255',
+            'category'    => 'required|string|max:255',
+            'slogan'      => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
 
-    return redirect()
-        ->route('adminprogram')
-        ->with('success', 'Program added successfully!');
-}
+        // Handle image replace
+        if ($request->hasFile('image')) {
 
-public function programdestroy(Program $program)
-{
+            $filename = time() . '_' . $request->image->getClientOriginalName();
+            $request->image->move(public_path('img'), $filename);
+            $program->image = 'img/' . $filename;
+        }
 
-    $program->delete();
+        // Update fields
+        $program->update([
+            'name'        => $request->name,
+            'level'       => $request->level,
+            'category'    => $request->category,
+            'slogan'      => $request->slogan,
+            'description' => $request->description,
+        ]);
 
-    return redirect()
-        ->route('adminprogram')
-        ->with('success', 'Program deleted successfully!');
-}
-
-
-public function programupdate(Request $request, Program $program)
-{
-    $request->validate([
-        'name'        => 'required|string|max:255',
-        'level'       => 'nullable|string|max:255',
-        'category'    => 'required|string|max:255',
-        'slogan'      => 'nullable|string|max:255',
-        'description' => 'nullable|string',
-        'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-    ]);
-
-    // Handle image replace
-    if ($request->hasFile('image')) {
-
-        $filename = time() . '_' . $request->image->getClientOriginalName();
-        $request->image->move(public_path('img'), $filename);
-        $program->image = 'img/' . $filename;
+        return redirect()
+            ->route('adminprogram')
+            ->with('success', 'Program updated successfully!');
     }
-
-    // Update fields
-    $program->update([
-        'name'        => $request->name,
-        'level'       => $request->level,
-        'category'    => $request->category,
-        'slogan'      => $request->slogan,
-        'description' => $request->description,
-    ]);
-
-    return redirect()
-        ->route('adminprogram')
-        ->with('success', 'Program updated successfully!');
-}
 
     public function adminDetailProgram(Program $program)
     {
@@ -142,13 +141,13 @@ public function programupdate(Request $request, Program $program)
             'progressPercent'
         ));
     }
-        public function admininvoice()
+    public function admininvoice()
     {
         $invoices = Invoice::latest()->get();
         $receipts = Receipt::latest()->get();
         return view('admin.invoice', compact('invoices', 'receipts'));
     }
-        public function adminlessondetail(Program $program, Lesson $lesson)
+    public function adminlessondetail(Program $program, Lesson $lesson)
     {
 
             // if ($lesson->program_id !== $program->id) {
@@ -162,21 +161,19 @@ public function programupdate(Request $request, Program $program)
                 'lesson'
             ));
     }
-    
 
-public function adminregistration()
-{
-    $registrations = Registration::where('status', 'regular')
-        ->latest()
-        ->get();
+    public function adminregistration()
+    {
+        $registrations = Registration::where('status', 'regular')
+            ->latest()
+            ->get();
 
-    $trials = Registration::where('status', 'trial')
-        ->latest()
-        ->get();
+        $trials = Registration::where('status', 'trial')
+            ->latest()
+            ->get();
 
-    return view('admin.registration', compact('registrations', 'trials'));
-}
-
+        return view('admin.registration', compact('registrations', 'trials'));
+    }
 
     public function adminreport()
     {
@@ -187,91 +184,90 @@ public function adminregistration()
         return view('admin.report', compact('reports', 'certificates'));
     }
 
-        public function adminenrollment()
+    public function adminenrollment()
     {
         $enrollments = Enrollment::latest()->get();
 
         return view('admin.enrollment', compact('enrollments'));
     }
-            public function adminuser()
+    public function adminuser()
     {
         $users = User::latest()->get();
 
         return view('admin.user', compact('users'));
     }
 
+    public function storeinvoice(Request $request)
+    {
+        DB::transaction(function () use ($request) {
 
-public function storeinvoice(Request $request)
-{
-    DB::transaction(function () use ($request) {
+            $subtotal = 0;
+            $totalDiscount = 0;
+            $year = date('Y');
 
-        $subtotal = 0;
-        $totalDiscount = 0;
-        $year = date('Y');
+            $lastInvoice = Invoice::whereYear('invoice_date', $year)
+                ->orderBy('id', 'desc')
+                ->lockForUpdate() // PENTING: anti double number
+                ->first();
 
-        $lastInvoice = Invoice::whereYear('invoice_date', $year)
-            ->orderBy('id', 'desc')
-            ->lockForUpdate() // PENTING: anti double number
-            ->first();
+            $lastNumber = 0;
 
-        $lastNumber = 0;
+            if ($lastInvoice) {
+                // Ambil angka terakhir dari INV2026-0005
+                $lastNumber = (int) substr($lastInvoice->invoice_number, -4);
+            }
 
-        if ($lastInvoice) {
-            // Ambil angka terakhir dari INV2026-0005
-            $lastNumber = (int) substr($lastInvoice->invoice_number, -4);
-        }
+            $nextNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
 
-        $nextNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
+            $invoiceNumber = "INV{$year}{$nextNumber}";
 
-        $invoiceNumber = "INV{$year}{$nextNumber}";
+            $invoice = Invoice::create([
+                'invoice_number' => $invoiceNumber,
+                'invoice_date'     => now(),
 
-        $invoice = Invoice::create([
-            'invoice_number' => $invoiceNumber,
-            'invoice_date'     => now(),
+                'customer_name'    => $request->customer_name,
+                'customer_email'   => $request->customer_email,
+                'customer_phone'   => $request->customer_phone,
+                'customer_address' => $request->customer_address,
 
-            'customer_name'    => $request->customer_name,
-            'customer_email'   => $request->customer_email,
-            'customer_phone'   => $request->customer_phone,
-            'customer_address' => $request->customer_address,
-
-            'subtotal'         => 0,
-            'discount'         => 0,
-            'grand_total'      => 0,
-        ]);
-
-        foreach ($request->items as $item) {
-
-            $amount = (float) $item['amount'];
-            $discountPercent = (float) ($item['discount'] ?? 0);
-
-            $discountAmount = ($amount * $discountPercent) / 100;
-            $amountAfterDiscount = $amount - $discountAmount;
-
-            $subtotal += $amount;
-            $totalDiscount += $discountAmount;
-
-            $invoice->items()->create([
-                'program_name'          => $item['Program'],
-                'level'                 => $item['level'] ?? '',
-                'category'              => $item['category'] ?? '',
-                'description'           => $item['description'] ?? '',
-
-                'amount'                => $amount,
-                'discount_percent'      => $discountPercent,
-                'discount_amount'       => $discountAmount,
-                'amount_after_discount' => $amountAfterDiscount,
+                'subtotal'         => 0,
+                'discount'         => 0,
+                'grand_total'      => 0,
             ]);
-        }
 
-        $invoice->update([
-            'subtotal'    => $subtotal,
-            'discount'    => $totalDiscount,
-            'grand_total' => $subtotal - $totalDiscount,
-        ]);
-    });
+            foreach ($request->items as $item) {
 
-    return redirect()->back()->with('success', 'Invoice created');
-}
+                $amount = (float) $item['amount'];
+                $discountPercent = (float) ($item['discount'] ?? 0);
+
+                $discountAmount = ($amount * $discountPercent) / 100;
+                $amountAfterDiscount = $amount - $discountAmount;
+
+                $subtotal += $amount;
+                $totalDiscount += $discountAmount;
+
+                $invoice->items()->create([
+                    'program_name'          => $item['Program'],
+                    'level'                 => $item['level'] ?? '',
+                    'category'              => $item['category'] ?? '',
+                    'description'           => $item['description'] ?? '',
+
+                    'amount'                => $amount,
+                    'discount_percent'      => $discountPercent,
+                    'discount_amount'       => $discountAmount,
+                    'amount_after_discount' => $amountAfterDiscount,
+                ]);
+            }
+
+            $invoice->update([
+                'subtotal'    => $subtotal,
+                'discount'    => $totalDiscount,
+                'grand_total' => $subtotal - $totalDiscount,
+            ]);
+        });
+
+        return redirect()->back()->with('success', 'Invoice created');
+    }
 
     public function showinvoice(Invoice $invoice)
     {
@@ -316,23 +312,23 @@ public function storeinvoice(Request $request)
         return redirect()->back()->with('success', 'Invoice deleted');
     }
     
-public function generateinvoice(Invoice $invoice)
-{
-    $invoice->load('items');
+    public function generateinvoice(Invoice $invoice)
+    {
+        $invoice->load('items');
 
-    // Hitung ulang (safety)
-    $invoice->subtotal = $invoice->items->sum('amount');
-    $invoice->total_discount = $invoice->items->sum('discount_amount');
-    $invoice->grand_total = $invoice->subtotal - $invoice->total_discount;
+        // Hitung ulang (safety)
+        $invoice->subtotal = $invoice->items->sum('amount');
+        $invoice->total_discount = $invoice->items->sum('discount_amount');
+        $invoice->grand_total = $invoice->subtotal - $invoice->total_discount;
 
-    $pdf = Pdf::loadView('staff.invoicepdf', [
-        'invoice' => $invoice
-    ])->setPaper('A4');
+        $pdf = Pdf::loadView('staff.invoicepdf', [
+            'invoice' => $invoice
+        ])->setPaper('A4');
 
-    return $pdf->stream($invoice->invoice_number . '.pdf');
-}
+        return $pdf->stream($invoice->invoice_number . '.pdf');
+    }
 
-public function storereceipt(Request $request)
+    public function storereceipt(Request $request)
     {
         DB::transaction(function () use ($request) {
 
@@ -464,97 +460,96 @@ public function storereceipt(Request $request)
         return $pdf->stream($receipt->receipt_number . '.pdf');
     }
 
-public function adminlessonstore(Request $request)
-{
-    $request->validate([
-        'program_id' => 'required|exists:programs,id',
-        'title' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'order' => 'nullable|integer',
-    ]);
+    public function adminlessonstore(Request $request)
+    {
+        $request->validate([
+            'program_id' => 'required|exists:programs,id',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'order' => 'nullable|integer',
+        ]);
 
-    Lesson::create([
-        'program_id' => $request->program_id,
-        'title' => $request->title,
-        'description' => $request->description,
-        'order' => $request->order ?? 0,
-    ]);
+        Lesson::create([
+            'program_id' => $request->program_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'order' => $request->order ?? 0,
+        ]);
 
-    return redirect()->back()->with('success', 'Lesson added successfully.');
-}
-    
-public function adminlessonupdate(Request $request, Lesson $lesson)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'order' => 'nullable|integer',
-    ]);
+        return redirect()->back()->with('success', 'Lesson added successfully.');
+    }
+        
+    public function adminlessonupdate(Request $request, Lesson $lesson)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'order' => 'nullable|integer',
+        ]);
 
-    $lesson->update($request->only('title', 'description', 'order'));
+        $lesson->update($request->only('title', 'description', 'order'));
 
-    return back()->with('success', 'Lesson updated.');
-}
-
-public function adminlessondestroy(Lesson $lesson)
-{
-    $lesson->delete();
-    return back()->with('success', 'Lesson deleted.');
-}
-public function adminmaterialstore(Request $request)
-{
-    $request->validate([
-        'lesson_id' => 'required|exists:lessons,id',
-        'type' => 'required|in:text,image,link,pdf',
-        'order' => 'nullable|integer',
-    ]);
-
-    $content = null;
-
-    if ($request->type === 'text') {
-        $content = $request->content_text;
+        return back()->with('success', 'Lesson updated.');
     }
 
-    if ($request->type === 'link') {
-        $content = $request->content_link;
+    public function adminlessondestroy(Lesson $lesson)
+    {
+        $lesson->delete();
+        return back()->with('success', 'Lesson deleted.');
+    }
+    public function adminmaterialstore(Request $request)
+    {
+        $request->validate([
+            'lesson_id' => 'required|exists:lessons,id',
+            'type' => 'required|in:text,image,link,pdf',
+            'order' => 'nullable|integer',
+        ]);
+
+        $content = null;
+
+        if ($request->type === 'text') {
+            $content = $request->content_text;
+        }
+
+        if ($request->type === 'link') {
+            $content = $request->content_link;
+        }
+
+        if (in_array($request->type, ['image', 'pdf'])) {
+            $content = $request->file('content_file')
+                ->store('materials', 'public');
+        }
+
+        Material::create([
+            'lesson_id' => $request->lesson_id,
+            'type' => $request->type,
+            'content' => $content,
+            'order' => $request->order ?? 0,
+        ]);
+
+        return back()->with('success', 'Material added.');
     }
 
-    if (in_array($request->type, ['image', 'pdf'])) {
-        $content = $request->file('content_file')
-            ->store('materials', 'public');
+    public function adminmaterialupdate(Request $request, Material $material)
+    {
+        $request->validate([
+            'type' => 'required|in:text,image,link,pdf',
+            'content' => 'required',
+            'order' => 'nullable|integer',
+        ]);
+
+        $material->update($request->only('type', 'content', 'order'));
+
+        return back()->with('success', 'Material updated.');
     }
 
-    Material::create([
-        'lesson_id' => $request->lesson_id,
-        'type' => $request->type,
-        'content' => $content,
-        'order' => $request->order ?? 0,
-    ]);
+    public function adminmaterialdestroy(Material $material)
+    {
+        $material->delete();
+        return back()->with('success', 'Material deleted.');
+    }
 
-    return back()->with('success', 'Material added.');
-}
-
-
-public function adminmaterialupdate(Request $request, Material $material)
-{
-    $request->validate([
-        'type' => 'required|in:text,image,link,pdf',
-        'content' => 'required',
-        'order' => 'nullable|integer',
-    ]);
-
-    $material->update($request->only('type', 'content', 'order'));
-
-    return back()->with('success', 'Material updated.');
-}
-
-public function adminmaterialdestroy(Material $material)
-{
-    $material->delete();
-    return back()->with('success', 'Material deleted.');
-}
-
-public function userstore(Request $request)
+    public function userstore(Request $request)
     {
         $validated = $request->validate([
             'username' => 'required|string|max:50|unique:users,username',
@@ -578,34 +573,34 @@ public function userstore(Request $request)
         return response()->json($user);
     }
 
-public function userupdate(Request $request, User $user)
-{
-    $validated = $request->validate([
-        'username' => [
-            'required','string','max:50',
-            Rule::unique('users')->ignore($user->id)
-        ],
-        'name'  => 'required|string|max:100',
-        'email' => [
-            'required','email',
-            Rule::unique('users')->ignore($user->id)
-        ], 
-        'password' => 'nullable|min:6',
-        'role'     => 'required|in:admin,teacher,staff,student',
-        'phone'    => 'nullable|string|max:20',
-        'address'  => 'nullable|string',
-    ]);
+    public function userupdate(Request $request, User $user)
+    {
+        $validated = $request->validate([
+            'username' => [
+                'required','string','max:50',
+                Rule::unique('users')->ignore($user->id)
+            ],
+            'name'  => 'required|string|max:100',
+            'email' => [
+                'required','email',
+                Rule::unique('users')->ignore($user->id)
+            ], 
+            'password' => 'nullable|min:6',
+            'role'     => 'required|in:admin,teacher,staff,student',
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string',
+        ]);
 
-    if ($request->filled('password')) {
-        $validated['password'] = Hash::make($request->password);
-    } else {
-        unset($validated['password']);
+        if ($request->filled('password')) {
+            $validated['password'] = Hash::make($request->password);
+        } else {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return back()->with('success', 'User updated successfully.');
     }
-
-    $user->update($validated);
-
-    return back()->with('success', 'User updated successfully.');
-}
 
     public function userdestroy(User $user)
     {
@@ -618,7 +613,7 @@ public function userupdate(Request $request, User $user)
         return redirect()->back()->with('success', 'User deleted.');
     }
 
-        public function certificatestore(Request $request)
+    public function certificatestore(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -635,7 +630,7 @@ public function userupdate(Request $request, User $user)
         return back()->with('success', 'Certificate created successfully!');
     }
 
-        public function adminreportshow(Report $report)
+    public function adminreportshow(Report $report)
     {
         // Optional: authorization (recommended)
         // abort_if($report->student_id !== auth()->id(), 403);
