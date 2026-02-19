@@ -188,7 +188,7 @@
                                 {{ $registration->created_at->format('d M Y') }}
                             </td>
                             <td class="p-3 flex justify-center gap-2">
-                                <button onclick="viewRegist({{ $receipt->id }})" class="table-action-btn view"
+                                <button onclick="viewRegist({{ $registration->id }})" class="table-action-btn view"
                                     title="View Invoice">
                                     <i class="fa-solid fa-eye"></i>
                                 </button>
@@ -295,7 +295,19 @@
         </table>
     </div>
 </div>
+    <div id="viewInvoiceModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white max-w-4xl w-full rounded-xl p-6">
 
+            <div class="flex justify-between mb-4">
+                <h3 class="font-semibold text-lg">Invoice Detail</h3>
+                <button onclick="closeViewModal()">✕</button>
+            </div>
+
+            <div id="viewInvoiceContent" class="space-y-4">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </div>
 @endsection
 
 
