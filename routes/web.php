@@ -39,6 +39,9 @@ Route::get('/register', [HomeController::class, 'register'])->name('register');
 Route::post('/registrations', [RegistrationController::class, 'store'])
     ->name('registrations.store');
 
+Route::get('/pdf-viewer', function () {
+    return view('pdf-viewer');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admindashboard');

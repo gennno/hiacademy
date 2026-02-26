@@ -78,21 +78,28 @@
                             </a>
                         </div>
 
-                        {{-- PDF --}}
-                    @elseif ($material->type === 'pdf')
-                        <div class="space-y-3">
-                            <div class="h-[300px] md:h-[600px] rounded-lg overflow-hidden border bg-white">
-                                <iframe src="{{ asset($material->content) }}#toolbar=0" class="w-full h-full"
-                                    loading="lazy"></iframe>
-                            </div>
+            {{-- PDF --}}
+@elseif ($material->type === 'pdf')
+<div class="space-y-3">
 
-                            <a href="{{ asset($material->content) }}" target="_blank"
-                                class="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline">
-                                <i class="fa-solid fa-file-pdf"></i>
-                                Open PDF in new tab
-                            </a>
-                        </div>
-                    @endif
+    <div class="h-[300px] md:h-[700px] overflow-y-auto rounded-lg overflow-hidden border bg-white">
+        <div class="border rounded-lg bg-white p-2 overflow-auto">
+            <canvas 
+                class="pdf-canvas w-full"
+                data-url="{{ asset($material->content) }}">
+            </canvas>
+        </div>
+    </div>
+
+    <a href="{{ url('/pdf-viewer?file=' . urlencode(asset($material->content))) }}"
+    target="_blank"
+    class="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline">
+        <i class="fa-solid fa-file-pdf"></i>
+        Open PDF in new tab
+    </a>
+
+</div>
+@endif
 
                 </div>
 
@@ -164,7 +171,58 @@
         </div>
 
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    const canvases = document.querySelectorAll(".pdf-canvas");
 
+    canvases.forEach(function(canvas) {
+
+        const url = canvas.getAttribute("data-url");
+        const container = canvas.parentElement;
+
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+
+            container.innerHTML = ""; // clear single canvas
+
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+
+                pdf.getPage(pageNum).then(function(page) {
+
+                    const newCanvas = document.createElement("canvas");
+                    newCanvas.classList.add("mb-4", "w-full");
+
+                    const context = newCanvas.getContext("2d");
+
+                    const viewport = page.getViewport({ scale: 1 });
+                    const containerWidth = container.clientWidth;
+                    const scale = containerWidth / viewport.width;
+                    const scaledViewport = page.getViewport({ scale: scale });
+
+                    newCanvas.height = scaledViewport.height;
+                    newCanvas.width = scaledViewport.width;
+
+                    container.appendChild(newCanvas);
+
+                    page.render({
+                        canvasContext: context,
+                        viewport: scaledViewport
+                    });
+
+                });
+
+            }
+
+        }).catch(function(error){
+            console.error("PDF Load Error:", error);
+        });
+
+    });
+
+});
+</script>
 @endsection
