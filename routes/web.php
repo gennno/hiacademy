@@ -244,7 +244,16 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
 Route::middleware(['auth', 'role:teacher'])->group(function () {
     Route::get('/teacher-dashboard', [TeacherController::class, 'teacherdashboard'])->name('teacherdashboard');
     Route::get('/teacher-my-program', [TeacherController::class, 'teachermyprogram'])->name('teachermyprogram');
-    Route::get('/teacher-detail-program', [TeacherController::class, 'teacherdetailprogram'])->name('teacherdetailprogram');
+    
+    Route::get('/teacher/program/{program:slug}', 
+        [TeacherController::class, 'teacherdetailprogram']
+    )->name('teacherdetailprogram');
+
+    Route::get('/teacher/programs/{program:slug}/lessons/{lesson}',[TeacherController::class, 'teacherlessondetail']
+    )->name('teacherlessondetail');
+
+    Route::get('/teacher-report', [TeacherController::class, 'teacherreport'])->name('teacherreport');
+    Route::get('/teacher/reports/{report}', [TeacherController::class, 'teacherreportshow'])->name('teacher.reports.show');
 
 });
 
@@ -253,9 +262,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/student-my-program', [StudentController::class, 'studentmyprogram'])->name('studentmyprogram');
     Route::get('/lms/my-program/{program:slug}', [StudentController::class, 'studentDetailProgram'])
     ->name('studentdetailprogram');
-    Route::get(
-        '/student/programs/{program:slug}/lessons/{lesson}',
-        [StudentController::class, 'studentlessondetail']
+    Route::get('/student/programs/{program:slug}/lessons/{lesson}',[StudentController::class, 'studentlessondetail']
     )->name('studentlessondetail');
 
     Route::get('/student-report', [StudentController::class, 'studentreport'])->name('studentreport');
