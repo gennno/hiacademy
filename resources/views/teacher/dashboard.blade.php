@@ -4,17 +4,17 @@
 
 @section('content')
 
-  @if(session('login_success'))
-<script>
-    Swal.fire({
-        title: "Login Berhasil!",
-        text: "Selamat datang kembali 👋",
-        icon: "success",
-        timer: 1800,
-        showConfirmButton: false
-    });
-</script>
-@endif
+    @if(session('login_success'))
+        <script>
+            Swal.fire({
+                title: "Login Berhasil!",
+                text: "Selamat datang kembali 👋",
+                icon: "success",
+                timer: 1800,
+                showConfirmButton: false
+            });
+        </script>
+    @endif
     <div class="grid grid-cols-1 gap-3 mb-6">
         <div
             class="bg-[#FBF9D1] border-4 border-yellow-400 rounded-2xl p-6 shadow-md flex items-center md:justify-start lg:justify-between gap-5">
@@ -22,7 +22,7 @@
             <!-- LEFT TEXT -->
             <div class="space-y-2 lg:ml-10">
                 <h2 class="text-2xl md:text-5xl font-bold text-gray-800">
-                    Welcome back, <span class="text-blue-600">Alex !</span>
+                    Welcome back, <span class="text-blue-600">Teacher</span>
                 </h2>
 
                 <p class="text-gray-700 text-xl">
@@ -97,44 +97,44 @@
 
                 {{-- Card 1 --}}
                 <a href="{{ route('teacherdetailprogram') }}" class="block">
-                <div
-                    class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
+                    <div
+                        class="bg-[#FBFBFB] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 hover:border-4 border-indigo-400 hover:border-yellow-400 max-w-sm">
 
-                    <!-- IMAGE TOP -->
-                    <div class="relative h-48 w-full overflow-hidden">
-                        <img src="{{ asset('img/math.png') }}" class="w-full h-full object-cover " alt="Math Image">
+                        <!-- IMAGE TOP -->
+                        <div class="relative h-48 w-full overflow-hidden">
+                            <img src="{{ asset('img/math.png') }}" class="w-full h-full object-cover " alt="Math Image">
 
-                        <!-- CATEGORY TAG ON IMAGE -->
-                        <span
-                            class="absolute top-3 left-3 text-xs font-semibold text-white bg-indigo-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
-                            Math
-                        </span>
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="p-5 pt-2 flex flex-col gap-4">
-                        <div>
-                            <h5 class="text-lg font-bold mt-2">Math - Explorer</h5>
-                            <p class="text-sm text-gray-500">Joyful and solid numerical foundation.</p>
+                            <!-- CATEGORY TAG ON IMAGE -->
+                            <span
+                                class="absolute top-3 left-3 text-xs font-semibold text-white bg-indigo-600/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
+                                Math
+                            </span>
                         </div>
 
-                        <!-- PROGRESS BAR -->
-                        <div class="space-y-2">
-                            <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
-                                    style="width: 75%"></div>
+                        <!-- CONTENT -->
+                        <div class="p-5 pt-2 flex flex-col gap-4">
+                            <div>
+                                <h5 class="text-lg font-bold mt-2">Math - Explorer</h5>
+                                <p class="text-sm text-gray-500">Joyful and solid numerical foundation.</p>
                             </div>
 
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-500">75% Complete</span>
-                                <span class="font-semibold text-green-600">15/20 Lessons</span>
+                            <!-- PROGRESS BAR -->
+                            <div class="space-y-2">
+                                <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full transition-all duration-500"
+                                        style="width: 75%"></div>
+                                </div>
+
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500">75% Complete</span>
+                                    <span class="font-semibold text-green-600">15/20 Lessons</span>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
-
-                </div>
-            </a>
+                </a>
 
                 {{-- Card 2 --}}
                 <div
