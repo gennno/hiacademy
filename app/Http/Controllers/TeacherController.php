@@ -8,6 +8,7 @@ use App\Models\Program;
 use App\Models\Enrollment;
 use App\Models\Lesson;
 use App\Models\Report;
+use App\Models\Certificate;
 
 
 class TeacherController extends Controller
@@ -127,13 +128,11 @@ class TeacherController extends Controller
 
     public function teacherreport()
     {
-        $user = auth()->user();
-        $reports = Report::with(['program', 'lesson'])
-            ->where('user_id', $user->id)
-            ->latest()
-            ->get();
+        $reports = Report::latest()->get();
+        $certificates = Certificate::latest()->get();
 
-        return view('teacher.report', compact('reports'));
+
+        return view('teacher.report', compact('reports', 'certificates'));
     }
     public function teacherreportshow(Report $report)
     {
@@ -142,4 +141,22 @@ class TeacherController extends Controller
 
         return view('teacher.report-detail', compact('report'));
     }
+
+        public function teachercertificatestore(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'program_name' => 'required|string|max:255',
+            'academic_year' => 'required|string|max:20',
+            'completion_date' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        $validated['user_id'] = auth()->id();
+
+        Certificate::create($validated);
+
+        return back()->with('success', 'Certificate created successfully!');
+    }
+
 }

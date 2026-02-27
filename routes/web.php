@@ -131,17 +131,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admiin/reports/{report}', [AdminController::class, 'adminreportshow'])->name('admin.reports.show');
 
     Route::post('/admin/reports', [AdminController::class, 'storereports'])
-        ->name('reports.store');
+    ->name('reports.store');
     Route::post('/admin/certificates', [AdminController::class, 'certificatestore'])
     ->name('certificates.store');
 
     Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
     
-        Route::post('/users/store', [AdminController::class, 'userstore'])->name('users.store');
-        Route::get('/users/{user}', [AdminController::class, 'usershow'])->name('users.show');
-        Route::put('/users/{user}/update', [AdminController::class, 'userupdate'])->name('users.update');
-        Route::delete('/users/{user}', [AdminController::class, 'userdestroy'])
-            ->name('users.destroy');
+    Route::post('/users/store', [AdminController::class, 'userstore'])->name('users.store');
+    Route::get('/users/{user}', [AdminController::class, 'usershow'])->name('users.show');
+    Route::put('/users/{user}/update', [AdminController::class, 'userupdate'])->name('users.update');
+    Route::delete('/users/{user}', [AdminController::class, 'userdestroy'])
+    ->name('users.destroy');
 
     
 
@@ -254,6 +254,19 @@ Route::middleware(['auth', 'role:teacher'])->group(function () {
 
     Route::get('/teacher-report', [TeacherController::class, 'teacherreport'])->name('teacherreport');
     Route::get('/teacher/reports/{report}', [TeacherController::class, 'teacherreportshow'])->name('teacher.reports.show');
+
+
+    Route::post('/teacher/reports', [TeacherController::class, 'storereports'])
+    ->name('teacherreports.store');
+    Route::post('/teacher/certificates', [TeacherController::class, 'certificatestore'])
+    ->name('teachercertificates.store');
+
+
+
+
+
+
+
 
 });
 
