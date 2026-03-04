@@ -186,9 +186,97 @@ class AdminController extends Controller
 
     public function adminenrollment()
     {
-        $enrollments = Enrollment::latest()->get();
+        // Student Enrollment
+        $studentEnrollments = Enrollment::with(['user', 'program'])
+            ->whereHas('user', function ($query) {
+                $query->where('role', 'student');
+            })
+            ->latest()
+            ->get();
 
-        return view('admin.enrollment', compact('enrollments'));
+        // Teacher Enrollment
+        $teacherEnrollments = Enrollment::with(['user', 'program'])
+            ->whereHas('user', function ($query) {
+                $query->where('role', 'teacher');
+            })
+            ->latest()
+            ->get();
+
+        return view('admin.enrollment', compact(
+            'studentEnrollments',
+            'teacherEnrollments'
+        ));
+    }
+    /**
+     * =========================
+     * STORE NEW ENROLLMENT
+     * =========================
+     */
+    public function adminenrollmentstore(Request $request)
+    {
+        $request->validate([
+            'user_id'    => 'required|exists:users,id',
+            'program_id' => 'required|exists:programs,id',
+            'status'     => 'required|in:active,completed,cancelled',
+        ]);
+
+        Enrollment::create([
+            'user_id'     => $request->user_id,
+            'program_id'  => $request->program_id,
+            'status'      => $request->status,
+            'enrolled_at' => now(),
+        ]);
+
+        return redirect()->route('admin.enrollment')
+            ->with('success', 'Enrollment created successfully.');
+    }
+
+    /**
+     * =========================
+     * SHOW (FOR AJAX VIEW MODAL)
+     * =========================
+     */
+    public function adminenrollmentshow($id)
+    {
+        $enrollment = Enrollment::with(['user', 'program'])->findOrFail($id);
+
+        return response()->json($enrollment);
+    }
+
+    /**
+     * =========================
+     * UPDATE
+     * =========================
+     */
+    public function adminenrollmentupdate(Request $request, $id)
+    {
+        $enrollment = Enrollment::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:active,completed,cancelled',
+        ]);
+
+        $enrollment->update([
+            'status' => $request->status,
+            'completed_at' => $request->status === 'completed' ? now() : null,
+        ]);
+
+        return redirect()->route('admin.enrollment')
+            ->with('success', 'Enrollment updated successfully.');
+    }
+
+    /**
+     * =========================
+     * DELETE
+     * =========================
+     */
+    public function adminenrollmentdestroy($id)
+    {
+        $enrollment = Enrollment::findOrFail($id);
+        $enrollment->delete();
+
+        return redirect()->route('admin.enrollment')
+            ->with('success', 'Enrollment deleted successfully.');
     }
     public function adminuser()
     {
@@ -637,4 +725,6 @@ class AdminController extends Controller
 
         return view('admin.report-detail', compact('report'));
     }
+
+
 }

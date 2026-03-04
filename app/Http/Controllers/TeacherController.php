@@ -134,10 +134,11 @@ class TeacherController extends Controller
 
         return view('teacher.report', compact('reports', 'certificates'));
     }
+    
+    
     public function teacherreportshow(Report $report)
     {
-        // Optional: authorization (recommended)
-        // abort_if($report->student_id !== auth()->id(), 403);
+
 
         return view('teacher.report-detail', compact('report'));
     }

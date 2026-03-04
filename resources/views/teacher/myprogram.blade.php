@@ -67,16 +67,13 @@
                 </p>
             </div>
 
+
             <!-- PROGRESS BAR (placeholder) -->
             <div class="space-y-2">
-                <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full"
-                         style="width: 75%"></div>
-                </div>
 
                 <div class="flex justify-between text-sm">
-                    <span class="text-gray-500">75% Complete</span>
-                    <span class="font-semibold text-green-600">15/20 Lessons</span>
+                    <span class="text-gray-500">3 Student Enrolled</span>
+                    <span class="font-semibold text-green-600">20 Lessons</span>
                 </div>
             </div>
         </div>

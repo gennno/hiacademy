@@ -44,7 +44,7 @@
         <p class="text-gray-600 mb-6">
           {{ $program->description }}
         </p>
-
+{{-- 
         <div class="mb-6">
           <div class="flex justify-between text-sm mb-1">
             <span>Your Progress</span>
@@ -54,7 +54,7 @@
           <div class="w-full bg-gray-200 rounded-full h-3">
             <div class="bg-blue-500 h-3 rounded-full" style="width: {{ $progressPercent }}%"></div>
           </div>
-        </div>
+        </div> --}}
 
         <div class="grid grid-cols-2 gap-4 mb-6">
           <div>

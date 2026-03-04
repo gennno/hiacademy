@@ -26,7 +26,7 @@
                 </h2>
 
                 <p class="text-gray-700 text-xl">
-                    Continue your learning journey and complete your activities.
+                    Continue your Teaching journey and complete your activities.
                 </p>
 
                 <p class="text-gray-700 text-xl font-semibold">
@@ -41,48 +41,6 @@
         </div>
     </div>
 
-
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-        <div
-            class="bg-[#FBFBFB] border-2 hover:border-4 border-cyan-400 rounded-2xl hover:shadow-2xl hover:-translate-y-2 duration-300 hover:border-yellow-400 p-5 shadow-md">
-            <div class="flex justify-between items-center mb-2">
-                <span class="text-3xl">📚</span>
-                <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full">Active</span>
-            </div>
-            <h3 class="text-3xl font-bold text-indigo-600 mb-0">5</h3>
-            <p class="text-sm text-gray-500 mb-0">Enrolled Programs</p>
-        </div>
-
-        <div
-            class="bg-[#FBFBFB] border-2 hover:border-4 border-cyan-400 rounded-2xl p-5 hover:shadow-2xl hover:-translate-y-2 duration-300 hover:border-yellow-400 shadow-md">
-            <div class="flex justify-between items-center mb-2">
-                <span class="text-3xl">✅</span>
-                <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full">Done</span>
-            </div>
-            <h3 class="text-3xl font-bold text-green-600 mb-0">12</h3>
-            <p class="text-sm text-gray-500 mb-0">Completed Tasks</p>
-        </div>
-
-        <div
-            class="bg-[#FBFBFB] border-2 hover:border-4 border-cyan-400 rounded-2xl p-5 hover:shadow-2xl hover:-translate-y-2 duration-300 hover:border-yellow-400 col-span-2 shadow-md">
-            <h5 class="text-lg font-bold mb-4">🏆 My Badges</h5>
-            <div class="flex flex-wrap gap-3 justify-center">
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Math Master">🧮</div>
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Science Star">⭐</div>
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Reading Pro">📚</div>
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Creative Mind">🎨</div>
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Perfect Week">🔥</div>
-                <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg hover:scale-110 hover:rotate-6 transition-transform cursor-pointer"
-                    title="Quick Learner">⚡</div>
-            </div>
-        </div>
-    </div>
 
     <!-- My Programs Section -->
     <div class="mb-6">
@@ -150,14 +108,10 @@
 
             <!-- PROGRESS BAR (placeholder) -->
             <div class="space-y-2">
-                <div class="h-2.5 bg-indigo-100 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-yellow-400 to-green-600 rounded-full"
-                         style="width: 75%"></div>
-                </div>
 
                 <div class="flex justify-between text-sm">
-                    <span class="text-gray-500">75% Complete</span>
-                    <span class="font-semibold text-green-600">15/20 Lessons</span>
+                    <span class="text-gray-500">3 Student Enrolled</span>
+                    <span class="font-semibold text-green-600">20 Lessons</span>
                 </div>
             </div>
         </div>
