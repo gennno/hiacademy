@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\InvoiceItem;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use App\Models\ProgramTeacher;
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -186,49 +187,47 @@ class AdminController extends Controller
 
     public function adminenrollment()
     {
-        // Student Enrollment
-        $studentEnrollments = Enrollment::with(['user', 'program'])
-            ->whereHas('user', function ($query) {
-                $query->where('role', 'student');
-            })
+        $studentEnrollments = Enrollment::with(['user','program'])
+            ->whereHas('user', fn($q) => $q->where('role','student'))
             ->latest()
             ->get();
 
-        // Teacher Enrollment
-        $teacherEnrollments = Enrollment::with(['user', 'program'])
-            ->whereHas('user', function ($query) {
-                $query->where('role', 'teacher');
-            })
+        $teacherEnrollments = ProgramTeacher::with(['user','program'])
             ->latest()
             ->get();
+
+        $users = User::whereIn('role',['student','teacher'])->get();
+        $programs = Program::all();
 
         return view('admin.enrollment', compact(
             'studentEnrollments',
-            'teacherEnrollments'
+            'teacherEnrollments',
+            'users',
+            'programs'
         ));
     }
-    /**
-     * =========================
-     * STORE NEW ENROLLMENT
-     * =========================
-     */
+
     public function adminenrollmentstore(Request $request)
     {
-        $request->validate([
-            'user_id'    => 'required|exists:users,id',
-            'program_id' => 'required|exists:programs,id',
-            'status'     => 'required|in:active,completed,cancelled',
-        ]);
+        if ($request->type === 'student') {
 
-        Enrollment::create([
-            'user_id'     => $request->user_id,
-            'program_id'  => $request->program_id,
-            'status'      => $request->status,
-            'enrolled_at' => now(),
-        ]);
+            Enrollment::create([
+                'user_id' => $request->user_id,
+                'program_id' => $request->program_id,
+                'status' => $request->status,
+                'enrolled_at' => now(),
+            ]);
 
-        return redirect()->route('admin.enrollment')
-            ->with('success', 'Enrollment created successfully.');
+        } else {
+
+            ProgramTeacher::create([
+                'user_id' => $request->user_id,
+                'program_id' => $request->program_id,
+            ]);
+
+        }
+
+        return redirect()->back()->with('success','Enrollment created');
     }
 
     /**
@@ -236,9 +235,21 @@ class AdminController extends Controller
      * SHOW (FOR AJAX VIEW MODAL)
      * =========================
      */
-    public function adminenrollmentshow($id)
+    public function adminenrollmentshow($type, $id)
     {
-        $enrollment = Enrollment::with(['user', 'program'])->findOrFail($id);
+        if ($type === 'student') {
+
+            $enrollment = Enrollment::with(['user','program'])
+                ->findOrFail($id);
+
+        } elseif ($type === 'teacher') {
+
+            $enrollment = ProgramTeacher::with(['user','program'])
+                ->findOrFail($id);
+
+        } else {
+            abort(404);
+        }
 
         return response()->json($enrollment);
     }
@@ -248,21 +259,30 @@ class AdminController extends Controller
      * UPDATE
      * =========================
      */
-    public function adminenrollmentupdate(Request $request, $id)
+    public function adminenrollmentupdate(Request $request, $type, $id)
     {
-        $enrollment = Enrollment::findOrFail($id);
+        if ($type === 'student') {
 
-        $request->validate([
-            'status' => 'required|in:active,completed,cancelled',
-        ]);
+            $enrollment = Enrollment::findOrFail($id);
 
-        $enrollment->update([
-            'status' => $request->status,
-            'completed_at' => $request->status === 'completed' ? now() : null,
-        ]);
+            $enrollment->update([
+                'user_id' => $request->user_id,
+                'program_id' => $request->program_id,
+                'status' => $request->status,
+            ]);
 
-        return redirect()->route('admin.enrollment')
-            ->with('success', 'Enrollment updated successfully.');
+        } elseif ($type === 'teacher') {
+
+            $teacher = ProgramTeacher::findOrFail($id);
+
+            $teacher->update([
+                'user_id' => $request->user_id,
+                'program_id' => $request->program_id,
+            ]);
+
+        }
+
+        return redirect()->back()->with('success','Enrollment Updated');
     }
 
     /**
@@ -270,13 +290,30 @@ class AdminController extends Controller
      * DELETE
      * =========================
      */
-    public function adminenrollmentdestroy($id)
+    public function adminenrollmentdestroy($type, $id)
     {
-        $enrollment = Enrollment::findOrFail($id);
-        $enrollment->delete();
+        if ($type === 'student') {
 
-        return redirect()->route('admin.enrollment')
-            ->with('success', 'Enrollment deleted successfully.');
+            $enrollment = Enrollment::findOrFail($id);
+            $enrollment->delete();
+
+            $message = 'Student enrollment deleted successfully.';
+
+        } elseif ($type === 'teacher') {
+
+            $assignment = ProgramTeacher::findOrFail($id);
+            $assignment->delete();
+
+            $message = 'Teacher assignment deleted successfully.';
+
+        } else {
+
+            abort(404);
+
+        }
+
+        return redirect()->route('adminenrollment')
+            ->with('success', $message);
     }
     public function adminuser()
     {

@@ -14,63 +14,58 @@ use App\Models\Certificate;
 class TeacherController extends Controller
 {
 
-    public function teacherdashboard(Request $request)
-    {
-    $user = auth()->user();
-
-    $query = Program::query()
-
-        // 🔒 HANYA program yang user enroll
-        ->whereHas('enrollments', function ($q) use ($user) {
-            $q->where('user_id', $user->id);
-        });
-
-    // 🔍 Search by program name
-    if ($request->filled('search')) {
-        $query->where('name', 'like', '%' . $request->search . '%');
-    }
-
-    // 🏷 Filter by category
-    if ($request->filled('category')) {
-        $query->where('category', $request->category);
-    }
-
-    $programs = $query->latest()->get();
-
-    // 🔽 Category filter hanya dari program yang dimiliki user
-    $categories = Program::whereHas('enrollments', function ($q) use ($user) {
-            $q->where('user_id', $user->id);
-        })
-        ->select('category')
-        ->distinct()
-        ->pluck('category');
-        return view('teacher.dashboard', compact('programs', 'categories'));
-    }
-    public function teachermyprogram(Request $request)
+public function teacherdashboard(Request $request)
     {
         $user = auth()->user();
 
         $query = Program::query()
 
-            // 🔒 HANYA program yang user enroll
-            ->whereHas('enrollments', function ($q) use ($user) {
+            // ONLY programs assigned to teacher
+            ->whereHas('programTeachers', function ($q) use ($user) {
                 $q->where('user_id', $user->id);
             });
 
-        // 🔍 Search by program name
         if ($request->filled('search')) {
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        // 🏷 Filter by category
         if ($request->filled('category')) {
             $query->where('category', $request->category);
         }
 
         $programs = $query->latest()->get();
 
-        // 🔽 Category filter hanya dari program yang dimiliki user
-        $categories = Program::whereHas('enrollments', function ($q) use ($user) {
+        $categories = Program::whereHas('programTeachers', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            })
+            ->select('category')
+            ->distinct()
+            ->pluck('category');
+
+        return view('teacher.dashboard', compact('programs', 'categories'));
+    }
+
+    public function teachermyprogram(Request $request)
+    {
+        $user = auth()->user();
+
+        $query = Program::query()
+
+            ->whereHas('programTeachers', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            });
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        $programs = $query->latest()->get();
+
+        $categories = Program::whereHas('programTeachers', function ($q) use ($user) {
                 $q->where('user_id', $user->id);
             })
             ->select('category')
@@ -84,17 +79,15 @@ class TeacherController extends Controller
     {
         $user = auth()->user();
 
-        // 🔐 Security: hanya program yang user enroll
-        if (! $program->enrollments()
+        // SECURITY
+        if (! $program->programTeachers()
             ->where('user_id', $user->id)
             ->exists()) {
             abort(403);
         }
 
-        // Ambil lesson milik program ini
         $lessons = $program->lessons;
 
-        // Dummy progress (nanti bisa dari lesson_progress table)
         $progressPercent = 65;
 
         return view('teacher.detail-program', compact(
@@ -106,24 +99,20 @@ class TeacherController extends Controller
 
     public function teacherlessondetail(Program $program, Lesson $lesson)
     {
-            $user = auth()->user();
+        $user = auth()->user();
 
-            if (! $program->enrollments()
-                ->where('user_id', $user->id)
-                ->exists()) {
-                abort(403);
-            }
+        if (! $program->programTeachers()
+            ->where('user_id', $user->id)
+            ->exists()) {
+            abort(403);
+        }
 
-            // if ($lesson->program_id !== $program->id) {
-            //     abort(404);
-            // }
+        $lesson->load(['materials', 'tasks']);
 
-            $lesson->load(['materials', 'tasks']);
-
-            return view('teacher.detail-lesson', compact(
-                'program',
-                'lesson'
-            ));
+        return view('teacher.detail-lesson', compact(
+            'program',
+            'lesson'
+        ));
     }
 
     public function teacherreport()

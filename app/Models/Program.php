@@ -85,5 +85,10 @@ public function reports()
     return $this->hasMany(Report::class);
 }
 
+public function programTeachers()
+{
+    return $this->hasMany(ProgramTeacher::class);
+}
+
 
 }

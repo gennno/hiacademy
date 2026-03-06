@@ -126,17 +126,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/enrollment/store', [AdminController::class, 'adminenrollmentstore'])
         ->name('adminenrollments.store');
 
-    // Show (for AJAX view modal)
-    Route::get('/enrollment/{id}', [AdminController::class, 'adminenrollmentshow'])
+    Route::get('/admin/enrollments/{type}/{id}', 
+        [AdminController::class,'adminenrollmentshow'])
         ->name('adminenrollments.show');
 
-    // Update
-    Route::put('/enrollment/{id}', [AdminController::class, 'adminenrollmentupdate'])
+    Route::put('/admin/enrollments/{type}/{id}', 
+        [AdminController::class,'adminenrollmentupdate'])
         ->name('adminenrollments.update');
 
     // Delete
-    Route::delete('/enrollment/{id}', [AdminController::class, 'adminenrollmentdestroy'])
-        ->name('adminenrollments.destroy');
+    Route::delete('/admin/enrollment/{type}/{id}', 
+        [AdminController::class, 'adminenrollmentdestroy']
+    )->name('adminenrollments.destroy');
 
 
 

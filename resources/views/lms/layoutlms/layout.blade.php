@@ -9,6 +9,9 @@
   {{-- Tailwind CDN --}}
   <script src="https://cdn.tailwindcss.com"></script>
 
+    {{-- Select 2 --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
   {{-- Favicon --}}
   <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
@@ -316,7 +319,7 @@
     applyResponsiveState();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
     function confirmLogout() {
       Swal.fire({

@@ -136,10 +136,11 @@
                     <tr>
                         <th class="p-3 text-left">#</th>
                         <th class="p-3 text-left">Student</th>
-                        <th class="p-3 text-left">Email</th>
+                        <th class="p-3 text-left">Username</th>
                         <th class="p-3 text-left">Program</th>
                         <th class="p-3 text-left">Status</th>
                         <th class="p-3 text-left">Enrolled At</th>
+                        <th class="p-3 text-left">Completed At</th>
                         <th class="p-3 text-center">Actions</th>
                     </tr>
                 </thead>
@@ -156,7 +157,7 @@
 
                             <!-- Email -->
                             <td class="p-3">
-                                {{ $enrollment->user->email ?? '-' }}
+                                {{ $enrollment->user->username ?? '-' }}
                             </td>
 
                             <!-- Program -->
@@ -182,24 +183,26 @@
                                 {{ $enrollment->enrolled_at?->format('d M Y') ?? '-' }}
                             </td>
 
+                            <td class="p-3">
+                                {{ $enrollment->completed_at?->format('d M Y') ?? '-' }}
+                            </td>
+
                             <!-- Actions -->
                             <td class="p-3 flex justify-center gap-2">
 
-                                <!-- VIEW -->
-                                <button onclick="viewEnrollment({{ $enrollment->id }})" class="p-2 text-blue-600">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-
                                 <!-- EDIT -->
-                                <button onclick='editEnrollment(@json($enrollment))' class="p-2 text-yellow-500">
+                                <button onclick="editEnrollment('student', {{ $enrollment->id }})"
+                                    class="p-2 text-yellow-500">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
 
                                 <!-- DELETE -->
-                                <form action="{{ route('adminenrollments.destroy', $enrollment->id) }}" method="POST"
+                                <form action="{{ route('adminenrollments.destroy', ['type' => 'student', 'id' => $enrollment->id]) }}" 
+                                    method="POST"
                                     onsubmit="return confirm('Delete this enrollment?')">
                                     @csrf
                                     @method('DELETE')
+
                                     <button class="p-2 text-red-600 hover:text-red-800">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
@@ -229,9 +232,8 @@
                     <tr>
                         <th class="p-3 text-left">#</th>
                         <th class="p-3 text-left">Student</th>
-                        <th class="p-3 text-left">Email</th>
+                        <th class="p-3 text-left">Username</th>
                         <th class="p-3 text-left">Program</th>
-                        <th class="p-3 text-left">Status</th>
                         <th class="p-3 text-left">Enrolled At</th>
                         <th class="p-3 text-center">Actions</th>
                     </tr>
@@ -249,7 +251,7 @@
 
                             <!-- Email -->
                             <td class="p-3">
-                                {{ $enrollment->user->email ?? '-' }}
+                                {{ $enrollment->user->username ?? '-' }}
                             </td>
 
                             <!-- Program -->
@@ -257,42 +259,27 @@
                                 {{ $enrollment->program->name ?? '-' }}
                             </td>
 
-                            <!-- Status -->
-                            <td class="p-3">
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full
-                        @if ($enrollment->isActive()) bg-green-200 text-green-700
-                        @elseif($enrollment->isCompleted()) bg-blue-200 text-blue-700
-                        @elseif($enrollment->isCancelled()) bg-red-200 text-red-700
-                        @else bg-gray-200 text-gray-700 @endif
-                    ">
-                                    {{ ucfirst($enrollment->status) }}
-                                </span>
-                            </td>
-
                             <!-- Enrolled Date -->
                             <td class="p-3">
-                                {{ $enrollment->enrolled_at?->format('d M Y') ?? '-' }}
+                                {{ $enrollment->created_at?->format('d M Y') ?? '-' }}
                             </td>
 
                             <!-- Actions -->
                             <td class="p-3 flex justify-center gap-2">
 
-                                <!-- VIEW -->
-                                <button onclick="viewEnrollment({{ $enrollment->id }})" class="p-2 text-blue-600">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-
                                 <!-- EDIT -->
-                                <button onclick='editEnrollment(@json($enrollment))' class="p-2 text-yellow-500">
+                                <button onclick="editEnrollment('teacher', {{ $enrollment->id }})"
+                                    class="p-2 text-yellow-500">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
 
                                 <!-- DELETE -->
-                                <form action="{{ route('adminenrollments.destroy', $enrollment->id) }}" method="POST"
-                                    onsubmit="return confirm('Delete this enrollment?')">
+                                <form action="{{ route('adminenrollments.destroy', ['type' => 'teacher', 'id' => $enrollment->id]) }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Delete this assignment?')">
                                     @csrf
                                     @method('DELETE')
+
                                     <button class="p-2 text-red-600 hover:text-red-800">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
@@ -309,6 +296,148 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+    </div>
+
+
+    <!-- CREATE ENROLLMENT MODAL -->
+    <div id="createEnrollmentModal"
+        class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+
+        <div class="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 relative">
+
+            <!-- CLOSE BUTTON -->
+            <button id="closeEnrollmentModal"
+                class="absolute top-3 right-3 text-gray-500 hover:text-black">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2 class="text-lg font-semibold mb-4">Create Enrollment</h2>
+
+            <form method="POST" action="{{ route('adminenrollments.store') }}">
+                @csrf
+
+                <!-- TYPE -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Enrollment Type</label>
+                    <select id="enrollmentType" name="type"
+                        class="w-full border rounded-lg p-2">
+                        <option value="student">Student Enrollment</option>
+                        <option value="teacher">Teacher Assignment</option>
+                    </select>
+                </div>
+                
+                <!-- USER -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">User</label>
+                    <select id="userSelect" name="user_id" class="w-full border rounded-lg p-2 searchable-select" required>
+                        <option value="">Select User</option>
+
+                        @foreach ($users as $user)
+                            <option value="{{ $user->id }}" data-role="{{ $user->role }}">
+                                {{ $user->username }} ({{ $user->name }})
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- PROGRAM -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Program</label>
+                    <select name="program_id" class="w-full border rounded-lg p-2 searchable-select" required>
+                        <option value="">Select Program</option>
+                        @foreach ($programs as $program)
+                            <option value="{{ $program->id }}">
+                                {{ $program->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- STATUS (only student) -->
+                <div id="statusField" class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Status</label>
+                    <select name="status" class="w-full border rounded-lg p-2">
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <button
+                    class="w-full bg-yellow-400 hover:bg-yellow-500 py-2 rounded-lg font-semibold">
+                    Create
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT ENROLLMENT MODAL -->
+    <div id="editEnrollmentModal"
+        class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+
+        <div class="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 relative">
+
+            <!-- CLOSE -->
+            <button id="closeEditEnrollmentModal"
+                class="absolute top-3 right-3 text-gray-500 hover:text-black">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2 class="text-lg font-semibold mb-4">Edit Enrollment</h2>
+
+            <form id="editEnrollmentForm" method="POST">
+                @csrf
+                @method('PUT')
+
+                <!-- USER -->
+    <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">User</label>
+
+        <div id="editUserDisplay"
+            class="w-full border rounded-lg p-2 bg-gray-100 text-gray-700">
+            -
+        </div>
+
+        <input type="hidden" name="user_id" id="editUserId">
+    </div>
+
+                <!-- PROGRAM -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Program</label>
+                    <select name="program_id" id="editProgram"
+                        class="w-full border rounded-lg p-2 searchable-select">
+
+                        @foreach ($programs as $program)
+                            <option value="{{ $program->id }}">
+                                {{ $program->name }}
+                            </option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <!-- STATUS -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Status</label>
+                    <select name="status" id="editStatus"
+                        class="w-full border rounded-lg p-2">
+
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+
+                    </select>
+                </div>
+
+                <button
+                    class="w-full bg-yellow-400 hover:bg-yellow-500 py-2 rounded-lg font-semibold">
+                    Update Enrollment
+                </button>
+
+            </form>
+
         </div>
     </div>
 
@@ -341,44 +470,140 @@
         });
     </script>
     <script>
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
+    $(document).ready(function () {
 
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
+        const modal = document.getElementById('createEnrollmentModal');
+        const openBtn = document.getElementById('addEnrollmentBtn');
+        const closeBtn = document.getElementById('closeEnrollmentModal');
+        const typeSelect = document.getElementById('enrollmentType');
+        const statusField = document.getElementById('statusField');
+        const userSelect = $('#userSelect');
 
-        // ADD
-        document.getElementById('addEnrollmentBtn').addEventListener('click', () => {
-            openModal('addEnrollmentModal');
+        // SELECT2 INIT
+        $('.searchable-select').select2({
+            placeholder: "Search and select...",
+            allowClear: true,
+            width: '100%'
         });
 
+        // OPEN MODAL
+        openBtn.onclick = () => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        };
 
-        // VIEW
-        function viewEnrollment(id) {
-            fetch(`/enrollments/${id}`)
-                .then(res => res.json())
-                .then(Enrollment => {
-                    document.getElementById('viewEnrollmentContent').innerHTML = `
-                <p><b>Enrollmentname:</b> ${Enrollment.Enrollmentname}</p>
-                <p><b>Name:</b> ${Enrollment.name}</p>
-                <p><b>Email:</b> ${Enrollment.email}</p>
-                <p><b>Role:</b> ${Enrollment.role}</p>
-            `;
-                    openModal('viewEnrollmentModal');
-                });
+        // CLOSE MODAL
+        closeBtn.onclick = () => {
+            modal.classList.add('hidden');
+        };
+
+        window.onclick = function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+
+        // FILTER USER BASED ON TYPE
+        function filterUsers() {
+
+            const type = typeSelect.value;
+
+            $('#userSelect option').each(function () {
+
+                const role = $(this).data('role');
+
+                if (!role) return;
+
+                if (type === 'student' && role !== 'student') {
+                    $(this).prop('disabled', true);
+                } 
+                else if (type === 'teacher' && role !== 'teacher') {
+                    $(this).prop('disabled', true);
+                } 
+                else {
+                    $(this).prop('disabled', false);
+                }
+
+            });
+
+            userSelect.val(null).trigger('change');
         }
 
-        // EDIT
-        function editEnrollment(Enrollment) {
-            document.getElementById('editEnrollmentForm').action = `/enrollments/${Enrollment.id}/update`;
-            document.getElementById('edit_Enrollmentname').value = Enrollment.Enrollmentname;
-            document.getElementById('edit_name').value = Enrollment.name;
-            document.getElementById('edit_email').value = Enrollment.email;
-            document.getElementById('edit_role').value = Enrollment.role;
-            openModal('editEnrollmentModal');
+        // TOGGLE STATUS FIELD
+        function toggleStatus() {
+
+            if (typeSelect.value === 'teacher') {
+                statusField.style.display = 'none';
+            } else {
+                statusField.style.display = 'block';
+            }
+
         }
+
+        // EVENT
+        typeSelect.addEventListener('change', function () {
+            filterUsers();
+            toggleStatus();
+        });
+
+    });
     </script>
+<script>
 
+const editModal = document.getElementById("editEnrollmentModal");
+const closeEditModal = document.getElementById("closeEditEnrollmentModal");
+const editForm = document.getElementById("editEnrollmentForm");
+const editUserDisplay = document.getElementById("editUserDisplay");
+const editUserId = document.getElementById("editUserId");
+const editProgram = document.getElementById("editProgram");
+const editStatus = document.getElementById("editStatus");
+
+function editEnrollment(type, id) {
+
+    fetch(`/admin/enrollments/${type}/${id}`)
+        .then(res => res.json())
+        .then(data => {
+
+            editForm.action = `/admin/enrollments/${type}/${id}`;
+
+            // set user
+            editUserId.value = data.user_id;
+            editUserDisplay.innerText =
+                `${data.user.username} (${data.user.name})`;
+
+            // program
+            editProgram.value = data.program_id;
+
+            if(data.status){
+                editStatus.value = data.status;
+            }
+
+            $('#editProgram').trigger('change');
+
+            if(type === 'teacher'){
+                editStatus.parentElement.style.display = "none";
+            }else{
+                editStatus.parentElement.style.display = "block";
+            }
+
+            editModal.classList.remove("hidden");
+            editModal.classList.add("flex");
+        });
+}
+
+// close modal button
+closeEditModal.onclick = () => {
+    editModal.classList.add("hidden");
+    editModal.classList.remove("flex");
+}
+
+// close when clicking outside
+window.addEventListener("click", function(e){
+    if(e.target === editModal){
+        editModal.classList.add("hidden");
+        editModal.classList.remove("flex");
+    }
+})
+
+</script>
 @endsection
