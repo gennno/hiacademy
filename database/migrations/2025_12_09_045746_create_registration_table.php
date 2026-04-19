@@ -16,6 +16,7 @@ return new class extends Migration
 
             /** STUDENT INFO */
             $table->string('name');
+            $table->string('name');
             $table->string('email');
             $table->string('phone');
             $table->date('birth_date')->nullable();

@@ -1,76 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Certificate of Completion</title>
+<meta charset="utf-8">
+@php
+$fontPath = isset($pdf)
+    ? public_path('fonts/GreatVibes-Regular.ttf')
+    : asset('fonts/GreatVibes-Regular.ttf');
+@endphp
+@php
+$nameTop = isset($pdf) ? 285 : 300;
+@endphp
+<style>
+@font-face {
+    font-family: 'Great Vibes';
+    src: url("{{ $fontPath }}") format("truetype");
+}
+@page {
+    margin: 0;
+}
+body{
+    margin:0;
+    padding:0;
+}
 
-    <style>
-        @page {
-            margin: 0;
-        }
+.container{
+    position:relative;
+    width:1122px;
+    height:793px;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "DejaVu Sans", sans-serif;
-            color: #2e3f5f;
-        }
+/* background certificate */
+.bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
 
-        .certificate {
-            width: 1123px;
-            height: 794px;
-            background: url('{{ public_path("preschool-bg.png") }}') no-repeat center;
-            background-size: cover;
-            position: relative;
-        }
+/* student name */
+.name{
+    position:absolute;
+    top: {{ $nameTop }}px;
+    width:100%;
+    text-align:center;
+    font-size:80px;
+    font-family:'Great Vibes';
+    line-height:1;
+    margin:0;
+    padding:0;
+}
 
-        /* STUDENT NAME */
-        .student-name {
-            position: absolute;
-            top: 270px;
-            width: 100%;
-            text-align: center;
-            font-size: 64px;
-            font-family: "DejaVu Serif", serif;
-            font-weight: normal;
-            color: #2f2f2f;
-        }
+/* description line */
+.desc{
+    position:absolute;
+    top:410px;
+    width:100%;
+    text-align:center;
+    font-size:24px;
+}
 
-        /* PROGRAM TEXT */
-        .program-text {
-            position: absolute;
-            top: 390px;
-            width: 100%;
-            text-align: center;
-            font-size: 22px;
-            line-height: 1.6;
-        }
+/* program name */
+.program{
+    position:absolute;
+    top:445px;
+    width:100%;
+    text-align:center;
+    font-size:34px;
+    font-weight:bold;
+    color:#b8962e;
+}
 
-        .program-name {
-            font-size: 30px;
-            font-weight: bold;
-            color: #b08a2e;
-        }
-    </style>
+/* school name */
+.school{
+    position:absolute;
+    top:490px;
+    width:100%;
+    text-align:center;
+    font-size:24px;
+}
+
+/* academic year */
+.year{
+    position:absolute;
+    top:520px;
+    width:100%;
+    text-align:center;
+    font-size:22px;
+}
+
+/* completion date */
+.date{
+    position:absolute;
+    top:545px;
+    width:100%;
+    text-align:center;
+    font-size:22px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="certificate">
+<div class="container">
+@php
+$bgPath = isset($pdf) 
+    ? public_path('certificates/preschool-bg.png') 
+    : asset('certificates/preschool-bg.png');
+@endphp
+
+<img src="{{ $bgPath }}" class="bg">
 
     <!-- STUDENT NAME -->
-    <div class="student-name">
-        {{ $name }}
-    </div>
+<div class="name">
+    {{ $certificate->name }}
+</div>
 
-    <!-- PROGRAM INFO -->
-    <div class="program-text">
-        has successfully completed the program of study for<br>
-        <span class="program-name">{{ $program_name }}</span><br>
-        at Hi Academy International Preschool<br>
-        Academic Year: {{ $academic_year }}<br>
-        Date of Completion: {{ \Carbon\Carbon::parse($completion_date)->format('F d, Y') }}
-    </div>
+<!-- DESCRIPTION -->
+<div class="desc">
+    has successfully completed the program of study for
+</div>
+
+<!-- PROGRAM -->
+<div class="program">
+    {{ $certificate->program_name }}
+</div>
+
+<!-- SCHOOL -->
+<div class="school">
+    at Hi Academy International Preschool
+</div>
+
+<!-- ACADEMIC YEAR -->
+<div class="year">
+    Academic Year: {{ $certificate->academic_year }}
+</div>
+
+<!-- COMPLETION DATE -->
+<div class="date">
+    Date of Completion: {{ $certificate->formatted_completion_date }}
+</div>
 
 </div>
 

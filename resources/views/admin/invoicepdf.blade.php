@@ -201,8 +201,8 @@
         <div class="notice">
             <strong>NOTICE:</strong><br>
             Payment can be made by transfer via:<br>
-            Mandiri a/c 10900 79737 888<br>
-            an. PT THOMAS CONSULTING GROUP
+            Mandiri a/c 1090 00345 7777<br>
+            an. Yayasan Harapan Edukasi Internasional
         </div>
         <hr>
         <!-- FOOTER -->

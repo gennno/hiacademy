@@ -21,6 +21,9 @@ use App\Models\InvoiceItem;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use App\Models\ProgramTeacher;
+use Illuminate\Support\Facades\File;
+
+
 class AdminController extends Controller
 {
     public function admindashboard()
@@ -176,14 +179,20 @@ class AdminController extends Controller
         return view('admin.registration', compact('registrations', 'trials'));
     }
 
-    public function adminreport()
-    {
-        $reports = Report::latest()->get();
-        $certificates = Certificate::latest()->get();
+public function adminreport()
+{
+    $reports = Report::latest()->get();
+    $certificates = Certificate::with('user')->latest()->get();
+    $users = User::where('role','student')->get();
+    $programs = Program::orderBy('name')->get();
 
-
-        return view('admin.report', compact('reports', 'certificates'));
-    }
+    return view('admin.report', compact(
+        'reports',
+        'certificates',
+        'users',
+        'programs'
+    ));
+}
 
     public function adminenrollment()
     {
@@ -741,19 +750,52 @@ class AdminController extends Controller
     public function certificatestore(Request $request)
     {
         $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
             'name' => 'required|string|max:255',
             'program_name' => 'required|string|max:255',
             'academic_year' => 'required|string|max:20',
             'completion_date' => 'required|date',
             'description' => 'nullable|string',
-        ]);
-
-        $validated['user_id'] = auth()->id();
+        ]);  
 
         Certificate::create($validated);
 
         return back()->with('success', 'Certificate created successfully!');
     }
+
+public function certificategenerate($id)
+{
+    $certificate = Certificate::findOrFail($id);
+
+    $pdf = Pdf::loadView('certificates.preschool', [
+        'certificate' => $certificate,
+        'pdf' => true
+    ])->setPaper('a4','landscape');
+
+    $folder = public_path('certificates');
+
+    if (!File::exists($folder)) {
+        File::makeDirectory($folder,0755,true);
+    }
+
+    $filename = 'certificate_' . Str::slug($certificate->name) . '_' . time() . '.pdf';
+    $filepath = $folder.'/'.$filename;
+
+    $pdf->save($filepath);
+
+    $certificate->update([
+        'file' => 'certificates/'.$filename
+    ]);
+
+    return back()->with('success','Certificate generated successfully.');
+}
+
+    public function certificatepreview($id)
+{
+    $certificate = Certificate::findOrFail($id);
+
+    return view('certificates.preschool', compact('certificate'));
+}
 
     public function adminreportshow(Report $report)
     {

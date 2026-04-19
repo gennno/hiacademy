@@ -489,7 +489,7 @@
         </h2>
         <div class="report-table-wrapper">
             <div class="overflow-x-auto">
-                <table class="min-w-full border dataTable rounded-lg">
+                <table id="certificateTable" class="min-w-full border dataTable rounded-lg">
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="p-3 text-left">#</th>
@@ -497,7 +497,6 @@
                             <th class="p-3 text-left">Program</th>
                             <th class="p-3 text-left">Academic Year</th>
                             <th class="p-3 text-left">Completion Date</th>
-                            <th class="p-3 text-left">Status</th>
                             <th class="p-3 text-left">Action</th>
                         </tr>
                     </thead>
@@ -507,7 +506,7 @@
                                 <td class="p-3">{{ $loop->iteration }}</td>
 
                                 <td class="p-3 font-medium">
-                                    {{ $certificate->name }}
+                                        {{ $certificate->user->name ?? '-' }}
                                 </td>
 
                                 <td class="p-3">
@@ -521,24 +520,78 @@
                                 <td class="p-3">
                                     {{ $certificate->formatted_completion_date }}
                                 </td>
+<td class="p-3">
 
-                                <td class="p-3">
-                                    <span
-                                        class="px-3 py-1 rounded-full text-sm font-semibold
-                                        {{ $certificate->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600' }}">
-                                        {{ ucfirst($certificate->status) }}
-                                    </span>
-                                </td>
-                                <td class="p-3">
-                                    @if ($certificate->file)
-                                        <a href="{{ asset($certificate->file) }}" download
-                                            class="table-action-btn bg-green-200 border border-green-400">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </a>
-                                    @else
-                                        <span class="text-gray-400 italic">No File</span>
-                                    @endif
-                                </td>
+@if ($certificate->file)
+
+<div class="flex gap-2">
+
+    <!-- DOWNLOAD -->
+    <a href="{{ asset($certificate->file) }}" download
+        class="table-action-btn bg-green-200 border border-green-400">
+        <i class="fa-solid fa-download"></i> Download
+    </a>
+
+    <!-- EDIT -->
+    <a href=""
+        class="table-action-btn bg-blue-200 border border-blue-400">
+        <i class="fa-solid fa-pen"></i>
+    </a>
+
+    <!-- DELETE -->
+    <form action="" method="POST"
+        onsubmit="return confirm('Delete this certificate?')">
+        @csrf
+        @method('DELETE')
+
+        <button class="table-action-btn bg-red-200 border border-red-400">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </form>
+
+</div>
+
+@else
+
+<div class="flex gap-2">
+
+    <!-- PREVIEW -->
+    <a href="{{ route('admin.certificates.preview', $certificate->id) }}"
+        target="_blank"
+        class="table-action-btn bg-blue-200 border border-blue-400">
+        <i class="fa-solid fa-eye"></i> Preview
+    </a>
+
+    <!-- GENERATE -->
+    <form action="{{ route('admin.certificates.generate', $certificate->id) }}" method="POST">
+        @csrf
+        <button class="table-action-btn bg-yellow-200 border border-yellow-400">
+            <i class="fa-solid fa-file"></i> Generate
+        </button>
+    </form>
+
+    <!-- EDIT -->
+    <a href=""
+        class="table-action-btn bg-purple-200 border border-purple-400">
+        <i class="fa-solid fa-pen"></i>
+    </a>
+
+    <!-- DELETE -->
+    <form action="" method="POST"
+        onsubmit="return confirm('Delete this certificate?')">
+        @csrf
+        @method('DELETE')
+
+        <button class="table-action-btn bg-red-200 border border-red-400">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </form>
+
+</div>
+
+@endif
+
+</td>
                             </tr>
                         @empty
                             <tr>
@@ -611,17 +664,54 @@
 
             <div class="space-y-4">
 
-                <!-- Name -->
-                <div>
-                    <label class="font-semibold">Certificate Name</label>
-                    <input type="text" name="name" class="w-full border rounded-lg px-3 py-2" required>
-                </div>
+                <div class="space-y-4">
+
+    <!-- Student -->
+    <div>
+        <label class="font-semibold">Student</label>
+        <select id="userSelect"
+                name="user_id"
+                class="w-full border rounded-lg px-3 py-2 searchable-select"
+                required>
+
+            <option value="">Select Student</option>
+
+            @foreach ($users as $user)
+                @if ($user->role === 'student')
+                    <option value="{{ $user->id }}">
+                        {{ $user->username }} ({{ $user->name }})
+                    </option>
+                @endif
+            @endforeach
+
+        </select>
+    </div>
+
+    <!-- Name -->
+    <div>
+        <label class="font-semibold">Certificate Name</label>
+        <input type="text" name="name" class="w-full border rounded-lg px-3 py-2" required>
+    </div>
 
                 <!-- Program -->
-                <div>
-                    <label class="font-semibold">Program Name</label>
-                    <input type="text" name="program_name" class="w-full border rounded-lg px-3 py-2" required>
-                </div>
+<div>
+    <label class="font-semibold">Program</label>
+
+    <select id="programSelect"
+            name="program_name"
+            class="w-full border rounded-lg px-3 py-2 searchable-select"
+            required>
+
+        <option value="">Select Program</option>
+
+        @foreach ($programs as $program)
+            <option value="{{ $program->name }}">
+                {{ $program->name }}
+            </option>
+        @endforeach
+
+    </select>
+</div>
 
                 <!-- Academic Year -->
                 <div>
@@ -664,6 +754,7 @@
 
 @section('scripts')
     <script>
+        $.fn.dataTable.ext.errMode = 'none';
         $(document).ready(function () {
             $('#reportTable').DataTable({
                 pageLength: 5,
@@ -673,6 +764,13 @@
             });
 
             $('#finalReportTable').DataTable({
+                pageLength: 3,
+                searching: true,
+                ordering: true,
+                responsive: true
+            });
+
+            $('#certificateTable').DataTable({
                 pageLength: 3,
                 searching: true,
                 ordering: true,
@@ -690,5 +788,15 @@
         document.getElementById('certificateModal').classList.add('hidden');
         document.getElementById('certificateModal').classList.remove('flex');
     }
+    
+    const userSelect = $('#userSelect');
+
+        // SELECT2 INIT
+        $('.searchable-select').select2({
+            placeholder: "Search and select...",
+            allowClear: true,
+            width: '100%'
+        });
+
 </script>
 @endsection

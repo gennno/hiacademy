@@ -154,6 +154,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/certificates', [AdminController::class, 'certificatestore'])
     ->name('certificates.store');
 
+    Route::post('/admin/certificates/{id}/generate', [AdminController::class, 'certificategenerate'])
+    ->name('admin.certificates.generate');
+
+    Route::get('/admin/certificates/{id}/preview', [AdminController::class, 'certificatepreview'])
+    ->name('admin.certificates.preview');
+
+
+
+    
     Route::get('/admin-registration', [AdminController::class, 'adminregistration'])->name('adminregistration');
     
     Route::post('/users/store', [AdminController::class, 'userstore'])->name('users.store');

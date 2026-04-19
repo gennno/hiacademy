@@ -75,4 +75,8 @@ class Report extends Model
     {
         return $query->where('status', 'opened');
     }
+    public function items()
+{
+    return $this->hasMany(ReportItem::class)->orderBy('sort_order');
+}
 }
